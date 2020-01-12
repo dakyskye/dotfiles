@@ -152,6 +152,16 @@ mode "$mode_system" {
 
 bindsym $mod+BackSpace mode "$mode_system"
 
+# open apps in specific workspace
+assign [title="Mozilla Firefox"] $ws1
+assign [title="Google Chrome"] $ws1
+assign [title="Discord"] $ws2
+assign [title="Telegram"] $ws3
+for_window [class="Spotify"] move to workspace $ws4
+assign [title="OBS"] $ws6
+assign [title="Code"] $ws8
+
+
 # autostart apps
 exec --no-startup-id compton -cC
 
