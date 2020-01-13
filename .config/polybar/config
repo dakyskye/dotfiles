@@ -108,7 +108,7 @@ tray-maxsize = 20
 tray-background = ${colours.background}
 tray-offset-x = 0
 tray-offset-y = 0
-tray-padding = 2
+tray-padding = 4
 tray-scale = 1.0
 
 #i3: Make the bar appear below windows
@@ -297,7 +297,7 @@ content-background = ${colours.arrow-blue}
 type = internal/cpu
 ; Seconds to sleep between updates
 ; Default: 1
-interval = 1
+interval = 5
 format-foreground = ${colours.arrow-white}
 format-background = ${colours.arrow-pink}
 format-prefix-foreground = ${colours.arrow-white}
@@ -342,7 +342,7 @@ format-background = ${colours.arrow-blue}
 [module/memory]
 ;https://github.com/jaagr/polybar/wiki/Module:-memory
 type = internal/memory
-interval = 1
+interval = 5
 ; Available tokens:
 ;   %percentage_used% (default)
 ;   %percentage_free%
