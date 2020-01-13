@@ -1,0 +1,3 @@
+[submodule ".vim/bundle/vimsence"]
+	path = .vim/bundle/vimsence
+	url = https://github.com/ananagame/vimsence.git
