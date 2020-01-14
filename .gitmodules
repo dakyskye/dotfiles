@@ -1,3 +1,6 @@
 [submodule ".vim/bundle/vimsence"]
 	path = .vim/bundle/vimsence
 	url = https://github.com/ananagame/vimsence.git
+[submodule ".vim/bundle/nerdtree"]
+	path = .vim/bundle/nerdtree
+	url = https://github.com/preservim/nerdtree.git
