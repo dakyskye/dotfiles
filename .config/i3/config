@@ -134,6 +134,22 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# i3 colours
+set $cl-border           #A77AC4
+set $cl-text             #fefefe
+set $cl-inactive-border  #7197E7
+set $cl-inactive-text    #cfcfcf
+set $cl-urgent-border    #ff008f
+set $cl-indicator        #a8f8c8
+set $cl-background       #292d3e
+
+# colorclass             # border             # background             # text             # indicator
+client.focused           $cl-border           $cl-border               $cl-text           $cl-indicator
+client.unfocused         $cl-inactive-border  $cl-inactive-border      $cl-inactive-text  $cl-indicator
+client.focused_inactive  $cl-inactive-border  $cl-inactive-border      $cl-inactive-text  $cl-indicator
+client.urgent            $cl-urgent-border    $cl-urgent-border        $cl-text           $cl-indicator
+client.background        $cl-background
+
 # system operations (shutdown, reboot and so on)
 
 set $mode_system (l)ock, (r)eboot, (s)uspend, (h)ibernate, ($mod+s)hutdown
