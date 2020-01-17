@@ -140,7 +140,7 @@ set $cl-text             #fefefe
 set $cl-inactive-border  #7197E7
 set $cl-inactive-text    #cfcfcf
 set $cl-urgent-border    #ff008f
-set $cl-indicator        #a8f8c8
+set $cl-indicator        #A77AC4
 set $cl-background       #292d3e
 
 # colorclass             # border             # background             # text             # indicator
@@ -208,11 +208,12 @@ bindsym Print exec flameshot gui
 exec_always --no-startup-id feh --bg-scale $HOME/Images/wallpaper.jpg
 
 # i3-gaps
+
 for_window [class="^.*"] border pixel 2
 gaps inner 7
 gaps outer 0
-smart_gaps on
-smart_borders on
+smart_gaps inverse_outer
+smart_borders no_gaps
 hide_edge_borders none
 
 # change borders
