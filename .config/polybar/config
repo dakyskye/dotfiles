@@ -96,7 +96,7 @@ font-4 = "Font Awesome 5 Brands:pixelsize=8;1"
 
 modules-left = i3
 modules-center = 
-modules-right = arrow1 arrow2 memory arrow3 cpu arrow2 kernel arrow3 pacman-updates arrow2 pavolume arrow3 xkeyboard arrow2 date
+modules-right = arrow1 arrow2 memory arrow3 cpu arrow2 gpu-temperature arrow3 kernel arrow2 pacman-updates arrow3 pavolume arrow2 xkeyboard arrow3 date
 
 separator = 
 
@@ -334,9 +334,9 @@ time = %H:%M
 time-alt = %H:%M
 format-prefix = " "
 label = "%date% %time% "
-format-prefix-foreground = ${colours.arrow-white}
 format-foreground = ${colours.arrow-white}
-format-background = ${colours.arrow-blue}
+format-background = ${colours.arrow-pink}
+format-prefix-foreground = ${colours.arrow-white}
 ################################################################################
 
 [module/memory]
@@ -368,9 +368,22 @@ exec = pacman -Qu | wc -l
 interval = 1000
 label = Updates: %output%
 format-prefix = "  "
-format-foreground = ${colours.arrow-white}
-format-background = ${colours.arrow-pink}
 format-prefix-foreground = ${colours.arrow-white}
+format-foreground = ${colours.arrow-white}
+format-background = ${colours.arrow-blue}
+
+################################################################################
+
+[module/gpu-temperature]
+type = custom/script
+exec = ~/.config/polybar/scripts/gpu_temp.py
+interval = 5
+label = %output%
+format = GPU <label>
+format-prefix = "  "
+format-prefix-foreground = ${colours.arrow-white}
+format-foreground = ${colours.arrow-white}
+format-background = ${colours.arrow-blue}
 
 ################################################################################
 
@@ -385,8 +398,8 @@ click-left = ~/.config/polybar/scripts/pavolume.sh --togmute
 scroll-up = ~/.config/polybar/scripts/pavolume.sh --up
 scroll-down = ~/.config/polybar/scripts/pavolume.sh --down
 format-foreground = ${colours.arrow-white}
-format-background = ${colours.arrow-blue}
-
+format-background = ${colours.arrow-pink}
+format-prefix-foreground = ${colours.arrow-white}
 ################################################################################
 
 [module/xkeyboard]
@@ -395,13 +408,10 @@ type = internal/xkeyboard
 blacklist-0 = num lock
 
 format-prefix = "  "
-format-foreground = ${colours.arrow-white}
-format-background = ${colours.arrow-pink}
-format-prefix-foreground = ${colours.arrow-white}
 label-layout = %layout%
-label-indicator-padding = 2
-label-indicator-margin = 1
-label-indicator-background = ${colours.background}
+format-prefix-foreground = ${colours.arrow-white}
+format-foreground = ${colours.arrow-white}
+format-background = ${colours.arrow-blue}
 
 ################################################################################
 
@@ -411,9 +421,9 @@ exec = uname -r
 tail = false
 interval = 1024
 format-prefix = "  "
-format-prefix-foreground = ${colours.arrow-white}
 format-foreground = ${colours.arrow-white}
-format-background = ${colours.arrow-blue}
+format-background = ${colours.arrow-pink}
+format-prefix-foreground = ${colours.arrow-white}
 
 
 
