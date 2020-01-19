@@ -18,7 +18,7 @@ class PluginManager():
 			if os.path.isdir(os.path.join(self.bundlePath, file)):
 				directories.append(file)
 		if not directories:
-			print(f"no directories found at path {self.bundlePath}")
+			os.popen(f'zenity --info --title={self.title} --text="No plugin is installed at {self.bundlePath} directory"')
 			exit()
 		for directory in directories:
 			if directory.endswith("~"):
