@@ -64,9 +64,6 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
-# focus the child container
-#bindsym $mod+d focus child
-
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1"
@@ -149,6 +146,10 @@ client.unfocused         $cl-inactive-border  $cl-inactive-border      $cl-inact
 client.focused_inactive  $cl-inactive-border  $cl-inactive-border      $cl-inactive-text  $cl-indicator
 client.urgent            $cl-urgent-border    $cl-urgent-border        $cl-text           $cl-indicator
 client.background        $cl-background
+
+# next and previous workspaces
+bindsym $mod+Ctrl+Left workspace prev
+bindsym $mod+Ctrl+Right workspace next
 
 # system operations (shutdown, reboot and so on)
 set $mode_system (l)ock, (r)eboot, (s)uspend, (h)ibernate, ($mod+s)hutdown
