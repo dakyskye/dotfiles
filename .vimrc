@@ -5,6 +5,8 @@ set tabstop=4
 syntax on
 set nu
 colorscheme nord
+set exrc
+set secure
 
 " start NERDTree automatically when opening vim with no arguments, or opening
 " a folder with vim
