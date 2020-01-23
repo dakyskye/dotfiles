@@ -22,7 +22,9 @@ func (t *temperature) listener(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	if r.FormValue("task") == "next" {
+	task := r.FormValue("task")
+
+	if task == "next" {
 		if t.current == "gpu" {
 			fmt.Println(t.cpu())
 		} else if t.current == "cpu" {
@@ -30,6 +32,8 @@ func (t *temperature) listener(w http.ResponseWriter, r *http.Request) {
 		} else if t.current == "hdd" {
 			fmt.Println(t.gpu())
 		}
+	} else if task == "current" {
+		t.cur()
 	}
 }
 
@@ -97,7 +101,7 @@ func main() {
 			case <-tick.C:
 				since := time.Since(temp.requested)
 				if since.Seconds() < 30 {
-					<-time.NewTimer(since).C
+					<-time.NewTimer(30000 - since).C
 					temp.cur()
 				} else {
 					temp.cur()

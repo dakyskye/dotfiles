@@ -371,6 +371,7 @@ exec = go run ~/.config/polybar/scripts/temperature.go
 tail = true
 label = %output%
 click-left = curl -d "task=next" http://localhost:9096
+click-right = curl -d "task=current" http://localhost:9096
 format-prefix = "  "
 format-prefix-foreground = ${colours.arrow-white}
 format-foreground = ${colours.arrow-white}
