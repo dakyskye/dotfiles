@@ -22,3 +22,9 @@
 [submodule ".vim/bundle/vimify"]
 	path = .vim/bundle/vimify
 	url = https://github.com/HendrikPetertje/vimify
+[submodule ".vim/bundle/tagbar"]
+	path = .vim/bundle/tagbar
+	url = https://github.com/majutsushi/tagbar
+[submodule ".vim/bundle/vim-fugitive"]
+	path = .vim/bundle/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive
