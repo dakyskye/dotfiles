@@ -226,4 +226,4 @@ bindsym $mod+Shift+d border normal
 bindsym $mod+Shift+y border pixel 2
 
 # polybar
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh i3

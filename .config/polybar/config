@@ -39,7 +39,11 @@ arrow-blue = #7197E7
 arrow-white = #fefefe
 ; =======================
 
-[bar/mainbar]
+#########################
+#####   bar/i3   ########
+#########################
+
+[bar/i3]
 ;https://github.com/jaagr/polybar/wiki/Configuration
 
 ;monitor = ${env:MONITOR}
@@ -85,10 +89,10 @@ font-3 = "Font Awesome 5 Free:style=Solid:pixelsize=8;1"
 font-4 = "Font Awesome 5 Brands:pixelsize=8;1"
 
 modules-left = i3
-modules-center = 
+modules-center =
 modules-right = arrow1 arrow2 memory arrow3 cpu arrow2 temperature arrow3 kernel arrow2 pacman-updates arrow3 pavolume arrow2 xkeyboard arrow3 date
 
-separator = 
+separator =
 
 ;dim-value = 1.0
 
@@ -127,7 +131,6 @@ double-click-right =
 ; - ns-resize : Up and down arrows, can be used to indicate scrolling
 cursor-click =
 cursor-scroll =
-
 
 ; i3 module
 [module/i3]
@@ -355,7 +358,6 @@ format-background = ${colours.arrow-blue}
 [module/pacman-updates]
 type = custom/script
 exec = "pacman -Qu | wc -l"
-click-left = "pacman -Qu | wc -l"
 interval = 1000
 label = Updates: %output%
 format-prefix = "  "
@@ -392,6 +394,7 @@ scroll-down = ~/.config/polybar/scripts/pavolume.sh --down
 format-foreground = ${colours.arrow-white}
 format-background = ${colours.arrow-pink}
 format-prefix-foreground = ${colours.arrow-white}
+
 ################################################################################
 
 [module/xkeyboard]
