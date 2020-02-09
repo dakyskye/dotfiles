@@ -16,6 +16,7 @@ colorscheme nord
 set exrc
 set secure
 set mouse=nicr
+set clipboard=unnamedplus " requires gvim
 
 " Tagbar config
 map <F8> :TagbarToggle<CR>
