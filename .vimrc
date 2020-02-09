@@ -15,6 +15,7 @@ set nu
 colorscheme nord
 set exrc
 set secure
+set mouse=nicr
 
 " Tagbar config
 map <F8> :TagbarToggle<CR>
@@ -47,6 +48,8 @@ let g:tagbar_type_go = {
 	\ 'ctagsargs' : '-sort -silent'
 \ }
 
+" YouCompleteMe config
+let g:ycm_autoclose_preview_window_after_completion = 1
 
 " NERDTree config
 map <F6> :NERDTreeToggle<CR>
@@ -54,11 +57,12 @@ map <F6> :NERDTreeToggle<CR>
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") && v:this_session == "" | NERDTree | endif
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
-let NERDTreeShowLineNumbers=1
-let NERDTreeShowHidden=1
+let NERDTreeShowLineNumbers= 1
+let NERDTreeShowHidden= 1
 let NERDTreeMinimalUI = 1
 
 " vim-go config
