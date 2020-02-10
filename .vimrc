@@ -2,12 +2,14 @@ execute pathogen#infect()
 
 filetype plugin indent on
 set tabstop=4
+set encoding=utf-8
 set autoindent
 set incsearch
-set hlsearch
 set noswapfile
 set nobackup
+set nowritebackup
 set ignorecase
+set smartcase
 set lazyredraw
 set splitbelow splitright
 syntax on
@@ -15,8 +17,11 @@ set nu
 colorscheme nord
 set exrc
 set secure
-set mouse=nicr
 set clipboard=unnamedplus " requires gvim
+set mouse=a
+set showmatch
+set hlsearch
+set cursorline
 
 " Tagbar config
 map <F8> :TagbarToggle<CR>
