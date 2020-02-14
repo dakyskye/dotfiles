@@ -23,6 +23,14 @@ set showmatch
 set hlsearch
 set cursorline
 
+" make delete to write to the blackhole register
+noremap d "_d
+noremap dd "_dd
+vnoremap d "_d
+
+" clear the highlights after search
+nnoremap <leader><space> :nohlsearch<CR>
+
 " Tagbar config
 map <F8> :TagbarToggle<CR>
 " https://github.com/jstemmer/gotags#vim-tagbar-configuration
