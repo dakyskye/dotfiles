@@ -28,6 +28,10 @@ nnoremap d "_d
 nnoremap dd "_dd
 vnoremap d "_d
 
+" switch between next and previous opened buffers
+map <A-Right> :bnext <CR>
+map <A-Left> :bprevious <CR>
+
 " clear the highlights after search
 nnoremap <leader><space> :nohlsearch<CR>
 
@@ -99,3 +103,4 @@ let g:go_highlight_generate_tags = 1
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='violet'
+
