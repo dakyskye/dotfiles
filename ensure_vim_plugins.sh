@@ -7,10 +7,10 @@ curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
 # ensure plugins
 
-git submodule init
-git submodule update
+git submodule update --init --recursive
 
 cd ./.vim/bundle
-git submodule update --init --recursive
 python install.py --clang-completer --clangd-completer --ts-completer --go-completer
 
+cd ../vim-prettier
+yarn install
