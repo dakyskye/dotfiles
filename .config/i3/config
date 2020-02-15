@@ -1,4 +1,4 @@
-# 
+#
 # A customized config for i3-gaps window manager
 # Based on default i3wm config
 # Modified by Lasha Kanteladze (https://github.com/dakyskye)
@@ -76,6 +76,16 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
+set $ws11 "11"
+set $ws12 "12"
+set $ws13 "13"
+set $ws14 "14"
+set $ws15 "15"
+set $ws16 "16"
+set $ws17 "17"
+set $ws18 "18"
+set $ws19 "19"
+set $ws20 "20"
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -88,6 +98,16 @@ bindsym $mod+7 workspace number $ws7
 bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
+bindsym $mod+Ctrl+1 workspace number $ws11
+bindsym $mod+Ctrl+2 workspace number $ws12
+bindsym $mod+Ctrl+3 workspace number $ws13
+bindsym $mod+Ctrl+4 workspace number $ws14
+bindsym $mod+Ctrl+5 workspace number $ws15
+bindsym $mod+Ctrl+6 workspace number $ws16
+bindsym $mod+Ctrl+7 workspace number $ws17
+bindsym $mod+Ctrl+8 workspace number $ws18
+bindsym $mod+Ctrl+9 workspace number $ws19
+bindsym $mod+Ctrl+0 workspace number $ws20
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
@@ -161,7 +181,7 @@ mode "$mode_system" {
 	bindsym h exec --no-startup-id systemctl hibernate, mode "default"
 	bindsym $mod+s exec --no-startup-id systemctl poweroff, mode "default"
 
-	# back to default mode with Enter or Escape 
+	# back to default mode with Enter or Escape
 	bindsym Return mode "default"
 	bindsym Escape mode "default"
 }
