@@ -1,5 +1,8 @@
 execute pathogen#infect()
 
+filetype on
+filetype plugin on
+filetype indent on
 filetype plugin indent on
 set tabstop=4
 set encoding=utf-8
