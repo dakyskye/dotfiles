@@ -22,7 +22,6 @@ set exrc
 set secure
 set clipboard=unnamedplus " requires gvim
 set mouse=a
-set showmatch
 set hlsearch
 set cursorline
 
