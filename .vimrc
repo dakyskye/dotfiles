@@ -24,8 +24,8 @@ set hlsearch
 set cursorline
 
 " make delete to write to the blackhole register
-noremap d "_d
-noremap dd "_dd
+nnoremap d "_d
+nnoremap dd "_dd
 vnoremap d "_d
 
 " clear the highlights after search
@@ -99,4 +99,3 @@ let g:go_highlight_generate_tags = 1
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='violet'
-
