@@ -28,3 +28,6 @@
 [submodule ".vim/bundle/vim-fugitive"]
 	path = .vim/bundle/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive
+[submodule ".vim/bundle/delimitMate"]
+	path = .vim/bundle/delimitMate
+	url = https://github.com/Raimondi/delimitMate
