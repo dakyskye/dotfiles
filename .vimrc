@@ -6,6 +6,7 @@ filetype indent on
 filetype plugin indent on
 set tabstop=4
 set encoding=utf-8
+set t_Co=256
 set autoindent
 set incsearch
 set noswapfile
@@ -106,3 +107,5 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='violet'
 
+" vim-prettier config
+let g:prettier#autoformat_config_present = 1
