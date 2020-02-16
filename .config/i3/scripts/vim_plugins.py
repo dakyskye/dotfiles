@@ -5,7 +5,7 @@ import subprocess
 
 class PluginManager():
 	def __init__(self):
-		self.bundlePath = os.path.join(os.getenv("HOME"), ".vim", "bundle")
+		self.bundlePath = os.path.join(os.getenv("HOME"), ".config", "nvim", "bundle")
 		self.title = "Enable or disable a Vim plugin"
 		self.enabled = []
 		self.disabled = []

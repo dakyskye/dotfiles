@@ -1,0 +1,6 @@
+[submodule ".config/nvim/bundle/nord-vim"]
+	path = .config/nvim/bundle/nord-vim
+	url = https://github.com/arcticicestudio/nord-vim
+[submodule ".config/nvim/bundle/nerdtree"]
+	path = .config/nvim/bundle/nerdtree
+	url = https://github.com/preservim/nerdtree
