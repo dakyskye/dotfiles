@@ -4,3 +4,18 @@
 [submodule ".config/nvim/bundle/nerdtree"]
 	path = .config/nvim/bundle/nerdtree
 	url = https://github.com/preservim/nerdtree
+[submodule ".config/nvim/bundle/delimitMate"]
+	path = .config/nvim/bundle/delimitMate
+	url = https://github.com/Raimondi/delimitMate
+[submodule ".config/nvim/bundle/tagbar"]
+	path = .config/nvim/bundle/tagbar
+	url = https://github.com/majutsushi/tagbar
+[submodule ".config/nvim/bundle/vim-fugitive"]
+	path = .config/nvim/bundle/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive
+[submodule ".config/nvim/bundle/vim-airline"]
+	path = .config/nvim/bundle/vim-airline
+	url = https://github.com/vim-airline/vim-airline
+[submodule ".config/nvim/bundle/vim-airline-themes"]
+	path = .config/nvim/bundle/vim-airline-themes
+	url = https://github.com/vim-airline/vim-airline-themes
