@@ -19,3 +19,6 @@
 [submodule ".config/nvim/bundle/vim-airline-themes"]
 	path = .config/nvim/bundle/vim-airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes
+[submodule ".config/nvim/bundle/coc.nvim"]
+	path = .config/nvim/bundle/coc.nvim
+	url = https://github.com/neoclide/coc.nvim
