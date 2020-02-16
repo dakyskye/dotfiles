@@ -22,9 +22,9 @@
 [submodule ".config/nvim/bundle/coc.nvim"]
 	path = .config/nvim/bundle/coc.nvim
 	url = https://github.com/neoclide/coc.nvim
-[submodule ".config/nvim/bundle/yats.vim"]
-	path = .config/nvim/bundle/yats.vim
-	url = https://github.com/HerringtonDarkholme/yats.vim
 [submodule ".config/nvim/bundle/vim-go"]
 	path = .config/nvim/bundle/vim-go
 	url = https://github.com/fatih/vim-go
+[submodule ".config/nvim/bundle/typescript-vim"]
+	path = .config/nvim/bundle/typescript-vim
+	url = https://github.com/leafgarland/typescript-vim
