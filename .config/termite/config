@@ -1,83 +1,63 @@
+## Termite Styling Program
+## Author : Aditya Shakya
+
 [options]
+
 allow_bold = true
-#audible_bell = false
-#bold_is_bright = true
-#cell_height_scale = 1.0
-#cell_width_scale = 1.0
-clickable_url = true
-dynamic_title = true
-font = Monospace 8
-#fullscreen = true
-#icon_name = terminal
-#mouse_autohide = false
-#scroll_on_output = false
-#scroll_on_keystroke = true
-# Length of the scrollback buffer, 0 disabled the scrollback buffer
-# and setting it to a negative value means "infinite scrollback"
-scrollback_lines = 10000
-#search_wrap = true
-#urgent_on_bell = true
-hyperlinks = false
-
-# $BROWSER is used by default if set, with xdg-open as a fallback
+audible_bell = true
 browser = xdg-open
+clickable_url = true
+cursor_blink = system
+cursor_shape = block
+dynamic_title = true
+filter_unmatched_urls = true
+font = Monospace 8
+geometry = 480x280
+icon_name = terminal
+modify_other_keys = false
+mouse_autohide = false
+scroll_on_output = false
+scroll_on_keystroke = true
+scrollback_lines = 15000
+size_hints = false
+search_wrap = true
+urgent_on_bell = true
+highlight = #30343e
 
-# "system", "on" or "off"
-#cursor_blink = system
-
-# "block", "underline" or "ibeam"
-#cursor_shape = block
-
-# Hide links that are no longer valid in url select overlay mode
-#filter_unmatched_urls = true
-
-# Emit escape sequences for extra modified keys
-#modify_other_keys = false
-
-# set size hints for the window
-#size_hints = false
-
-# "off", "left" or "right"
-#scrollbar = off
-
-# The official Nord Termite theme
-# https://github.com/arcticicestudio/nord-termite
 [colors]
-cursor = #d8dee9
-cursor_foreground = #2e3440
 
-foreground = #d8dee9
-foreground_bold = #d8dee9
-background = #2e3440
-
-highlight = #4c566a
-
-color0  = #3b4252
-color1  = #bf616a
-color2  = #a3be8c
-color3  = #ebcb8b
-color4  = #81a1c1
-color5  = #b48ead
-color6  = #88c0d0
-color7  = #e5e9f0
-color8  = #4c566a
-color9  = #bf616a
-color10 = #a3be8c
-color11 = #ebcb8b
-color12 = #81a1c1
-color13 = #b48ead
-color14 = #8fbcbb
-color15 = #eceff4
-
-[hints]
-#font = Monospace 12
-#foreground = #dcdccc
-#background = #3f3f3f
-#active_foreground = #e68080
-#active_background = #3f3f3f
-#padding = 2
-#border = #3f3f3f
-#border_width = 0.5
-#roundness = 2.0
+# https://draculatheme.com/
+# https://github.com/dracula/xresources/blob/master/Xresources
+# special
+foreground=#f8f8f2
+cursor=#f8f8f2
+background=#282a36
+# black
+#color0=#000000
+color0=#3b4252
+#color8=#4d4d4d
+color8=#898484
+# red
+color1=#ff5555
+color9=#ff6e67
+# green
+color2=#50fa7b
+color10=#5af78e
+# yellow
+color3=#f1fa8c
+color11=#f4f99d
+# blue
+color4=#caa9fa
+color12=#caa9fa
+# magenta
+color5=#ff79c6
+color13=#ff92d0
+# cyan
+color6=#8be9fd
+color14=#9aedfe
+# white
+color7=#bfbfbf
+color15=#e6e6e6
 
 # vim: ft=dosini cms=#%s
+#
