@@ -1,3 +1,4 @@
+set -gx TERM termite
 set -gx EDITOR nvim
 set -gx WORK $HOME/My-Workflow
 set -gx TOOLS $HOME/Tools
