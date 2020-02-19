@@ -34,9 +34,9 @@ volume-max = #bf616a
 ; =======================
 
 ; Arrow colours =========
-arrow-pink = #A77AC4
-arrow-blue = #7197E7
-arrow-white = #fefefe
+arrow-first = #A77AC4
+arrow-second = #7197E7
+arrow-third = #fefefe
 ; =======================
 
 #########################
@@ -82,11 +82,11 @@ module-margin-left = 0
 module-margin-right = 0
 
 ;https://github.com/jaagr/polybar/wiki/Fonts
-font-0 = "UbuntuMono Nerd Font:size=10;2"
-font-1 = "UbuntuMono Nerd Font:size=16;3"
-font-2 = "Font Awesome 5 Free:style=Regular:pixelsize=8;1"
-font-3 = "Font Awesome 5 Free:style=Solid:pixelsize=8;1"
-font-4 = "Font Awesome 5 Brands:pixelsize=8;1"
+font-0 = "UbuntuMono Nerd Font:size=9;2"
+font-1 = "UbuntuMono Nerd Font:size=14;3"
+font-2 = "Font Awesome 5 Free:style=Regular:pixelsize=7;1"
+font-3 = "Font Awesome 5 Free:style=Solid:pixelsize=7;1"
+font-4 = "Font Awesome 5 Brands:pixelsize=7;1"
 
 modules-left = i3
 modules-center =
@@ -259,7 +259,7 @@ format-background = ${colours.background}
 type = custom/text
 content = "%{T2} %{T-}"
 content-font = 2
-content-foreground = ${colours.arrow-pink}
+content-foreground = ${colours.arrow-first}
 ;content-background = #292d3e
 content-background = ${colours.background}
 
@@ -268,16 +268,16 @@ content-background = ${colours.background}
 type = custom/text
 content = "%{T2} %{T-}"
 content-font = 2
-content-foreground = ${colours.arrow-blue}
-content-background = ${colours.arrow-pink}
+content-foreground = ${colours.arrow-second}
+content-background = ${colours.arrow-first}
 
 [module/arrow3]
 ; grey to Blue
 type = custom/text
 content = "%{T2} %{T-}"
 content-font = 2
-content-foreground = ${colours.arrow-pink}
-content-background = ${colours.arrow-blue}
+content-foreground = ${colours.arrow-first}
+content-background = ${colours.arrow-second}
 
 ################################################################################
 ################################################################################
@@ -291,9 +291,9 @@ type = internal/cpu
 ; Seconds to sleep between updates
 ; Default: 1
 interval = 5
-format-foreground = ${colours.arrow-white}
-format-background = ${colours.arrow-pink}
-format-prefix-foreground = ${colours.arrow-white}
+format-foreground = ${colours.arrow-third}
+format-background = ${colours.arrow-first}
+format-prefix-foreground = ${colours.arrow-third}
 format-prefix = "  "
 
 label-font = 1
@@ -327,9 +327,9 @@ time = %H:%M
 time-alt = %H:%M
 format-prefix = " "
 label = "%date% %time% "
-format-foreground = ${colours.arrow-white}
-format-background = ${colours.arrow-pink}
-format-prefix-foreground = ${colours.arrow-white}
+format-foreground = ${colours.arrow-third}
+format-background = ${colours.arrow-first}
+format-prefix-foreground = ${colours.arrow-third}
 ################################################################################
 
 [module/memory]
@@ -349,9 +349,9 @@ label = %percentage_used%%
 
 format = RAM <label>
 format-prefix = "  "
-format-prefix-foreground = ${colours.arrow-white}
-format-foreground = ${colours.arrow-white}
-format-background = ${colours.arrow-blue}
+format-prefix-foreground = ${colours.arrow-third}
+format-foreground = ${colours.arrow-third}
+format-background = ${colours.arrow-second}
 
 ################################################################################
 
@@ -361,9 +361,9 @@ exec = "pacman -Qu | wc -l"
 interval = 1000
 label = Updates: %output%
 format-prefix = "  "
-format-prefix-foreground = ${colours.arrow-white}
-format-foreground = ${colours.arrow-white}
-format-background = ${colours.arrow-blue}
+format-prefix-foreground = ${colours.arrow-third}
+format-foreground = ${colours.arrow-third}
+format-background = ${colours.arrow-second}
 
 ################################################################################
 
@@ -375,9 +375,9 @@ label = %output%
 click-left = curl -d "task=next" http://localhost:9096
 click-right = curl -d "task=current" http://localhost:9096
 format-prefix = "  "
-format-prefix-foreground = ${colours.arrow-white}
-format-foreground = ${colours.arrow-white}
-format-background = ${colours.arrow-blue}
+format-prefix-foreground = ${colours.arrow-third}
+format-foreground = ${colours.arrow-third}
+format-background = ${colours.arrow-second}
 
 ################################################################################
 
@@ -391,9 +391,9 @@ click-right = exec pavucontrol
 click-left = ~/.config/polybar/scripts/pavolume.sh --togmute
 scroll-up = ~/.config/polybar/scripts/pavolume.sh --up
 scroll-down = ~/.config/polybar/scripts/pavolume.sh --down
-format-foreground = ${colours.arrow-white}
-format-background = ${colours.arrow-pink}
-format-prefix-foreground = ${colours.arrow-white}
+format-foreground = ${colours.arrow-third}
+format-background = ${colours.arrow-first}
+format-prefix-foreground = ${colours.arrow-third}
 
 ################################################################################
 
@@ -404,9 +404,9 @@ blacklist-0 = num lock
 
 format-prefix = "  "
 label-layout = %layout%
-format-prefix-foreground = ${colours.arrow-white}
-format-foreground = ${colours.arrow-white}
-format-background = ${colours.arrow-blue}
+format-prefix-foreground = ${colours.arrow-third}
+format-foreground = ${colours.arrow-third}
+format-background = ${colours.arrow-second}
 
 ################################################################################
 
@@ -416,10 +416,9 @@ exec = uname -r
 tail = false
 interval = 1024
 format-prefix = "  "
-format-foreground = ${colours.arrow-white}
-format-background = ${colours.arrow-pink}
-format-prefix-foreground = ${colours.arrow-white}
-
-
+format-foreground = ${colours.arrow-third}
+format-background = ${colours.arrow-first}
+format-prefix-foreground = ${colours.arrow-third}
 
 # vim:ft=dosini
+
