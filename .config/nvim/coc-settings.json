@@ -10,5 +10,6 @@
 			}
 		}
 	},
-	"eslint.packageManager": "yarn"
+	"eslint.packageManager": "yarn",
+	"eslint.autoFixOnSave": true
 }
