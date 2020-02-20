@@ -9,5 +9,6 @@
 				"completeUnimported": true
 			}
 		}
-	}
+	},
+	"eslint.packageManager": "yarn"
 }

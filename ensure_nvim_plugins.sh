@@ -23,13 +23,14 @@ coc_packages=(
 	'coc-python'
 	'coc-snippets'
 	'coc-highligt'
+	'coc-eslint'
 	'coc-git'
 	'coc-makrdownlint'
 )
 
 packageList="${coc_packages[*]}"
 
-nvim -c "CocInstall -sync ${packageList} |q"
+nvim -u .config/nvim/init.vim -c "CocInstall -sync ${packageList} |q"
 
 cd $CURRENT
 
