@@ -5,7 +5,7 @@
 			"rootPatterns": ["go.mod", ".vim/", ".git/"],
 			"filetypes": ["go"],
 			"initializationOptions": {
-				"usePlaceHolders": true,
+				"usePlaceholders": true,
 				"completeUnimported": true
 			}
 		}
