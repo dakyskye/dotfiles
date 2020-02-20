@@ -3,7 +3,11 @@
 		"golang": {
 			"command": "gopls",
 			"rootPatterns": ["go.mod", ".vim/", ".git/"],
-			"filetypes": ["go"]
+			"filetypes": ["go"],
+			"initializationOptions": {
+				"usePlaceHolders": true,
+				"completeUnimported": true
+			}
 		}
-	}		
+	}
 }

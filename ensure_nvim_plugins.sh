@@ -21,6 +21,7 @@ coc_packages=(
 	'coc-tsserver'
 	'coc-yaml'
 	'coc-python'
+	'coc-snippets'
 	'coc-highligt'
 	'coc-git'
 	'coc-makrdownlint'
