@@ -24,6 +24,7 @@ set splitbelow splitright
 
 set autoindent
 set tabstop=4
+set shiftwidth=4
 set ignorecase
 set smartcase
 
@@ -58,20 +59,17 @@ map <A-Left> :bprevious <CR>
 " clear the highlights after search
 nnoremap <leader><space> :nohlsearch<CR>
 
+" language options
+autocmd BufNewFile,BufRead *.ts set filetype=typescript
+autocmd BufNewFile,BufRead *.js set filetype=javascript
+autocmd BufNewFile,BufRead tsconfig.json set filetype=jsonc
 
-" NERDTree config
-nmap <F6> :NERDTreeToggle<CR>
 
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") && v:this_session == "" | NERDTree | endif
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
-"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-let g:NERDTreeDirArrowExpandable = '▸'
-let g:NERDTreeDirArrowCollapsible = '▾'
-let NERDTreeShowLineNumbers= 1
-let NERDTreeShowHidden= 1
-let NERDTreeMinimalUI = 1
+" fzf.vim
+nnoremap <C-p> :Files<CR>
+nnoremap <C-o> :Buffers<CR>
+nnoremap <C-g> :GFiles<CR>
+nnoremap <C-r> :Rg!
 
 " vim-airline config
 let g:airline_powerline_fonts = 1

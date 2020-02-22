@@ -1,9 +1,6 @@
 [submodule ".config/nvim/bundle/nord-vim"]
 	path = .config/nvim/bundle/nord-vim
 	url = https://github.com/arcticicestudio/nord-vim
-[submodule ".config/nvim/bundle/nerdtree"]
-	path = .config/nvim/bundle/nerdtree
-	url = https://github.com/preservim/nerdtree
 [submodule ".config/nvim/bundle/delimitMate"]
 	path = .config/nvim/bundle/delimitMate
 	url = https://github.com/Raimondi/delimitMate
@@ -25,3 +22,9 @@
 [submodule ".config/nvim/bundle/typescript-vim"]
 	path = .config/nvim/bundle/typescript-vim
 	url = https://github.com/leafgarland/typescript-vim
+[submodule ".config/nvim/bundle/fzf"]
+	path = .config/nvim/bundle/fzf
+	url = https://github.com/junegunn/fzf
+[submodule ".config/nvim/bundle/fzf.vim"]
+	path = .config/nvim/bundle/fzf.vim
+	url = https://github.com/junegunn/fzf.vim
