@@ -120,6 +120,16 @@ bindsym $mod+Shift+7 move container to workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
+bindsym $mod+Ctrl+Shift+1 move container to workspace number $ws11
+bindsym $mod+Ctrl+Shift+2 move container to workspace number $ws12
+bindsym $mod+Ctrl+Shift+3 move container to workspace number $ws13
+bindsym $mod+Ctrl+Shift+4 move container to workspace number $ws14
+bindsym $mod+Ctrl+Shift+5 move container to workspace number $ws15
+bindsym $mod+Ctrl+Shift+6 move container to workspace number $ws16
+bindsym $mod+Ctrl+Shift+7 move container to workspace number $ws17
+bindsym $mod+Ctrl+Shift+8 move container to workspace number $ws18
+bindsym $mod+Ctrl+Shift+9 move container to workspace number $ws19
+bindsym $mod+Ctrl+Shift+0 move container to workspace number $ws20
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
