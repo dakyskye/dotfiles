@@ -67,7 +67,6 @@ autocmd BufNewFile,BufRead tsconfig.json set filetype=jsonc
 
 " fzf.vim
 nnoremap <C-p> :Files<CR>
-nnoremap <C-o> :Buffers<CR>
 nnoremap <C-g> :GFiles<CR>
 nnoremap <C-r> :Rg!
 
