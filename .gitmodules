@@ -28,3 +28,6 @@
 [submodule ".config/nvim/bundle/fzf.vim"]
 	path = .config/nvim/bundle/fzf.vim
 	url = https://github.com/junegunn/fzf.vim
+[submodule ".config/nvim/bundle/nerdtree"]
+	path = .config/nvim/bundle/nerdtree
+	url = https://github.com/preservim/nerdtree
