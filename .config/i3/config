@@ -225,6 +225,10 @@ assign [title="Code"] $ws8
 
 # autostart apps
 exec --no-startup-id compton -cC
+exec --no-startup-id flameshot
+exec --no-startup-id firefox
+exec --no-startup-id discord
+exec --no-startup-id telegram-desktop
 
 # start a terminal
 bindsym $mod+Return exec termite
@@ -242,7 +246,6 @@ exec_always --no-startup-id feh --bg-scale $HOME/Images/wallpaper.jpg
 bindsym $mod+Shift+v exec $HOME/.config/i3/scripts/vim_plugins.py
 
 # i3-gaps
-
 for_window [class="^.*"] border pixel 2
 gaps inner 7
 gaps outer 0
@@ -257,3 +260,4 @@ bindsym $mod+Shift+y border pixel 2
 
 # polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh i3
+
