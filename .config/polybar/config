@@ -45,34 +45,22 @@ arrow-third = #fefefe
 
 [bar/i3]
 ;https://github.com/jaagr/polybar/wiki/Configuration
-
-;monitor = ${env:MONITOR}
-;monitor-fallback = HDMI1
+monitor-fallback = HDMI1
 monitor-strict = false
 override-redirect = false
 bottom = false
 fixed-center = true
 width = 100%
 height = 17
-;offset-x = 1%
-;offset-y = 1%
 
 background = ${colours.background}
 foreground = ${colours.foreground}
-
-; Background gradient (vertical steps)
-;   background-[0-9]+ = #aarrggbb
-;background-0 =
 
 radius = 0.0
 line-size = 2
 line-color = #000000
 
 border-size = 0
-;border-left-size = 25
-;border-right-size = 25
-;border-top-size = 0
-;border-bottom-size = 25
 border-color = #000000
 
 padding-left = 1
@@ -94,8 +82,6 @@ modules-right = arrow1 arrow2 memory arrow3 cpu arrow2 temperature arrow3 kernel
 
 separator =
 
-;dim-value = 1.0
-
 tray-position = right
 tray-detached = false
 tray-maxsize = 20
@@ -105,30 +91,20 @@ tray-offset-y = 0
 tray-padding = 4
 tray-scale = 1.0
 
-#i3: Make the bar appear below windows
-;wm-restack = i3
-;override-redirect = true
+wm-restack = i3
+override-redirect = false
 
-; Enable support for inter-process messaging
-; See the Messaging wiki page for more details.
 enable-ipc = true
 
-; Fallback click handlers that will be called if
-; there's no matching module handler found.
-click-left =
+click-left = rofi -modi drun -show drun
 click-middle =
 click-right =
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
-double-click-left =
+double-click-left = termite -e ranger
 double-click-middle =
 double-click-right =
 
-; Requires polybar to be built with xcursor support (xcb-util-cursor)
-; Possible values are:
-; - default   : The default pointer as before, can also be an empty string (default)
-; - pointer   : Typically in the form of a hand
-; - ns-resize : Up and down arrows, can be used to indicate scrolling
 cursor-click =
 cursor-scroll =
 
@@ -137,48 +113,14 @@ cursor-scroll =
 ;https://github.com/jaagr/polybar/wiki/Module:-i3
 type = internal/i3
 
-; Only show workspaces defined on the same output as the bar
-;
-; Useful if you want to show monitor specific workspaces
-; on different bars
-;
-; Default: false
 pin-workspaces = true
-
-; This will split the workspace name on ':'
-; Default: false
 strip-wsnumbers = false
-
-; Sort the workspaces by index instead of the default
-; sorting that groups the workspaces by output
-; Default: false
 index-sort = false
-
-; Create click handler used to focus workspace
-; Default: true
 enable-click = true
-
-; Create scroll handlers used to cycle workspaces
-; Default: true
 enable-scroll = true
-
-; Wrap around when reaching the first/last workspace
-; Default: true
 wrapping-scroll = false
-
-; Set the scroll cycle direction
-; Default: true
 reverse-scroll = false
-
-; Use fuzzy (partial) matching on labels when assigning
-; icons to workspaces
-; Example: code;♚ will apply the icon to all workspaces
-; containing 'code' in the label
-; Default: false
 fuzzy-match = false
-
-;extra icons to choose from
-;http://fontawesome.io/cheatsheet/
 
 ws-icon-0 = 1;
 ws-icon-1 = 2;
@@ -188,13 +130,8 @@ ws-icon-4 = 5;
 ws-icon-5 = 6;
 ws-icon-6 = 7;
 ws-icon-7 = 8;
-;ws-icon-8 = 9;
-;ws-icon-9 = 10;
 ws-icon-default = " "
 
-; Available tags:
-;   <label-state> (default) - gets replaced with <label-(focused|unfocused|visible|urgent)>
-;   <label-mode> (default)
 format = <label-state> <label-mode>
 
 label-mode = %mode%
@@ -202,43 +139,23 @@ label-mode-padding = 2
 label-mode-foreground = #000000
 label-mode-background = #FFBB00
 
-; Available tokens:
-;   %name%
-;   %icon%
-;   %index%
-;   %output%
-; Default: %icon%  %name%
-; focused = Active workspace on focused monitor
 label-focused = %icon% %name%
 label-focused-background = ${colours.background}
 label-focused-foreground = ${colours.foreground}
 label-focused-underline = #AD69AF
 label-focused-padding = 2
 
-; Available tokens:
-;   %name%
-;   %icon%
-;   %index%
-; Default: %icon%  %name%
-; unfocused = Inactive workspace on any monitor
 label-unfocused = %icon% %name%
 label-unfocused-padding = 2
 label-unfocused-background = ${colours.background}
 label-unfocused-foreground = ${colours.foreground}
 label-unfocused-underline =
 
-; visible = Active workspace on unfocused monitor
 label-visible = %icon% %name%
 label-visible-background = ${self.label-focused-background}
 label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = 2
 
-; Available tokens:
-;   %name%
-;   %icon%
-;   %index%
-; Default: %icon%  %name%
-; urgent = Workspace with urgency hint set
 label-urgent = %icon% %name%
 label-urgent-background = ${self.label-focused-background}
 label-urgent-foreground = #db104e
@@ -247,24 +164,23 @@ label-urgent-padding = 2
 format-foreground = ${colours.foreground}
 format-background = ${colours.background}
 
-################################################################################
-################################################################################
-############                       MODULES ARROWS                     ############
-################################################################################
-################################################################################
 
+################################################################################
+################################################################################
+############                     MODULES ARROWS                     ############
+################################################################################
+################################################################################
 
 [module/arrow1]
-; grey to Blue
+; Gray to blue
 type = custom/text
 content = "%{T2} %{T-}"
 content-font = 2
 content-foreground = ${colours.arrow-first}
-;content-background = #292d3e
 content-background = ${colours.background}
 
 [module/arrow2]
-; grey to Blue
+; Gray to blue
 type = custom/text
 content = "%{T2} %{T-}"
 content-font = 2
@@ -272,7 +188,7 @@ content-foreground = ${colours.arrow-second}
 content-background = ${colours.arrow-first}
 
 [module/arrow3]
-; grey to Blue
+; Gray to blue
 type = custom/text
 content = "%{T2} %{T-}"
 content-font = 2
