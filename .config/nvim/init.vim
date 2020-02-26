@@ -48,9 +48,13 @@ set t_Co=256
 
 " make delete to write to the blackhole register
 nnoremap d "_d
+nnoremap <Leader>d "+d
 nnoremap dd "_dd
+nnoremap <Leader>dd "+dd
 nnoremap x "_x
+nnoremap <Leader>x "+x
 vnoremap d "_d
+vnoremap <Leader>d "+d
 
 " switch between next and previous opened buffers
 map <A-Right> :bnext <CR>
