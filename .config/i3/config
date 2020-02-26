@@ -220,8 +220,9 @@ assign [title="Discord"] $ws2
 assign [title="Telegram"] $ws3
 for_window [class="Spotify"] move to workspace $ws4
 assign [title="OBS"] $ws6
-assign [title="Code"] $ws8
 
+# open apps in specific mode
+for_window [class="Termite"] floating enable
 
 # autostart apps
 exec --no-startup-id compton -cC
