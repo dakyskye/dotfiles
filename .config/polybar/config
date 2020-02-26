@@ -91,11 +91,12 @@ override-redirect = false
 
 enable-ipc = true
 
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+
 click-left = rofi -modi drun -show drun
 click-middle =
 click-right =
-scroll-up = i3wm-wsnext
-scroll-down = i3wm-wsprev
 double-click-left = termite -e ranger
 double-click-middle =
 double-click-right =
