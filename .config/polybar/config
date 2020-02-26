@@ -7,12 +7,10 @@
 ;=====================================================
 
 [global/wm]
-;https://github.com/jaagr/polybar/wiki/Configuration#global-wm-settings
 margin-top = 0
 margin-bottom = 0
 
 [settings]
-;https://github.com/jaagr/polybar/wiki/Configuration#application-settings
 throttle-output = 5
 throttle-output-for = 10
 throttle-input-for = 30
@@ -44,10 +42,8 @@ arrow-third = #fefefe
 #########################
 
 [bar/i3]
-;https://github.com/jaagr/polybar/wiki/Configuration
 monitor-fallback = HDMI1
 monitor-strict = false
-override-redirect = false
 bottom = false
 fixed-center = true
 width = 100%
@@ -69,7 +65,6 @@ padding-right = 1
 module-margin-left = 0
 module-margin-right = 0
 
-;https://github.com/jaagr/polybar/wiki/Fonts
 font-0 = "UbuntuMono Nerd Font:size=9;2"
 font-1 = "UbuntuMono Nerd Font:size=14;3"
 font-2 = "Font Awesome 5 Free:style=Regular:pixelsize=7;1"
@@ -110,7 +105,6 @@ cursor-scroll =
 
 ; i3 module
 [module/i3]
-;https://github.com/jaagr/polybar/wiki/Module:-i3
 type = internal/i3
 
 pin-workspaces = true
@@ -172,7 +166,6 @@ format-background = ${colours.background}
 ################################################################################
 
 [module/arrow1]
-; Gray to blue
 type = custom/text
 content = "%{T2} %{T-}"
 content-font = 2
@@ -180,7 +173,6 @@ content-foreground = ${colours.arrow-first}
 content-background = ${colours.background}
 
 [module/arrow2]
-; Gray to blue
 type = custom/text
 content = "%{T2} %{T-}"
 content-font = 2
@@ -188,7 +180,6 @@ content-foreground = ${colours.arrow-second}
 content-background = ${colours.arrow-first}
 
 [module/arrow3]
-; Gray to blue
 type = custom/text
 content = "%{T2} %{T-}"
 content-font = 2
@@ -201,68 +192,65 @@ content-background = ${colours.arrow-second}
 ################################################################################
 ################################################################################
 
+#######################
+# [module/pattern]    #
+# type =              #
+# exec =              #
+# tail =              #
+# interval =          #
+#                     #
+# blacklist-foo =     #
+#                     #
+# click-foo =         #
+#                     #
+# baz =               #
+#                     #
+# label =             #
+# label-font =        #
+# label-layout =      #
+# format =            #
+# format-prefix =     #
+# format-prefix-foo = #
+# format-foreground = #
+# format-background = #
+#######################
+
 [module/cpu]
-;https://github.com/jaagr/polybar/wiki/Module:-cpu
 type = internal/cpu
-; Seconds to sleep between updates
-; Default: 1
 interval = 5
+
+label = %percentage%%
+label-font = 1
+format = CPU <label>
+format-prefix = "  "
+format-prefix-foreground = ${colours.arrow-third}
 format-foreground = ${colours.arrow-third}
 format-background = ${colours.arrow-first}
-format-prefix-foreground = ${colours.arrow-third}
-format-prefix = "  "
-
-label-font = 1
-
-; Available tags:
-;   <label> (default)
-;   <bar-load>
-;   <ramp-load>
-;   <ramp-coreload>
-format = CPU <label>
-
-
-; Available tokens:
-;   %percentage% (default) - total cpu load
-;   %percentage-cores% - load percentage for each core
-;   %percentage-core[1-9]% - load percentage for specific core
-label = %percentage%%
 
 ################################################################################
 
 [module/date]
-;https://github.com/jaagr/polybar/wiki/Module:-date
 type = internal/date
-; Seconds to sleep between updates
 interval = 5
-; See "http://en.cppreference.com/w/cpp/io/manip/put_time" for details on how to format the date string
-; NOTE: if you want to use syntax tags here you need to use %%{...}
+
 date = " %a, %d %b, %Y"
 date-alt = " %a, %d %b, %Y"
 time = %H:%M
 time-alt = %H:%M
-format-prefix = " "
+
 label = "%date% %time% "
+format-prefix = " "
+format-prefix-foreground = ${colours.arrow-third}
 format-foreground = ${colours.arrow-third}
 format-background = ${colours.arrow-first}
-format-prefix-foreground = ${colours.arrow-third}
+
 ################################################################################
 
 [module/memory]
-;https://github.com/jaagr/polybar/wiki/Module:-memory
 type = internal/memory
 interval = 5
-; Available tokens:
-;   %percentage_used% (default)
-;   %percentage_free%
-;   %gb_used%
-;   %gb_free%
-;   %gb_total%
-;   %mb_used%
-;   %mb_free%
-;   %mb_total%
-label = %percentage_used%%
 
+label = %percentage_used%%
 format = RAM <label>
 format-prefix = "  "
 format-prefix-foreground = ${colours.arrow-third}
@@ -275,6 +263,7 @@ format-background = ${colours.arrow-second}
 type = custom/script
 exec = "pacman -Qu | wc -l"
 interval = 1000
+
 label = Updates: %output%
 format-prefix = "  "
 format-prefix-foreground = ${colours.arrow-third}
@@ -287,9 +276,11 @@ format-background = ${colours.arrow-second}
 type = custom/script
 exec = go run ~/.config/polybar/scripts/temperature.go
 tail = true
-label = %output%
+
 click-left = curl -d "task=next" http://localhost:9096
 click-right = curl -d "task=current" http://localhost:9096
+
+label = %output%
 format-prefix = "  "
 format-prefix-foreground = ${colours.arrow-third}
 format-foreground = ${colours.arrow-third}
@@ -299,27 +290,29 @@ format-background = ${colours.arrow-second}
 
 [module/pavolume]
 type = custom/script
-tail = true
-label = %output%
-format-prefix = " "
 exec = ~/.config/polybar/scripts/pavolume.sh --listen
+tail = true
+
 click-right = exec pavucontrol
 click-left = ~/.config/polybar/scripts/pavolume.sh --togmute
 scroll-up = ~/.config/polybar/scripts/pavolume.sh --up
 scroll-down = ~/.config/polybar/scripts/pavolume.sh --down
+
+label = %output%
+format-prefix = " "
+format-prefix-foreground = ${colours.arrow-third}
 format-foreground = ${colours.arrow-third}
 format-background = ${colours.arrow-first}
-format-prefix-foreground = ${colours.arrow-third}
 
 ################################################################################
 
 [module/xkeyboard]
-;https://github.com/jaagr/polybar/wiki/Module:-xkeyboard
 type = internal/xkeyboard
+
 blacklist-0 = num lock
 
-format-prefix = "  "
 label-layout = %layout%
+format-prefix = "  "
 format-prefix-foreground = ${colours.arrow-third}
 format-foreground = ${colours.arrow-third}
 format-background = ${colours.arrow-second}
@@ -329,12 +322,12 @@ format-background = ${colours.arrow-second}
 [module/kernel]
 type = custom/script
 exec = uname -r
-tail = false
 interval = 1024
+
 format-prefix = "  "
+format-prefix-foreground = ${colours.arrow-third}
 format-foreground = ${colours.arrow-third}
 format-background = ${colours.arrow-first}
-format-prefix-foreground = ${colours.arrow-third}
 
 # vim:ft=dosini
 
