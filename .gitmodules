@@ -34,3 +34,6 @@
 [submodule ".config/nvim/bundle/vim-fish"]
 	path = .config/nvim/bundle/vim-fish
 	url = https://github.com/dag/vim-fish
+[submodule ".config/nvim/bundle/sxhkd-vim"]
+	path = .config/nvim/bundle/sxhkd-vim
+	url = https://github.com/kovetskiy/sxhkd-vim
