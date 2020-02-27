@@ -31,3 +31,6 @@
 [submodule ".config/nvim/bundle/nerdtree"]
 	path = .config/nvim/bundle/nerdtree
 	url = https://github.com/preservim/nerdtree
+[submodule ".config/nvim/bundle/vim-fish"]
+	path = .config/nvim/bundle/vim-fish
+	url = https://github.com/dag/vim-fish
