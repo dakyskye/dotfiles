@@ -10,18 +10,13 @@ OSD="no"  # On Screen Display message for KDE if enabled
 INC=1  # Increment when lowering/rising the volume
 MAX_VOL=100  # Maximum volume
 AUTOSYNC="no"  # All programs have the same volume if enabled
-VOLUME_ICONS=( "# " "# " "# " )  # Volume icons array, from lower volume to higher
-MUTED_ICON="# "  # Muted volume icon
-MUTED_COLOR="%{F#6b6b6b}"  # Color when the audio is muted
-DEFAULT_SINK_ICON="# "  # The default sink icon if a custom one isn't found
-CUSTOM_SINK_ICONS=(  )  # Custom sink icons in index of sink order
+VOLUME_ICON=" " # Regular volume icon
+MUTED_ICON=" "  # Muted volume icon
 NOTIFICATIONS="no"  # Notifications when switching sinks if enabled
 SINK_BLACKLIST=(  )  # Index blacklist for sinks when switching between them
 
-
 # Environment & global constants for the scriot
 LANGUAGE=en_US  # Some calls depend on English outputs of pactl
-END_COLOR="%{F-}"
 
 
 # Saves the currently default sink into a variable named `curSink`. It will
@@ -222,32 +217,11 @@ function output() {
     getCurVol "$curSink"
     getIsMuted "$curSink"
 
-    # Fixed volume icons over max volume
-    local iconsLen=${#VOLUME_ICONS[@]}
-    if [ "$iconsLen" -ne 0 ]; then
-        local volSplit=$((MAX_VOL / iconsLen))
-        for i in $(seq 1 "$iconsLen"); do
-            if [ $((i * volSplit)) -ge "$curVol" ]; then
-                volIcon="${VOLUME_ICONS[$((i-1))]}"
-                break
-            fi
-        done
-    else
-        volIcon=""
-    fi
-
-    # Uses custom sink icon if the array contains one
-    if [ "$curSink" -lt ${#CUSTOM_SINK_ICONS[@]} ]; then
-        sinkIcon=${CUSTOM_SINK_ICONS[$curSink]}
-    else
-        sinkIcon=$DEFAULT_SINK_ICON
-    fi
-
     # Showing the formatted message
     if [ "$isMuted" = "yes" ]; then
-        echo "${MUTED_COLOR}${MUTED_ICON}${curVol}%   ${sinkIcon}${curSink}${END_COLOR}"
+        echo "${MUTED_ICON}${curVol}%"
     else
-        echo "${volIcon}${curVol}%   ${sinkIcon}${curSink}"
+        echo "${VOLUME_ICON}${curVol}%"
     fi
 }
 
@@ -307,3 +281,4 @@ case "$1" in
         exit 0
         ;;
 esac
+
