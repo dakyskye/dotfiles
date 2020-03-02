@@ -13,7 +13,6 @@ margin-bottom = 0
 [settings]
 throttle-output = 5
 throttle-output-for = 10
-throttle-input-for = 30
 screenchange-reload = true
 compositing-background = over
 compositing-foreground = over
@@ -23,8 +22,13 @@ compositing-border = over
 
 [colours]
 ; Nord theme ============
-background = #292d3e
-foreground = #c0c5ce
+; light
+background = #d8dee9
+foreground = #2e3440
+; dark
+;background = #292d3e
+;foreground = #c0c5ce
+
 alert = #bd2c40
 volume-min = #a3be8c
 volume-med = #ebcb8b
@@ -32,9 +36,14 @@ volume-max = #bf616a
 ; =======================
 
 ; Arrow colours =========
-arrow-first = #A77AC4
-arrow-second = #7197E7
-arrow-third = #fefefe
+; light
+arrow-first = #F9F9F9
+arrow-second = #D8DEE9
+arrow-third = #2E3440
+; dark
+;arrow-first = #A77AC4
+;arrow-second = #7197E7
+;arrow-third = #fefefe
 ; =======================
 
 #########################
@@ -86,7 +95,8 @@ tray-offset-y = 0
 tray-padding = 4
 tray-scale = 1.0
 
-wm-restack = i3
+# commented, because no need when override-redirect is false
+#wm-restack = i3
 override-redirect = false
 
 enable-ipc = true
@@ -294,7 +304,7 @@ type = custom/script
 exec = ~/.config/polybar/scripts/pavolume.sh --listen
 tail = true
 
-click-right = exec pavucontrol
+click-right = exec pavucontrol-qt &
 click-left = ~/.config/polybar/scripts/pavolume.sh --togmute
 scroll-up = ~/.config/polybar/scripts/pavolume.sh --up
 scroll-down = ~/.config/polybar/scripts/pavolume.sh --down
