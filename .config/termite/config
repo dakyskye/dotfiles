@@ -1,5 +1,5 @@
-## Termite Styling Program
-## Author : Aditya Shakya
+# color scheme generated with 
+# https://github.com/adi1090x/termite-style/
 
 [options]
 
@@ -11,7 +11,7 @@ cursor_blink = system
 cursor_shape = block
 dynamic_title = true
 filter_unmatched_urls = true
-font = Monospace 8
+font = Fira Mono for Powerline 8
 geometry = 480x280
 icon_name = terminal
 modify_other_keys = false
