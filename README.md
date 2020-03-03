@@ -14,3 +14,11 @@ My personal dot files and configs (including Vim, Fish, i3-gaps, polybar, termit
 * rename/delete **/usr/bin/i3-migrate-config-to-v4** in order to get i3-wm work with sxhkd bindings
 * after executing **./ensure_nvim_plugins.sh**, execute `cp -r .config/nvim $HOME/.config/`
 
+## FAQ
+
+### Why is there i3 mode bindings still?
+
+* because i3 modes are amazing, can't be replaced with anything:
+
+`super + Tab ; r ; {h,j,k,l}` multiple times compared to `super + Tab ; r` once and `h,j,k,l` multiple times is much quicker
+
