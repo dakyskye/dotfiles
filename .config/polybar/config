@@ -21,18 +21,17 @@ compositing-underline = over
 compositing-border = over
 
 [colours]
-; Nord theme ============
 ; light
-background = #d8dee9
-foreground = #2e3440
+background = #D8DEE9
+foreground = #2E3440
 ; dark
-;background = #292d3e
-;foreground = #c0c5ce
+;background = #292D3E
+;foreground = #C0C5CE
 
-alert = #bd2c40
-volume-min = #a3be8c
-volume-med = #ebcb8b
-volume-max = #bf616a
+alert = #BD2C40
+volume-min = #A3BE8C
+volume-med = #EBCB8B
+volume-max = #BF616A
 ; =======================
 
 ; Arrow colours =========
@@ -43,7 +42,7 @@ arrow-third = #2E3440
 ; dark
 ;arrow-first = #A77AC4
 ;arrow-second = #7197E7
-;arrow-third = #fefefe
+;arrow-third = #FEFEFE
 ; =======================
 
 #########################
