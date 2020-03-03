@@ -1,3 +1,0 @@
-echo
-neofetch
-echo

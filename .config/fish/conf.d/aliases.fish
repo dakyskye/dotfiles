@@ -1,4 +1,4 @@
-alias vim="env SHELL=/usr/bin/bash nvim"
+alias vim="nvim"
 
 alias ls="exa --color=always --group-directories-first"
 alias la="exa -a --color=always --group-directories-first"
