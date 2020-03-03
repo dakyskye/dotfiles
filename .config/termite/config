@@ -28,7 +28,7 @@ highlight = #30343e
 # dark
 
 foreground=#F8F8F2
-cursor=#F8F8F2
+cursor=#6E737E
 background=#282A36
 
 color0=#3B4252
