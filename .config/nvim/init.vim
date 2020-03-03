@@ -84,6 +84,10 @@ nnoremap <C-o> :Rg!
 " vim-airline config
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
+"
+" light
+" let g:airline_theme='solarized'
+" dark
 let g:airline_theme='violet'
 
 " NERDTree config
