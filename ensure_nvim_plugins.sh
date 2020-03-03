@@ -16,21 +16,6 @@ git submodule update --init --recursive
 cd .config/nvim/bundle/coc.nvim
 yarn install --forzen-lockfile
 
-coc_packages=(
-	'coc-json'
-	'coc-tsserver'
-	'coc-yaml'
-	'coc-python'
-	'coc-snippets'
-	'coc-highligt'
-	'coc-eslint'
-	'coc-git'
-	'coc-makrdownlint'
-)
-
-packageList="${coc_packages[*]}"
-
-nvim -u .config/nvim/init.vim -c "CocInstall -sync ${packageList} |q"
-
+# done
 cd $CURRENT
 

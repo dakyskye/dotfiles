@@ -86,9 +86,9 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 "
 " light
-let g:airline_theme='solarized'
+"let g:airline_theme='solarized'
 " dark
-"let g:airline_theme='violet'
+let g:airline_theme='violet'
 
 " tagbar config
 nmap <F8> :TagbarToggle<CR>
@@ -123,6 +123,20 @@ let g:tagbar_type_go = {
 \ }
 
 " coc configuration
+" coc packages
+let g:coc_global_extensions = [
+	\ 'coc-json',
+	\ 'coc-tsserver',
+	\ 'coc-yaml',
+	\ 'coc-python',
+	\ 'coc-snippets',
+	\ 'coc-highlight',
+	\ 'coc-eslint',
+	\ 'coc-git',
+	\ 'coc-markdownlint',
+	\ 'coc-omnisharp'
+\ ]
+
 " Use tab for trigger completion with characters ahead and navigate.
 inoremap <silent><expr> <TAB>
 	\ pumvisible() ? "\<C-n>" :
