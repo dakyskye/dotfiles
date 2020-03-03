@@ -48,8 +48,8 @@ super + shift + {c,r}
 	i3-msg -t command {reload,restart}
 
 # i3 modes
-super + Tab + {r,s,w}
-	i3-msg -t command mode {"resize",'"\"(l)ock, (r)eboot, (s)uspend, (h)ibernate, (p)oweroff\""',"(d)ay, (n)ight"}
+super + Tab ; {r,s,w}
+	i3-msg -t command mode {"resize",'"(p)oweroff\, (r)eboot\, (s)uspend\, (h)ibernate\, (l)ock\, log (o)ut"','"(d)ay\, (n)ight"'}
 
 # next and previous workspaces
 super + shift + {h,l}

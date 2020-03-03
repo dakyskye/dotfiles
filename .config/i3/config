@@ -48,17 +48,18 @@ mode "resize" {
 	bindsym Escape mode "default"
 }
 
-mode "l(ock), r(eboot), s(uspend), h(ibernate), p(oweroff)" {
-	bindsym l exec --no-startup-id blurlock, mode "default"
+mode "(p)oweroff, (r)eboot, (s)uspend, (h)ibernate, (l)ock, log (o)ut" {
+	bindsym p exec --no-startup-id systemctl poweroff, mode "default"
 	bindsym r exec --no-startup-id systemctl reboot, mode "default"
 	bindsym s exec --no-startup-id systemctl suspend, mode "default"
 	bindsym h exec --no-startup-id systemctl hibernate, mode "default"
-	bindsym p exec --no-startup-id systemctl poweroff, mode "default"
+	bindsym l exec --no-startup-id blurlock, mode "default"
+	bindsym o exec --no-startup-id pkill -9 -U $USER, mode "default"
 
 	bindsym Escape mode "default"
 }
 
-mode "d(ay), n(ight)" {
+mode "(d)ay, (n)ight" {
 	bindsym d exec --no-startup-id redshift -P -O 6500, mode "default"
 	bindsym n exec --no-startup-id redshift -P -O 4500, mode "default"
 
@@ -78,8 +79,8 @@ assign [title="OBS"] "6"
 for_window [class="Termite"] floating enable
 
 # sizes for certain windows
-for_window [class="Termite"] resize grow width 90 px or  ppt
-for_window [class="Termite"] resize grow height 90 px or 90 ppt
+for_window [class="Termite"] resize grow width 125 px or  ppt
+for_window [class="Termite"] resize grow height 125 px or 125 ppt
 
 # autostart apps
 exec --no-startup-id compton -cC
