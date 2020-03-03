@@ -46,7 +46,6 @@ colorscheme nord
 
 set t_Co=256
 
-" make delete to write to the blackhole register
 nnoremap d "_d
 nnoremap <Leader>d "+d
 nnoremap dd "_dd
@@ -55,6 +54,8 @@ nnoremap x "_x
 nnoremap <Leader>x "+x
 vnoremap d "_d
 vnoremap <Leader>d "+d
+vnoremap x "_x
+vnoremap <Leader>x "+x
 
 " switch between next and previous opened buffers
 map <A-Right> :bnext <CR>
@@ -69,10 +70,16 @@ autocmd BufNewFile,BufRead *.js set filetype=javascript
 autocmd BufNewFile,BufRead tsconfig.json set filetype=jsonc
 
 
+" Colorizer
+nnoremap <C-h> :ColorToggle<CR>
+
+" editorconfig-vim
+let g:EditorConfig_exclude_patterns = ['fugitive://.*']
+
 " fzf.vim
 nnoremap <C-p> :Files<CR>
 nnoremap <C-g> :GFiles<CR>
-nnoremap <C-r> :Rg!
+nnoremap <C-o> :Rg!
 
 " vim-airline config
 let g:airline_powerline_fonts = 1
@@ -156,7 +163,4 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-
-" format Go code on write
-autocmd BufWritePre *.go :call CocAction('format')
 

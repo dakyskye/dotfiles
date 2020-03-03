@@ -37,3 +37,12 @@
 [submodule ".config/nvim/bundle/sxhkd-vim"]
 	path = .config/nvim/bundle/sxhkd-vim
 	url = https://github.com/kovetskiy/sxhkd-vim
+[submodule ".config/nvim/bundle/Colorizer"]
+	path = .config/nvim/bundle/Colorizer
+	url = https://github.com/chrisbra/Colorizer
+[submodule ".config/nvim/bundle/vim-goimports"]
+	path = .config/nvim/bundle/vim-goimports
+	url = https://github.com/mattn/vim-goimports
+[submodule ".config/nvim/bundle/editorconfig-vim"]
+	path = .config/nvim/bundle/editorconfig-vim
+	url = https://github.com/editorconfig/editorconfig-vim
