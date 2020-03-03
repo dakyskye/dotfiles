@@ -57,6 +57,20 @@ vnoremap <Leader>d "+d
 vnoremap x "_x
 vnoremap <Leader>x "+x
 
+" disable arrow keys
+inoremap <Up>    <Nop>
+inoremap <Down>  <Nop>
+inoremap <Left>  <Nop>
+inoremap <Right> <Nop>
+nnoremap <Up>    <Nop>
+nnoremap <Down>  <Nop>
+nnoremap <Left>  <Nop>
+nnoremap <Right> <Nop>
+vnoremap <Up>    <Nop>
+vnoremap <Down>  <Nop>
+vnoremap <Left>  <Nop>
+vnoremap <Right> <Nop>
+
 " switch between next and previous opened buffers
 map <A-Right> :bnext <CR>
 map <A-Left> :bprevious <CR>
