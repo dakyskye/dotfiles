@@ -1,0 +1,14 @@
+super + @Escape
+	pkill -USR1 -x sxhkd
+
+super + Return
+	termite
+
+super + d
+	rofi -modi drun -show drun
+
+Print
+	flameshot gui
+
+super + shift + v
+	$HOME/.config/scripts/vim_plugins.py
