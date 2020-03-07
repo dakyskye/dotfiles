@@ -22,11 +22,11 @@ compositing-border = over
 
 [colours]
 ; light
-background = #D8DEE9
-foreground = #2E3440
+;background = #D8DEE9
+;foreground = #2E3440
 ; dark
-;background = #292D3E
-;foreground = #C0C5CE
+background = #292D3E
+foreground = #C0C5CE
 
 alert = #BD2C40
 volume-min = #A3BE8C
@@ -36,13 +36,13 @@ volume-max = #BF616A
 
 ; Arrow colours =========
 ; light
-arrow-first = #F9F9F9
-arrow-second = #D8DEE9
-arrow-third = #2E3440
+;arrow-first = #F9F9F9
+;arrow-second = #D8DEE9
+;arrow-third = #2E3440
 ; dark
-;arrow-first = #A77AC4
-;arrow-second = #7197E7
-;arrow-third = #FEFEFE
+arrow-first = #A77AC4
+arrow-second = #7197E7
+arrow-third = #FEFEFE
 ; =======================
 
 #########################
