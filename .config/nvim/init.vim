@@ -58,31 +58,36 @@ vnoremap x "_x
 vnoremap <Leader>x "+x
 
 " disable arrow keys
-inoremap <Up>    <Nop>
-inoremap <Down>  <Nop>
-inoremap <Left>  <Nop>
-inoremap <Right> <Nop>
-nnoremap <Up>    <Nop>
-nnoremap <Down>  <Nop>
-nnoremap <Left>  <Nop>
-nnoremap <Right> <Nop>
-vnoremap <Up>    <Nop>
-vnoremap <Down>  <Nop>
-vnoremap <Left>  <Nop>
-vnoremap <Right> <Nop>
+"inoremap <Up>        <Nop>
+"inoremap <Down>      <Nop>
+"inoremap <Left>      <Nop>
+"inoremap <Right>     <Nop>
+nnoremap <Up>        <Nop>
+nnoremap <Down>      <Nop>
+nnoremap <Left>      <Nop>
+nnoremap <Right>     <Nop>
+nnoremap <A-Up>      <Nop>
+nnoremap <A-Down>    <Nop>
+nnoremap <A-Left>    <Nop>
+nnoremap <A-Right>   <Nop>
+vnoremap <Up>        <Nop>
+vnoremap <Down>      <Nop>
+vnoremap <Left>      <Nop>
+vnoremap <Right>     <Nop>
 
 " switch between next and previous opened buffers
-map <A-Right> :bnext <CR>
-map <A-Left> :bprevious <CR>
+map <A-l> :bnext      <CR>
+map <A-h> :bprevious  <CR>
 
 " clear the highlights after search
-nnoremap <leader><space> :nohlsearch<CR>
+nnoremap <Leader><space> :nohlsearch<CR>
 
 " language options
 autocmd BufNewFile,BufRead *.ts set filetype=typescript
 autocmd BufNewFile,BufRead *.js set filetype=javascript
+autocmd BufNewFile,BufRead *.pwn set filetype=cpp
+autocmd BufNewFile,BufRead *.inc set filetype=cpp
 autocmd BufNewFile,BufRead tsconfig.json set filetype=jsonc
-
 
 " Colorizer
 nnoremap <C-h> :ColorToggle<CR>
@@ -93,15 +98,11 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 " fzf.vim
 nnoremap <C-p> :Files<CR>
 nnoremap <C-g> :GFiles<CR>
-nnoremap <C-o> :Rg!
+nnoremap <C-f> :Rg!
 
 " vim-airline config
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
-"
-" light
-"let g:airline_theme='solarized'
-" dark
 let g:airline_theme='violet'
 
 " tagbar config
@@ -148,7 +149,8 @@ let g:coc_global_extensions = [
 	\ 'coc-eslint',
 	\ 'coc-git',
 	\ 'coc-markdownlint',
-	\ 'coc-omnisharp'
+	\ 'coc-omnisharp',
+	\ 'coc-clangd'
 \ ]
 
 " Use tab for trigger completion with characters ahead and navigate.
