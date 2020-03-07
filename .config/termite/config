@@ -25,8 +25,6 @@ highlight = #30343e
 
 [colors]
 
-# dark
-
 foreground=#F8F8F2
 cursor=#6E737E
 background=#282A36
@@ -47,34 +45,6 @@ color12=#CAA9FA
 color13=#FF92D0
 color14=#9AEDFE
 color15=#E6E6E6
-
-# light
-#foreground=#373B41
-#cursor=#D3BBBB
-#background=#F9F9F9
-
-#color0=#F2DEDE
-#color1=#CC342B
-#color2=#198844
-#color3=#FBA922
-#color4=#3971ED
-#color5=#A36AC7
-#color6=#3971ED
-#color7=#C5C8C6
-#color8=#969896
-#color9=#CC342B
-#color10=#198844
-#color11=#FBA922
-#color12=#3971ED
-#color13=#A36AC7
-#color14=#3971ED
-#color15=#FFFFFF
-#color16=#F96A38
-#color17=#3971ED
-#color18=#282A2E
-#color19=#373B41
-#color20=#B4B7B4
-#color21=#E0E0E0
 
 # vim: ft=dosini cms=#%s
 
