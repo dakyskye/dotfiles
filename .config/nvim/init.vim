@@ -98,7 +98,7 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 " fzf.vim
 nnoremap <C-p> :Files<CR>
 nnoremap <C-g> :GFiles<CR>
-nnoremap <C-f> :Rg!
+nnoremap <C-S-f> :Rg!
 
 " vim-airline config
 let g:airline_powerline_fonts = 1
