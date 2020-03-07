@@ -76,12 +76,8 @@ for_window [class="Spotify"] move to workspace "4"
 assign [title="OBS"] "6"
 assign [title="Oracle VM VirtualBox"] "10"
 
-# open apps in specific mode
-for_window [class="Termite"] floating enable
-
-# sizes for certain windows
-for_window [class="Termite"] resize grow width 150 px or 150 ppt
-for_window [class="Termite"] resize grow height 125 px or 125 ppt
+# per window application config
+for_window [class="Termite"] floating enable, resize set 650 430, move position center
 
 # autostart apps
 exec --no-startup-id compton -cC
