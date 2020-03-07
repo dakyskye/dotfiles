@@ -8,3 +8,7 @@ abbr lh "exa -alh --color always --group-directories-first"
 abbr lgh "exa -algh --color always --group-directories-first"
 abbr lt "exa -aT --color always --group-directories-first"
 
+abbr gcm "git commit -m"
+abbr gcsm "git commit -S -m"
+abbr gcasm "git commit -a -S -m"
+
