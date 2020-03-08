@@ -10,6 +10,10 @@ super + {h,j,k,l}
 super + shift + {h,j,k,l}
 	i3-msg -t command move {left,down,up,right}
 
+# change window borders
+super + shift + {n,d,y}
+	i3-msg -t command border {none,normal,pixel 2}
+
 # split in horizontal/vertical orientation or toggle fullscreen
 super + {h,v,f}
 	i3-msg -t command {split h,split v,fullscreen toggle}
@@ -19,12 +23,12 @@ super + {s,w,e}
 	i3-msg -t command layout {stacking,tabbed,toggle split}
 
 # toggle tiling / floating
-super + shift + space
-	i3-msg -t command floating toggle
+super + {shift + space,space}
+	i3-msg -t command {floating toggle,focus mode_toggle}
 
-# change focus between tiling / floating windows
-super + space
-	i3-msg -t command focus mode_toggle
+# move the focused window to the scratchpad
+super + {ctrl,shift} + s
+	i3-msg -t command {scratchpad show,move scratchpad}
 
 # focus the parent container
 super + a
@@ -40,7 +44,8 @@ super + ctrl + {1,2,3,4,5,6,7,8,9,0}
 # move focused container to workspace
 super + shift + {1,2,3,4,5,6,7,8,9,0}
 	i3-msg -t command move container to workspace number {"1","2","3","4","5","6","7","8","9","10"}
-super + ctrl ; shift ; {1,2,3,4,5,6,7,8,9,0}
+
+super + ctrl + shift + {1,2,3,4,5,6,7,8,9,0}
 	i3-msg -t command move container to workspace number {"11","12","13","14","15","16","17","18","19","20"}
 
 # reload the configuration file / restart i3 inplace
@@ -52,12 +57,9 @@ super + Tab ; {r,s,w}
 	i3-msg -t command mode {"resize",'"(p)oweroff\, (r)eboot\, (s)uspend\, (h)ibernate\, (l)ock\, log (o)ut"','"(d)ay\, (n)ight"'}
 
 # next and previous workspaces
-super + shift + {h,l}
+super + ctrl + {h,l}
 	i3-msg -t command workspace {prev,next}
 
-# change borders
-super + shift + {n,d,y}
-	i3-msg -t command border {none,normal,pixel 2}
 
 # vim:ft=sxhkd
 
