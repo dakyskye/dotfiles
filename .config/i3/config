@@ -80,7 +80,7 @@ assign [title="Oracle VM VirtualBox"] "10"
 for_window [class="Termite"] floating enable, resize set 650 430, move position center
 
 # autostart apps
-exec --no-startup-id compton -cC
+exec --no-startup-id picom -cC
 exec --no-startup-id flameshot
 exec --no-startup-id firefox
 exec --no-startup-id discord
