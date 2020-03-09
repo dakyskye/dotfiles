@@ -76,6 +76,12 @@ vnoremap <Down>      <Nop>
 vnoremap <Left>      <Nop>
 vnoremap <Right>     <Nop>
 
+" switch between splitted windows
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
 " switch between next and previous opened buffers
 map <A-l> :bnext      <CR>
 map <A-h> :bprevious  <CR>
@@ -91,7 +97,7 @@ autocmd BufNewFile,BufRead *.inc set filetype=cpp
 autocmd BufNewFile,BufRead tsconfig.json set filetype=jsonc
 
 " Colorizer
-nnoremap <C-h> :ColorToggle<CR>
+nnoremap <C-c> :ColorToggle<CR>
 
 " editorconfig-vim
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
@@ -99,7 +105,7 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 " fzf.vim
 nnoremap <C-p> :Files<CR>
 nnoremap <C-g> :GFiles<CR>
-nnoremap <C-S-f> :Rg!
+nnoremap <C-f> :Rg!
 
 " vim-airline config
 let g:airline_powerline_fonts = 1
