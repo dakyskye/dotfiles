@@ -46,8 +46,9 @@ colorscheme nord
 
 set t_Co=256
 
-nnoremap d "_d
-nnoremap <Leader>d "+d
+nnoremap d <Nop>
+nnoremap c <Nop>
+vnoremap <Leader>c "_c
 nnoremap dd "_dd
 nnoremap <Leader>dd "+dd
 nnoremap x "_x
@@ -168,7 +169,7 @@ endfunction
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-" Use K to show documentation in preview windo
+" Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
