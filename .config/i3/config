@@ -67,6 +67,7 @@ mode "(d)ay, (n)ight" {
 }
 
 # open apps in specific workspace
+assign [title="qutebrowser"] "1"
 assign [title="Mozilla Firefox"] "1"
 assign [title="Google Chrome"] "1"
 assign [title="Brave"] "1"
@@ -82,7 +83,7 @@ for_window [class="Termite"] floating enable, resize set 650 430, move position 
 # autostart apps
 exec --no-startup-id picom -cC
 exec --no-startup-id flameshot
-exec --no-startup-id firefox
+exec --no-startup-id qutebrowser
 exec --no-startup-id discord
 exec --no-startup-id telegram-desktop
 
