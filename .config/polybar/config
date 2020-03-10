@@ -105,7 +105,7 @@ scroll-down = i3wm-wsprev
 
 click-left = rofi -modi drun -show drun
 click-middle =
-click-right =
+click-right = go run ~/.config/scripts/wallpapers.go
 double-click-left = termite -e ranger
 double-click-middle =
 double-click-right =
