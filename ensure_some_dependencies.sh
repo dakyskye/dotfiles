@@ -19,3 +19,6 @@ yarn install --forzen-lockfile
 # done
 cd $CURRENT
 
+# install starship prompt
+curl -fsSL https://starship.rs/install.sh | bash
+
