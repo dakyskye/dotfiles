@@ -20,4 +20,4 @@ My personal dot files and configs (including Vim, Fish, i3-gaps, polybar, termit
 
 * because i3 modes are amazing, can't be replaced with anything:
 
-`super + Tab ; r + {h,j,k,l}` multiple times compared to `super + Tab ; r` once and `h,j,k,l` multiple times is much quicker
+`super + Tab ; r + {h,j,k,l}` (sxhkd way) multiple times compared to `super + Tab ; r` once and `h,j,k,l` (i3 mode way) multiple times is a big waste of time
