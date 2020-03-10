@@ -112,9 +112,7 @@ func main() {
 					goto redo
 				}
 			}
-			goto choose
 		}
-	choose:
 		recents.File = append(recents.File, File{Name: chosen, When: time.Now()})
 		recents.Current = chosen
 	final:
