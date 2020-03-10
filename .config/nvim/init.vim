@@ -42,9 +42,10 @@ set noshowmode
 
 set nu
 
-colorscheme nord
+colorscheme dracula
 
 set t_Co=256
+set termguicolors
 
 nnoremap d <Nop>
 nnoremap c <Nop>
