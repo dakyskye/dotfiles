@@ -88,7 +88,7 @@ exec --no-startup-id discord
 exec --no-startup-id telegram-desktop
 
 # set background
-exec_always --no-startup-id feh --bg-scale $HOME/Images/wallpaper.jpg
+exec_always --no-startup-id go run $HOME/.config/scripts/wallpapers.go
 
 # polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh i3
