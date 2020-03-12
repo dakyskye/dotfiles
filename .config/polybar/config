@@ -21,29 +21,15 @@ compositing-underline = over
 compositing-border = over
 
 [colours]
-; light
-;background = #D8DEE9
-;foreground = #2E3440
-; dark
 background = #292D3E
 foreground = #C0C5CE
-
 alert = #BD2C40
 volume-min = #A3BE8C
 volume-med = #EBCB8B
 volume-max = #BF616A
-; =======================
-
-; Arrow colours =========
-; light
-;arrow-first = #F9F9F9
-;arrow-second = #D8DEE9
-;arrow-third = #2E3440
-; dark
 arrow-first = #A77AC4
 arrow-second = #7197E7
 arrow-third = #FEFEFE
-; =======================
 
 #########################
 #####   bar/i3   ########
@@ -53,7 +39,7 @@ arrow-third = #FEFEFE
 monitor-fallback = HDMI1
 monitor-strict = false
 bottom = false
-fixed-center = true
+fixed-center = false
 width = 100%
 height = 17
 
@@ -67,8 +53,8 @@ line-color = #000000
 border-size = 0
 border-color = #000000
 
-padding-left = 1
-padding-right = 1
+padding-left = 0
+padding-right = 0
 
 module-margin-left = 0
 module-margin-right = 0
@@ -82,8 +68,6 @@ font-4 = "Font Awesome 5 Brands:pixelsize=7;1"
 modules-left = i3
 modules-center =
 modules-right = arrow1 arrow2 memory arrow3 cpu arrow2 temperature arrow3 kernel arrow2 pacman-updates arrow3 pavolume arrow2 xkeyboard arrow3 date
-
-separator =
 
 tray-position = right
 tray-detached = false
@@ -138,34 +122,27 @@ ws-icon-8 = 9;
 ws-icon-9 = 10;
 ws-icon-default = ""
 
-format = <label-state> <label-mode>
 
-label-mode = %mode%
-label-mode-padding = 2
-label-mode-foreground = #000000
-label-mode-background = #FFBB00
-
-label-focused = %icon% %name%
+label-focused = %icon%
 label-focused-background = ${colours.background}
 label-focused-foreground = ${colours.foreground}
-label-focused-underline = #AD69AF
+label-focused-underline = ${colours.arrow-first}
 label-focused-padding = 2
 
-label-unfocused = %icon% %name%
-label-unfocused-padding = 2
+label-unfocused = %icon%
 label-unfocused-background = ${colours.background}
 label-unfocused-foreground = ${colours.foreground}
-label-unfocused-underline =
+label-unfocused-padding = 1
 
-label-visible = %icon% %name%
+label-visible = %icon%
 label-visible-background = ${self.label-focused-background}
 label-visible-underline = ${self.label-focused-underline}
-label-visible-padding = 2
+label-visible-padding = 1
 
-label-urgent = %icon% %name%
+label-urgent = %icon%
 label-urgent-background = ${self.label-focused-background}
-label-urgent-foreground = #db104e
-label-urgent-padding = 2
+label-urgent-foreground = ${colours.arrow-second}
+label-urgent-padding = 1
 
 format-foreground = ${colours.foreground}
 format-background = ${colours.background}
@@ -204,32 +181,9 @@ content-background = ${colours.arrow-second}
 ################################################################################
 ################################################################################
 
-#######################
-# [module/pattern]    #
-# type =              #
-# exec =              #
-# tail =              #
-# interval =          #
-#                     #
-# blacklist-foo =     #
-#                     #
-# click-foo =         #
-#                     #
-# baz =               #
-#                     #
-# label =             #
-# label-font =        #
-# label-layout =      #
-# format =            #
-# format-prefix =     #
-# format-prefix-foo = #
-# format-foreground = #
-# format-background = #
-#######################
-
 [module/cpu]
 type = internal/cpu
-interval = 5
+interval = 2
 
 label = %percentage%%
 label-font = 1
@@ -260,7 +214,7 @@ format-background = ${colours.arrow-first}
 
 [module/memory]
 type = internal/memory
-interval = 5
+interval = 2
 
 label = %percentage_used%%
 format = RAM <label>
