@@ -67,15 +67,17 @@ mode "(d)ay, (n)ight" {
 }
 
 # open apps in specific workspace
-assign [title="qutebrowser"] "1"
-assign [title="Mozilla Firefox"] "1"
-assign [title="Google Chrome"] "1"
-assign [title="Brave"] "1"
-assign [title="Discord"] "2"
-assign [title="Telegram"] "3"
-for_window [class="Spotify"] move to workspace "4"
-assign [title="OBS"] "6"
-assign [title="Oracle VM VirtualBox"] "10"
+assign [class="qutebrowser"] "1"
+assign [class="firefox"] "1"
+assign [class="discord"] "2"
+assign [class="TelegramDesktop"] "3"
+#for_window [class="Spotify"] move to workspace "4"
+assign [class="Spotify"] "4"
+assign [class="Gimp"] "5"
+assign [class="Pinta"] "5"
+assign [class="obs"] "6"
+assign [class="VirtualBox Manager"] "9"
+assign [class="VirtualBox Machine"] "10"
 
 # per window application config
 for_window [class="Termite"] floating enable, resize set 650 430, move position center
@@ -83,12 +85,12 @@ for_window [class="Termite"] floating enable, resize set 650 430, move position 
 # autostart apps
 exec --no-startup-id picom -cC
 exec --no-startup-id flameshot
-exec --no-startup-id qutebrowser
+exec --no-startup-id firefox
 exec --no-startup-id discord
 exec --no-startup-id telegram-desktop
 
 # set background
-exec_always --no-startup-id go run $HOME/.config/scripts/wallpapers.go
+exec --no-startup-id go run $HOME/.config/scripts/wallpapers.go
 
 # polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh i3
