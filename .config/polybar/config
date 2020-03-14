@@ -21,15 +21,12 @@ compositing-underline = over
 compositing-border = over
 
 [colours]
-background = #292D3E
-foreground = #C0C5CE
-alert = #BD2C40
-volume-min = #A3BE8C
-volume-med = #EBCB8B
-volume-max = #BF616A
-arrow-first = #A77AC4
-arrow-second = #7197E7
-arrow-third = #FEFEFE
+1 = #292D3E
+2 = #F9F9F9
+3 = #A77AC4
+4 = #7197E7
+5 = #000000
+6 = #FFBB00
 
 #########################
 #####   bar/i3   ########
@@ -43,15 +40,15 @@ fixed-center = false
 width = 100%
 height = 17
 
-background = ${colours.background}
-foreground = ${colours.foreground}
+background = ${colours.1}
+foreground = ${colours.2}
 
 radius = 0.0
 line-size = 2
-line-color = #000000
+line-color = ${colours.5}
 
 border-size = 0
-border-color = #000000
+border-color = ${colours.5}
 
 padding-left = 0
 padding-right = 0
@@ -65,14 +62,14 @@ font-2 = "Font Awesome 5 Free:style=Regular:pixelsize=7;1"
 font-3 = "Font Awesome 5 Free:style=Solid:pixelsize=7;1"
 font-4 = "Font Awesome 5 Brands:pixelsize=7;1"
 
-modules-left = i3
+modules-left = i3 xwindow
 modules-center =
 modules-right = arrow1 arrow2 memory arrow3 cpu arrow2 temperature arrow3 kernel arrow2 pacman-updates arrow3 pavolume arrow2 xkeyboard arrow3 date
 
 tray-position = right
 tray-detached = false
 tray-maxsize = 20
-tray-background = ${colours.background}
+tray-background = ${colours.1}
 tray-offset-x = 0
 tray-offset-y = 0
 tray-padding = 4
@@ -122,16 +119,22 @@ ws-icon-8 = 9;
 ws-icon-9 = 10;
 ws-icon-default = ""
 
+format = <label-state> <label-mode>
+
+label-mode = %mode%
+label-mode-background = ${colours.6}
+label-mode-foreground = ${colours.5}
+label-mode-padding = 1
 
 label-focused = %icon%
-label-focused-background = ${colours.background}
-label-focused-foreground = ${colours.foreground}
-label-focused-underline = ${colours.arrow-first}
+label-focused-background = ${colours.1}
+label-focused-foreground = ${colours.2}
+label-focused-underline = ${colours.3}
 label-focused-padding = 2
 
 label-unfocused = %icon%
-label-unfocused-background = ${colours.background}
-label-unfocused-foreground = ${colours.foreground}
+label-unfocused-background = ${colours.1}
+label-unfocused-foreground = ${colours.2}
 label-unfocused-padding = 1
 
 label-visible = %icon%
@@ -141,11 +144,11 @@ label-visible-padding = 1
 
 label-urgent = %icon%
 label-urgent-background = ${self.label-focused-background}
-label-urgent-foreground = ${colours.arrow-second}
+label-urgent-foreground = ${colours.4}
 label-urgent-padding = 1
 
-format-foreground = ${colours.foreground}
-format-background = ${colours.background}
+format-foreground = ${colours.2}
+format-background = ${colours.1}
 
 
 ################################################################################
@@ -158,22 +161,22 @@ format-background = ${colours.background}
 type = custom/text
 content = "%{T2} %{T-}"
 content-font = 2
-content-foreground = ${colours.arrow-first}
-content-background = ${colours.background}
+content-foreground = ${colours.3}
+content-background = ${colours.1}
 
 [module/arrow2]
 type = custom/text
 content = "%{T2} %{T-}"
 content-font = 2
-content-foreground = ${colours.arrow-second}
-content-background = ${colours.arrow-first}
+content-foreground = ${colours.4}
+content-background = ${colours.3}
 
 [module/arrow3]
 type = custom/text
 content = "%{T2} %{T-}"
 content-font = 2
-content-foreground = ${colours.arrow-first}
-content-background = ${colours.arrow-second}
+content-foreground = ${colours.3}
+content-background = ${colours.4}
 
 ################################################################################
 ################################################################################
@@ -189,9 +192,9 @@ label = %percentage%%
 label-font = 1
 format = CPU <label>
 format-prefix = "  "
-format-prefix-foreground = ${colours.arrow-third}
-format-foreground = ${colours.arrow-third}
-format-background = ${colours.arrow-first}
+format-prefix-foreground = ${colours.2}
+format-foreground = ${colours.2}
+format-background = ${colours.3}
 
 ################################################################################
 
@@ -206,9 +209,9 @@ time-alt = %H:%M
 
 label = "%date% %time% "
 format-prefix = "  "
-format-prefix-foreground = ${colours.arrow-third}
-format-foreground = ${colours.arrow-third}
-format-background = ${colours.arrow-first}
+format-prefix-foreground = ${colours.2}
+format-foreground = ${colours.2}
+format-background = ${colours.3}
 
 ################################################################################
 
@@ -219,9 +222,9 @@ interval = 2
 label = %percentage_used%%
 format = RAM <label>
 format-prefix = "  "
-format-prefix-foreground = ${colours.arrow-third}
-format-foreground = ${colours.arrow-third}
-format-background = ${colours.arrow-second}
+format-prefix-foreground = ${colours.2}
+format-foreground = ${colours.2}
+format-background = ${colours.4}
 
 ################################################################################
 
@@ -232,9 +235,9 @@ interval = 1000
 
 label = Updates: %output%
 format-prefix = "  "
-format-prefix-foreground = ${colours.arrow-third}
-format-foreground = ${colours.arrow-third}
-format-background = ${colours.arrow-second}
+format-prefix-foreground = ${colours.2}
+format-foreground = ${colours.2}
+format-background = ${colours.4}
 
 ################################################################################
 
@@ -248,9 +251,9 @@ click-right = curl -d "task=current" http://localhost:9096
 
 label = %output%
 format-prefix = "  "
-format-prefix-foreground = ${colours.arrow-third}
-format-foreground = ${colours.arrow-third}
-format-background = ${colours.arrow-second}
+format-prefix-foreground = ${colours.2}
+format-foreground = ${colours.2}
+format-background = ${colours.4}
 
 ################################################################################
 
@@ -266,9 +269,9 @@ scroll-down = ~/.config/polybar/scripts/pavolume.sh --down
 
 label = %output%
 format-prefix = " "
-format-prefix-foreground = ${colours.arrow-third}
-format-foreground = ${colours.arrow-third}
-format-background = ${colours.arrow-first}
+format-prefix-foreground = ${colours.2}
+format-foreground = ${colours.2}
+format-background = ${colours.3}
 
 ################################################################################
 
@@ -279,9 +282,8 @@ blacklist-0 = num lock
 
 label-layout = %layout%
 format-prefix = "  "
-format-prefix-foreground = ${colours.arrow-third}
-format-foreground = ${colours.arrow-third}
-format-background = ${colours.arrow-second}
+format-foreground = ${colours.2}
+format-background = ${colours.4}
 
 ################################################################################
 
@@ -291,9 +293,19 @@ exec = uname -r
 interval = 1024
 
 format-prefix = "  "
-format-prefix-foreground = ${colours.arrow-third}
-format-foreground = ${colours.arrow-third}
-format-background = ${colours.arrow-first}
+format-prefix-foreground = ${colours.2}
+format-foreground = ${colours.2}
+format-background = ${colours.3}
+
+################################################################################
+
+[module/xwindow]
+type = internal/xwindow
+
+label = %title%
+label-maxlen = 40
+
+format-prefix = " "
 
 # vim:ft=dosini
 
