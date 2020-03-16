@@ -6,7 +6,6 @@ My personal dot files and configs (including Vim, Fish, i3-gaps, polybar, termit
 
 * git clone the repository (if you're going to use vim plugins, you might want to clone it recursively)
 * cd into the folder
-* run `./ensure_some_dependencies.sh`
 * copy configs from `.config/` to your `$HOME/.config` (`~/.config`) config directory
 
 ## Notes
