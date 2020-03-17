@@ -1,9 +1,27 @@
-execute pathogen#infect()
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+	silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+		\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	autocmd VimEnter * PlugInstall --sync | source '~/.config/nvim/init.vim'
+endif
 
-filetype on
-filetype plugin on
-filetype indent on
-filetype plugin indent on
+call plug#begin('~/.config/nvim/bundle')
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'Raimondi/delimitMate'
+Plug 'majutsushi/tagbar'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'tpope/vim-fugitive'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'dracula/vim'
+Plug 'mattn/vim-goimports'
+Plug 'leafgarland/typescript-vim'
+Plug 'kovetskiy/sxhkd-vim'
+Plug 'dag/vim-fish'
+
+call plug#end()
 
 syntax on
 
