@@ -1,63 +1,77 @@
-# kill focused window
+# reload the i3 configuration file / restart i3 inplace
+super + shift + {c,r}
+	i3-msg -t command {reload,restart}
+
+# kill the focused window
 super + shift + q
 	i3-msg -t command kill
 
-# change focus
+# focus the window on the left/down/up/right
 super + {h,j,k,l}
 	i3-msg -t command focus {left,down,up,right}
 
-# move focused window
+# move the focused window to left/down/up/right
 super + shift + {h,j,k,l}
 	i3-msg -t command move {left,down,up,right}
 
-# change window borders
+# move the focused window to the scratchpad
+super + {shift,ctrl} + s
+	i3-msg -t command {move scratchpad,scratchpad show}
+
+# change the focused window border
 super + shift + {n,d,y}
 	i3-msg -t command border {none,normal,pixel 2}
 
-# split in horizontal/vertical orientation
-super + {h,v}
-	i3-msg -t command {split h,split v}
+# make the focused window tiling/floating/fullscreen/sticky floating
+super + {space,f,o}
+	i3-msg -t command {floating toggle,fullscreen toggle,sticky toggle}
 
-# change container layout (stacked, tabbed, toggle split)
-super + {s,w,e}
-	i3-msg -t command layout {stacking,tabbed,toggle split}
+# focus a tiling/floating window
+super + shift + space
+	i3-msg -t command focus mode_toggle
 
-# toggle tiling / floating / fullscreen / sticky (floating)
-super + {shift + space,space,f,o}
-	i3-msg -t command {floating toggle,focus mode_toggle,fullscreen toggle,sticky toggle}
-
-# move the focused window to the scratchpad
-super + {ctrl,shift} + s
-	i3-msg -t command {scratchpad show,move scratchpad}
-
-# focus the parent container
+# focuse the parent container
 super + a
 	i3-msg -t command focus parent
 
-# switch to workspace
+# toggle the vertical/horizontal split
+super + e
+	i3-msg -t command layout toggle split
+
+# switch to the workspace number
 super + {1,2,3,4,5,6,7,8,9,0}
 	i3-msg -t command workspace number {"1","2","3","4","5","6","7","8","9","10"}
 
 super + ctrl + {1,2,3,4,5,6,7,8,9,0}
 	i3-msg -t command workspace number {"11","12","13","14","15","16","17","18","19","20"}
 
-# next and previous workspaces
-super + ctrl + {h,l}
+# switch to the next/previous workspace
+super + w + {h,l}
 	i3-msg -t command workspace {prev,next}
 
-# move focused container to workspace
+# move the focused container to the workspace number
 super + shift + {1,2,3,4,5,6,7,8,9,0}
 	i3-msg -t command move container to workspace number {"1","2","3","4","5","6","7","8","9","10"}
 
-super + ctrl + shift + {1,2,3,4,5,6,7,8,9,0}
+super + alt + {1,2,3,4,5,6,7,8,9,0}
 	i3-msg -t command move container to workspace number {"11","12","13","14","15","16","17","18","19","20"}
 
-# reload the configuration file / restart i3 inplace
-super + shift + {c,r}
-	i3-msg -t command {reload,restart}
+# poweroff/reboot/suspend/hibernate the machine
+#super + ctrl + {p,r,s,h}
+#	systemctl {poweroff,reboot,suspend,hibernate}
+super + ctrl + {p,r}
+	systemctl {poweroff,reboot}
 
-# i3 modes
-super + Tab ; {r,s,w}
-	i3-msg -t command mode {"resize",'"(p)oweroff\, (r)eboot\, (s)uspend\, (h)ibernate\, (l)ock\, log (o)ut"','"(d)ay\, (n)ight"'}
+# lock screen or log the user out
+super + ctrl + {l,o}
+	{blurlock,pkill -9 -U $USER}
+
+# resize the window
+super + alt + {h,j,k,l}
+	i3-msg -t command resize {shrink width,grow height,shrink height,grow width} 10 px or 10 ppt
+
+# change the screen warmness
+super + ctrl + {d,n}
+	redshift -P -O {6500,4500}
 
 # vim:ft=sxhkd
