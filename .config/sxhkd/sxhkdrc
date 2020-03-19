@@ -14,6 +14,18 @@ super + d
 Print
 	flameshot gui
 
+# systemctl poweroff/reboot
+super + ctrl + {p,r}
+	systemctl {poweroff,reboot}
+
+# lock screen or log the user out
+super + ctrl + {l,o}
+	{blurlock,pkill -9 -U $USER}
+
+# change the screen warmness
+super + ctrl + {d,n}
+	redshift -P -O {6500,4500}
+
 # change the wallpaper
 super + shift + w
 	go run $HOME/.config/scripts/wallpapers.go

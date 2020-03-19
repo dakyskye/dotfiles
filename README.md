@@ -25,6 +25,9 @@ super + Escape | reload the sxhkd config
 super + Return | reload the sxhkd config
 super + d | launch rofi
 Print | launch neofetch
+super + ctrl + {p,r} | systemctl poweroff/reboot
+super + ctrl + {l,o} | lock screen or log the user out
+super + ctrl + {d,n} | super + ctrl + {d,n}
 super + shift + w | change the wallpaper
 
 * i3 specific keybindings
@@ -46,7 +49,4 @@ super + ctrl + *n* (n = 0-9) | switch to the workspace number *n*
 super + w + {h,l} | switch to the next/previous workspace number
 super + shift + *n* (n = 0-9) | move the focused container to the workspace number *n*
 super + alt + *n* (n = 0-9) | move the focused container to the workspace number *n + 10*
-super + ctrl + {p,r} | systemctl poweroff/reboot
-super + ctrl + {l,o} | lock screen or log the user out
 super + alt + {h,j,k,l} | resize the window
-super + ctrl + {d,n} | super + ctrl + {d,n}

@@ -56,23 +56,8 @@ super + shift + {1,2,3,4,5,6,7,8,9,0}
 super + alt + {1,2,3,4,5,6,7,8,9,0}
 	i3-msg -t command move container to workspace number {"11","12","13","14","15","16","17","18","19","20"}
 
-# poweroff/reboot/suspend/hibernate the machine
-#super + ctrl + {p,r,s,h}
-#	systemctl {poweroff,reboot,suspend,hibernate}
-super + ctrl + {p,r}
-	systemctl {poweroff,reboot}
-
-# lock screen or log the user out
-super + ctrl + {l,o}
-	{blurlock,pkill -9 -U $USER}
-
 # resize the window
 super + alt + {h,j,k,l}
 	i3-msg -t command resize {shrink width,grow height,shrink height,grow width} 10 px or 10 ppt
 
-# change the screen warmness
-super + ctrl + {d,n}
-	redshift -P -O {6500,4500}
-
-super + ctrl + {d,n}
 # vim:ft=sxhkd
