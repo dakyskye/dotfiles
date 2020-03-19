@@ -23,11 +23,11 @@ super + shift + {n,d,y}
 	i3-msg -t command border {none,normal,pixel 2}
 
 # make the focused window tiling/floating/fullscreen/sticky floating
-super + {space,f,o}
+super + {shift + space,f,o}
 	i3-msg -t command {floating toggle,fullscreen toggle,sticky toggle}
 
 # focus a tiling/floating window
-super + shift + space
+super + space
 	i3-msg -t command focus mode_toggle
 
 # focuse the parent container
@@ -45,7 +45,7 @@ super + {1,2,3,4,5,6,7,8,9,0}
 super + ctrl + {1,2,3,4,5,6,7,8,9,0}
 	i3-msg -t command workspace number {"11","12","13","14","15","16","17","18","19","20"}
 
-# switch to the next/previous workspace
+# switch to the next/previous workspace number
 super + w + {h,l}
 	i3-msg -t command workspace {prev,next}
 
@@ -74,4 +74,5 @@ super + alt + {h,j,k,l}
 super + ctrl + {d,n}
 	redshift -P -O {6500,4500}
 
+super + ctrl + {d,n}
 # vim:ft=sxhkd

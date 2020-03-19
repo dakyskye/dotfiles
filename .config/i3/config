@@ -38,46 +38,18 @@ client.focused_inactive  $cl-inactive-border  $cl-inactive-border      $cl-inact
 client.urgent            $cl-urgent-border    $cl-urgent-border        $cl-text           $cl-indicator
 client.background        $cl-background
 
-# i3 modes
-mode "resize" {
-	bindsym h resize shrink width 10 px or 10 ppt
-	bindsym j resize grow height 10 px or 10 ppt
-	bindsym k resize shrink height 10 px or 10 ppt
-	bindsym l resize grow width 10 px or 10 ppt
-
-	bindsym Escape mode "default"
-}
-
-mode "(p)oweroff, (r)eboot, (s)uspend, (h)ibernate, (l)ock, log (o)ut" {
-	bindsym p exec --no-startup-id systemctl poweroff, mode "default"
-	bindsym r exec --no-startup-id systemctl reboot, mode "default"
-	bindsym s exec --no-startup-id systemctl suspend, mode "default"
-	bindsym h exec --no-startup-id systemctl hibernate, mode "default"
-	bindsym l exec --no-startup-id blurlock, mode "default"
-	bindsym o exec --no-startup-id pkill -9 -U $USER, mode "default"
-
-	bindsym Escape mode "default"
-}
-
-mode "(d)ay, (n)ight" {
-	bindsym d exec --no-startup-id redshift -P -O 6500, mode "default"
-	bindsym n exec --no-startup-id redshift -P -O 4500, mode "default"
-
-	bindsym Escape mode "default"
-}
-
 # open apps in specific workspace
 assign [class="qutebrowser"] "1"
 assign [class="firefox"] "1"
 assign [class="discord"] "2"
 assign [class="TelegramDesktop"] "3"
-#for_window [class="Spotify"] move to workspace "4"
-assign [class="Spotify"] "4"
+for_window [class="Spotify"] move to workspace number 4
 assign [class="Gimp"] "5"
 assign [class="Pinta"] "5"
+assign [class="krita"] "5"
 assign [class="obs"] "6"
 assign [class="VirtualBox Manager"] "9"
-assign [class="VirtualBox Machine"] "10"
+for_window [class="VirtualBox Machine"] move to workspace number 10
 
 # per window application config
 for_window [class="Termite"] floating enable, resize set 650 430, move position center
@@ -97,4 +69,3 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh i3
 
 # sxhkd
 exec_always --no-startup-id "pkill sxhkd; sxhkd & sxhkd -c $HOME/.config/sxhkd/i3 -t 1"
-

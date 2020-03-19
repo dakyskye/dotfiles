@@ -19,40 +19,34 @@ My personal dot files and configs (including Vim, Fish, i3-gaps, polybar, termit
 
 * general keybindings
 
-Key | Behaviour
+Key | Descrition
 :---: | :---:
-super + @Escape | reloads [sxhkd](https://github.com/baskerville/sxhkd) config
-super + Return | launches [termite](https://github.com/thestinger/termite) terminal
-super + d | launches [rofi](https://github.com/davatorium/rofi)
-Print | launches [flameshot](https://github.com/lupoDharkael/flameshot)
-[super + shift + v](https://github.com/dakyskye/.dotfiles/blob/master/.config/scripts/vim_plugins.py) | lists enabled and disabled [Vim](https://www.vim.org/) plugins
-[super + shift + w](https://github.com/dakyskye/.dotfiles/blob/master/.config/scripts/wallpapers.go) | sets a random wallpaper
+super + Escape | reload the sxhkd config
+super + Return | reload the sxhkd config
+super + d | launch rofi
+Print | launch neofetch
+super + shift + w | change the wallpaper
 
 * i3 specific keybindings
 
-Key | Behaviour
+Key | Description
 :---: | :---:
-super + shift + q | kills the focused window
-super + {h,j,k,l} | changes the focus to the left/bottom/top/right window
-super + shift + {h,j,k,l} | moves the focused window to left/bottom/top/right
-super + shift + {n,d,y} | changes the window border to none/normal/two pixels
-super + {h,v} | splits in the horizontal/vertical orientation
-super + {s,w,e} | changes the container layout to stacked/tabbed/splitted
-super + {shift + space,space,f,o} | togless window tiling/floating/fulslcreen/sticky
-super + {ctrl,shift} + s | hides/displays a (hidden) window
-super + a | focusses the parent container
-super + *n* (n = 0-9) | switches to workspace number *n*
-super + ctrl + *n* (n = 0-9) | switches to workspace number *n*
-super + ctrl + {h,l} | switches to previous/next workspace
-super + shift + *n* (n = 0-9) | moves the focused container to workspace number ((**x** = *n*)) (*x* = 1-10)
-super + shift + ctrl + *n* (n = 0-9) | moves the focused container to workspace number ((**x** =* n*)) (x= 11-20)
-super + shift + {c,r} | reloads i3 config/restarts i3
-super + Tab ; {r,s,w} | enters resize/system operations/screen warmness modes
-
-## FAQ
-
-### Why is there i3 mode bindings still?
-
-* because i3 modes are amazing, can't be replaced with anything:
-
-`super + Tab ; r + {h,j,k,l}` (sxhkd way) multiple times compared to `super + Tab ; r` once and `h,j,k,l` (i3 mode way) multiple times is a big waste of time
+super + shift + {c,r} | reload the i3 configuration file / restart i3 inplace
+super + shift + q | kill the focused window
+super + {h,j,k,l} | focus the window on the left/down/up/right
+super + shift + {h,j,k,l} | move the focused window to left/down/up/right
+super + {shift,ctrl} + s | move the focused window to the scratchpad
+super + shift + {n,d,y} | change the focused window border
+super + {shift + space,f,o} | make the focused window tiling/floating/fullscreen/sticky floating
+super + space | focus a tiling/floating window
+super + a | focuse the parent container
+super + e | toggle the vertical/horizontal split
+super + *n* (n = 0-9) | switch to the workspace number *n*
+super + ctrl + *n* (n = 0-9) | switch to the workspace number *n*
+super + w + {h,l} | switch to the next/previous workspace number
+super + shift + *n* (n = 0-9) | move the focused container to the workspace number *n*
+super + alt + *n* (n = 0-9) | move the focused container to the workspace number *n + 10*
+super + ctrl + {p,r} | systemctl poweroff/reboot
+super + ctrl + {l,o} | lock screen or log the user out
+super + alt + {h,j,k,l} | resize the window
+super + ctrl + {d,n} | super + ctrl + {d,n}

@@ -1,14 +1,19 @@
-super + @Escape
+# reload the sxhkd config
+super + Escape
 	pkill -USR1 -x sxhkd
 
+# launch termite
 super + Return
 	termite
 
+# launch rofi
 super + d
 	rofi -modi drun -show drun
 
+# launch neofetch
 Print
 	flameshot gui
 
-super + shift + v
-	$HOME/.config/scripts/vim_plugins.py
+# change the wallpaper
+super + shift + w
+	go run $HOME/.config/scripts/wallpapers.go
