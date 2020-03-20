@@ -13,15 +13,17 @@ margin-bottom = 0
 [settings]
 throttle-output = 5
 throttle-output-for = 10
+throttle-input-for = 30
 screenchange-reload = true
 compositing-background = over
 compositing-foreground = over
 compositing-overline = over
 compositing-underline = over
 compositing-border = over
+pseudo-transparency = false
 
 [colours]
-1 = #292D3E
+1 = #00292D3E
 2 = #F9F9F9
 3 = #A77AC4
 4 = #7197E7
@@ -29,12 +31,12 @@ compositing-border = over
 6 = #FFBB00
 
 #########################
-#####   bar/i3   ########
+##### bars ##############
 #########################
 
-[bar/i3]
+[bar/top]
+monitor = VGA-1
 monitor-fallback = HDMI1
-monitor-strict = false
 bottom = false
 fixed-center = false
 width = 100%
@@ -62,7 +64,7 @@ font-2 = "Font Awesome 5 Free:style=Regular:pixelsize=7;1"
 font-3 = "Font Awesome 5 Free:style=Solid:pixelsize=7;1"
 font-4 = "Font Awesome 5 Brands:pixelsize=7;1"
 
-modules-left = i3 xwindow
+modules-left = i3
 modules-center =
 modules-right = arrow1 arrow2 memory arrow3 cpu arrow2 temperature arrow3 kernel arrow2 pacman-updates arrow3 pavolume arrow2 xkeyboard arrow3 date
 
@@ -94,7 +96,45 @@ double-click-right =
 cursor-click =
 cursor-scroll =
 
-; i3 module
+################################################################################
+
+[bar/bottom]
+monitor = VGA-1
+monitor-fallback = HDMI1
+monitor-strict = false
+bottom = true
+fixed-center = false
+width = 100%
+height = 17
+
+background = #00292D3E
+foreground = ${colours.2}
+
+radius = 0.0
+line-size = 2
+line-color = ${colours.5}
+
+border-size = 0
+border-color = ${colours.5}
+
+padding-left = 0
+padding-right = 0
+
+module-margin-left = 0
+module-margin-right = 0
+
+font-0 = "UbuntuMono Nerd Font:size=9;2"
+font-1 = "UbuntuMono Nerd Font:size=14;3"
+font-2 = "Font Awesome 5 Free:style=Regular:pixelsize=7;1"
+font-3 = "Font Awesome 5 Free:style=Solid:pixelsize=7;1"
+font-4 = "Font Awesome 5 Brands:pixelsize=7;1"
+
+modules-center = xwindow
+
+####
+#### modules
+####
+
 [module/i3]
 type = internal/i3
 
@@ -150,11 +190,6 @@ label-urgent-padding = 1
 format-foreground = ${colours.2}
 format-background = ${colours.1}
 
-
-################################################################################
-################################################################################
-############                     MODULES ARROWS                     ############
-################################################################################
 ################################################################################
 
 [module/arrow1]
@@ -164,12 +199,16 @@ content-font = 2
 content-foreground = ${colours.3}
 content-background = ${colours.1}
 
+################################################################################
+
 [module/arrow2]
 type = custom/text
 content = "%{T2} %{T-}"
 content-font = 2
 content-foreground = ${colours.4}
 content-background = ${colours.3}
+
+################################################################################
 
 [module/arrow3]
 type = custom/text
@@ -178,10 +217,6 @@ content-font = 2
 content-foreground = ${colours.3}
 content-background = ${colours.4}
 
-################################################################################
-################################################################################
-############                       MODULES A-Z                      ############
-################################################################################
 ################################################################################
 
 [module/cpu]
@@ -303,7 +338,6 @@ format-background = ${colours.3}
 type = internal/xwindow
 
 label = %title%
-label-maxlen = 40
 
 format-prefix = " "
 
