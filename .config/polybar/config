@@ -33,16 +33,15 @@ pseudo-transparency = false
 #########################
 ##### bars ##############
 #########################
-
-[bar/top]
+[bar_shared]
 monitor = VGA-1
 monitor-fallback = HDMI1
-bottom = false
+monitor-strict = false
 fixed-center = false
 width = 100%
 height = 17
 
-background = ${colours.1}
+background = #00292D3E
 foreground = ${colours.2}
 
 radius = 0.0
@@ -63,6 +62,36 @@ font-1 = "UbuntuMono Nerd Font:size=14;3"
 font-2 = "Font Awesome 5 Free:style=Regular:pixelsize=7;1"
 font-3 = "Font Awesome 5 Free:style=Solid:pixelsize=7;1"
 font-4 = "Font Awesome 5 Brands:pixelsize=7;1"
+
+[bar/top]
+monitor = ${bar_shared.monitor}
+monitor-fallback = ${bar_shared.monitor-fallback}
+bottom = false
+fixed-center = ${bar_shared.fixed-center}
+width = ${bar_shared.width}
+height = ${bar_shared.height}
+
+background = ${bar_shared.background}
+foreground = ${bar_shared.foreground}
+
+radius = ${bar_shared.radius}
+line-size = ${bar_shared.line-size}
+line-color = ${bar_shared.line-color}
+
+border-size = ${bar_shared.border-size}
+border-color = ${bar_shared.border-color}
+
+padding-left = ${bar_shared.padding-left}
+padding-right = ${bar_shared.padding-right}
+
+module-margin-left = ${bar_shared.module-margin-left}
+module-margin-right = ${bar_shared.module-margin-right}
+
+font-0 = ${bar_shared.font-0}
+font-1 = ${bar_shared.font-1}
+font-2 = ${bar_shared.font-2}
+font-3 = ${bar_shared.font-3}
+font-4 = ${bar_shared.font-4}
 
 modules-left = i3
 modules-center =
@@ -99,35 +128,35 @@ cursor-scroll =
 ################################################################################
 
 [bar/bottom]
-monitor = VGA-1
-monitor-fallback = HDMI1
-monitor-strict = false
+monitor = ${bar_shared.monitor}
+monitor-fallback = ${bar_shared.monitor-fallback}
+monitor-strict = ${bar_shared.monitor-strict}
 bottom = true
-fixed-center = false
-width = 100%
-height = 17
+fixed-center = ${bar_shared.fixed-center}
+width = ${bar_shared.width}
+height = ${bar_shared.height}
 
-background = #00292D3E
-foreground = ${colours.2}
+background = ${bar_shared.background}
+foreground = ${bar_shared.foreground}
 
-radius = 0.0
-line-size = 2
-line-color = ${colours.5}
+radius = ${bar_shared.radius}
+line-size = ${bar_shared.line-size}
+line-color = ${bar_shared.line-color}
 
-border-size = 0
-border-color = ${colours.5}
+border-size = ${bar_shared.border-size}
+border-color = ${bar_shared.border-color}
 
-padding-left = 0
-padding-right = 0
+padding-left = ${bar_shared.padding-left}
+padding-right = ${bar_shared.padding-right}
 
-module-margin-left = 0
-module-margin-right = 0
+module-margin-left = ${bar_shared.module-margin-left}
+module-margin-right = ${bar_shared.module-margin-right}
 
-font-0 = "UbuntuMono Nerd Font:size=9;2"
-font-1 = "UbuntuMono Nerd Font:size=14;3"
-font-2 = "Font Awesome 5 Free:style=Regular:pixelsize=7;1"
-font-3 = "Font Awesome 5 Free:style=Solid:pixelsize=7;1"
-font-4 = "Font Awesome 5 Brands:pixelsize=7;1"
+font-0 = ${bar_shared.font-0}
+font-1 = ${bar_shared.font-1}
+font-2 = ${bar_shared.font-2}
+font-3 = ${bar_shared.font-3}
+font-4 = ${bar_shared.font-4}
 
 modules-center = xwindow
 
