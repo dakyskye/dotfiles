@@ -462,6 +462,8 @@ type = internal/xkeyboard
 blacklist-0 = num lock
 
 label-layout = %layout%
+label-indicator-on = " %name%"
+format = <label-layout><label-indicator>
 format-prefix = " "
 format-foreground = ${colours.2}
 format-background = ${colours.4}
