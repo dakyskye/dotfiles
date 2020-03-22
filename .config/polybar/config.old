@@ -27,12 +27,14 @@ compositing-border = over
 4 = #7197E7
 5 = #000000
 6 = #FFBB00
+7 = #E14C4F
 
 #########################
 #####   bar/i3   ########
 #########################
 
 [bar/i3]
+monitor = VGA-1
 monitor-fallback = HDMI1
 monitor-strict = false
 bottom = false
@@ -64,7 +66,7 @@ font-4 = "Font Awesome 5 Brands:pixelsize=7;1"
 
 modules-left = i3 xwindow
 modules-center =
-modules-right = arrow1 arrow2 memory arrow3 cpu arrow2 temperature arrow3 kernel arrow2 pacman-updates arrow3 pavolume arrow2 xkeyboard arrow3 date
+modules-right = arrow1 arrow2 memory arrow3 cpu arrow2 temperature arrow3 kernel arrow2 pacman-updates arrow3 pulseaudio arrow2 xkeyboard arrow3 date
 
 tray-position = right
 tray-detached = false
@@ -257,21 +259,27 @@ format-background = ${colours.4}
 
 ################################################################################
 
-[module/pavolume]
-type = custom/script
-exec = ~/.config/polybar/scripts/pavolume.sh --listen
-tail = true
+[module/pulseaudio]
+type = internal/pulseaudio
 
-click-right = exec pavucontrol-qt &
-click-left = ~/.config/polybar/scripts/pavolume.sh --togmute
-scroll-up = ~/.config/polybar/scripts/pavolume.sh --up
-scroll-down = ~/.config/polybar/scripts/pavolume.sh --down
+click-right = pavucontrol-qt &
+click-left =
+scroll-up =
+scroll-down =
 
-label = %output%
-format-prefix = " "
-format-prefix-foreground = ${colours.2}
-format-foreground = ${colours.2}
-format-background = ${colours.3}
+label-volume = %percentage%%
+label-muted = %percentage%%
+
+format-volume-prefix = "  "
+format-volume = <label-volume>
+format-volume-foreground = ${colours.2}
+format-volume-background = ${colours.3}
+
+format-muted = <label-muted>
+format-muted-foreground = ${colours.2}
+format-muted-background = ${colours.3}
+format-muted-prefix = " "
+format-muted-prefix-foreground = ${colours.7}
 
 ################################################################################
 
@@ -281,6 +289,8 @@ type = internal/xkeyboard
 blacklist-0 = num lock
 
 label-layout = %layout%
+label-indicator-on = " %name%"
+format = <label-layout><label-indicator>
 format-prefix = "  "
 format-foreground = ${colours.2}
 format-background = ${colours.4}
