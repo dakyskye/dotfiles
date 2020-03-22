@@ -64,8 +64,8 @@ exec --no-startup-id telegram-desktop
 # set background
 exec --no-startup-id go run $HOME/.config/scripts/wallpapers.go
 
-# polybar 
+# polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # sxhkd
-exec_always --no-startup-id "pkill sxhkd; sxhkd & sxhkd -c $HOME/.config/sxhkd/i3 -t 1"
+exec_always --no-startup-id "pkill sxhkd; sxhkd & sxhkd -c $HOME/.config/sxhkd/i3 &"
