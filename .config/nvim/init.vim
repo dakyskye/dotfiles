@@ -7,7 +7,6 @@ endif
 call plug#begin('~/.config/nvim/bundle')
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'Raimondi/delimitMate'
 Plug 'majutsushi/tagbar'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -176,7 +175,10 @@ let g:coc_global_extensions = [
 	\ 'coc-git',
 	\ 'coc-markdownlint',
 	\ 'coc-omnisharp',
-	\ 'coc-clangd'
+	\ 'coc-clangd',
+	\ 'coc-html',
+	\ 'coc-css',
+	\ 'coc-pairs'
 \ ]
 
 " Use tab for trigger completion with characters ahead and navigate.
