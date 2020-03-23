@@ -22,22 +22,23 @@ compositing-underline = over
 compositing-border = over
 pseudo-transparency = false
 
-
 [colours]
-1 = #00292D3E
+1 = #292D3E
 2 = #F9F9F9
-3 = #3B3C69
-4 = #2D605D
-5 = #21537C
-6 = #E14C4F
+3 = #A77AC4
+4 = #7197E7
+5 = #000000
+6 = #FFBB00
+7 = #E14C4F
 
-#########################
-##### bars ##############
-#########################
-[bar_shared]
+################################################################################
+
+[bar/mainbar]
 monitor = VGA-1
 monitor-fallback = HDMI1
 monitor-strict = false
+bottom = false
+fixed-center = false
 width = 100%
 height = 17
 
@@ -57,52 +58,37 @@ padding-right = 0
 module-margin-left = 0
 module-margin-right = 0
 
-font-0 = "UbuntuMono Nerd Font:size=8;2"
-font-1 = "UbuntuMono Nerd Font:style=Bold:size=9;3"
+font-0 = "UbuntuMono Nerd Font:size=9;2"
+font-1 = "UbuntuMono Nerd Font:size=14;3"
 font-2 = "Font Awesome 5 Free:style=Regular:pixelsize=7;1"
 font-3 = "Font Awesome 5 Free:style=Solid:pixelsize=7;1"
 font-4 = "Font Awesome 5 Brands:pixelsize=7;1"
-font-5 = "FuraCode Nerd Font:size=12;3"
 
-[bar/top]
-monitor = ${bar_shared.monitor}
-monitor-fallback = ${bar_shared.monitor-fallback}
-bottom = false
-fixed-center = false
-width = ${bar_shared.width}
-height = ${bar_shared.height}
+modules-left = i3 xwindow
+modules-center =
+modules-right = arrow1 arrow2 memory arrow3 cpu arrow2 temperature arrow3 kernel arrow2 pacman-updates arrow3 pulseaudio arrow2 xkeyboard arrow3 date
 
-background = ${bar_shared.background}
-foreground = ${bar_shared.foreground}
+tray-position = right
+tray-detached = false
+tray-maxsize = 20
+tray-background = ${colours.1}
+tray-offset-x = 0
+tray-offset-y = 0
+tray-padding = 4
+tray-scale = 1.0
 
-radius = ${bar_shared.radius}
-line-size = ${bar_shared.line-size}
-line-color = ${bar_shared.line-color}
+# commented, because no need when override-redirect is false
+#wm-restack = i3
+override-redirect = false
 
-border-size = ${bar_shared.border-size}
-border-color = ${bar_shared.border-color}
+enable-ipc = true
 
-padding-left = ${bar_shared.padding-left}
-padding-right = ${bar_shared.padding-right}
-
-module-margin-left = ${bar_shared.module-margin-left}
-module-margin-right = ${bar_shared.module-margin-right}
-
-font-0 = ${bar_shared.font-0}
-font-1 = ${bar_shared.font-1}
-font-2 = ${bar_shared.font-2}
-font-3 = ${bar_shared.font-3}
-font-4 = ${bar_shared.font-4}
-font-5 = ${bar_shared.font-5}
-
-modules-left = kernel dul3 ddr4 pacman-updates dul4
-modules-center = xwindow
-modules-right = dur2 pulseaudio ddl2 dur3 xkeyboard ddl3 dur4 date
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
 
 click-left = rofi -modi drun -show drun
 click-middle =
 click-right = go run ~/.config/scripts/wallpapers.go
-
 double-click-left = termite -e ranger
 double-click-middle =
 double-click-right =
@@ -111,62 +97,6 @@ cursor-click =
 cursor-scroll =
 
 ################################################################################
-
-[bar/bottom]
-monitor = ${bar_shared.monitor}
-monitor-fallback = ${bar_shared.monitor-fallback}
-monitor-strict = ${bar_shared.monitor-strict}
-bottom = true
-fixed-center = true
-width = ${bar_shared.width}
-height = ${bar_shared.height}
-
-background = ${bar_shared.background}
-foreground = ${bar_shared.foreground}
-
-radius = ${bar_shared.radius}
-line-size = ${bar_shared.line-size}
-line-color = ${bar_shared.line-color}
-
-border-size = ${bar_shared.border-size}
-border-color = ${bar_shared.border-color}
-
-padding-left = ${bar_shared.padding-left}
-padding-right = ${bar_shared.padding-right}
-
-module-margin-left = ${bar_shared.module-margin-left}
-module-margin-right = ${bar_shared.module-margin-right}
-
-font-0 = ${bar_shared.font-0}
-font-1 = ${bar_shared.font-1}
-font-2 = ${bar_shared.font-2}
-font-3 = ${bar_shared.font-3}
-font-4 = ${bar_shared.font-4}
-font-5 = ${bar_shared.font-5}
-
-modules-left = ddl1
-modules-center = i3
-modules-right = ddr1 memory dul1 ddr2 cpu dul2 ddr3 temperature
-
-override-redirect = false
-
-enable-ipc = true
-
-scroll-up = i3wm-wsnext
-scroll-down = i3wm-wsprev
-
-tray-position = left
-tray-detached = false
-tray-maxsize = 20
-tray-background = ${colours.5}
-tray-offset-x = 0
-tray-offset-y = 0
-tray-padding = 6
-tray-scale = 1.0
-
-####
-#### modules
-####
 
 [module/i3]
 type = internal/i3
@@ -192,10 +122,17 @@ ws-icon-8 = 9;
 ws-icon-9 = 10;
 ws-icon-default = ""
 
+format = <label-state> <label-mode>
+
+label-mode = %mode%
+label-mode-background = ${colours.6}
+label-mode-foreground = ${colours.5}
+label-mode-padding = 1
+
 label-focused = %icon%
 label-focused-background = ${colours.1}
 label-focused-foreground = ${colours.2}
-label-focused-underline = ${colours.6}
+label-focused-underline = ${colours.3}
 label-focused-padding = 2
 
 label-unfocused = %icon%
@@ -210,147 +147,38 @@ label-visible-padding = 1
 
 label-urgent = %icon%
 label-urgent-background = ${self.label-focused-background}
-label-urgent-foreground = ${colours.6}
+label-urgent-foreground = ${colours.4}
 label-urgent-padding = 1
 
-format = <label-state> <label-mode>
 format-foreground = ${colours.2}
 format-background = ${colours.1}
 
 ################################################################################
 
-[module/ddr1]
+[module/arrow1]
 type = custom/text
-content = ""
-content-font = 6
-content-background = ${colours.1}
+content = "%{T2} %{T-}"
+content-font = 2
 content-foreground = ${colours.3}
+content-background = ${colours.1}
 
 ################################################################################
 
-[module/dul1]
+[module/arrow2]
 type = custom/text
-content = ""
-content-font = 6
-content-background = ${colours.1}
+content = "%{T2} %{T-}"
+content-font = 2
+content-foreground = ${colours.4}
+content-background = ${colours.3}
+
+################################################################################
+
+[module/arrow3]
+type = custom/text
+content = "%{T2} %{T-}"
+content-font = 2
 content-foreground = ${colours.3}
-
-################################################################################
-
-[module/ddr2]
-type = custom/text
-content = ""
-content-font = 6
-content-background = ${colours.1}
-content-foreground = ${colours.4}
-
-################################################################################
-
-[module/dul2]
-type = custom/text
-content = ""
-content-font = 6
-content-background = ${colours.1}
-content-foreground = ${colours.4}
-
-################################################################################
-
-[module/ddr3]
-type = custom/text
-content = ""
-content-font = 6
-content-background = ${colours.1}
-content-foreground = ${colours.5}
-
-################################################################################
-
-[module/dul3]
-type = custom/text
-content = ""
-content-font = 6
-content-background = ${colours.1}
-content-foreground = ${colours.5}
-
-################################################################################
-
-[module/ddr4]
-type = custom/text
-content = ""
-content-font = 6
-content-background = ${colours.1}
-content-foreground = ${colours.4}
-
-################################################################################
-
-[module/dul4]
-type = custom/text
-content = ""
-content-font = 6
-content-background = ${colours.1}
-content-foreground = ${colours.4}
-
-################################################################################
-
-[module/ddl1]
-type = custom/text
-content = ""
-content-font = 6
-content-background = ${colours.1}
-content-foreground = ${colours.5}
-
-################################################################################
-
-[module/dur1]
-type = custom/text
-content = ""
-content-font = 6
-content-background = ${colours.1}
-content-foreground = ${colours.7}
-
-################################################################################
-
-[module/ddl2]
-type = custom/text
-content = ""
-content-font = 6
-content-background = ${colours.1}
-content-foreground = ${colours.5}
-
-################################################################################
-
-[module/dur2]
-type = custom/text
-content = ""
-content-font = 6
-content-background = ${colours.1}
-content-foreground = ${colours.5}
-
-################################################################################
-
-[module/ddl3]
-type = custom/text
-content = ""
-content-font = 6
-content-background = ${colours.1}
-content-foreground = ${colours.4}
-
-################################################################################
-
-[module/dur3]
-type = custom/text
-content = ""
-content-font = 6
-content-background = ${colours.1}
-content-foreground = ${colours.4}
-
-################################################################################
-
-[module/dur4]
-type = custom/text
-content = ""
-content-font = 6
-content-background = ${colours.1}
-content-foreground = ${colours.3}
+content-background = ${colours.4}
 
 ################################################################################
 
@@ -360,11 +188,11 @@ interval = 2
 
 label = %percentage%%
 label-font = 1
-format = "CPU <label>"
-format-prefix = " "
+format = CPU <label>
+format-prefix = "  "
 format-prefix-foreground = ${colours.2}
 format-foreground = ${colours.2}
-format-background = ${colours.4}
+format-background = ${colours.3}
 
 ################################################################################
 
@@ -378,7 +206,7 @@ time = %H:%M
 time-alt = %H:%M
 
 label = "%date% %time% "
-format-prefix = " "
+format-prefix = "  "
 format-prefix-foreground = ${colours.2}
 format-foreground = ${colours.2}
 format-background = ${colours.3}
@@ -390,11 +218,11 @@ type = internal/memory
 interval = 2
 
 label = %percentage_used%%
-format = "RAM <label>"
-format-prefix = " "
+format = RAM <label>
+format-prefix = "  "
 format-prefix-foreground = ${colours.2}
 format-foreground = ${colours.2}
-format-background = ${colours.3}
+format-background = ${colours.4}
 
 ################################################################################
 
@@ -403,8 +231,8 @@ type = custom/script
 exec = "pacman -Qu | wc -l"
 interval = 1000
 
-label = pacman -Qu: %output%
-format-prefix = " "
+label = Updates: %output%
+format-prefix = "  "
 format-prefix-foreground = ${colours.2}
 format-foreground = ${colours.2}
 format-background = ${colours.4}
@@ -419,11 +247,11 @@ tail = true
 click-left = curl -d "task=next" http://localhost:9096
 click-right = curl -d "task=current" http://localhost:9096
 
-label = "%output% "
-format-prefix = " "
+label = %output%
+format-prefix = "  "
 format-prefix-foreground = ${colours.2}
 format-foreground = ${colours.2}
-format-background = ${colours.5}
+format-background = ${colours.4}
 
 ################################################################################
 
@@ -438,16 +266,16 @@ scroll-down =
 label-volume = %percentage%%
 label-muted = %percentage%%
 
-format-volume-prefix = " "
+format-volume-prefix = "  "
 format-volume = <label-volume>
 format-volume-foreground = ${colours.2}
-format-volume-background = ${colours.5}
+format-volume-background = ${colours.3}
 
 format-muted = <label-muted>
 format-muted-foreground = ${colours.2}
-format-muted-background = ${colours.5}
+format-muted-background = ${colours.3}
 format-muted-prefix = " "
-format-muted-prefix-foreground = ${colours.6}
+format-muted-prefix-foreground = ${colours.7}
 
 ################################################################################
 
@@ -459,7 +287,7 @@ blacklist-0 = num lock
 label-layout = %layout%
 label-indicator-on = " %name%"
 format = <label-layout><label-indicator>
-format-prefix = " "
+format-prefix = "  "
 format-foreground = ${colours.2}
 format-background = ${colours.4}
 
@@ -470,11 +298,10 @@ type = custom/script
 exec = uname -r
 interval = 1024
 
-label = "%output%"
 format-prefix = "  "
 format-prefix-foreground = ${colours.2}
 format-foreground = ${colours.2}
-format-background = ${colours.5}
+format-background = ${colours.3}
 
 ################################################################################
 
@@ -482,11 +309,8 @@ format-background = ${colours.5}
 type = internal/xwindow
 
 label = %title%
-label-maxlen = 130
-label-font = 2
+label-maxlen = 40
 
-format-foreground = ${colours.2}
-
-################################################################################
+format-prefix = " "
 
 # vim:ft=dosini
