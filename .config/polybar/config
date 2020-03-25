@@ -257,11 +257,9 @@ format-background = ${colours.4}
 
 [module/pulseaudio]
 type = internal/pulseaudio
+interval = 1
 
 click-right = pavucontrol-qt &
-click-left =
-scroll-up =
-scroll-down =
 
 label-volume = %percentage%%
 label-muted = %percentage%%
