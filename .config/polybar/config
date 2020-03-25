@@ -23,10 +23,16 @@ compositing-border = over
 pseudo-transparency = false
 
 [colours]
-1 = #292D3E
-2 = #F9F9F9
-3 = #A77AC4
-4 = #7197E7
+; light
+1 = #D8DEE9
+2 = #2E3440
+3 = #F9F9F9
+4 = ${self.1}
+; dark
+;1 = #292D3E
+;2 = #F9F9F9
+;3 = #A77AC4
+;4 = #7197E7
 5 = #000000
 6 = #FFBB00
 7 = #E14C4F
@@ -87,9 +93,9 @@ scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
 
 click-left = rofi -modi drun -show drun
-click-middle =
+click-middle = termite -e ranger
 click-right = go run ~/.config/scripts/wallpapers.go
-double-click-left = termite -e ranger
+double-click-left = rofimoji
 double-click-middle =
 double-click-right =
 
