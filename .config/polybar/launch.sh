@@ -6,7 +6,4 @@ wait $!
 
 # Launch Polybar
 # current
-polybar -r mainbar &
-# old
-#polybar -c $HOME/.config/polybar/old -r top &
-#polybar -c $HOME/.config/polybar/old -r bottom &
+polybar -c ~/.config/polybar/config.ini -r mainbar &
