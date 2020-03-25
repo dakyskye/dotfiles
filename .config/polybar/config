@@ -34,8 +34,7 @@ pseudo-transparency = false
 ;3 = #A77AC4
 ;4 = #7197E7
 5 = #000000
-6 = #FFBB00
-7 = #E14C4F
+6 = #E14C4F
 
 ################################################################################
 
@@ -128,13 +127,6 @@ ws-icon-8 = 9;
 ws-icon-9 = 10;
 ws-icon-default = ""
 
-format = <label-state> <label-mode>
-
-label-mode = %mode%
-label-mode-background = ${colours.6}
-label-mode-foreground = ${colours.5}
-label-mode-padding = 1
-
 label-focused = %icon%
 label-focused-background = ${colours.1}
 label-focused-foreground = ${colours.2}
@@ -153,7 +145,7 @@ label-visible-padding = 1
 
 label-urgent = %icon%
 label-urgent-background = ${self.label-focused-background}
-label-urgent-foreground = ${colours.4}
+label-urgent-foreground = ${colours.6}
 label-urgent-padding = 1
 
 format-foreground = ${colours.2}
@@ -279,7 +271,7 @@ format-muted = <label-muted>
 format-muted-foreground = ${colours.2}
 format-muted-background = ${colours.3}
 format-muted-prefix = " "
-format-muted-prefix-foreground = ${colours.7}
+format-muted-prefix-foreground = ${colours.6}
 
 ################################################################################
 
