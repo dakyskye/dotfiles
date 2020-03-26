@@ -1,0 +1,15 @@
+#!/bin/sh
+
+if [ "$1" = "" ]; then
+	echo "no file passed"
+	exit 1
+fi
+
+for file in "$@"; do
+	if [ "$file" = "" ]; then
+		continue
+	fi
+	cat /dev/null > "$file"
+done
+
+# vim: ft=sh
