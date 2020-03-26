@@ -1,5 +1,15 @@
 #!/bin/sh
 
-curl -F 'file=@'$1'' https://0x0.st
+if [ "$1" = "" ]; then
+	echo "no file passed"
+	exit 1
+fi
+
+for file in "$@"; do
+	if [ "$file" = "" ]; then
+		continue
+	fi
+	curl -F "file=@$file" https://0x0.st
+done
 
 # vim: ft=sh
