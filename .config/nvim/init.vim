@@ -66,7 +66,8 @@ set termguicolors
 
 nnoremap d <Nop>
 nnoremap c <Nop>
-vnoremap <Leader>c "_c
+vnoremap c "_c
+vnoremap <Leader>c "+c
 nnoremap dd "_dd
 nnoremap <Leader>dd "+dd
 nnoremap x "_x
@@ -110,12 +111,8 @@ nnoremap <Leader><space> :nohlsearch<CR>
 " language options
 autocmd BufNewFile,BufRead *.ts set filetype=typescript
 autocmd BufNewFile,BufRead *.js set filetype=javascript
-autocmd BufNewFile,BufRead *.pwn set filetype=cpp
-autocmd BufNewFile,BufRead *.inc set filetype=cpp
+autocmd BufNewFile,BufRead *.pwn,*.inc set filetype=cpp
 autocmd BufNewFile,BufRead tsconfig.json set filetype=jsonc
-
-" Colorizer
-nnoremap <C-c> :ColorToggle<CR>
 
 " editorconfig-vim
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
@@ -178,7 +175,9 @@ let g:coc_global_extensions = [
 	\ 'coc-clangd',
 	\ 'coc-html',
 	\ 'coc-css',
-	\ 'coc-pairs'
+	\ 'coc-pairs',
+	\ 'coc-sh',
+	\ 'coc-xml'
 \ ]
 
 " Use tab for trigger completion with characters ahead and navigate.
@@ -208,8 +207,8 @@ function! s:show_documentation()
 endfunction
 
 " GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+nnoremap <silent> gd <Plug>(coc-definition)
+nnoremap <silent> gy <Plug>(coc-type-definition)
+nnoremap <silent> gi <Plug>(coc-implementation)
+nnoremap <silent> gr <Plug>(coc-references)
 
