@@ -1,0 +1,11 @@
+# sy - run pacman -Sy on system startup
+
+[Unit]
+Description=Update the pacman database
+After=network.target
+
+[Service]
+ExecStart=pacman -Sy
+
+[Install]
+WantedBy=multi-user.target
