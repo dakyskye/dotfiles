@@ -2,6 +2,8 @@
 
 My personal dot files and configs (including Vim, Fish, i3-gaps, polybar, termite and so on)
 
+![My Rice](./rice.png)
+
 ## Installation guide
 
 * git clone the repository (if you're going to use vim plugins, you might want to clone it recursively)
@@ -50,3 +52,6 @@ super + w + {h,l} | switch to the next/previous workspace number
 super + shift + *n* (n = 0-9) | move the focused container to the workspace number *n*
 super + alt + *n* (n = 0-9) | move the focused container to the workspace number *n + 10*
 super + alt + {h,j,k,l} | resize the window
+
+## License
+Licensed under the [**MIT**](https://choosealicense.com/licenses/mit/) license.
