@@ -19,6 +19,7 @@ Plug 'mattn/vim-goimports'
 Plug 'leafgarland/typescript-vim'
 Plug 'kovetskiy/sxhkd-vim'
 Plug 'dag/vim-fish'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 
 call plug#end()
 
