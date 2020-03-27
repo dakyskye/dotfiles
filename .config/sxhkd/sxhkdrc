@@ -16,11 +16,11 @@ Print
 
 # systemctl poweroff/reboot
 super + ctrl + {p,r}
-	systemctl {poweroff,reboot}
+	{shutdown now,reboot}
 
 # lock screen or log the user out
 super + ctrl + {l,o}
-	{blurlock,pkill -9 -U $USER}
+	{blurlock,pkill -15 -U $USER}
 
 # change the screen warmness
 super + ctrl + {d,n}
