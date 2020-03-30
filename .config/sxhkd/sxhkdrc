@@ -10,6 +10,10 @@ super + Return
 super + d
 	rofi -modi drun -show drun
 
+# launch window switcher
+super + Tab
+	rofi -modi window -show window
+
 # launch neofetch
 Print
 	flameshot gui
