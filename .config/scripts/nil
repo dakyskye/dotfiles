@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if [ "$1" = "" ]; then
+if [ "$#" -eq 0 ]; then
 	echo "no file passed"
 	exit 1
 fi

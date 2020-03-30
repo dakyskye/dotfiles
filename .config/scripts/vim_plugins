@@ -1,21 +1,22 @@
 #!/bin/sh
 
-BUNDLEPATH="$HOME/nvim/bundle"
+#BUNDLEPATH="$HOME/nvim/bundle"
+BUNDLEPATH="$HOME/Temp/bundle"
 
 INFO_TITLE="Pathogen plugin enabler/disabler"
 
-if [ ! "$(ls "$BUNDLEPATH" | wc -l)" -gt 0 ]; then
+if [ ! "$(find "$BUNDLEPATH"/* -type d | wc -l)" -gt 0 ]; then
 	zenity --no-wrap --info --title="$INFO_TITLE" --text="No plugin installed at $BUNDLEPATH directory"
 	exit 1
 fi
-
-zenity --no-wrap --question --title="$INFO_TITLE" --text="Which plugins to list?" --ok-label="disabled" --cancel-label="enabled"
-ANS="$?"
 
 ENABLED=""
 DISABLED=""
 
 for folder in "$BUNDLEPATH"/*; do
+	if [ "$(find "$folder" -type d | wc -l)" -eq 0 ]; then
+		continue
+	fi
 	case "$folder" in
 		*~)
 			if [ "$DISABLED" = "" ]; then
@@ -25,11 +26,12 @@ for folder in "$BUNDLEPATH"/*; do
 			fi
 			;;
 		*)
-		if [ "$ENABLED" = "" ]; then
-			ENABLED="$folder"
-		else
-			ENABLED="$ENABLED $folder"
-		fi
+			if [ "$ENABLED" = "" ]; then
+				ENABLED="$folder"
+			else
+				ENABLED="$ENABLED $folder"
+			fi
+			;;
 	esac
 done
 
@@ -55,17 +57,21 @@ for folder in $DISABLED; do
 done
 
 
-if [ "$ANS" -eq 1 ]; then # enabled
+if ! zenity --no-wrap --question --title="$INFO_TITLE" --text="Which plugins to list?" --ok-label="disabled" --cancel-label="enabled"; then # enabled
 	ANS=$(zenity --list --title="$INFO_TITLE" --column="enabled plugins" $ENABLED_BASENAME)
-	zenity --no-wrap --question --title="$INFO_TITLE" --text="Are you sure you want to disable $ANS plugin?"
-	if [ "$?" -eq 0 ]; then
+	if [ "$ANS" = "" ]; then # nothing was selected
+		exit 0
+	fi
+	if zenity --no-wrap --question --title="$INFO_TITLE" --text="Are you sure you want to disable $ANS plugin?"; then
 		zenity --no-wrap --info --title="$INFO_TITLE" --text="Successfully disabled $ANS plugin"
 		mv "$BUNDLEPATH/$ANS" "$BUNDLEPATH/$ANS~"
 	fi
 else # disabled
 	ANS=$(zenity --list --title="$INFO_TITLE" --column="disabled plugins" $DISABLED_BASENAME)
-	zenity --no-wrap --question --title="$INFO_TITLE" --text="Are you sure you want to enable $ANS plugin?"
-	if [ "$?" -eq 0 ]; then
+	if [ "$ANS" = "" ]; then # nothing was selected
+		exit 0
+	fi
+	if zenity --no-wrap --question --title="$INFO_TITLE" --text="Are you sure you want to enable $ANS plugin?"; then
 		zenity --no-wrap --info --title="$INFO_TITLE" --text="Successfully enabled $ANS plugin"
 	mv "$BUNDLEPATH/$ANS" "$BUNDLEPATH/${ANS%%?}"
 	fi
