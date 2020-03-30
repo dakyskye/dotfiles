@@ -6,7 +6,7 @@ NOTIFY_COPY="a screenshot has been taken and copied to your clipboard"
 NOTIFY_SAVE="a screenshot has been taken and saved locally at $SS_PATH"
 NOTIFY_UPLOAD="a link of captured screenshot has been copied to your clipboard"
 
-CHOICE=$(printf "1) fullscreen and copy\n2) select a window and copy\n3) fullscreen and save\n4) select a window and save\n5) fullscreen and upload to 0x0\n6) select a window and upload to 0x0" | rofi -dmenu)
+CHOICE=$(printf "1) fullscreen and copy\n2) select a window and copy\n3) fullscreen and save\n4) select a window and save\n5) fullscreen and upload to 0x0\n6) select a window and upload to 0x0" | rofi -dmenu -p "make the choice")
 
 sleep 1
 
