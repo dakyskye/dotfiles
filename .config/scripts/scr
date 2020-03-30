@@ -8,7 +8,7 @@ NOTIFY_UPLOAD="a link of captured screenshot has been copied to your clipboard"
 
 CHOICE=$(printf "1) fullscreen and copy\n2) select a window and copy\n3) fullscreen and save\n4) select a window and save\n5) fullscreen and upload to 0x0\n6) select a window and upload to 0x0" | rofi -dmenu -p "make the choice")
 
-sleep 1
+sleep 0.3
 
 case "$CHOICE" in
 	"1)"*)
