@@ -1,0 +1,34 @@
+#!/bin/sh
+
+SS_PATH="$HOME/Images/screenshots"
+SS_FORMAT="$SS_PATH/screenshot_$(date '+%d.%m.%Y_%H.%M.%S').png"
+NOTIFY_COPY="a screenshot has been taken and copied to your clipboard"
+NOTIFY_SAVE="a screenshot has been taken and saved locally at $SS_PATH"
+NOTIFY_UPLOAD="a link of captured screenshot has been copied to your clipboard"
+
+CHOICE=$(printf "1) fullscreen and copy\n2) select a window and copy\n3) fullscreen and save\n4) select a window and save\n5) fullscreen and upload to 0x0\n6) select a window and upload to 0x0" | rofi -dmenu)
+
+sleep 1
+
+case "$CHOICE" in
+	"1)"*)
+		maim | xclip -selection clipboard -t image/png; notify-send "$NOTIFY_COPY"
+		;;
+	"2)"*)
+		maim -so | xclip -selection clipboard -t image/png; notify-send "$NOTIFY_COPY"
+		;;
+	"3)"*)
+		maim "$SS_FORMAT"; notify-send "$NOTIFY_SAVE"
+		;;
+	"4)"*)
+		maim -so "$SS_FORMAT"; notify-send "$NOTIFY_SAVE"
+		;;
+	"5)"*)
+		maim | curl -s -F 'file=@-' 'https://0x0.st' | xclip -selection clipboard; notify-send "$NOTIFY_UPLOAD"
+		;;
+	"6)"*)
+		maim -so | curl -s -F 'file=@-' 'https://0x0.st' | xclip -selection clipboard; notify-send "$NOTIFY_UPLOAD"
+		;;
+esac
+
+# vim: ft=sh

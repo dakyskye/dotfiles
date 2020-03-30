@@ -14,9 +14,12 @@ super + d
 super + Tab
 	rofi -modi window -show window
 
-# launch neofetch
+# capture a window and copy to the clipboard
 Print
-	flameshot gui
+	maim -so | xclip -selection clipboard -t image/png
+
+# launch scr script
+	scr
 
 # systemctl poweroff/reboot
 super + ctrl + {p,r}
