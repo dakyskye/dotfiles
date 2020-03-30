@@ -19,6 +19,7 @@ Print
 	maim -so | xclip -selection clipboard -t image/png
 
 # launch scr script
+super + Print
 	scr
 
 # systemctl poweroff/reboot
