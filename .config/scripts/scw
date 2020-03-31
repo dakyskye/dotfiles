@@ -1,0 +1,14 @@
+#!/bin/sh
+
+CHOICE=$(printf "1) night mode\n2) day mode" | rofi -dmenu -p "make the choice")
+
+case "$CHOICE" in
+	"1)"*)
+		redshift -P -O 4500
+		;;
+	"2)"*)
+		redshift -P -O 6500
+		;;
+esac
+
+# vim: ft=sh

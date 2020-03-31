@@ -22,15 +22,11 @@ Print
 super + Print
 	scr
 
-# systemctl poweroff/reboot
-super + ctrl + {p,r}
-	{shutdown now,reboot}
+# system operations / screen warmness menus
+super + ctrl + {o,w}
+	{sop,scw}
 
-# lock screen or log the user out
-super + ctrl + {l,o}
-	{blurlock,pkill -15 -U $USER}
-
-# change the screen warmness
+# change screen warmness
 super + ctrl + {d,n}
 	redshift -P -O {6500,4500}
 
