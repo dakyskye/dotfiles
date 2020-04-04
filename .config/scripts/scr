@@ -15,13 +15,13 @@ case "$CHOICE" in
 		maim | xclip -selection clipboard -t image/png; notify-send "$NOTIFY_COPY"
 		;;
 	"2)"*)
-		maim -so | xclip -selection clipboard -t image/png; notify-send "$NOTIFY_COPY"
+		maim -sou | xclip -selection clipboard -t image/png; notify-send "$NOTIFY_COPY"
 		;;
 	"3)"*)
 		maim "$SS_FORMAT"; notify-send "$NOTIFY_SAVE"
 		;;
 	"4)"*)
-		maim -so "$SS_FORMAT"; notify-send "$NOTIFY_SAVE"
+		maim -sou "$SS_FORMAT"; notify-send "$NOTIFY_SAVE"
 		;;
 	"5)"*)
 		maim | curl -s -F 'file=@-' 'https://0x0.st' | xclip -selection clipboard; notify-send "$NOTIFY_UPLOAD"

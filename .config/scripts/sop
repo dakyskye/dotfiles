@@ -10,7 +10,7 @@ case "$CHOICE" in
 		reboot
 		;;
 	"3)"*)
-		blurlock
+		sleep 0.3; blurlock
 		;;
 	"4)"*)
 		pkill -15 -U $USER
