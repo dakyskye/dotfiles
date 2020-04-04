@@ -12,6 +12,7 @@ set -gx GOPATH $HOME/go
 set -gx CARGOPATH $HOME/.cargo
 set -gx RUBYGEMPATH $HOME/.gem/ruby/*
 set -gx DOTNETTOOLPATH $HOME/.dotnet/tools
+set -gx COMPOSERPATH $HOME/.config/composer/vendor
 
-set -gx PATH $PATH $GOPATH/bin $CARGOPATH/bin $HOME/.yarn/bin $RUBYGEMPATH/bin $DOTNETTOOLPATH $CONFIG/scripts/ $TOOLS/bin
+set -gx PATH $PATH $GOPATH/bin $CARGOPATH/bin $HOME/.yarn/bin $RUBYGEMPATH/bin $DOTNETTOOLPATH $CONFIG/scripts/ $COMPOSERPATH/bin $TOOLS/bin
 
