@@ -13,7 +13,7 @@ case "$CHOICE" in
 		sleep 0.3; blurlock
 		;;
 	"4)"*)
-		pkill -15 -U $USER
+		pkill -9 -U $USER
 		;;
 esac
 
