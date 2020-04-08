@@ -6,29 +6,67 @@ NOTIFY_COPY="the screenshot has been taken and copied to your clipboard"
 NOTIFY_SAVE="the screenshot has been taken and saved locally at $SS_PATH"
 NOTIFY_UPLOAD="the link of captured screenshot has been copied to your clipboard"
 
-CHOICE=$(printf "1) fullscreen and copy\n2) select a window and copy\n3) fullscreen and save\n4) select a window and save\n5) fullscreen and upload to 0x0\n6) select a window and upload to 0x0" | rofi -dmenu -p "make the choice")
+FC="fc"
+WC="wc"
+FS="fs"
+WS="ws"
+FU="fu"
+WU="wu"
 
-sleep 0.3
+screenshot() {
+	if [ -z "$1" ]; then
+		return 1;
+	fi
 
-case "$CHOICE" in
-	"1)"*)
-		maim | xclip -selection clipboard -t image/png; notify-send "$NOTIFY_COPY"
-		;;
-	"2)"*)
-		maim -sou | xclip -selection clipboard -t image/png; notify-send "$NOTIFY_COPY"
-		;;
-	"3)"*)
-		maim "$SS_FORMAT"; notify-send "$NOTIFY_SAVE"
-		;;
-	"4)"*)
-		maim -sou "$SS_FORMAT"; notify-send "$NOTIFY_SAVE"
-		;;
-	"5)"*)
-		maim | curl -s -F 'file=@-' 'https://0x0.st' | xclip -selection clipboard; notify-send "$NOTIFY_UPLOAD"
-		;;
-	"6)"*)
-		maim -so | curl -s -F 'file=@-' 'https://0x0.st' | xclip -selection clipboard; notify-send "$NOTIFY_UPLOAD"
-		;;
-esac
+	case "$1" in
+		"$FC")
+			maim | xclip -selection clipboard -t image/png && notify-send "$NOTIFY_COPY"
+			;;
+		"$WC")
+			maim -sou | xclip -selection clipboard -t image/png && notify-send "$NOTIFY_COPY"
+			;;
+		"$FS")
+			maim "$SS_FORMAT" && notify-send "$NOTIFY_SAVE"
+			;;
+		"$WS")
+			maim -sou "$SS_FORMAT" && notify-send "$NOTIFY_SAVE"
+			;;
+		"$FU")
+			maim | curl -s -F 'file=@-' 'https://0x0.st' | xclip -selection clipboard && notify-send "$NOTIFY_UPLOAD"
+			;;
+		"$WU")
+			maim -so | curl -s -F 'file=@-' 'https://0x0.st' | xclip -selection clipboard && notify-send "$NOTIFY_UPLOAD"
+			;;
+	esac
+}
+
+if [ -n "$1" ]; then
+	screenshot "$1"
+else
+	CHOICE=$(printf "1) fullscreen and copy\n2) select a window and copy\n3) fullscreen and save\n4) select a window and save\n5) fullscreen and upload to 0x0\n6) select a window and upload to 0x0" | rofi -dmenu -p "make the choice")
+
+	sleep 0.3
+
+	case "$CHOICE" in
+		"1)"*)
+			screenshot "$FC"
+			;;
+		"2)"*)
+			screenshot "$WC"
+			;;
+		"3)"*)
+			screenshot "$FS"
+			;;
+		"4)"*)
+			screenshot "$WS"
+			;;
+		"5)"*)
+			screenshot "$FU"
+			;;
+		"6)"*)
+			screenshot "$WU"
+			;;
+	esac
+fi
 
 # vim: ft=sh
