@@ -7,3 +7,8 @@ alias lgh="exa -algh --color always --group-directories-first"
 alias lt="exa -aT --color always --group-directories-first"
 
 alias rm="rm -i"
+alias cp="cp -i"
+alias df="df -h"
+alias du="du -h"
+alias free="free -m"
+alias tb="nc termbin.com 9999"
