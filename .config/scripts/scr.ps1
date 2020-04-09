@@ -3,7 +3,7 @@
 $SS_Path = "$env:HOME/Images/screenshots"
 $SS_Format = "$SS_Path/screenshot_$(date '+%d.%m.%Y_%H.%M.%S').png"
 $NOTIFY_Copy = "the screenshot has been taken and copied to your clipboard"
-$NOTIFY_Save = "the screenshot has been taken and saved locally at $SS_PATH"
+$NOTIFY_Save = "the screenshot has been taken and saved locally at $SS_Path"
 $NOTIFY_Upload = "the link of captured screenshot has been copied to your clipboard"
 
 $FC = "fc"
@@ -19,12 +19,12 @@ function Screenshot ($type) {
 	}
 
 	Switch ($type) {
-		$FC { maim | xclip -selection clipboard -t image/png && notify-send "$NOTIFY_COPY" }
-		$WC { maim -sou | xclip -selection clipboard -t image/png && notify-send "$NOTIFY_COPY" }
-		$FS { maim "$SS_FORMAT" && notify-send "$NOTIFY_SAVE" }
-		$WS { maim -sou "$SS_FORMAT" && notify-send "$NOTIFY_SAVE" }
-		$FU { maim | curl -s -F 'file=@-' 'https://0x0.st' | xclip -selection clipboard && notify-send "$NOTIFY_UPLOAD" }
-		$WU { maim -so | curl -s -F 'file=@-' 'https://0x0.st' | xclip -selection clipboard && notify-send "$NOTIFY_UPLOAD" }
+		$FC { maim | xclip -selection clipboard -t image/png && notify-send "$NOTIFY_Copy" }
+		$WC { maim -sou | xclip -selection clipboard -t image/png && notify-send "$NOTIFY_Copy" }
+		$FS { maim "$SS_Format" && notify-send "$NOTIFY_Save" }
+		$WS { maim -sou "$SS_Format" && notify-send "$NOTIFY_Save" }
+		$FU { maim | curl -s -F 'file=@-' 'https://0x0.st' | xclip -selection clipboard && notify-send "$NOTIFY_Upload" }
+		$WU { maim -so | curl -s -F 'file=@-' 'https://0x0.st' | xclip -selection clipboard && notify-send "$NOTIFY_Upload" }
 	}
 }
 
