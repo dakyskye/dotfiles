@@ -3,7 +3,9 @@ export TERM="termite"
 export EDITOR="nvim"
 
 export FZF_DEFAULT_COMMAND="ag --hidden --ignore .git -g ''"
-export DOTNET_CLI_TELEMERY_OUTPUT="1"
+
+export DOTNET_CLI_TELEMERY_OUTPUT=1
+export POWERSHELL_TELEMETRY_OPTOUT=1
 
 export WORK="$HOME/My-Workflow"
 export CONFIG="$HOME/.config"
