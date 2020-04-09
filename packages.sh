@@ -9,7 +9,7 @@ FOREIGNS_COUNT_WRITTEN=$(< .packages_aur wc -l)
 NATIVES_DIFF=$((NATIVES_COUNT-NATIVES_COUNT_WRITTEN))
 FOREIGNS_DIFF=$((FOREIGNS_COUNT-FOREIGNS_COUNT_WRITTEN))
 
-echo "[DATABASES] - [NATVIE]"
+echo "[DATABASES] - [NATIVE]"
 if [ "$NATIVES_DIFF" -eq 0 ]; then
 	echo "perhaps there is no installed/removed package"
 elif [ "$NATIVES_DIFF" -gt 0 ]; then

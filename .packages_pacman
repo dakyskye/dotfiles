@@ -63,6 +63,7 @@ texlive-fontsextra
 the_silver_searcher
 tor
 unzip
+virtualbox-guest-utils
 wine-gecko
 wine-mono
 xf86-video-nouveau
