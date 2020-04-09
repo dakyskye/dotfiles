@@ -39,9 +39,7 @@ client.urgent            $cl-urgent-border    $cl-urgent-border        $cl-text 
 client.background        $cl-background
 
 # open apps in specific workspace
-assign [class="qutebrowser"] "1"
 assign [class="firefox"] "1"
-assign [class="Brave-browser"] "1"
 assign [class="discord"] "2"
 assign [class="TelegramDesktop"] "3"
 for_window [class="Spotify"] move to workspace number 4
@@ -49,6 +47,7 @@ assign [class="Gimp"] "5"
 assign [class="Pinta"] "5"
 assign [class="krita"] "5"
 assign [class="obs"] "6"
+assign [class="VSCodium"] "8"
 assign [class="VirtualBox Manager"] "9"
 for_window [class="VirtualBox Machine"] move to workspace number 10
 
