@@ -48,9 +48,9 @@ p7zip
 patch
 pavucontrol-qt
 peek
-pepper-flash
 picom
 pkgconf
+qbittorrent
 ranger
 redshift
 rofimoji
@@ -62,7 +62,6 @@ termite
 texlive-fontsextra
 the_silver_searcher
 tor
-ttf-font-awesome
 unzip
 wine-gecko
 wine-mono
