@@ -10,7 +10,7 @@ NATIVES_DIFF=$((NATIVES_COUNT-NATIVES_COUNT_WRITTEN))
 FOREIGNS_DIFF=$((FOREIGNS_COUNT-FOREIGNS_COUNT_WRITTEN))
 
 write_packages() {
-	if [ -n "$1" ]; then
+	if [ -z "$1" ]; then
 		return 1;
 	fi
 

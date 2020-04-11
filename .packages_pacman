@@ -83,6 +83,7 @@ nodejs
 noto-fonts
 noto-fonts-emoji
 noto-fonts-extra
+numlockx
 obs-studio
 openssh
 openvpn
@@ -91,7 +92,6 @@ otf-fira-code
 otf-fira-mono
 otf-font-awesome
 p7zip
-pacman
 patch
 pavucontrol-qt
 peek
@@ -134,6 +134,7 @@ ttf-font-awesome
 ttf-ibm-plex
 ttf-liberation
 ttf-ubuntu-font-family
+unclutter
 unzip
 usbmuxd
 vim
@@ -179,6 +180,7 @@ xorg-xdriinfo
 xorg-xev
 xorg-xgamma
 xorg-xhost
+xorg-xinit
 xorg-xinput
 xorg-xkbcomp
 xorg-xkbevd
