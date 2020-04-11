@@ -1,0 +1,112 @@
+[global]
+
+# the font to use
+font = UbuntuMono Nerd Font 11
+
+# allow a small subset of html markup
+markup = yes
+plain_text = no
+
+# the format of the message
+format = "<b>%a:</b>\n<i>%s</i>\n%b"
+
+# sort messages by urgency
+sort = no
+
+# show how many messages are currently hidden (because of geometry)
+indicate_hidden = yes
+
+# alignment of message text
+alignment = center
+
+# don't bounce the notification
+bounce_freq = 0
+
+# don't show the age of notification
+show_age_threshold = -1
+
+# split notifications into multiple lines if they don't fit into geometry
+word_wrap = yes
+
+# ignore newlines '\n' in notifications.
+ignore_newline = no
+
+# hide duplicate's count and stack them
+stack_duplicates = yes
+hide_duplicates_count = yes
+
+# the geometry of the window
+geometry = "366x126-6-6"
+
+# shrink window if it's smaller than the width
+shrink = no
+
+# the transparency of the window
+transparency = 0
+
+# don't remove messages, if the user is idling
+idle_threshold = 5
+
+# display notification on focused monitor
+follow = mouse
+
+# should a notification popped up from history be sticky or timeout
+sticky_history = yes
+
+# maximum amount of notifications kept in history
+history_length = 15
+
+# display indicators for URLs (U) and actions (A)
+show_indicators = no
+
+# the height of a single line
+line_height = 3
+
+# raw a line of "separatpr_height" pixel height between two notifications
+separator_height = 3
+
+# padding between text and separator
+padding = 3
+
+# horizontal padding.
+horizontal_padding = 3
+
+# define a color for the separator
+separator_color = frame
+
+# print a notification on startup.
+startup_notification = false
+
+# window frame width
+frame_width = 2
+
+[shortcuts]
+# close notification
+close = ctrl+space
+
+# close all notifications
+close_all = ctrl+shift+space
+
+# context menu
+context = ctrl+grave
+
+# notification customisation by it's urgency
+[urgency_low]
+frame_color = "#7197E7"
+foreground = "#7197E7"
+background = "#292D3E"
+timeout = 8
+
+[urgency_normal]
+frame_color = "#7197E7"
+foreground = "#F9F9F9"
+background = "#292D3E"
+timeout = 8
+
+[urgency_critical]
+frame_color = "#A77AC4"
+foreground = "#E14C4F"
+background = "#292D3E"
+timeout = 0
+
+# vim:ft=cfg
