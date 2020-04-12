@@ -24,12 +24,12 @@ hide_edge_borders none
 
 # i3 colours
 set $cl-border           #A77AC4
-set $cl-text             #fefefe
+set $cl-text             #FEFEFE
 set $cl-inactive-border  #7197E7
-set $cl-inactive-text    #cfcfcf
-set $cl-urgent-border    #ff008f
+set $cl-inactive-text    #CFCFCF
+set $cl-urgent-border    #FF008F
 set $cl-indicator        #A77AC4
-set $cl-background       #292d3e
+set $cl-background       #292D3E
 
 # colorclass             # border             # background             # text             # indicator
 client.focused           $cl-border           $cl-border               $cl-text           $cl-indicator
@@ -53,18 +53,28 @@ for_window [class="VirtualBox Machine"] move to workspace number 10
 
 # per window application config
 for_window [class="Termite"] floating enable, resize set 650 430, move position center
+for_window [title="Steam - News"] floating enable, resize set 800 660, move position center
 
-# autostart apps
-exec --no-startup-id picom -cC
-exec --no-startup-id firefox
-exec --no-startup-id discord
-exec --no-startup-id telegram-desktop
-
-# set background
-exec --no-startup-id go run $HOME/.config/scripts/wallpapers.go
+# sxhkd
+exec_always --no-startup-id "pkill sxhkd; sxhkd & sxhkd -c $HOME/.config/sxhkd/i3 &"
 
 # polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
-# sxhkd
-exec_always --no-startup-id "pkill sxhkd; sxhkd & sxhkd -c $HOME/.config/sxhkd/i3 &"
+# launch compositor
+exec --no-startup-id picom -cC
+
+# launch unclutter
+exec --no-startup-id unclutter
+
+# turn on numlock
+exec --no-startup-id numlockx on
+
+# set background
+#exec --no-startup-id go run $HOME/.config/scripts/wallpapers.go
+exec_always --no-startup-id feh --bg-scale $HOME/Images/wallpapers/gwzFCXG-arch-linux-wallpaper.png
+
+# launch some apps
+exec --no-startup-id firefox
+exec --no-startup-id discord
+exec --no-startup-id telegram-desktop
