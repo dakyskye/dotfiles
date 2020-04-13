@@ -20,6 +20,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'kovetskiy/sxhkd-vim'
 Plug 'dag/vim-fish'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
 call plug#end()
 
@@ -28,42 +29,34 @@ syntax on
 set noswapfile
 set nobackup
 set nowritebackup
-
+set confirm
+set autoread
 set exrc
 set secure
-
 set encoding=utf-8
-
 set clipboard=unnamedplus
 set mouse=a
 set cursorline
-
 set splitbelow splitright
-
 set autoindent
 set tabstop=4
 set shiftwidth=4
 set ignorecase
 set smartcase
-
 set incsearch
 set hlsearch
-
 set hidden
-
 set cmdheight=1
 set updatetime=300
 set shortmess+=c
 set signcolumn=yes
-
 set noshowmode
-
 set nu
+set t_Co=256
+set termguicolors
 
 colorscheme dracula
 
-set t_Co=256
-set termguicolors
 
 nnoremap d <Nop>
 nnoremap c <Nop>
@@ -109,11 +102,6 @@ map <A-h> :bprevious  <CR>
 " clear the highlights after search
 nnoremap <Leader><space> :nohlsearch<CR>
 
-" language options
-autocmd BufNewFile,BufRead *.ts set filetype=typescript
-autocmd BufNewFile,BufRead *.js set filetype=javascript
-autocmd BufNewFile,BufRead *.pwn,*.inc set filetype=cpp
-autocmd BufNewFile,BufRead tsconfig.json set filetype=jsonc
 
 " editorconfig-vim
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
@@ -163,21 +151,23 @@ let g:tagbar_type_go = {
 " coc configuration
 " coc packages
 let g:coc_global_extensions = [
-	\ 'coc-json',
+	\ 'coc-go',
 	\ 'coc-tsserver',
-	\ 'coc-yaml',
 	\ 'coc-python',
-	\ 'coc-snippets',
-	\ 'coc-highlight',
-	\ 'coc-eslint',
-	\ 'coc-git',
-	\ 'coc-markdownlint',
-	\ 'coc-omnisharp',
+	\ 'coc-rust-analyzer',
 	\ 'coc-clangd',
+	\ 'coc-omnisharp',
+	\ 'coc-powershell',
+	\ 'coc-json',
+	\ 'coc-yaml',
+	\ 'coc-markdownlint',
 	\ 'coc-html',
 	\ 'coc-css',
-	\ 'coc-pairs',
-	\ 'coc-xml'
+	\ 'coc-xml',
+	\ 'coc-git',
+	\ 'coc-snippets',
+	\ 'coc-highlight',
+	\ 'coc-pairs'
 \ ]
 
 " Use tab for trigger completion with characters ahead and navigate.
@@ -207,8 +197,17 @@ function! s:show_documentation()
 endfunction
 
 " GoTo code navigation.
-nnoremap <silent> gd <Plug>(coc-definition)
-nnoremap <silent> gy <Plug>(coc-type-definition)
-nnoremap <silent> gi <Plug>(coc-implementation)
-nnoremap <silent> gr <Plug>(coc-references)
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+" Show all diagnostics.
+nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
