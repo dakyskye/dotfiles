@@ -16,11 +16,10 @@ Plug 'junegunn/fzf.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'dracula/vim'
 Plug 'mattn/vim-goimports'
-Plug 'leafgarland/typescript-vim'
 Plug 'kovetskiy/sxhkd-vim'
-Plug 'dag/vim-fish'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 
@@ -155,9 +154,7 @@ let g:coc_global_extensions = [
 	\ 'coc-tsserver',
 	\ 'coc-python',
 	\ 'coc-rust-analyzer',
-	\ 'coc-clangd',
 	\ 'coc-omnisharp',
-	\ 'coc-powershell',
 	\ 'coc-json',
 	\ 'coc-yaml',
 	\ 'coc-markdownlint',
