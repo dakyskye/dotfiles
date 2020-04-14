@@ -7,7 +7,6 @@ bat
 bdf-unifont
 binutils
 bison
-bspwm
 clang
 composer
 cowsay
@@ -99,9 +98,11 @@ pepper-flash
 php
 picom
 pkgconf
-playonlinux
 portaudio
 pulseaudio
+pulseaudio-alsa
+pulseeffects
+pulsemixer
 python-pip
 qbittorrent
 ranger
@@ -113,6 +114,7 @@ rubygems
 sed
 shellcheck
 smartmontools
+steam
 sudo
 sxhkd
 sxiv
@@ -148,6 +150,7 @@ which
 wine-gecko
 wine-mono
 wine-staging
+wmctrl
 xclip
 xf86-video-nouveau
 xf86-video-vesa
