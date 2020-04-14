@@ -19,8 +19,8 @@ super + {shift,ctrl} + s
 	i3-msg -t command {move scratchpad,scratchpad show}
 
 # change the focused window border
-super + shift + {n,d,y}
-	i3-msg -t command border {none,normal,pixel 2}
+super + shift + {n,y}
+	i3-msg -t command border {none,pixel 2}
 
 # make the focused window tiling/floating/fullscreen/sticky floating
 super + {shift + space,f,o}
@@ -29,14 +29,6 @@ super + {shift + space,f,o}
 # focus a tiling/floating window
 super + space
 	i3-msg -t command focus mode_toggle
-
-# focuse the parent container
-super + a
-	i3-msg -t command focus parent
-
-# toggle the vertical/horizontal split
-super + e
-	i3-msg -t command layout toggle split
 
 # switch to the workspace number
 super + {1,2,3,4,5,6,7,8,9,0}
