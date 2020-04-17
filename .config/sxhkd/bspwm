@@ -1,0 +1,40 @@
+# restart bspwm
+super + shift + r
+	bspc wm -r
+
+# kill/close the focused node
+super + shift + {q,c}
+	bspc node -{k,c}
+
+# focus or swap the selected window
+super + {_,shift + }{h,j,k,l}
+	bspc node -{f,s} {west,south,north,east}
+
+# toggle node floating/fullscreen
+super + {shift + space,f}
+	bspc node -t "~"{floating,fullscreen}
+
+# toggle node sticky
+super + o
+	bspc node -g sticky
+
+# toggle the focus between floating/tiled nodes
+super + space
+	[ "$(bspc query -n -T | jq -r '.client.state' )" = "floating" ] && bspc node -f any.\!floating.local || bspc node -f any.floating.local
+
+# switch to workspace 1-20 or send a node
+super +{_,shift + }{1-9,0}
+	bspc {desktop -f,node -d} ^{1-9,10}
+
+super + {ctrl,alt} + {1,2,3,4,5,6,7,8,9,0}
+	bspc {desktop -f,node -d} ^{11,12,13,14,15,16,17,18,19,10}
+
+# switch to the back and forth workspace
+super + w
+	bspc desktop -f last
+
+# resize a floating window
+super + alt + {h,j,k,l}
+	bspc node -z {right -10 0,bottom 0 -10,bottom 0 10,right 10 0}
+
+# vim:ft=sxhkd
