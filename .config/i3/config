@@ -15,7 +15,8 @@ font pango:monospace 8
 floating_modifier $mod
 
 # general i3(gaps) config
-for_window [class="^.*"] border pixel 2
+default_orientation vertical
+for_window [class="^.*"] border pixel 2, split toggle
 gaps inner 7
 gaps outer 0
 smart_gaps inverse_outer
@@ -27,7 +28,7 @@ set $cl-border           #A77AC4
 set $cl-text             #FEFEFE
 set $cl-inactive-border  #7197E7
 set $cl-inactive-text    #CFCFCF
-set $cl-urgent-border    #FF008F
+set $cl-urgent-border    #E14C4F
 set $cl-indicator        #A77AC4
 set $cl-background       #292D3E
 
@@ -44,37 +45,33 @@ assign [class="discord"] "2"
 assign [class="TelegramDesktop"] "3"
 for_window [class="Spotify"] move to workspace number 4
 assign [class="Gimp"] "5"
-assign [class="Pinta"] "5"
-assign [class="krita"] "5"
 assign [class="obs"] "6"
 assign [class="VSCodium"] "8"
 assign [class="VirtualBox Manager"] "9"
 for_window [class="VirtualBox Machine"] move to workspace number 10
 
 # per window application config
-for_window [class="Termite"] floating enable, resize set 650 430, move position center
 for_window [title="Steam - News"] floating enable, resize set 800 660, move position center
 
 # sxhkd
 exec_always --no-startup-id "pkill sxhkd; sxhkd & sxhkd -c $HOME/.config/sxhkd/i3 &"
 
 # polybar
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id "$CONFIG/polybar/launch.sh i3"
 
-# launch compositor
-exec --no-startup-id picom -cC
+# compositor
+exec_always --no-startup-id picom -cC
 
-# launch unclutter
+# unclutter
 exec --no-startup-id unclutter
 
-# turn on numlock
+# numlock
 exec --no-startup-id numlockx on
 
-# set background
-#exec --no-startup-id go run $HOME/.config/scripts/wallpapers.go
-exec_always --no-startup-id feh --bg-scale $HOME/Images/wallpapers/gwzFCXG-arch-linux-wallpaper.png
+# wallpaper
+exec --no-startup-id go run $HOME/.config/scripts/wallpapers.go
 
-# launch some apps
+# some apps
 exec --no-startup-id firefox
 exec --no-startup-id discord
 exec --no-startup-id telegram-desktop
