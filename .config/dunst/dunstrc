@@ -8,7 +8,7 @@ markup = yes
 plain_text = no
 
 # the format of the message
-format = "<b>%a:</b>\n<i>%s</i>\n%b"
+format = "<b>%a:</b>\n%s\n%b"
 
 # sort messages by urgency
 sort = no
@@ -36,7 +36,7 @@ stack_duplicates = yes
 hide_duplicates_count = yes
 
 # the geometry of the window
-geometry = "366x126-6-6"
+geometry = "414x174-7-7"
 
 # shrink window if it's smaller than the width
 shrink = no

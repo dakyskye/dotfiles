@@ -7,6 +7,7 @@ bat
 bdf-unifont
 binutils
 bison
+bspwm
 clang
 composer
 cowsay
@@ -28,6 +29,7 @@ efibootmgr
 exa
 fakeroot
 feh
+figlet
 file
 findutils
 firefox
@@ -56,6 +58,7 @@ gzip
 hddtemp
 i3-gaps
 inter-font
+jq
 ksysguard
 lib32-fontconfig
 lib32-mesa
@@ -105,12 +108,14 @@ pulseeffects
 pulsemixer
 python-pip
 qbittorrent
+qutebrowser
 ranger
 redshift
 rofi
 rofimoji
 ruby
 rubygems
+rxvt-unicode
 sed
 shellcheck
 smartmontools
