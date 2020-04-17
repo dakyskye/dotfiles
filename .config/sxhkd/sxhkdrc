@@ -14,13 +14,21 @@ super + d
 super + Tab
 	rofi -modi window -show window
 
-# capture a window and copy to the clipboard
+# open screenshot menu
 Print
-	maim -so | xclip -selection clipboard -t image/png
-
-# launch scr script
-super + Print
 	scr
+
+# select and capture a window immediately
+super + Print
+	scr wc
+
+# capture fullscreen screenshot immediately
+shift +  Print
+	scr fc
+
+# capture fullscreen screenshot immediately and save it
+ctrl + Print
+	scr fs
 
 # system operations / screen warmness menus
 super + ctrl + {o,w}
@@ -28,8 +36,11 @@ super + ctrl + {o,w}
 
 # change screen warmness
 super + ctrl + {d,n}
-	redshift -P -O {6500,4500}
+	scw {"d","n"}
 
 # change the wallpaper
 super + shift + w
 	go run $HOME/.config/scripts/wallpapers.go
+
+# toggle microphone mute
+

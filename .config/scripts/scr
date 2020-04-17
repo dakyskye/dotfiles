@@ -5,6 +5,7 @@ SS_FORMAT="$SS_PATH/screenshot_$(date '+%d.%m.%Y_%H.%M.%S').png"
 NOTIFY_COPY="the screenshot has been taken and copied to your clipboard"
 NOTIFY_SAVE="the screenshot has been taken and saved locally at $SS_PATH"
 NOTIFY_UPLOAD="the link of captured screenshot has been copied to your clipboard"
+NOTIFY_APP_NAME="scr"
 
 FC="fc"
 WC="wc"
@@ -20,22 +21,22 @@ screenshot() {
 
 	case "$1" in
 		"$FC")
-			maim | xclip -selection clipboard -t image/png && notify-send "$NOTIFY_COPY"
+			maim | xclip -selection clipboard -t image/png && notify-send -a "$NOTIFY_APP_NAME" "$NOTIFY_COPY"
 			;;
 		"$WC")
-			maim -sou | xclip -selection clipboard -t image/png && notify-send "$NOTIFY_COPY"
+			maim -sou | xclip -selection clipboard -t image/png && notify-send -a "$NOTIFY_APP_NAME" "$NOTIFY_COPY"
 			;;
 		"$FS")
-			maim "$SS_FORMAT" && notify-send "$NOTIFY_SAVE"
+			maim "$SS_FORMAT" && notify-send -a "$NOTIFY_APP_NAME" "$NOTIFY_SAVE"
 			;;
 		"$WS")
-			maim -sou "$SS_FORMAT" && notify-send "$NOTIFY_SAVE"
+			maim -sou "$SS_FORMAT" && notify-send -a "$NOTIFY_APP_NAME" "$NOTIFY_SAVE"
 			;;
 		"$FU")
-			maim | curl -s -F 'file=@-' 'https://0x0.st' | xclip -selection clipboard && notify-send "$NOTIFY_UPLOAD"
+			maim | curl -s -F 'file=@-' 'https://0x0.st' | xclip -selection clipboard && notify-send -a "$NOTIFY_APP_NAME" "$NOTIFY_UPLOAD"
 			;;
 		"$WU")
-			maim -so | curl -s -F 'file=@-' 'https://0x0.st' | xclip -selection clipboard && notify-send "$NOTIFY_UPLOAD"
+			maim -so | curl -s -F 'file=@-' 'https://0x0.st' | xclip -selection clipboard && notify-send -a "$NOTIFY_APP_NAME" "$NOTIFY_UPLOAD"
 			;;
 	esac
 }
