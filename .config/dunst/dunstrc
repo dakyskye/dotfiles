@@ -54,7 +54,7 @@ follow = mouse
 sticky_history = yes
 
 # maximum amount of notifications kept in history
-history_length = 60
+history_length = 12
 
 # display indicators for URLs (U) and actions (A)
 show_indicators = no
