@@ -3,9 +3,7 @@
 NOTIFY_APP_NAME="screen warmness"
 
 warmness() {
-	if [ -z "$1" ]; then
-		return 1;
-	fi
+	[ -z "$1" ] && return 1
 
 	case "$1" in
 		"n")

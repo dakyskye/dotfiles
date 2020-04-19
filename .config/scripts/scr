@@ -15,9 +15,7 @@ FU="fu"
 WU="wu"
 
 screenshot() {
-	if [ -z "$1" ]; then
-		return 1;
-	fi
+	[ -z "$1" ] && return 1
 
 	case "$1" in
 		"$FC")
