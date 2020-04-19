@@ -54,7 +54,7 @@ follow = mouse
 sticky_history = yes
 
 # maximum amount of notifications kept in history
-history_length = 15
+history_length = 60
 
 # display indicators for URLs (U) and actions (A)
 show_indicators = no
@@ -89,6 +89,9 @@ close_all = ctrl+shift+space
 
 # context menu
 context = ctrl+grave
+
+# show history
+history = ctrl+shift+grave
 
 # notification customisation by it's urgency
 [urgency_low]
