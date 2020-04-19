@@ -1,20 +1,53 @@
 #!/bin/sh
 
-CHOICE=$(printf "1) power off\n2) reboot\n3) lock\n4) log out" | rofi -dmenu -p "make the choice")
+operation() {
+	[ -z "$1" ] && return 1
 
-case "$CHOICE" in
-	"1)"*)
-		shutdown now
-		;;
-	"2)"*)
-		reboot
-		;;
-	"3)"*)
-		sleep 0.3; blurlock
-		;;
-	"4)"*)
-		pkill -9 -U $USER
-		;;
-esac
+	case "$1" in
+		shutdown)
+			shutdown now
+			;;
+		reboot)
+			reboot
+			;;
+		lock)
+			notify-send DUNST_COMMAND_PAUSE
+			tmpdir=$(mktemp -d)
+			original="$tmpdir/original.png"
+			blurred="$tmpdir/blurred.png"
+			sleep 0.3
+			maim -ou "$original"
+			convert "$original" -blur 0x5 "$blurred"
+			i3lock -n -e -f -i "$blurred"
+			rm -rf "$tmpdir"
+			notify-send DUNST_COMMAND_RESUME
+			notify-send "welcome back!"
+			;;
+		logout)
+			pkill -9 -U $USER
+			;;
+	esac
+}
+
+if [ -n "$1" ]; then
+	operation "$1"
+else
+	CHOICE=$(printf "1) power off\n2) reboot\n3) lock\n4) log out" | rofi -dmenu -p "make the choice")
+
+	case "$CHOICE" in
+		"1)"*)
+			operation shutdown
+			;;
+		"2)"*)
+			operation reboot
+			;;
+		"3)"*)
+			operation lock
+			;;
+		"4)"*)
+			operation logout
+			;;
+	esac
+fi
 
 # vim: ft=sh
