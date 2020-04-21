@@ -20,6 +20,7 @@ Plug 'kovetskiy/sxhkd-vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'sheerun/vim-polyglot'
+Plug 'tpope/vim-surround'
 
 call plug#end()
 
@@ -155,6 +156,7 @@ let g:coc_global_extensions = [
 	\ 'coc-python',
 	\ 'coc-rust-analyzer',
 	\ 'coc-omnisharp',
+	\ 'coc-clangd',
 	\ 'coc-json',
 	\ 'coc-yaml',
 	\ 'coc-markdownlint',
