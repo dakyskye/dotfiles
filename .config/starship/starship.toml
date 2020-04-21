@@ -1,0 +1,15 @@
+add_newline = true
+
+[character]
+symbol = "➜"
+error_symbol = "✗"
+use_symbol_for_status = true
+
+[hostname]
+ssh_only = true
+disabled = false
+
+[username]
+style_user = "bold italic purple"
+show_always = true
+disabled = false
