@@ -23,9 +23,6 @@ case "$1" in
 	i3)
 		launch_bar i3
 		;;
-	bspwm)
-		launch_bar bspwm
-		;;
 	*)
 		echo "can't launch $1 bar, it's not defined in $(dirname "$0")/launch.sh"
 		;;
