@@ -15,8 +15,7 @@ font pango:monospace 8
 floating_modifier $mod
 
 # general i3(gaps) config
-default_orientation vertical
-for_window [class="^.*"] border pixel 2, split toggle
+for_window [class="^.*"] border pixel 2
 gaps inner 7
 gaps outer 0
 smart_gaps inverse_outer
@@ -43,15 +42,16 @@ client.background        $cl-background
 assign [class="firefox"] "1"
 assign [class="discord"] "2"
 assign [class="TelegramDesktop"] "3"
-for_window [class="Spotify"] move to workspace number 4
+assign [class="Spotify"] "4"
 assign [class="Gimp"] "5"
 assign [class="obs"] "6"
 assign [class="VSCodium"] "8"
 assign [class="VirtualBox Manager"] "9"
-for_window [class="VirtualBox Machine"] move to workspace number 10
 
 # per window application config
+for_window [class="VirtualBox Machine"] move to workspace number 10
 for_window [title="Steam - News"] floating enable, resize set 800 660, move position center
+for_window [class="Peek"] floating enable, resize set 800 600, move position center
 
 # sxhkd
 exec_always --no-startup-id "pkill sxhkd; sxhkd & sxhkd -c $HOME/.config/sxhkd/i3 &"
@@ -75,3 +75,4 @@ exec --no-startup-id go run $HOME/.config/scripts/wallpapers.go
 exec --no-startup-id firefox
 exec --no-startup-id discord
 exec --no-startup-id telegram-desktop
+exec --no-startup-id spotify
