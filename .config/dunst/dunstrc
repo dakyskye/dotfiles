@@ -36,7 +36,10 @@ stack_duplicates = yes
 hide_duplicates_count = yes
 
 # the geometry of the window
-geometry = "414x174-7-7"
+# i3
+geometry = "414x174-6-6"
+# bspwm
+#geometry = "414x174-7-7"
 
 # shrink window if it's smaller than the width
 shrink = no
