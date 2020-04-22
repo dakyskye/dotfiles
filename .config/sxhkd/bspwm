@@ -10,13 +10,17 @@ super + shift + {q,c}
 super + {_,shift + }{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
 
-# toggle node floating/fullscreen
-super + {shift + space,f}
-	bspc node -t "~"{floating,fullscreen}
+# toggle node floating/fullscreen/pseudo_tiled
+super + {shift + space,f,p}
+	bspc node -t "~"{floating,fullscreen,pseudo_tiled}
 
 # toggle node sticky
 super + o
 	bspc node -g sticky
+
+# switch between tiled and monocle layout
+super + m
+	bspc desktop  -l next
 
 # toggle the focus between floating/tiled nodes
 super + space
@@ -24,10 +28,10 @@ super + space
 
 # switch to workspace 1-20 or send a node
 super +{_,shift + }{1-9,0}
-	bspc {desktop -f,node -d} ^{1-9,10}
+	bspc {desktop -f,node -d} ^{1-9,10}.local
 
 super + {ctrl,alt} + {1,2,3,4,5,6,7,8,9,0}
-	bspc {desktop -f,node -d} ^{11,12,13,14,15,16,17,18,19,20}
+	bspc {desktop -f,node -d} ^{11,12,13,14,15,16,17,18,19,20}.local
 
 # switch to the back and forth workspace
 super + w

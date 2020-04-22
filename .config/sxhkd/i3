@@ -6,23 +6,15 @@ super + shift + {c,r}
 super + shift + q
 	i3-msg -t command kill
 
-# focus the window on the left/down/up/right
-super + {h,j,k,l}
-	i3-msg -t command focus {left,down,up,right}
-
-# move the focused window to left/down/up/right
-super + shift + {h,j,k,l}
-	i3-msg -t command move {left,down,up,right}
+# focus or swap the selected window
+super + {_,shift + }{h,j,k,l}
+	i3-msg -t command {focus,move} {left,down,up,right}
 
 # move the focused window to the scratchpad
 super + {shift,ctrl} + s
 	i3-msg -t command {move scratchpad,scratchpad show}
 
-# change the focused window border
-super + shift + {n,y}
-	i3-msg -t command border {none,pixel 2}
-
-# make the focused window tiling/floating/fullscreen/sticky floating
+# toggle window floating/fullscreen/sticky
 super + {shift + space,f,o}
 	i3-msg -t command {floating toggle,fullscreen toggle,sticky toggle}
 
@@ -31,24 +23,17 @@ super + space
 	i3-msg -t command focus mode_toggle
 
 # switch to the workspace number
-super + {1,2,3,4,5,6,7,8,9,0}
-	i3-msg -t command workspace number {"1","2","3","4","5","6","7","8","9","10"}
+super + {_,shift + }{1-9,0}
+	i3-msg -t command {_,move container to} workspace number {1-9,10}
 
-super + ctrl + {1,2,3,4,5,6,7,8,9,0}
-	i3-msg -t command workspace number {"11","12","13","14","15","16","17","18","19","20"}
+super + {ctrl,alt} + {1,2,3,4,5,6,7,8,9,0}
+	i3-msg -t command {_,move container to} workspace number {11,12,13,14,15,16,17,18,19,20}
 
 # switch to the back and forth workspace
 super + w
 	i3-msg -t command workspace back_and_forth
 
-# move the focused container to the workspace number
-super + shift + {1,2,3,4,5,6,7,8,9,0}
-	i3-msg -t command move container to workspace number {"1","2","3","4","5","6","7","8","9","10"}
-
-super + alt + {1,2,3,4,5,6,7,8,9,0}
-	i3-msg -t command move container to workspace number {"11","12","13","14","15","16","17","18","19","20"}
-
-# resize the window
+# resize a window
 super + alt + {h,j,k,l}
 	i3-msg -t command resize {shrink width,grow height,shrink height,grow width} 10 px or 10 ppt
 
