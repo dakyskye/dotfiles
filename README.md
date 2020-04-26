@@ -23,4 +23,5 @@ My personal dot files and configs (including Vim, Fish, i3-gaps, polybar, termit
 Check [legacy](https://github.com/dakyskye/dotfiles/tree/legacy) branch out, you might find some config, which I no more use nowadays, useful!
 
 ## License
+
 Licensed under the [**MIT**](https://choosealicense.com/licenses/mit/) license.

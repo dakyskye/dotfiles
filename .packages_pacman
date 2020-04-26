@@ -8,7 +8,6 @@ bat
 bdf-unifont
 binutils
 bison
-bspwm
 clang
 cmatrix
 composer
@@ -62,7 +61,6 @@ i3-gaps
 i3lock
 inter-font
 jq
-ksysguard
 lib32-fontconfig
 lib32-mesa
 libhandy
@@ -145,6 +143,7 @@ ttf-ibm-plex
 ttf-liberation
 ttf-ubuntu-font-family
 unclutter
+unrar
 unzip
 usbmuxd
 vim
