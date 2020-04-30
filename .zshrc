@@ -1,3 +1,6 @@
+# source $HOME/.profile, just in case
+. $HOME/.profile
+
 # start starship prompt
 eval "$(starship init zsh)"
 
