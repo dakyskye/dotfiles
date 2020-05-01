@@ -1,9 +1,6 @@
 # source $HOME/.profile, just in case
 . $HOME/.profile
 
-# start starship prompt
-eval "$(starship init zsh)"
-
 # history file settings
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=100000
@@ -11,6 +8,8 @@ SAVEHIST=100000
 
 # oh my zsh
 export ZSH="$CONFIG/oh-my-zsh"
+
+export ZSH_THEME="spaceship"
 
 # suggest auto correction for commands
 ENABLE_CORRECTION="true"

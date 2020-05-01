@@ -1,7 +1,7 @@
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
 	silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
 		\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	autocmd VimEnter * PlugInstall --sync | source '~/.config/nvim/init.vim'
+	:qa!
 endif
 
 call plug#begin('~/.config/nvim/bundle')
@@ -15,7 +15,6 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'dracula/vim'
-Plug 'mattn/vim-goimports'
 Plug 'kovetskiy/sxhkd-vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
@@ -102,6 +101,9 @@ map <A-h> :bprevious  <CR>
 " clear the highlights after search
 nnoremap <Leader><space> :nohlsearch<CR>
 
+" organise imports and format go code on save
+autocmd BufWritePre *.go :call CocAction('format')
+autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
 
 " editorconfig-vim
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
