@@ -19,8 +19,8 @@ smart_borders no_gaps
 hide_edge_borders none
 
 # i3 colours
-set $cl-border           #2E3440
-set $cl-text             #FEFEFE
+set $cl-border           #282A36
+set $cl-text             #F8F8F2
 set $cl-inactive-border  #4C566A
 set $cl-inactive-text    #CFCFCF
 set $cl-urgent-border    #E14C4F
