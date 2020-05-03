@@ -1,5 +1,5 @@
 # set some environment variables
-export TERM="termite"
+export TERM="xterm-256color"
 export EDITOR="nvim"
 
 export WORK="$HOME/My-Workflow"
