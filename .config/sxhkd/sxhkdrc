@@ -2,9 +2,9 @@
 super + Escape
 	pkill -USR1 -x sxhkd
 
-# launch termite
+# launch alacritty
 super + Return
-	termite
+	alacritty
 
 # launch rofi
 super + d
@@ -41,6 +41,3 @@ super + ctrl + {d,n}
 # change the wallpaper
 super + shift + w
 	go run $HOME/.config/scripts/wallpapers.go
-
-# toggle microphone mute
-
