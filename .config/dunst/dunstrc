@@ -36,7 +36,7 @@ stack_duplicates = yes
 hide_duplicates_count = yes
 
 # the geometry of the window
-geometry = "414x174-6-6"
+geometry = "420x174-2-2"
 
 # shrink window if it's smaller than the width
 shrink = no
@@ -78,7 +78,7 @@ separator_color = frame
 startup_notification = false
 
 # window frame width
-frame_width = 2
+frame_width = 1
 
 [shortcuts]
 # close notification
@@ -95,19 +95,19 @@ history = ctrl+shift+grave
 
 # notification customisation by it's urgency
 [urgency_low]
-frame_color = "#7197E7"
+frame_color = "#4C566A
 foreground = "#7197E7"
 background = "#292D3E"
 timeout = 8
 
 [urgency_normal]
-frame_color = "#7197E7"
+frame_color = "#4C566A"
 foreground = "#F9F9F9"
 background = "#292D3E"
 timeout = 8
 
 [urgency_critical]
-frame_color = "#A77AC4"
+frame_color = "#2E3440"
 foreground = "#E14C4F"
 background = "#292D3E"
 timeout = 0
