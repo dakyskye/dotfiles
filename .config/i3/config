@@ -7,28 +7,24 @@
 # modifier key (Mod4 = Super (Win))
 set $mod Mod4
 
-# Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below.
-font pango:monospace 8
-
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # general i3(gaps) config
 for_window [class="^.*"] border pixel 2
-gaps inner 7
+gaps inner 2
 gaps outer 0
 smart_gaps inverse_outer
 smart_borders no_gaps
 hide_edge_borders none
 
 # i3 colours
-set $cl-border           #A77AC4
+set $cl-border           #2E3440
 set $cl-text             #FEFEFE
-set $cl-inactive-border  #7197E7
+set $cl-inactive-border  #4C566A
 set $cl-inactive-text    #CFCFCF
 set $cl-urgent-border    #E14C4F
-set $cl-indicator        #A77AC4
+set $cl-indicator        #4C566A
 set $cl-background       #292D3E
 
 # colorclass             # border             # background             # text             # indicator
