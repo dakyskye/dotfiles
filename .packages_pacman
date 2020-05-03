@@ -1,3 +1,4 @@
+alacritty
 amd-ucode
 archiso
 autoconf
@@ -34,7 +35,6 @@ figlet
 file
 findutils
 firefox
-fish
 flex
 font-bh-ttf
 font-mathematica
@@ -65,14 +65,12 @@ lib32-fontconfig
 lib32-mesa
 libhandy
 libimobiledevice
-libreoffice-fresh
 libtool
 lightdm
 lightdm-gtk-greeter
 linux
 linux-firmware
 lolcat
-lvm2
 m4
 maim
 make
@@ -90,7 +88,6 @@ numlockx
 obs-studio
 openssh
 openvpn
-os-prober
 otf-fira-code
 otf-fira-mono
 otf-font-awesome
@@ -112,6 +109,7 @@ qbittorrent
 qutebrowser
 ranger
 redshift
+ripgrep
 rofi
 rofimoji
 ruby
@@ -120,7 +118,6 @@ rxvt-unicode
 sed
 shellcheck
 smartmontools
-steam
 sudo
 sxhkd
 sxiv
@@ -128,11 +125,9 @@ tamsyn-font
 telegram-desktop
 terminus-font
 terminus-font-otb
-termite
 texinfo
 texlive-fontsextra
 the_silver_searcher
-tor
 ttf-bitstream-vera
 ttf-cascadia-code
 ttf-dejavu
