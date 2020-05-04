@@ -12,7 +12,7 @@ floating_modifier $mod
 
 # general i3(gaps) config
 for_window [class="^.*"] border pixel 2
-gaps inner 2
+gaps inner 4
 gaps outer 0
 smart_gaps inverse_outer
 smart_borders no_gaps
