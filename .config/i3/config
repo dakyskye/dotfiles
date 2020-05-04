@@ -35,7 +35,7 @@ client.urgent            $cl-urgent-border    $cl-urgent-border        $cl-text 
 client.background        $cl-background
 
 # open apps in specific workspace
-assign [class="firefox"] "1"
+assign [class="Google-chrome"] "1"
 assign [class="discord"] "2"
 assign [class="TelegramDesktop"] "3"
 assign [class="Spotify"] "4"
@@ -68,7 +68,7 @@ exec --no-startup-id numlockx on
 exec --no-startup-id go run $HOME/.config/scripts/wallpapers.go
 
 # some apps
-exec --no-startup-id firefox
+exec --no-startup-id google-chrome-stable
 exec --no-startup-id discord
 exec --no-startup-id telegram-desktop
 exec --no-startup-id spotify
