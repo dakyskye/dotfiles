@@ -57,7 +57,7 @@ func (t *temperature) gpu() string {
 	}
 	pattern := regexp.MustCompile(`(?m)nouveau-pci-0600\n.*\n.*\ntemp1: +\+(?P<temp>\d+)\.`)
 	t.current = "gpu"
-	return "GT +"+pattern.FindStringSubmatch(string(out))[1]
+	return "G +" + pattern.FindStringSubmatch(string(out))[1]
 }
 
 func (t *temperature) cpu() string {
@@ -65,9 +65,9 @@ func (t *temperature) cpu() string {
 	if err != nil {
 		return err.Error()
 	}
-	pattern := regexp.MustCompile(`(?m)k10temp-pci-00c3\n.*\nTdie: +\+(?P<temp>\d+)\.`)
+	pattern := regexp.MustCompile(`k10temp-pci-00c3(\n.*)+Tdie:( +)\+(?P<temp>\d+)\.`)
 	t.current = "cpu"
-	return "CT +"+pattern.FindStringSubmatch(string(out))[1]
+	return "C +" + pattern.FindStringSubmatch(string(out))[1]
 }
 
 func (t *temperature) hdd() string {
@@ -77,7 +77,7 @@ func (t *temperature) hdd() string {
 	}
 	pattern := regexp.MustCompile(`(?m)\|SAMSUNG.*\|(?P<temp>\d+)\|`)
 	t.current = "hdd"
-	return "HT +"+pattern.FindStringSubmatch(string(out))[1]
+	return "H +" + pattern.FindStringSubmatch(string(out))[1]
 }
 
 func main() {
