@@ -50,7 +50,7 @@ set updatetime=300
 set shortmess+=c
 set signcolumn=yes
 set noshowmode
-set nu
+:set number relativenumber
 set t_Co=256
 set termguicolors
 
