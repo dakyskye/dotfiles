@@ -33,8 +33,8 @@ fakeroot
 feh
 figlet
 file
+filezilla
 findutils
-firefox
 flex
 font-bh-ttf
 font-mathematica
@@ -55,6 +55,7 @@ grep
 groff
 grub
 gsfonts
+gwenview
 gzip
 hddtemp
 i3-gaps
