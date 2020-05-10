@@ -1,6 +1,7 @@
 alacritty
 amd-ucode
 archiso
+audacity
 autoconf
 automake
 awesome-terminal-fonts
@@ -11,6 +12,7 @@ binutils
 bison
 clang
 cmatrix
+cmus
 composer
 cowsay
 ctags
@@ -81,6 +83,7 @@ mpv
 mtools
 neofetch
 neovim
+nmap
 nodejs
 noto-fonts
 noto-fonts-emoji
@@ -206,7 +209,9 @@ xorg-xvinfo
 xorg-xwd
 xorg-xwininfo
 xorg-xwud
+xterm
 yarn
+youtube-dl
 zenity
 zip
 zsh
