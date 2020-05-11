@@ -13,8 +13,9 @@ export YARNPKGPATH="$HOME/.yarn"
 export RUBYGEMPATH="$HOME/.gem/ruby"
 export DOTNETPATH="$HOME/.dotnet"
 export COMPOSERPATH="$CONFIG/composer"
+export NIMBLEPATH="$HOME/.nimble"
 
-export PATH="$PATH:$SCRIPTS/:$GOPATH/bin:$CARGOPATH/bin:$YARNPKGPATH/bin:$RUBYGEMPATH/bin:$DOTNETTOLPATH/tools:$COMPOSERPATH/vendor"
+export PATH="$PATH:$SCRIPTS/:$GOPATH/bin:$CARGOPATH/bin:$YARNPKGPATH/bin:$RUBYGEMPATH/bin:$DOTNETTOLPATH/tools:$COMPOSERPATH/vendor:$NIMBLEPATH/bin"
 
 export FZF_DEFAULT_COMMAND="ag --hidden --ignore .git -g ''"
 export STARSHIP_CONFIG="$CONFIG/starship/starship.toml"
