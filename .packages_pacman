@@ -74,6 +74,7 @@ lightdm-gtk-greeter
 linux
 linux-firmware
 lolcat
+lvm2
 m4
 maim
 make
@@ -157,6 +158,7 @@ wine-gecko
 wine-mono
 wine-staging
 wmctrl
+wpa_supplicant
 xclip
 xf86-video-nouveau
 xf86-video-vesa
