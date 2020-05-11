@@ -24,7 +24,7 @@ super + space
 
 # switch to the workspace number
 super + {_,shift + }{1-9,0}
-	i3-msg -t command {_,move container to} workspace {1-9,0}
+	i3-msg -t command {_,move container to} workspace {1-9,10}
 
 # switch to the back and forth workspace
 super + w
