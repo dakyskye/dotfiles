@@ -95,7 +95,7 @@ history = ctrl+shift+grave
 
 # notification customisation by it's urgency
 [urgency_low]
-frame_color = "#7197E7
+frame_color = "#7197E7"
 foreground = "#7197E7"
 background = "#292D3E"
 timeout = 8
