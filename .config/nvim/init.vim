@@ -16,7 +16,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'dracula/vim'
 Plug 'kovetskiy/sxhkd-vim'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-surround'
@@ -50,7 +50,7 @@ set updatetime=300
 set shortmess+=c
 set signcolumn=yes
 set noshowmode
-:set number relativenumber
+set number relativenumber
 set t_Co=256
 set termguicolors
 
@@ -58,6 +58,7 @@ colorscheme dracula
 
 
 nnoremap d <Nop>
+nnoremap D "_D
 nnoremap c <Nop>
 vnoremap c "_c
 vnoremap <Leader>c "+c
