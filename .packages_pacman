@@ -37,6 +37,7 @@ figlet
 file
 filezilla
 findutils
+firefox
 flex
 font-bh-ttf
 font-mathematica
@@ -93,6 +94,7 @@ numlockx
 obs-studio
 openssh
 openvpn
+os-prober
 otf-fira-code
 otf-fira-mono
 otf-font-awesome
