@@ -4,7 +4,7 @@ TEMP=""
 FIFO=$(mktemp)
 
 trap "exit" INT TERM HUP
-trap "kill 0; rm -f $FIFO" EXIT
+trap 'kill 0; rm -f $FIFO' EXIT
 
 gpu() {
 	TEMP="G $(sensors | grep -A 6 nouveau-pci | awk '{ if ($1 == "temp1:") { print $2 } }' | sed -nE 's/\+([0-9]+)\..*/\1/p')"
@@ -17,6 +17,7 @@ cpu() {
 }
 
 hdd() {
+	# echo is needed here!
 	TEMP="H $(echo $(nc 127.0.0.1 7634) | sed -nE 's/.*SAMSUNG.*?\|([0-9]+)\|.*/\1/p')"
 	echo "hdd" > "$FIFO"
 }
@@ -25,7 +26,7 @@ gpu
 echo "$TEMP"
 
 cur() {
-	case "$(cat $FIFO)" in
+	case "$(cat "$FIFO")" in
 		gpu)
 			gpu && echo "$TEMP"
 			;;
@@ -39,7 +40,7 @@ cur() {
 }
 
 next() {
-	case "$(cat $FIFO)" in
+	case "$(cat "$FIFO")" in
 		gpu)
 			cpu && echo "$TEMP"
 			;;
@@ -76,10 +77,6 @@ listener() {
 }
 
 regular &
-REGID=$!
-
 listener &
-LISID=$!
-
 
 wait
