@@ -56,6 +56,8 @@ set termguicolors
 
 colorscheme dracula
 
+vnoremap <Leader>$ $
+vnoremap $ g_
 
 nnoremap d <Nop>
 nnoremap D "_D
