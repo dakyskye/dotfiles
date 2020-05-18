@@ -98,8 +98,12 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 
 " switch between next and previous opened buffers
-map <A-l> :bnext      <CR>
-map <A-h> :bprevious  <CR>
+nmap <A-l> :bnext      <CR>
+nmap <A-h> :bprevious  <CR>
+
+" toggle spelling check
+" use the real, the original, the English English for spell checking
+map <silent><A-s> : set spell! spelllang=en_gb <CR>
 
 " clear the highlights after search
 nnoremap <Leader><space> :nohlsearch<CR>
