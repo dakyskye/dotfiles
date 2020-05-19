@@ -6,6 +6,10 @@ super + Escape
 super + Return
 	alacritty
 
+# launch alacritty with dash shell
+super + shift + Return
+	alacritty -e dash
+
 # launch rofi
 super + d
 	rofi -modi drun -show drun
