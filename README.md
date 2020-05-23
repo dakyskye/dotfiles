@@ -19,6 +19,10 @@ My personal dot files and configs (including Vim, Fish, i3-gaps, polybar, termit
 * [xorg.conf.d](https://github.com/dakyskye/dotfiles/tree/master/xorg.conf.d/README.md)
 * [zsh](https://github.com/dakyskye/dotfiles/tree/master/zsh/README.md)
 
+## Installation
+
+The [makefile](https://github.com/dakyskye/dotfiles/tree/master/makefile) can install the config files from the master branch, however is has not yet been tested on a fresh arch install, nor is recommended to use it on non-fresh arch install, however, you are free to try it.
+
 ## License
 
 Licensed under the [**MIT**](https://choosealicense.com/licenses/mit/) license.
