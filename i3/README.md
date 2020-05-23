@@ -2,7 +2,7 @@
 
 ## screenshot
 
-![screenshot](screenshot.png =650x)
+![screenshot](screenshot.png)
 
 ## notes
 
