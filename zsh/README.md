@@ -6,4 +6,4 @@
 
 ## path
 
-$HOME/.zshrc
+`$HOME/.zshrc`

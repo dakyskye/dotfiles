@@ -6,4 +6,4 @@
 
 ## path
 
-$HOME/.config/alacritty/
+`$HOME/.config/alacritty/`

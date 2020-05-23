@@ -6,4 +6,4 @@
 
 ## path
 
-$HOME/.config/neofetch/
+`$HOME/.config/neofetch/`

@@ -11,4 +11,4 @@
 
 ## path
 
-$HOME/.local/bin/
+`$HOME/.local/bin/`

@@ -12,4 +12,4 @@
 
 ## path
 
-$HOME/.config/i3/
+`$HOME/.config/i3/`

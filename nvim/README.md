@@ -6,4 +6,4 @@
 
 ## path
 
-$HOME/.config/nvim/
+`$HOME/.config/nvim/`

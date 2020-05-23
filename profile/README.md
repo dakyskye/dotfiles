@@ -2,4 +2,4 @@
 
 ## path
 
-$HOME/.profile
+`$HOME/.profile`

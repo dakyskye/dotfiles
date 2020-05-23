@@ -6,4 +6,4 @@
 
 ## path
 
-$HOME/.config/polybar/
+`$HOME/.config/polybar/`

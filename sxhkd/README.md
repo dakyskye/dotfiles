@@ -7,4 +7,4 @@
 
 ## path
 
-$HOME/.config/sxhkd/
+`$HOME/.config/sxhkd/`
