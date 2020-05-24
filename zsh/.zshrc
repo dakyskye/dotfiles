@@ -9,7 +9,12 @@ SAVEHIST=100000
 # oh my zsh
 export ZSH="$CONFIG/oh-my-zsh"
 
-export ZSH_THEME="spaceship"
+ZSH_THEME_RANDOM_CANDIDATES=(
+	"spaceship"
+	"robbyrussell"
+	"pygmalion"
+)
+export ZSH_THEME="random"
 
 # suggest auto correction for commands
 ENABLE_CORRECTION="true"
