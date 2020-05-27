@@ -1,35 +1,40 @@
 #!/bin/sh
 
+## reload dxhd
+# super + escape
+dxhd -r
+
 ## launch alacritty
-# super + Return
+# super + return
 alacritty
 
 ## launch alacritty with dash shell
-# super + shift + Return
+# super + shift + return
 alacritty -e dash
 
 ## launch rofi
 # super + d
+##alacritty
 rofi -modi drun -show drun
 
 ## launch window switcher
-# super + Tab
+# super + tab
 rofi -modi window -show window
 
 ## open screenshot menu
-# Print
+# print
 scr
 
 ## select and capture a window immediately
-# super + Print
+# super + print
 scr wc
 
 ## capture fullscreen screenshot immediately
-# shift +  Print
+# shift +  print
 scr fc
 
 ## capture fullscreen screenshot immediately and save it
-# ctrl + Print
+# ctrl + print
 scr fs
 
 ## system operations / screen warmness menus
