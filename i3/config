@@ -53,7 +53,7 @@ for_window [class="Peek"] floating enable, resize set 800 600, move position cen
 exec_always --no-startup-id autotiling
 
 # sxhkd
-exec_always --no-startup-id "pkill sxhkd; sxhkd & sxhkd -c $HOME/.config/sxhkd/i3 &"
+exec_always --no-startup-id "pkill dxhd; dxhd & dxhd -c $CONFIG/dxhd/i3.sh &"
 
 # polybar
 exec_always --no-startup-id "$CONFIG/polybar/launch.sh"
