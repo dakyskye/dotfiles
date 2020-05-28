@@ -128,7 +128,6 @@ sed
 shellcheck
 smartmontools
 sudo
-sxhkd
 sxiv
 tamsyn-font
 telegram-desktop
