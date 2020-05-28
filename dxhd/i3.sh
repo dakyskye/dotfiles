@@ -24,9 +24,13 @@ i3-msg -t command {floating toggle,fullscreen toggle,sticky toggle}
 # super + space
 i3-msg -t command focus mode_toggle
 
-## switch to the workspace number
+## switch/move container to workspace 1-10
 # super + {_, shift + } {1-9, 0}
 i3-msg -t command {_,move container to} workspace {1-9,10}
+
+## switch/move container to workspace 11-20
+# super + ctrl + {_, shift + } {1-9, 0}
+i3-msg -t command {_,move container to} workspace {11-19,20}
 
 ## switch to the back and forth workspace
 # super + w
