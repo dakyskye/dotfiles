@@ -15,7 +15,7 @@ My personal dot files and configs (including Vim, Fish, i3-gaps, polybar, termit
 * [polybar](https://github.com/dakyskye/dotfiles/tree/master/polybar/README.md)
 * [profile](https://github.com/dakyskye/dotfiles/tree/master/profile/README.md)
 * [scripts](https://github.com/dakyskye/dotfiles/tree/master/scripts/README.md)
-* [sxhkd](https://github.com/dakyskye/dotfiles/tree/master/sxhkd/README.md)
+* [dxhd](https://github.com/dakyskye/dotfiles/tree/master/dxhd/README.md)
 * [xorg.conf.d](https://github.com/dakyskye/dotfiles/tree/master/xorg.conf.d/README.md)
 * [zsh](https://github.com/dakyskye/dotfiles/tree/master/zsh/README.md)
 
