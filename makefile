@@ -9,11 +9,11 @@ default:
 	@echo "polybar"
 	@echo "profile"
 	@echo "scripts"
-	@echo "sxhkd"
+	@echo "dxhd"
 	@echo "xorg"
 	@echo "zsh"
 
-.PHONY: alacritty dunst i3 neofetch nvim packages polybar profile scripts sxhkd zsh
+.PHONY: alacritty dunst i3 neofetch nvim packages polybar profile scripts dxhd zsh
 
 alacritty:
 	-@cp -r ~/.config/{alacritty,alacritty.bak}
@@ -67,10 +67,10 @@ scripts:
 	@cp -i ./scripts/* ~/.local/bin/
 	@echo installed
 
-sxhkd:
-	-@cp -r ~/.config/{sxhkd,sxhkd.bak}
-	@mkdir ~/.config/sxhkd
-	@cp sxhkd/{sxhkdrc,i3} ~/.config/sxhkd/
+dxhd:
+	-@cp -r ~/.config/{dxhd,dxhd.bak}
+	@mkdir ~/.config/dxhd
+	@cp dxhd/{dxhd.sh,i3.sh} ~/.config/dxhd/
 	@echo installed
 
 xorg:
