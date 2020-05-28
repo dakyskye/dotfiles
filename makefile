@@ -2,18 +2,19 @@ default:
 	@echo "hello! what are you going to install? just make <it>"
 	@echo "alacritty"
 	@echo "dunst"
+	@echo "dxhd"
 	@echo "i3"
 	@echo "neofetch"
 	@echo "nvim"
 	@echo "packages"
 	@echo "polybar"
 	@echo "profile"
+	@echo "rofi"
 	@echo "scripts"
-	@echo "dxhd"
 	@echo "xorg"
 	@echo "zsh"
 
-.PHONY: alacritty dunst i3 neofetch nvim packages polybar profile scripts dxhd zsh
+.PHONY: alacritty dunst dxhd i3 neofetch nvim packages polybar profile rofi scripts zsh
 
 alacritty:
 	-@cp -r ~/.config/{alacritty,alacritty.bak}
@@ -25,6 +26,12 @@ dunst:
 	-@cp -r ~/.config/{dunst,dunst.bak}
 	@mkdir ~/.config/dunst
 	@cp ./dunst/dunstrc ~/.config/dunst/
+	@echo installed
+
+dxhd:
+	-@cp -r ~/.config/{dxhd,dxhd.bak}
+	@mkdir ~/.config/dxhd
+	@cp dxhd/{dxhd.sh,i3.sh} ~/.config/dxhd/
 	@echo installed
 
 i3:
@@ -62,15 +69,16 @@ profile:
 	@cp ./profile/.profile ~/
 	@echo installed
 
+rofi:
+	-@cp ~/.config/{rofi,rofi.bak}
+	@mkdir ~/.config/rofi
+	@cp ./rofi/rofi.sh ~/.config/rofi/
+	@~/.config/rofi/rofi.sh
+	@echo installed
+
 scripts:
 	-@mkdir -p ~/.local/bin
 	@cp -i ./scripts/* ~/.local/bin/
-	@echo installed
-
-dxhd:
-	-@cp -r ~/.config/{dxhd,dxhd.bak}
-	@mkdir ~/.config/dxhd
-	@cp dxhd/{dxhd.sh,i3.sh} ~/.config/dxhd/
 	@echo installed
 
 xorg:
