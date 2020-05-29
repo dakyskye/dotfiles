@@ -9,7 +9,7 @@ i3-msg -t command {reload,restart}
 i3-msg -t command kill
 
 ## focus or swap the selected window
-# super + {_, shift + } {h, j, k, l}
+# super + {_, shift +} {h, j, k, l}
 i3-msg -t command {focus,move} {left,down,up,right}
 
 ## move the focused window to the scratchpad
@@ -39,3 +39,7 @@ i3-msg -t command workspace back_and_forth
 ## resize a window
 # super + alt + {h, j, k, l}
 i3-msg -t command resize {shrink width,grow height,shrink height,grow width} 10 px or 10 ppt
+
+## move a window
+# super + ctrl + alt + {h, j, k, l}
+i3-msg -t command move {left,down,up,right} 10px
