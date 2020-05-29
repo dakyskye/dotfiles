@@ -39,13 +39,16 @@ assign [class="Google-chrome"] "1"
 assign [class="discord"] "2"
 assign [class="TelegramDesktop"] "3"
 assign [class="Spotify"] "4"
-assign [class="Gimp"] "5"
-assign [class="obs"] "6"
-assign [class="VSCodium"] "8"
-assign [class="VirtualBox Manager"] "9"
+assign [class="Audacity"] "5"
+assign [class="Gimp"] "6"
+assign [class="obs"] "7"
+assign [class="qBittorrent"] "8"
+assign [class="mpv"] "9"
+assign [class="VSCodium"] "10"
+assign [class="VirtualBox Manager"] "12"
 
 # per window application config
-for_window [class="VirtualBox Machine"] move to workspace 10
+for_window [class="VirtualBox Machine"] move to workspace 13
 for_window [title="Steam - News"] floating enable, resize set 800 660, move position center
 for_window [class="Peek"] floating enable, resize set 800 600, move position center
 
