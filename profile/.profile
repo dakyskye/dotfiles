@@ -1,4 +1,5 @@
 # set some environment variables
+export XDG_CONFIG_HOME="$HOME/.config"
 export TERM="xterm-256color"
 export EDITOR="nvim"
 export BROWSER="google-chrome-stable"
