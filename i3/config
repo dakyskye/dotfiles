@@ -74,7 +74,6 @@ exec --no-startup-id numlockx on
 exec --no-startup-id go run $SCRIPTS/wallpapers.go
 
 # some apps
-exec --no-startup-id mullvad-vpn
 exec --no-startup-id google-chrome-stable
 exec --no-startup-id discord
 exec --no-startup-id telegram-desktop
