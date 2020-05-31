@@ -37,6 +37,7 @@ source $ZSH/oh-my-zsh.sh
 
 # aliases
 alias vim="nvim"
+alias firefox="firefox-developer-edition"
 
 alias ls="exa --color always --group-directories-first"
 alias la="exa -a --color always --group-directories-first"

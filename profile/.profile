@@ -2,7 +2,7 @@
 export XDG_CONFIG_HOME="$HOME/.config"
 export TERM="xterm-256color"
 export EDITOR="nvim"
-export BROWSER="google-chrome-stable"
+export BROWSER="firefox-developer-edition"
 
 export WORK="$HOME/My-Workflow"
 export CONFIG="$HOME/.config"
