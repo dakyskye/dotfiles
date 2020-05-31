@@ -43,3 +43,7 @@ i3-msg -t command resize {shrink width,grow height,shrink height,grow width} 10 
 ## move a window
 # super + ctrl + alt + {h, j, k, l}
 i3-msg -t command move {left,down,up,right} 10px
+
+## switch to next/prev workspace
+# super + !mouse{4,5}
+i3-msg -t command workspace {next,prev}
