@@ -38,6 +38,7 @@ i3:
 	-@cp ~/.config/{i3,i3.bak}
 	@mkdir ~/.config/i3
 	@cp ./i3/config ~/.config/i3/
+	@sudo rm -f /usr/bin/i3-migrate-config-to-v4
 	@echo installed
 
 neofetch:
@@ -50,7 +51,11 @@ nvim:
 	-@cp -r ~/.config/{nvim,nvim.bak}
 	@mkdir ~/.config/nvim
 	@cp ./nvim/{init.vim,coc-settings.json} ~/.config/nvim
+	@yarn global add neovim
+	@pip install neovim --user
 	@echo installed
+	@echo "neovim will exit on the first run"
+	@echo "run :PlugInstall on second run"
 
 packages:
 	@pacman -Qqe > ~/packages.bak
@@ -79,6 +84,8 @@ rofi:
 scripts:
 	-@mkdir -p ~/.local/bin
 	@cp -i ./scripts/* ~/.local/bin/
+	@systemctl enable --now hddtemp
+	@rm -f ~/.local/bin/README.md
 	@echo installed
 
 xorg:
@@ -94,4 +101,6 @@ zsh:
 	-@mkdir -p ~/.config/oh-my-zsh/custom/
 	@cp ./zsh/ohmyzsh.sh ~/.config/oh-my-zsh/custom/
 	@~/.config/oh-my-zsh/custom/ohmyzsh.sh
+	@rm ~/.zshrc 2> /dev/null
+	@cp ./zsh/.zshrc ~/
 	@echo installed
