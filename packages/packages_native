@@ -37,7 +37,7 @@ figlet
 file
 filezilla
 findutils
-firefox
+firefox-developer-edition
 flex
 font-bh-ttf
 font-mathematica
@@ -124,6 +124,7 @@ rofimoji
 ruby
 rubygems
 rxvt-unicode
+screenkey
 sed
 shellcheck
 smartmontools
