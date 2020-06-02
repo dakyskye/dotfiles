@@ -10,6 +10,7 @@ bat
 bdf-unifont
 binutils
 bison
+chromium
 clang
 cmatrix
 cmus
@@ -53,6 +54,7 @@ gettext
 ghostscript
 gimp
 git
+glances
 gnu-netcat
 go
 grep
@@ -84,10 +86,12 @@ moreutils
 mozilla-common
 mpv
 mtools
+ncdu
 neofetch
 neovim
 nmap
 nodejs
+notepadqq
 noto-fonts
 noto-fonts-emoji
 noto-fonts-extra
@@ -101,6 +105,7 @@ otf-fira-mono
 otf-font-awesome
 p7zip
 pacman
+pamixer
 patch
 pavucontrol-qt
 peek
@@ -113,6 +118,7 @@ pulseaudio
 pulseaudio-alsa
 pulseeffects
 pulsemixer
+pwgen
 python-pip
 qbittorrent
 qutebrowser
