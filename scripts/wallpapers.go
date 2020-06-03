@@ -9,8 +9,6 @@ import (
 	"os/exec"
 	"path"
 	"time"
-
-	"github.com/ztrue/tracerr"
 )
 
 type recent struct {
@@ -30,7 +28,7 @@ func main() {
 
 	err := os.MkdirAll(recentsDirPath, 0744)
 	if err != nil {
-		tracerr.PrintSourceColor(tracerr.Wrap(err))
+		panic(err)
 	}
 
 	var recentsFile *os.File
@@ -40,7 +38,7 @@ func main() {
 	if _, err = os.Stat(recentsFilePath); os.IsNotExist(err) {
 		recentsFile, err = os.Create(recentsFilePath)
 		if err != nil {
-			tracerr.PrintSourceColor(tracerr.Wrap(err))
+			panic(err)
 		}
 		recentsFile.Write([]byte("{}"))
 		recentsFile.Close()
@@ -51,7 +49,7 @@ func main() {
 
 	recentsFile, err = os.OpenFile(recentsFilePath, os.O_RDWR, os.ModePerm)
 	if err != nil {
-		tracerr.PrintSourceColor(tracerr.Wrap(err))
+		panic(err)
 	}
 
 	recentsFileAsBytes, _ := ioutil.ReadAll(recentsFile)
@@ -61,7 +59,7 @@ func main() {
 	if existed {
 		err = json.Unmarshal(recentsFileAsBytes, &recents)
 		if err != nil {
-			tracerr.PrintSourceColor(tracerr.Wrap(err))
+			panic(err)
 		}
 	}
 
@@ -69,7 +67,7 @@ func main() {
 
 	files, err := ioutil.ReadDir(wallpapersPath)
 	if err != nil {
-		tracerr.PrintSourceColor(tracerr.Wrap(err))
+		panic(err)
 	}
 
 	for _, file := range files {
@@ -125,16 +123,16 @@ func main() {
 
 	err = exec.Command("feh", "--bg-scale", path.Join(wallpapersPath, chosen)).Run()
 	if err != nil {
-		tracerr.PrintSourceColor(tracerr.Wrap(err))
+		panic(err)
 	}
 
 	recentsFileAsBytes, err = json.Marshal(recents)
 	if err != nil {
-		tracerr.PrintSourceColor(tracerr.Wrap(err))
+		panic(err)
 	}
 
 	err = ioutil.WriteFile(recentsFilePath, recentsFileAsBytes, 0744)
 	if err != nil {
-		tracerr.PrintSourceColor(tracerr.Wrap(err))
+		panic(err)
 	}
 }
