@@ -1,5 +1,12 @@
 #!/bin/sh
 
+TMPOUT=$(mktemp)
+TMPFILE=$(mktemp)
+mv "$TMPFILE" "$TMPFILE.png"
+TMPFILE="$TMPFILE.png"
+
+trap 'rm -f "$TMPOUT" "$TMPFILE"' EXIT
+
 SS_PATH="$HOME/Images/screenshots"
 SS_FORMAT="$SS_PATH/screenshot_$(date '+%d.%m.%Y_%H.%M.%S').png"
 NOTIFY_COPY="the screenshot has been taken and copied to your clipboard"
@@ -14,27 +21,36 @@ WS="ws"
 FU="fu"
 WU="wu"
 
+maimscr() {
+	echo "$TMPFILE"
+	maim $1 "${2:-$TMPFILE}" > "$TMPOUT" 2>&1
+
+	case "$(cat "$TMPOUT")" in "") return 0; esac
+
+	return 1
+}
+
 screenshot() {
 	[ -z "$1" ] && return 1
 
 	case "$1" in
 		"$FC")
-			maim | xclip -selection clipboard -t image/png && notify-send -a "$NOTIFY_APP_NAME" "$NOTIFY_COPY"
+			maimscr && xclip -selection clipboard -t image/png -i "$TMPFILE" && notify-send -a "$NOTIFY_APP_NAME" "$NOTIFY_COPY"
 			;;
 		"$WC")
-			maim -sou | xclip -selection clipboard -t image/png && notify-send -a "$NOTIFY_APP_NAME" "$NOTIFY_COPY"
+			maimscr "-sou" && xclip -selection clipboard -t image/png -i "$TMPFILE" && notify-send -a "$NOTIFY_APP_NAME" "$NOTIFY_COPY"
 			;;
 		"$FS")
-			maim "$SS_FORMAT" && notify-send -a "$NOTIFY_APP_NAME" "$NOTIFY_SAVE"
+			maimscr "" "$SS_FORMAT" && notify-send -a "$NOTIFY_APP_NAME" "$NOTIFY_SAVE"
 			;;
 		"$WS")
-			maim -sou "$SS_FORMAT" && notify-send -a "$NOTIFY_APP_NAME" "$NOTIFY_SAVE"
+			maimscr "-sou" "$SS_FORMAT" && notify-send -a "$NOTIFY_APP_NAME" "$NOTIFY_SAVE"
 			;;
 		"$FU")
-			maim | curl -s -F 'file=@-' 'https://0x0.st' | xclip -selection clipboard && notify-send -a "$NOTIFY_APP_NAME" "$NOTIFY_UPLOAD"
+			maimscr && 0x0 "$TMPFILE" | xclip -selection clipboard && notify-send -a "$NOTIFY_APP_NAME" "$NOTIFY_UPLOAD"
 			;;
 		"$WU")
-			maim -so | curl -s -F 'file=@-' 'https://0x0.st' | xclip -selection clipboard && notify-send -a "$NOTIFY_APP_NAME" "$NOTIFY_UPLOAD"
+			maimscr "-so" && 0x0 "$TMPFILE" | xclip -selection clipboard && notify-send -a "$NOTIFY_APP_NAME" "$NOTIFY_UPLOAD"
 			;;
 	esac
 }
@@ -67,5 +83,3 @@ else
 			;;
 	esac
 fi
-
-# vim: ft=sh
