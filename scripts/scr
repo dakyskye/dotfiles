@@ -1,9 +1,7 @@
 #!/bin/sh
 
 TMPOUT=$(mktemp)
-TMPFILE=$(mktemp)
-mv "$TMPFILE" "$TMPFILE.png"
-TMPFILE="$TMPFILE.png"
+TMPFILE=$(mktemp --suffix ".png")
 
 trap 'rm -f "$TMPOUT" "$TMPFILE"' EXIT
 
@@ -16,18 +14,33 @@ NOTIFY_APP_NAME="scr"
 
 FC="fc"
 WC="wc"
+WCB="wcb"
 FS="fs"
 WS="ws"
+WSB="wsb"
 FU="fu"
 WU="wu"
+WUB="wub"
 
 maimscr() {
-	echo "$TMPFILE"
 	maim $1 "${2:-$TMPFILE}" > "$TMPOUT" 2>&1
 
 	case "$(cat "$TMPOUT")" in "") return 0; esac
 
 	return 1
+}
+
+magickback() {
+	[ -z "$1" ] && return 1
+
+	TMPMAGICK=$(mktemp --suffix ".png")
+	trap 'rm -f "$TMPMAGICK"' EXIT
+
+	SIZE="$(identify -format '%w %h' "$1")"
+	WIDTH="${SIZE% *}"
+	HEIGHT="${SIZE#* }"
+	convert -size "$(($WIDTH+40))"x"$(($HEIGHT+40))" canvas:white "$TMPMAGICK"
+	convert "$TMPMAGICK" -colorspace sRGB -gravity center "$1" -composite "$1"
 }
 
 screenshot() {
@@ -40,11 +53,17 @@ screenshot() {
 		"$WC")
 			maimscr "-sou" && xclip -selection clipboard -t image/png -i "$TMPFILE" && notify-send -a "$NOTIFY_APP_NAME" "$NOTIFY_COPY"
 			;;
+		"$WCB")
+			maimscr "-sou" && magickback "$TMPFILE" && xclip -selection clipboard -t image/png -i "$TMPFILE" && notify-send -a "$NOTIFY_APP_NAME" "$NOTIFY_COPY"
+			;;
 		"$FS")
 			maimscr "" "$SS_FORMAT" && notify-send -a "$NOTIFY_APP_NAME" "$NOTIFY_SAVE"
 			;;
 		"$WS")
 			maimscr "-sou" "$SS_FORMAT" && notify-send -a "$NOTIFY_APP_NAME" "$NOTIFY_SAVE"
+			;;
+		"$WSB")
+			maimscr "-sou" "$SS_FORMAT" && magickback "$SS_FORMAT" && notify-send -a "$NOTIFY_APP_NAME" "$NOTIFY_SAVE"
 			;;
 		"$FU")
 			maimscr && 0x0 "$TMPFILE" | xclip -selection clipboard && notify-send -a "$NOTIFY_APP_NAME" "$NOTIFY_UPLOAD"
@@ -52,13 +71,16 @@ screenshot() {
 		"$WU")
 			maimscr "-so" && 0x0 "$TMPFILE" | xclip -selection clipboard && notify-send -a "$NOTIFY_APP_NAME" "$NOTIFY_UPLOAD"
 			;;
+		"$WUB")
+			maimscr "-so" && magickback "$TMPFILE" && 0x0 "$TMPFILE" | xclip -selection clipboard && notify-send -a "$NOTIFY_APP_NAME" "$NOTIFY_UPLOAD"
+			;;
 	esac
 }
 
 if [ -n "$1" ]; then
 	screenshot "$1"
 else
-	CHOICE=$(printf "1) fullscreen and copy\n2) select a window and copy\n3) fullscreen and save\n4) select a window and save\n5) fullscreen and upload to 0x0\n6) select a window and upload to 0x0" | rofi -dmenu -p "make the choice")
+	CHOICE=$(printf "1) fullscreen and copy\n2) select a window and copy\n3) select a window and copy (b)\n4) fullscreen and save\n5) select a window and save\n6) select a window and save (b)\n7) fullscreen and upload to 0x0\n8) select a window and upload to 0x0\n9) select a window and upload to 0x0 (b)" | rofi -dmenu -p "make the choice")
 
 	sleep 0.3
 
@@ -70,16 +92,25 @@ else
 			screenshot "$WC"
 			;;
 		"3)"*)
-			screenshot "$FS"
+			screenshot "$WCB"
 			;;
 		"4)"*)
-			screenshot "$WS"
+			screenshot "$FS"
 			;;
 		"5)"*)
-			screenshot "$FU"
+			screenshot "$WS"
 			;;
 		"6)"*)
+			screenshot "$WSB"
+			;;
+		"7)"*)
+			screenshot "$FU"
+			;;
+		"8)"*)
 			screenshot "$WU"
+			;;
+		"9)"*)
+			screenshot "$WUB"
 			;;
 	esac
 fi

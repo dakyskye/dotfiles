@@ -14,7 +14,6 @@ alacritty -e dash
 
 ## launch rofi
 # super + d
-##alacritty
 rofi -modi drun -show drun
 
 ## launch window switcher
@@ -27,11 +26,11 @@ scr
 
 ## select and capture a window immediately
 # super + print
-scr wc
+scr wcb
 
 ## capture fullscreen screenshot immediately
 # shift +  print
-scr fc
+scr fcb
 
 ## capture fullscreen screenshot immediately and save it
 # ctrl + print
