@@ -11,10 +11,11 @@ default:
 	@echo "profile"
 	@echo "rofi"
 	@echo "scripts"
+	@echo "wallpapers"
 	@echo "xorg"
 	@echo "zsh"
 
-.PHONY: alacritty dunst dxhd i3 neofetch nvim packages polybar profile rofi scripts zsh
+.PHONY: alacritty dunst dxhd i3 neofetch nvim packages polybar profile rofi scripts wallpapers xorg zsh
 
 alacritty:
 	-@cp -r ~/.config/{alacritty,alacritty.bak}
@@ -75,10 +76,11 @@ profile:
 	@echo installed
 
 rofi:
-	-@cp ~/.config/{rofi,rofi.bak}
+	-@cp -r ~/.config/{rofi,rofi.bak}
 	@mkdir ~/.config/rofi
 	@cp ./rofi/rofi.sh ~/.config/rofi/
 	@~/.config/rofi/rofi.sh
+	@rm -f ~/.config/rofi/rofi.sh
 	@echo installed
 
 scripts:
@@ -88,10 +90,18 @@ scripts:
 	@rm -f ~/.local/bin/README.md
 	@echo installed
 
+wallpapers:
+	-@cp -r ~/Images/{wallpapers,wallpapers.bak}
+	@mkdir -p ~/Images/wallpapers
+	@cp ./wallpapers/wallpapers.sh ~/Images/wallpapers/
+	@~/Images/wallpapers/wallpapers.sh
+	@rm -f ~/Images/wallpapers/wallpapers.sh
+	@echo installed
+
 xorg:
 	-@sudo cp /etc/X11/xorg.conf.d/00-keyboard.{conf,conf.bak}
 	-@sudo mkdir -p /etc/X11/xorg.conf.d/
-	@sudo cp ./xorg.conf.d/00-keyboard.conf /etc/X11/xorg.conf.d/
+	@sudo cp ./xorg/00-keyboard.conf /etc/X11/xorg.conf.d/
 	@echo installed
 
 zsh:

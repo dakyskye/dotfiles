@@ -17,7 +17,8 @@ My personal dot files and configs (including Vim, Fish, i3-gaps, polybar, termit
 * [profile](https://github.com/dakyskye/dotfiles/tree/master/profile/README.md)
 * [rofi](https://github.com/dakyskye/dotfiles/tree/master/rofi/README.md)
 * [scripts](https://github.com/dakyskye/dotfiles/tree/master/scripts/README.md)
-* [xorg.conf.d](https://github.com/dakyskye/dotfiles/tree/master/xorg.conf.d/README.md)
+* [wallpapers](https://github.com/dakyskye/dotfiles/tree/master/wallpapers/README.md)
+* [xorg](https://github.com/dakyskye/dotfiles/tree/master/xorg.conf.d/README.md)
 * [zsh](https://github.com/dakyskye/dotfiles/tree/master/zsh/README.md)
 
 ## Installation
