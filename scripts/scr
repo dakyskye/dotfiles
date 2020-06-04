@@ -37,7 +37,7 @@ magickback() {
 	SIZE="$(identify -format '%w %h' "$1")"
 	WIDTH="${SIZE% *}"
 	HEIGHT="${SIZE#* }"
-	convert -size "$(($WIDTH+40))"x"$(($HEIGHT+40))" canvas:white "$TMPMAGICK"
+	convert -size "$(($WIDTH+50))"x"$(($HEIGHT+50))" canvas:none "$TMPMAGICK"
 	convert "$TMPMAGICK" -colorspace sRGB -gravity center "$1" -composite "$1"
 }
 
