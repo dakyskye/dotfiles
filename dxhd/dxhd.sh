@@ -26,11 +26,11 @@ scr
 
 ## select and capture a window immediately
 # super + print
-scr wcb
+scr wc
 
 ## capture fullscreen screenshot immediately
 # shift +  print
-scr fcb
+scr fc
 
 ## capture fullscreen screenshot immediately and save it
 # ctrl + print
