@@ -7,6 +7,7 @@ automake
 awesome-terminal-fonts
 base
 bat
+bc
 bdf-unifont
 binutils
 bison
@@ -78,6 +79,7 @@ lightdm-gtk-greeter
 linux
 linux-firmware
 lolcat
+lshw
 lvm2
 m4
 maim
@@ -134,6 +136,8 @@ screenkey
 sed
 shellcheck
 smartmontools
+steam
+steam-native-runtime
 sudo
 sxiv
 tamsyn-font
