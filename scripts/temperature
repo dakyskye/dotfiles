@@ -7,7 +7,7 @@ trap "exit" INT TERM HUP
 trap 'kill 0; rm -f $FIFO' EXIT
 
 gpu() {
-	TEMP="G $(sensors | grep -A 6 nouveau-pci | awk '{ if ($1 == "temp1:") { print $2 } }' | sed -nE 's/\+([0-9]+)\..*/\1/p')"
+	TEMP="G $(sensors | grep -A 6 amdgpu-pci | awk '{ if ($1 == "edge:") { print $2 } }' | sed -nE 's/\+([0-9]+)\..*/\1/p')"
 	echo "gpu" > "$FIFO"
 }
 
