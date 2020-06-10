@@ -95,6 +95,7 @@ scripts:
 	@cp -i ./scripts/* ~/.local/bin/
 	@systemctl enable --now hddtemp
 	@rm -f ~/.local/bin/README.md
+	@mkdir -p ~/Images/screenshots
 	@echo installed
 
 wallpapers:
