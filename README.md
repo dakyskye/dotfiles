@@ -9,6 +9,7 @@ My personal dot files and configs (including Vim, Fish, i3-gaps, polybar, termit
 * [alacritty](https://github.com/dakyskye/dotfiles/tree/master/alacritty/README.md)
 * [dunst](https://github.com/dakyskye/dotfiles/tree/master/dunst/README.md)
 * [dxhd](https://github.com/dakyskye/dotfiles/tree/master/dxhd/README.md)
+* [fonts](https://github.com/dakyskye/dotfiles/tree/master/fonts/README.md)
 * [i3](https://github.com/dakyskye/dotfiles/tree/master/i3/README.md)
 * [neofetch](https://github.com/dakyskye/dotfiles/tree/master/neofetch/README.md)
 * [nvim](https://github.com/dakyskye/dotfiles/tree/master/nvim/README.md)

@@ -2,8 +2,8 @@
 
 TMP=$(mktemp -d)
 
-git clone https://gitlab.com/dwt1/wallpapers "$TMP"
+git clone https://gitlab.com/dwt1/wallpapers --depth 1 "$TMP"
 
-mv "$TMP/*.jpg" ./
+mv "$TMP"/*.jpg $(dirname $(readlink -f "$0"))/
 
-rm -f "$TMP"
+rm -rf "$TMP"
