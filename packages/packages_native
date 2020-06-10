@@ -73,6 +73,7 @@ lib32-fontconfig
 lib32-libva-mesa-driver
 lib32-mesa
 lib32-mesa-vdpau
+lib32-vulkan-radeon
 libhandy
 libimobiledevice
 libtool
@@ -172,6 +173,7 @@ virtualbox-guest-iso
 virtualbox-guest-utils
 vlc
 vnstat
+vulkan-radeon
 which
 wine-gecko
 wine-mono
@@ -180,6 +182,7 @@ wmctrl
 wpa_supplicant
 xclip
 xf86-video-amdgpu
+xf86-video-vesa
 xorg-bdftopcf
 xorg-docs
 xorg-font-util
