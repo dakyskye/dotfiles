@@ -43,6 +43,7 @@ assign [class="Spotify"] "4"
 # per window application config
 for_window [title="Steam - News"] floating enable, resize set 800 660, move position center
 for_window [class="Peek"] floating enable, resize set 800 600, move position center
+for_window [class="Alacritty" instance="glances"] floating enable, resize set 1200 600, move position center
 
 # autotiling (fibonacci)
 exec_always --no-startup-id autotiling
