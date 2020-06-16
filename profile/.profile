@@ -4,8 +4,8 @@ export TERM="xterm-256color"
 export EDITOR="nvim"
 export BROWSER="firefox-developer-edition"
 
-export WORK="$HOME/My-Workflow"
-export CONFIG="$HOME/.config"
+export WORK="$HOME/Work"
+export CONFIG="$XDG_CONFIG_HOME"
 export TOOLS="$HOME/Tools"
 export SCRIPTS="$HOME/.local/bin/"
 
