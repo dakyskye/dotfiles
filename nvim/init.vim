@@ -59,7 +59,6 @@ colorscheme dracula
 vnoremap <Leader>$ $
 vnoremap $ g_
 
-nnoremap d <Nop>
 nnoremap D "_D
 nnoremap c <Nop>
 vnoremap c "_c
