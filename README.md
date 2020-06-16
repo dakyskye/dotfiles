@@ -26,6 +26,8 @@ My personal dot files and configs (including Vim, Fish, i3-gaps, polybar, termit
 
 The [makefile](https://github.com/dakyskye/dotfiles/tree/master/makefile) can install the config files from the master branch, however is has not yet been tested on a fresh arch install, nor is recommended to use it on non-fresh arch install, however, you are free to try it.
 
+**NOTE:** make command requires to be ran in either bash or zsh, won't work for fish, won't work for dunst etc.
+
 ## License
 
 Licensed under the [**MIT**](https://choosealicense.com/licenses/mit/) license.

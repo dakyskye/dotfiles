@@ -20,44 +20,44 @@ default:
 
 alacritty:
 	-@mv ~/.config/{alacritty,alacritty.bak}
-	@mkdir ~/.config/alacritty
+	@mkdir -p ~/.config/alacritty
 	@cp ./alacritty/alacritty.yml ~/.config/alacritty/
 	@echo installed
 
 dunst:
 	-@mv ~/.config/{dunst,dunst.bak}
-	@mkdir ~/.config/dunst
+	@mkdir -p ~/.config/dunst
 	@cp ./dunst/dunstrc ~/.config/dunst/
 	@echo installed
 
 dxhd:
 	-@mv ~/.config/{dxhd,dxhd.bak}
-	@mkdir ~/.config/dxhd
+	@mkdir -p ~/.config/dxhd
 	@cp dxhd/{dxhd.sh,i3.sh} ~/.config/dxhd/
 	@echo installed
 
 fonts:
 	-@mv ~/.local/share/{fonts,fonts.bak}
-	@mkdir ~/.local/share/fonts
+	@mkdir -p ~/.local/share/fonts
 	@./fonts/fonts.sh
 	@echo installed
 
 i3:
 	-@mv ~/.config/{i3,i3.bak}
-	@mkdir ~/.config/i3
+	@mkdir -p ~/.config/i3
 	@cp ./i3/config ~/.config/i3/
 	@sudo rm -f /usr/bin/i3-migrate-config-to-v4
 	@echo installed
 
 neofetch:
 	-@mv ~/.config/{neofetch,neofetch.bak}
-	@mkdir ~/.config/neofetch/
+	@mkdir -p ~/.config/neofetch/
 	@cp ./neofetch/config.conf ~/.config/neofetch/
 	@echo installed
 
 nvim:
 	-@mv ~/.config/{nvim,nvim.bak}
-	@mkdir ~/.config/nvim
+	@mkdir -p ~/.config/nvim
 	@cp ./nvim/{init.vim,coc-settings.json} ~/.config/nvim
 	@yarn global add neovim
 	@pip install neovim --user
@@ -73,7 +73,7 @@ packages:
 
 polybar:
 	-@mv ~/.config/{polybar,polybar,bak}
-	@mkdir ~/.config/polybar
+	@mkdir -p ~/.config/polybar
 	@cp ./polybar/{config.ini,launch.sh} ~/.config/polybar/
 	@echo installed
 
@@ -84,7 +84,7 @@ profile:
 
 rofi:
 	-@mv ~/.config/{rofi,rofi.bak}
-	@mkdir ~/.config/rofi
+	@mkdir -p ~/.config/rofi
 	@cp ./rofi/rofi.sh ~/.config/rofi/
 	@~/.config/rofi/rofi.sh
 	@rm -f ~/.config/rofi/rofi.sh
