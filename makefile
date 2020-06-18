@@ -61,6 +61,8 @@ nvim:
 	@cp ./nvim/{init.vim,coc-settings.json} ~/.config/nvim
 	@yarn global add neovim
 	@pip install neovim --user
+	@sudo pacman -S go --needed
+	@go get -u github.com/jstemmer/gotags
 	@echo installed
 	@echo "neovim will exit on the first run"
 	@echo "run :PlugInstall on second run"
