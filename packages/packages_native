@@ -1,5 +1,6 @@
 alacritty
 amd-ucode
+arandr
 archiso
 audacity
 autoconf
@@ -65,10 +66,12 @@ gsfonts
 gwenview
 gzip
 hddtemp
+htop
 i3-gaps
 i3lock
 inter-font
 jq
+ksysguard
 lib32-fontconfig
 lib32-libva-mesa-driver
 lib32-mesa
@@ -144,6 +147,7 @@ steam
 steam-native-runtime
 sudo
 sxiv
+sysstat
 tamsyn-font
 telegram-desktop
 terminus-font
