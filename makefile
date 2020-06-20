@@ -109,9 +109,9 @@ wallpapers:
 	@echo installed
 
 xorg:
-	-@sudo cp /etc/X11/xorg.conf.d/00-keyboard.{conf,conf.bak}
+	-@sudo mv /etc/X11/xorg.conf.{d,d.bak}
 	-@sudo mkdir -p /etc/X11/xorg.conf.d/
-	@sudo cp ./xorg/00-keyboard.conf /etc/X11/xorg.conf.d/
+	@sudo cp ./xorg/{00-keyboard,10-monitor}.conf /etc/X11/xorg.conf.d/
 	@echo installed
 
 zsh:
