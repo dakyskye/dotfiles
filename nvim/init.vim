@@ -125,7 +125,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='violet'
 
 " tagbar config
-nmap <F8> :TagbarToggle<CR>
+nmap <silent><F8> :TagbarToggle<CR>
 
 " https://github.com/jstemmer/gotags
 let g:tagbar_type_go = {
