@@ -11,12 +11,13 @@ default:
 	@echo "profile"
 	@echo "rofi"
 	@echo "scripts"
+	@echo "spicetify"
 	@echo "wallpapers"
 	@echo "xinit"
 	@echo "xorg"
 	@echo "zsh"
 
-.PHONY: alacritty dunst dxhd fonts neofetch nimdow nvim packages profile rofi scripts wallpapers xinit xorg zsh
+.PHONY: alacritty dunst dxhd fonts neofetch nimdow nvim packages profile rofi scripts spicetify wallpapers xinit xorg zsh
 
 alacritty:
 	-@mv ~/.config/{alacritty,alacritty.bak}
@@ -92,6 +93,15 @@ scripts:
 	@rm -f ~/.local/bin/README.md
 	@mkdir -p ~/Images/screenshots
 	@echo installed
+
+spicetify:
+	@sudo chmod a+wr /opt/spotify
+	@sudo chmod a+wr /opt/spotify/Apps -R
+	spicetify
+	spicetify backup apply enable-devtool
+	spicetify update
+	spicetify config color_scheme Dark
+	spicetify apply
 
 wallpapers:
 	-@mv ~/Images/{wallpapers,wallpapers.bak}
