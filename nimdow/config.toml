@@ -1,0 +1,92 @@
+[autostart]
+exec = [
+  "dxhd",
+  "picom -cC",
+  "unclutter",
+  "numlocx on",
+  "go run $SCRIPTS/wallpapers.go"
+]
+
+[settings]
+  gapSize = 7
+  borderWidth = 2
+  borderColorFocused = "#A77AC4"
+  borderColorUnfocused = "#7197E7"
+  barHeight = 19
+  barBackgroundColor = "#282A36"
+  barForegroundColor = "#F8F8F2"
+  barSelectionColor = "#A77AC4"
+  barFonts = [
+    "UbuntuMono Nerd Font:size=9:anialias=false",
+    "NotoSerif Nerd Font:size=8:anialias=false"
+  ]
+
+[controls]
+  [controls.reloadConfig]
+  keys = [ "r" ]
+  modifiers = [ "super", "shift" ]
+
+  [controls.focusPrevious]
+  keys = [ "k" ]
+  modifiers = [ "super" ]
+
+  [controls.focusNext]
+  keys = [ "j" ]
+  modifiers = [ "super" ]
+
+  [controls.moveWindowPrevious]
+  keys = [ "k" ]
+  modifiers = [ "super", "shift" ]
+
+  [controls.moveWindowNext]
+  keys = [ "j" ]
+  modifiers = [ "super", "shift" ]
+
+  [controls.toggleFullscreen]
+  keys = [ "f" ]
+  modifiers = [ "super" ]
+
+  [controls.destroySelectedWindow]
+  keys = [ "q" ]
+  modifiers = [ "super", "shift" ]
+
+  [controls.moveWindowToTag]
+  keys = [ "1", "2", "3", "4", "5", "6", "7", "8", "9" ]
+  modifiers = [ "super", "shift" ]
+
+  [controls.goToTag]
+  keys = [ "1", "2", "3", "4", "5", "6", "7", "8", "9" ]
+  modifiers = [ "super" ]
+
+  [controls.goToPreviousTag]
+  keys = [ "w" ]
+  modifiers = [ "super" ]
+
+  [controls.focusPreviousMonitor]
+  keys = [ "comma" ]
+  modifiers = [ "super" ]
+
+  [controls.focusNextMonitor]
+  keys = [ "period" ]
+  modifiers = [ "super" ]
+
+  [controls.moveWindowToPreviousMonitor]
+  keys = [ "comma" ]
+  modifiers = [ "super", "shift" ]
+
+  [controls.moveWindowToNextMonitor]
+  keys = [ "period" ]
+  modifiers = [ "super", "shift" ]
+
+  [controls.increaseMasterCount]
+  keys = [ "z" ]
+  modifiers = [ "super" ]
+
+  [controls.decreaseMasterCount]
+  keys = [ "x" ]
+  modifiers = [ "super" ]
+
+  [controls.toggleFloating]
+  keys = [ "space" ]
+  modifiers = [ "super" ]
+

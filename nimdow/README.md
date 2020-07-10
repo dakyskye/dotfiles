@@ -1,4 +1,4 @@
-# dakyskye/dotfiles/polybar
+# dakyskye/dotfiles/nimdow
 
 ## screenshot
 
@@ -6,4 +6,4 @@
 
 ## path
 
-`$HOME/.config/polybar/`
+`$HOME/.config/nimdow/`

@@ -4,11 +4,10 @@ default:
 	@echo "dunst"
 	@echo "dxhd"
 	@echo "fonts"
-	@echo "i3"
 	@echo "neofetch"
+	@echo "nimdow"
 	@echo "nvim"
 	@echo "packages"
-	@echo "polybar"
 	@echo "profile"
 	@echo "rofi"
 	@echo "scripts"
@@ -16,7 +15,7 @@ default:
 	@echo "xorg"
 	@echo "zsh"
 
-.PHONY: alacritty dunst dxhd fonts i3 neofetch nvim packages polybar profile rofi scripts wallpapers xorg zsh
+.PHONY: alacritty dunst dxhd fonts neofetch nimdow nvim packages profile rofi scripts wallpapers xorg zsh
 
 alacritty:
 	-@mv ~/.config/{alacritty,alacritty.bak}
@@ -42,17 +41,16 @@ fonts:
 	@./fonts/fonts.sh
 	@echo installed
 
-i3:
-	-@mv ~/.config/{i3,i3.bak}
-	@mkdir -p ~/.config/i3
-	@cp ./i3/config ~/.config/i3/
-	@sudo rm -f /usr/bin/i3-migrate-config-to-v4
-	@echo installed
-
 neofetch:
 	-@mv ~/.config/{neofetch,neofetch.bak}
 	@mkdir -p ~/.config/neofetch/
 	@cp ./neofetch/config.conf ~/.config/neofetch/
+	@echo installed
+
+nimdow:
+	~@mv ~/.config/{nimdow,nimdow.bak}
+	@mkdir -p ~/.config/nimdow/
+	@cp ./nimdow/config.toml ~/.config/nimdow/
 	@echo installed
 
 nvim:
@@ -71,12 +69,6 @@ packages:
 	@pacman -Qqe > ~/packages.bak
 	@bash -c "sudo pacman -S --needed - < ./packages/packages_native"
 	@bash -c "yay -S --needed - < ./packages/packages_foreign"
-	@echo installed
-
-polybar:
-	-@mv ~/.config/{polybar,polybar,bak}
-	@mkdir -p ~/.config/polybar
-	@cp ./polybar/{config.ini,launch.sh} ~/.config/polybar/
 	@echo installed
 
 profile:

@@ -1,6 +1,6 @@
 # .dotfiles
 
-My personal dot files and configs (including Vim, Fish, i3-gaps, polybar, termite and so on)
+My personal dot files and configs.
 
 ![My Rice](./rice.png)
 
@@ -10,11 +10,10 @@ My personal dot files and configs (including Vim, Fish, i3-gaps, polybar, termit
 * [dunst](https://github.com/dakyskye/dotfiles/tree/master/dunst/README.md)
 * [dxhd](https://github.com/dakyskye/dotfiles/tree/master/dxhd/README.md)
 * [fonts](https://github.com/dakyskye/dotfiles/tree/master/fonts/README.md)
-* [i3](https://github.com/dakyskye/dotfiles/tree/master/i3/README.md)
 * [neofetch](https://github.com/dakyskye/dotfiles/tree/master/neofetch/README.md)
+* [nimdow](https://github.com/dakyskye/dotfiles/tree/master/nimdow/README.md)
 * [nvim](https://github.com/dakyskye/dotfiles/tree/master/nvim/README.md)
 * [packages](https://github.com/dakyskye/dotfiles/tree/master/packages/README.md)
-* [polybar](https://github.com/dakyskye/dotfiles/tree/master/polybar/README.md)
 * [profile](https://github.com/dakyskye/dotfiles/tree/master/profile/README.md)
 * [rofi](https://github.com/dakyskye/dotfiles/tree/master/rofi/README.md)
 * [scripts](https://github.com/dakyskye/dotfiles/tree/master/scripts/README.md)
