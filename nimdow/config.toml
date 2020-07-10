@@ -1,12 +1,3 @@
-[autostart]
-exec = [
-  "dxhd",
-  "picom -cC",
-  "unclutter",
-  "numlocx on",
-  "go run $SCRIPTS/wallpapers.go"
-]
-
 [settings]
   gapSize = 7
   borderWidth = 2

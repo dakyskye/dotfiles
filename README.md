@@ -18,6 +18,7 @@ My personal dot files and configs.
 * [rofi](https://github.com/dakyskye/dotfiles/tree/master/rofi/README.md)
 * [scripts](https://github.com/dakyskye/dotfiles/tree/master/scripts/README.md)
 * [wallpapers](https://github.com/dakyskye/dotfiles/tree/master/wallpapers/README.md)
+* [xinit](https://github.com/dakyskye/dotfiles/tree/master/xinit/README.md)
 * [xorg](https://github.com/dakyskye/dotfiles/tree/master/xorg.conf.d/README.md)
 * [zsh](https://github.com/dakyskye/dotfiles/tree/master/zsh/README.md)
 

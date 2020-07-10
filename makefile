@@ -12,10 +12,11 @@ default:
 	@echo "rofi"
 	@echo "scripts"
 	@echo "wallpapers"
+	@echo "xinit"
 	@echo "xorg"
 	@echo "zsh"
 
-.PHONY: alacritty dunst dxhd fonts neofetch nimdow nvim packages profile rofi scripts wallpapers xorg zsh
+.PHONY: alacritty dunst dxhd fonts neofetch nimdow nvim packages profile rofi scripts wallpapers xinit xorg zsh
 
 alacritty:
 	-@mv ~/.config/{alacritty,alacritty.bak}
@@ -99,6 +100,10 @@ wallpapers:
 	@~/Images/wallpapers/wallpapers.sh
 	@rm -f ~/Images/wallpapers/wallpapers.sh
 	@echo installed
+
+xinit:
+	-@mv ~/{.xinitrc,.xinitrc.bak}
+	@cp ./xinit/.xinitrc ~/
 
 xorg:
 	-@sudo mv /etc/X11/xorg.conf.{d,d.bak}
