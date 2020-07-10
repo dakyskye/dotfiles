@@ -1,4 +1,5 @@
 dxhd &
+dunst &
 picom -cC &
 unclutter &
 numlocx on &
