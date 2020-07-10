@@ -23,6 +23,7 @@ type Status struct {
 	DistroWM    Module
 	Kernel      Module
 	Updates     Module
+	Installed   Module
 	Volume      Module
 	Keyboard    Module
 	Date        Module
@@ -41,10 +42,11 @@ const (
 	distrowm    = `{{$.DistroWM.Emoji}}  {{$.DistroWM.Text}}  {{- $.DistroWM.Postfix}}`
 	kernel      = `{{$.Kernel.Emoji}}  {{$.Kernel.Text}}  {{- $.Kernel.Postfix}}`
 	updates     = `{{$.Updates.Emoji}}  {{$.Updates.Text}}  {{- $.Updates.Postfix}}`
+	installed   = `{{$.Installed.Emoji}}  {{$.Installed.Text}}  {{- $.Installed.Postfix}}`
 	volume      = `{{$.Volume.Emoji}}  {{$.Volume.Text}}  {{- $.Volume.Postfix}}`
 	keyboard    = `{{$.Keyboard.Emoji}}  {{$.Keyboard.Text}}  {{- $.Keyboard.Postfix}}`
 	date        = `{{$.Date.Emoji}}  {{$.Date.Text}}  {{- $.Date.Postfix}}`
-	output      = memory + " | " + cpu + " | " + temperature + " | " + distrowm + " | " + kernel + " | " + updates + " | " + volume + " | " + keyboard + " | " + date
+	output      = memory + " | " + cpu + " | " + temperature + " | " + distrowm + " | " + kernel + " | " + updates + " | " + installed + " | " + volume + " | " + keyboard + " | " + date
 )
 
 func main() {
@@ -60,6 +62,7 @@ func main() {
 		DistroWM:    Module{Emoji: ""},
 		Kernel:      Module{Emoji: ""},
 		Updates:     Module{Emoji: ""},
+		Installed:   Module{Emoji: ""},
 		Volume:      Module{Postfix: "%"},
 		Keyboard:    Module{Emoji: ""},
 		Date:        Module{Emoji: ""},
@@ -75,6 +78,7 @@ func main() {
 	distrowmChan := make(chan string)
 	kernelChan := make(chan string)
 	updatesChan := make(chan string)
+	installedChan := make(chan string)
 	volumeChan := make(chan string)
 	keyboardChan := make(chan string)
 	dateChan := make(chan string)
@@ -85,6 +89,7 @@ func main() {
 	go sDistroWM(errs, distrowmChan)
 	go sKernel(errs, kernelChan)
 	go sUpdates(errs, updatesChan)
+	go sInstalled(errs, installedChan)
 	go sVolume(errs, volumeChan)
 	go sKeyboard(errs, keyboardChan)
 	go sDate(errs, dateChan)
@@ -120,6 +125,8 @@ func main() {
 			update()
 		case status.Updates.Text = <-updatesChan:
 			update()
+		case status.Installed.Text = <-installedChan:
+			update()
 		case status.Volume.Text = <-volumeChan:
 			if strings.HasPrefix(status.Volume.Text, "true ") {
 				status.Volume.Emoji = ""
@@ -154,6 +161,9 @@ func sKernel(e chan<- error, c chan<- string) {
 }
 func sUpdates(e chan<- error, c chan<- string) {
 	e <- readOutput("s_updates", c)
+}
+func sInstalled(e chan<- error, c chan<- string) {
+	e <- readOutput("s_installed", c)
 }
 func sVolume(e chan<- error, c chan<- string) {
 	e <- readOutput("s_volume", c)
