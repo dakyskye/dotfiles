@@ -1,4 +1,4 @@
-autotiling-git
+brave-bin
 choosenim
 cordless-git
 dxhd-git
@@ -13,10 +13,7 @@ nerd-fonts-source-code-pro
 nimdow-bin
 pcf-spectrum-berry
 pipes.sh
-polybar-git
 powershell-bin
-profont-otb
-proggyfonts
 sampctl-bin
 spicetify-cli
 spicetify-themes-git
@@ -30,5 +27,4 @@ ttf-mac-fonts
 ttf-meslo
 ttf-monaco
 ttf-ms-fonts
-ttf-profont-iix
 yay

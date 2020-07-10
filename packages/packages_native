@@ -43,7 +43,6 @@ findutils
 firefox-developer-edition
 flex
 font-bh-ttf
-font-mathematica
 fontforge
 fuse-common
 fuse3
@@ -67,7 +66,6 @@ gwenview
 gzip
 hddtemp
 htop
-i3-gaps
 i3lock
 inter-font
 jq
@@ -81,8 +79,6 @@ libhandy
 libimobiledevice
 libtool
 libva-mesa-driver
-lightdm
-lightdm-gtk-greeter
 linux
 linux-firmware
 lolcat
