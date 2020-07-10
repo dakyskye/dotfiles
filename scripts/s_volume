@@ -1,0 +1,18 @@
+#!/bin/sh
+
+#
+#	This file is part of nimdowstatus program
+#	Made by Lasha Kanteladze, a.k.a dakyskye
+#	Licensed under the MIT license
+#	Repository: https://github.com/dakyskye/nimdowstatus
+#
+
+print_vol() {
+	echo "$(pamixer --get-mute) $(pamixer --get-volume)"
+}
+
+print_vol
+
+pactl subscribe | while read -r LINE; do
+	echo "$LINE" | grep -qv "client" && print_vol
+done
