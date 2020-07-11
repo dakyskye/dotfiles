@@ -173,8 +173,10 @@ let g:coc_global_extensions = [
 	\ 'coc-xml',
 	\ 'coc-git',
 	\ 'coc-snippets',
+	\ 'coc-prettier',
 	\ 'coc-highlight',
-	\ 'coc-pairs'
+	\ 'coc-pairs',
+	\ 'coc-cord'
 \ ]
 
 " Use tab for trigger completion with characters ahead and navigate.

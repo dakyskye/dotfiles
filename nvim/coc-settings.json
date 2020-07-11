@@ -1,12 +1,22 @@
 {
-	"go.goplsOptions": {
-		"completeUnimported": true,
-		"usePlaceholders": true
-	},
-	"languageserver": {
-		"nim": {
-			"command": "nimlsp",
-			"filetypes": ["nim"]
-		}
-	}
+  "coc.preferences.formatOnSaveFiletypes": [
+    "typescript",
+    "typescriptreact",
+    "javascript",
+    "javascriptreact",
+    "json",
+    "html",
+    "css"
+  ],
+  "go.goplsOptions": {
+    "completeUnimported": true,
+    "usePlaceholders": true,
+    "staticcheck": true
+  },
+  "languageserver": {
+    "nim": {
+      "command": "nimlsp",
+      "filetypes": ["nim"]
+    }
+  }
 }
