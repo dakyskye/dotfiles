@@ -102,6 +102,7 @@ notepadqq
 noto-fonts
 noto-fonts-emoji
 noto-fonts-extra
+npm
 numlockx
 obs-studio
 opencl-mesa
@@ -141,8 +142,6 @@ screenkey
 sed
 shellcheck
 smartmontools
-steam
-steam-native-runtime
 sudo
 sxiv
 sysstat
@@ -172,6 +171,7 @@ virtualbox
 virtualbox-ext-vnc
 virtualbox-guest-iso
 virtualbox-guest-utils
+virtualbox-host-modules-arch
 vlc
 vnstat
 vulkan-radeon
