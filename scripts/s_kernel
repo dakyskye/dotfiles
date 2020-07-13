@@ -7,4 +7,4 @@
 #	Repository: https://github.com/dakyskye/nimdowstatus
 #
 
-echo "$(uname -r | cut -c1-5)"
+echo "$(uname -r | cut -d '-' -f 1)"
