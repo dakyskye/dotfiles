@@ -121,7 +121,7 @@ func main() {
 		continue
 	}
 
-	err = exec.Command("feh", "--bg-scale", path.Join(wallpapersPath, chosen)).Run()
+	err = exec.Command("feh", "--no-fehbg", "--bg-fill", path.Join(wallpapersPath, chosen)).Run()
 	if err != nil {
 		panic(err)
 	}
