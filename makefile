@@ -97,11 +97,12 @@ scripts:
 spicetify:
 	@sudo chmod a+wr /opt/spotify
 	@sudo chmod a+wr /opt/spotify/Apps -R
-	spicetify
-	spicetify backup apply enable-devtool
-	spicetify update
-	spicetify config color_scheme Dark
-	spicetify apply
+	@spicetify
+	@spicetify backup apply enable-devtool
+	@spicetify update
+	@spicetify config color_scheme Dark
+	@spicetify apply
+	@echo installed
 
 wallpapers:
 	-@mv ~/Images/{wallpapers,wallpapers.bak}
@@ -114,6 +115,8 @@ wallpapers:
 xinit:
 	-@mv ~/{.xinitrc,.xinitrc.bak}
 	@cp ./xinit/.xinitrc ~/
+	@./xinit/xinit.sh
+	@echo installed
 
 xorg:
 	-@sudo mv /etc/X11/xorg.conf.{d,d.bak}
