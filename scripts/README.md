@@ -7,7 +7,8 @@
 * `scr` - take a screenshot
 * `scw` - change screen warmness
 * `sop` - system operations (poweroff, reboot, lock, logout)
-* `temperature` - temperature monitoring script, powered by netcat
+* `smalmon` - used to disable my small monitor, *HDMI-A-1*
+* `s_*` - part of `statusbar.go`
 
 ## path
 
