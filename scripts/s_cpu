@@ -1,12 +1,5 @@
 #!/bin/sh
 
-#
-#	This file is part of nimdowstatus program
-#	Made by Lasha Kanteladze, a.k.a dakyskye
-#	Licensed under the MIT license
-#	Repository: https://github.com/dakyskye/nimdowstatus
-#
-
 while true; do
 	#echo "$(mpstat | grep -A 1 "%idle" | tail -n 1 | awk '{print 100 - $NF}' | cut -d '.' -f1)"
 	top -b -n1 | head -n5 | grep "%Cpu(s)" | awk ' {print $2 + $4} ' | cut -d '.' -f1

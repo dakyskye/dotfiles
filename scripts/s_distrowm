@@ -1,10 +1,3 @@
 #!/bin/sh
 
-#
-#	This file is part of nimdowstatus program
-#	Made by Lasha Kanteladze, a.k.a dakyskye
-#	Licensed under the MIT license
-#	Repository: https://github.com/dakyskye/nimdowstatus
-#
-
 echo "$(cat /etc/os-release | grep -w ID | cut -c4-)/$(wmctrl -m | awk '{if ($1 == "Name:") { print $2 }}')"

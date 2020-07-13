@@ -1,10 +1,3 @@
-/*
-	This file is part of nimdowstatus program
-	Made by Lasha Kanteladze, a.k.a dakyskye
-	Licensed under the MIT license
-	Repository: https://github.com/dakyskye/nimdowstatus
-*/
-
 package main
 
 import (

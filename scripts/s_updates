@@ -1,16 +1,5 @@
 #!/bin/sh
 
-#
-#	This file is part of nimdowstatus program
-#	Made by Lasha Kanteladze, a.k.a dakyskye
-#	Licensed under the MIT license
-#	Repository: https://github.com/dakyskye/nimdowstatus
-#
-
 echo "updating"
 sleep 10
-
-while true; do
-	echo "$(pacman -Qu | wc -l)"
-	sleep 3600
-done
+echo "$(pacman -Qu | wc -l)"
