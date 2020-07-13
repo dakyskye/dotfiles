@@ -7,6 +7,9 @@
 #	Repository: https://github.com/dakyskye/nimdowstatus
 #
 
+echo "updating"
+sleep 10
+
 while true; do
 	echo "$(pacman -Qu | wc -l)"
 	sleep 3600
