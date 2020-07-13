@@ -1,3 +1,4 @@
+echo 'PASSWORD' | sudo -S pacman -Sy &
 dxhd &
 dunst &
 picom -cC &
