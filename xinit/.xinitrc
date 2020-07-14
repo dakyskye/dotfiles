@@ -3,7 +3,7 @@ dxhd &
 dunst &
 picom -cC &
 unclutter &
-numlocx on &
+numlockx on &
 go run $SCRIPTS/wallpapers.go &
 go run $SCRIPTS/statusbar.go &
 nimdow
