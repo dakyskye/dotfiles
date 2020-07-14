@@ -49,5 +49,5 @@ scw {"d","n"}
 go run $SCRIPTS/wallpapers.go
 
 ## change volume
-# super + !mouse{4,5}
+# super + mouse{4,5}
 pamixer -{i,d} 1
