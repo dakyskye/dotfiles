@@ -2,6 +2,7 @@ alacritty
 amd-ucode
 arandr
 archiso
+aspnet-runtime
 audacity
 autoconf
 automake
@@ -166,12 +167,8 @@ unclutter
 unrar
 unzip
 usbmuxd
+vi
 vim
-virtualbox
-virtualbox-ext-vnc
-virtualbox-guest-iso
-virtualbox-guest-utils
-virtualbox-host-modules-arch
 vlc
 vnstat
 vulkan-radeon
