@@ -9,16 +9,11 @@ SAVEHIST=100000
 # oh my zsh
 export ZSH="$CONFIG/oh-my-zsh"
 
-# random theme candidates
-ZSH_THEME_RANDOM_CANDIDATES=(
-	"robbyrussell"
-	"pygmalion"
-)
-
-export ZSH_THEME="random"
+# set theme
+export ZSH_THEME="robbyrussell"
 
 # suggest auto correction for commands
-ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="false"
 
 # display red dots whilst waiting for completion
 COMPLETION_WAITING_DOTS="true"
@@ -45,8 +40,7 @@ alias ll="exa -al --color always --group-directories-first"
 alias lg="exa -alg --color always --group-directories-first"
 alias lh="exa -alh --color always --group-directories-first"
 alias lgh="exa -algh --color always --group-directories-first"
-alias lt="exa -aT --color always --group-directories-first"
-alias ltg="exa -aT --color always --group-directories-first -I .git"
+alias lt="exa -aT --color always --group-directories-first -I .git"
 
 alias rm="rm -i"
 alias cp="cp -i"
