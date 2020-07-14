@@ -165,7 +165,6 @@ let g:coc_global_extensions = [
 	\ 'coc-tsserver',
 	\ 'coc-python',
 	\ 'coc-rust-analyzer',
-	\ 'coc-omnisharp',
 	\ 'coc-clangd',
 	\ 'coc-json',
 	\ 'coc-yaml',
