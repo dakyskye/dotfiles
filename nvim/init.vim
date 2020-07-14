@@ -60,6 +60,8 @@ vnoremap <Leader>$ $
 vnoremap $ g_
 
 nnoremap D "_D
+nnoremap diw "_diw
+nnoremap <Leader>diw "+diw
 nnoremap c <Nop>
 vnoremap c "_c
 vnoremap <Leader>c "+c
@@ -216,7 +218,7 @@ nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
+nmap <Leader>rn <Plug>(coc-rename)
 
 " Show all diagnostics.
 nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
