@@ -26,15 +26,15 @@ scr
 
 ## select and capture a window immediately
 # super + print
-scr wc
+scr c w
 
 ## capture fullscreen screenshot immediately
 # shift +  print
-scr fc
+scr c f
 
 ## capture fullscreen screenshot immediately and save it
 # ctrl + print
-scr fs
+scr s f
 
 ## system operations / screen warmness menus
 # super + ctrl + {o, w}

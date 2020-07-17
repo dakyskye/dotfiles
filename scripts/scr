@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -e
+
 TMPOUT=$(mktemp)
 TMPFILE=$(mktemp --suffix ".png")
 TMPMAGICK=$(mktemp --suffix ".png")
@@ -13,102 +15,357 @@ NOTIFY_SAVE="the screenshot has been taken and saved locally at $SS_PATH"
 NOTIFY_UPLOAD="the link of captured screenshot has been copied to your clipboard"
 NOTIFY_APP_NAME="scr"
 
-FC="fc"
-WC="wc"
-WCB="wcb"
-FS="fs"
-WS="ws"
-WSB="wsb"
-FU="fu"
-WU="wu"
-WUB="wub"
+F="fullscreen"
+FT="fullscreen + extra transparent background"
+FL="fullscreen (lossless quality)"
 
-maimscr() {
-	maim $1 "${2:-$TMPFILE}" > "$TMPOUT" 2>&1
+W="window"
+WT="window + extra transparent background"
+WL="window (lossless quality)"
 
-	case "$(cat "$TMPOUT")" in "") return 0; esac
+menu_main() {
+	S="save"
+	U="upload"
+	C="copy"
 
-	return 1
-}
-
-magickback() {
-	[ -z "$1" ] && return 1
-
-	SIZE="$(identify -format '%w %h' "$1")"
-	WIDTH="${SIZE% *}"
-	HEIGHT="${SIZE#* }"
-	convert -size "$(($WIDTH+50))"x"$(($HEIGHT+50))" canvas:none "$TMPMAGICK"
-	convert "$TMPMAGICK" -colorspace sRGB -gravity center "$1" -composite "$1"
-}
-
-screenshot() {
-	[ -z "$1" ] && return 1
-
-	case "$1" in
-		"$FC")
-			maimscr && xclip -selection clipboard -t image/png -i "$TMPFILE" && notify-send -a "$NOTIFY_APP_NAME" "$NOTIFY_COPY"
+	CHOICE="$(printf "$S\n$U\n$C" | rofi -dmenu -p "make the choice")"
+	
+	case "$CHOICE" in
+		"$S")
+			menu_type
+			pre_save
 			;;
-		"$WC")
-			maimscr "-sou" && xclip -selection clipboard -t image/png -i "$TMPFILE" && notify-send -a "$NOTIFY_APP_NAME" "$NOTIFY_COPY"
+		"$U")
+			menu_type
+			pre_upload
 			;;
-		"$WCB")
-			maimscr "-sou" && magickback "$TMPFILE" && xclip -selection clipboard -t image/png -i "$TMPFILE" && notify-send -a "$NOTIFY_APP_NAME" "$NOTIFY_COPY"
+		"$C")
+			menu_type "copy"
+			pre_copy
 			;;
-		"$FS")
-			maimscr "" "$SS_FORMAT" && notify-send -a "$NOTIFY_APP_NAME" "$NOTIFY_SAVE"
-			;;
-		"$WS")
-			maimscr "-sou" "$SS_FORMAT" && notify-send -a "$NOTIFY_APP_NAME" "$NOTIFY_SAVE"
-			;;
-		"$WSB")
-			maimscr "-sou" "$SS_FORMAT" && magickback "$SS_FORMAT" && notify-send -a "$NOTIFY_APP_NAME" "$NOTIFY_SAVE"
-			;;
-		"$FU")
-			maimscr && 0x0 "$TMPFILE" | xclip -selection clipboard && notify-send -a "$NOTIFY_APP_NAME" "$NOTIFY_UPLOAD"
-			;;
-		"$WU")
-			maimscr "-so" && 0x0 "$TMPFILE" | xclip -selection clipboard && notify-send -a "$NOTIFY_APP_NAME" "$NOTIFY_UPLOAD"
-			;;
-		"$WUB")
-			maimscr "-so" && magickback "$TMPFILE" && 0x0 "$TMPFILE" | xclip -selection clipboard && notify-send -a "$NOTIFY_APP_NAME" "$NOTIFY_UPLOAD"
+		*)
+			return 1
 			;;
 	esac
 }
 
-if [ -n "$1" ]; then
-	screenshot "$1"
-else
-	CHOICE=$(printf "1) fullscreen and copy\n2) select a window and copy\n3) select a window and copy (b)\n4) fullscreen and save\n5) select a window and save\n6) select a window and save (b)\n7) fullscreen and upload to 0x0\n8) select a window and upload to 0x0\n9) select a window and upload to 0x0 (b)" | rofi -dmenu -p "make the choice")
+menu_type() {
+	T_F="fullscreen"
+	T_W="window"
+
+	CHOICE="$(printf "$T_F\n$T_W" | rofi -dmenu -p "make the choice")"
+
+	case "$CHOICE" in
+		"$T_F")
+			menu_fullscreen "$1"
+			;;
+		"$T_W")
+			menu_window "$1"
+			;;
+		*)
+			return 1
+			;;
+	esac
+}
+
+menu_fullscreen() {
+	ITEMS="$F\n$FT"
+
+	[ "$1" = "copy" ] || ITEMS="$ITEMS\n$FL"
+
+	ACTION="$(printf "$ITEMS" | rofi -dmenu -p "make the choice")"
+}
+
+menu_window() {
+	ITEMS="$W\n$WT"
+
+	[ "$1" = "copy" ] || ITEMS="$ITEMS\n$WL"
+
+	ACTION="$(printf "$ITEMS" | rofi -dmenu -p "make the choice")"
+}
+
+pre_save() {
+	case "$ACTION" in
+		"$F")
+			action_save "$F"
+			;;
+		"$FT")
+			action_save "$FT"
+			;;
+		"$FL")
+			action_save "$FL"
+			;;
+		"$W")
+			action_save "$W"
+			;;
+		"$WT")
+			action_save "$WT"
+			;;
+		"$WL")
+			action_save "$WL"
+			;;
+		*)
+			return 1
+			;;
+	esac
+}
+
+pre_upload() {
+	case "$ACTION" in
+		"$F")
+			action_upload "$F"
+			;;
+		"$FT")
+			action_upload "$FT"
+			;;
+		"$FL")
+			action_upload "$FL"
+			;;
+		"$W")
+			action_upload "$W"
+			;;
+		"$WT")
+			action_upload "$WT"
+			;;
+		"$WL")
+			action_upload "$WL"
+			;;
+		*)
+			return 1
+			;;
+	esac
+}
+
+pre_copy() {
+	case "$ACTION" in
+		"$F")
+			action_copy "$F"
+			;;
+		"$FT")
+			action_copy "$FT"
+			;;
+		"$W")
+			action_copy "$W"
+			;;
+		"$WT")
+			action_copy "$WT"
+			;;
+		*)
+			return 1
+			;;
+	esac
+}
+
+action_save() {
+	[ -z "$1" ] && menu_type && pre_save && return 0
 
 	sleep 0.3
 
-	case "$CHOICE" in
-		"1)"*)
-			screenshot "$FC"
+	case "$1" in
+		"$F")
+			maimscr "m 2" "$SS_FORMAT"
 			;;
-		"2)"*)
-			screenshot "$WC"
+		"$FT")
+			maimscr "m 2" "$SS_FORMAT" && magickback "$SS_FORMAT"
 			;;
-		"3)"*)
-			screenshot "$WCB"
+		"$FL")
+			maimscr "m 1" "$SS_FORMAT"
 			;;
-		"4)"*)
-			screenshot "$FS"
+		"$W")
+			maimscr "sum 2" "$SS_FORMAT"
 			;;
-		"5)"*)
-			screenshot "$WS"
+		"$WT")
+			maimscr "sum 2" "$SS_FORMAT" && magickback "$SS_FORMAT"
 			;;
-		"6)"*)
-			screenshot "$WSB"
+		"$WL")
+			maimscr "sum 1" "$SS_FORMAT"
 			;;
-		"7)"*)
-			screenshot "$FU"
-			;;
-		"8)"*)
-			screenshot "$WU"
-			;;
-		"9)"*)
-			screenshot "$WUB"
+		*)
+			return 1
 			;;
 	esac
+
+	notify "$NOTIFY_SAVE"
+}
+
+action_upload() {
+	[ -z "$1" ] && menu_type && pre_upload && return 0
+
+	sleep 0.3
+
+	case "$1" in
+		"$F")
+			maimscr "m 2" && uploadimg | copytext
+			;;
+		"$FT")
+			maimscr "m 2" && uploadimg | copytext
+			;;
+		"$FL")
+			maimscr "m 1" && uploadimg | copytext
+			;;
+		"$W")
+			maimscr "sum 2" && uploadimg | copytext
+			;;
+		"$WT")
+			maimscr "sum 2" && uploadimg | copytext
+			;;
+		"$WL")
+			maimscr "sum 1" && uploadimg | copytext
+			;;
+		*)
+			return 1
+			;;
+	esac
+
+	notify "$NOTIFY_UPLOAD"
+}
+
+action_copy() {
+	[ -z "$1" ] && menu_type && pre_copy && return 0
+
+	sleep 0.3
+
+	case "$1" in
+		"$F")
+			maimscr "m 2" && copyimg
+			;;
+		"$FT")
+			maimscr "m 2" && magickback && copyimg
+			;;
+		"$W")
+			maimscr "sum 2" && copyimg
+			;;
+		"$WT")
+			maimscr "sum 2" && magickback && copyimg
+			;;
+		*)
+			return 1
+			;;
+	esac
+
+	notify "$NOTIFY_COPY"
+}
+
+maimscr() {
+	[ -z "$1" ] && return 1
+
+	ARGS="-q$1"
+
+	return $(maim $ARGS "${2:-$TMPFILE}")
+}
+
+magickback() {
+	F="${1:-$TMPFILE}"
+
+	SIZE="$(identify -format '%w %h' "$F")"
+	WIDTH="${SIZE% *}"
+	HEIGHT="${SIZE#* }"
+	convert -size "$((WIDTH+50))"x"$((HEIGHT+50))" canvas:none "$TMPMAGICK"
+	convert "$TMPMAGICK" -colorspace sRGB -gravity center "$F" -composite "$F"
+}
+
+uploadimg() {
+	F="${1:-$TMPFILE}"
+
+	0x0 "$F"
+}
+
+copytext() {
+	xclip -selection clipboard
+}
+
+copyimg() {
+	F="${1:-$TMPFILE}"
+
+	xclip -selection clipboard -t image/png -i "$F"
+}
+
+notify() {
+	[ -z "$1" ] && return 1
+
+	notify-send -a "$NOTIFY_APP_NAME" "$1"
+}
+
+if [ -n "$1" ]; then
+	case "$1" in
+		s)
+			case "$2" in
+				f)
+					action_save "$F"
+					;;
+				ft)
+					action_save "$FT"
+					;;
+				fl)
+					action_save "$FL"
+					;;
+				w)
+					action_save "$W"
+					;;
+				wt)
+					action_save "$WT"
+					;;
+				wl)
+					action_save "$WL"
+					;;
+				*)
+					action_save
+					;;
+			esac
+			;;
+		u)
+			case "$2" in
+				f)
+					action_upload "$F"
+					;;
+				ft)
+					action_upload "$FT"
+					;;
+				fl)
+					action_upload "$FL"
+					;;
+				w)
+					action_upload "$W"
+					;;
+				wt)
+					action_upload "$WT"
+					;;
+				wl)
+					action_upload "$WL"
+					;;
+				*)
+					action_upload
+					;;
+			esac
+			;;
+		c)
+			case "$2" in
+				f)
+					action_copy "$F"
+					;;
+				ft)
+					action_copy "$FT"
+					;;
+				fl)
+					action_copy "$FL"
+					;;
+				w)
+					action_copy "$W"
+					;;
+				wt)
+					action_copy "$WT"
+					;;
+				wl)
+					action_copy "$WL"
+					;;
+				*)
+					action_copy
+					;;
+			esac
+			;;
+		*)
+			printf "%s is not a valid First argument, go with either of those:\ns - save\nu - upload\nc - copy" "$1" >&2 && exit 1
+	esac
+else
+	menu_main
 fi
