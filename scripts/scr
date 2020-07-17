@@ -2,11 +2,10 @@
 
 set -e
 
-TMPOUT=$(mktemp)
 TMPFILE=$(mktemp --suffix ".png")
 TMPMAGICK=$(mktemp --suffix ".png")
 
-trap 'rm -f "$TMPOUT" "$TMPFILE" "$TMPMAGICK"' EXIT
+trap 'rm -f "$TMPFILE" "$TMPMAGICK"' EXIT
 
 SS_PATH="$HOME/Images/screenshots"
 SS_FORMAT="$SS_PATH/screenshot_$(date '+%d.%m.%Y_%H.%M.%S').png"
