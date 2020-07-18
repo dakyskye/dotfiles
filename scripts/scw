@@ -1,16 +1,19 @@
 #!/bin/sh
 
+N="night mode"
+D="day mode"
+
 NOTIFY_APP_NAME="screen warmness"
 
 warmness() {
 	[ -z "$1" ] && return 1
 
 	case "$1" in
-		"n")
-			redshift -P -O 4500 && notify-send -a "$NOTIFY_APP_NAME" "enabled night mode"
+		"$N"|"n")
+			redshift -P -O 4500 && notify-send -a "$NOTIFY_APP_NAME" "enabled $N"
 			;;
-		"d")
-			redshift -P -O 6500 && notify-send -a "$NOTIFY_APP_NAME" "enabled light mode"
+		"$D"|"d")
+			redshift -P -O 6500 && notify-send -a "$NOTIFY_APP_NAME" "enabled $D"
 			;;
 	esac
 }
@@ -18,16 +21,14 @@ warmness() {
 if [ -n "$1" ]; then
 	warmness "$1"
 else
-	CHOICE=$(printf "1) night mode\n2) day mode" | rofi -dmenu -p "make the choice")
+	CHOICE=$(printf "$N\n$D" | rofi -dmenu -p "make the choice")
 
 	case "$CHOICE" in
-		"1)"*)
-			warmness "n"
+		"$N")
+			warmness "$N"
 			;;
-		"2)"*)
-			warmness "d"
+		"$D")
+			warmness "$D"
 			;;
 	esac
 fi
-
-# vim: ft=sh

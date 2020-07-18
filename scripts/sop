@@ -1,33 +1,41 @@
 #!/bin/sh
 
+POWEROFF="poweroff"
+REBOOT="reboot"
+SUSPEND="suspend"
+HIBERNATE="hibernate"
+HYBRID_SLEEP="hybrid-sleep"
+LOGOUT="log out"
+LOCK="lock"
+
 operation() {
 	[ -z "$1" ] && return 1
 
 	case "$1" in
-		shutdown)
-			systemctl poweroff
+		"$POWEROFF")
+			systemctl "$POWEROFF"
 			;;
-		reboot)
-			systemctl reboot
+		"$REBOOT")
+			systemctl "$REBOOT"
 			;;
-		suspend)
-			systemctl suspend
+		"$SUSPEND")
+			systemctl "$SUSPEND"
 			;;
-		hibernate)
-			systemctl hibernate
+		"$HIBERNATE")
+			systemctl "$HIBERNATE"
 			;;
-		hybrid-sleep)
-			systemctl hybrid-sleep
+		"$HYBRID_SLEEP")
+			systemctl "$HYBRID_SLEEP"
 			;;
-		logout)
+		"$LOGOUT")
 			pkill -9 -U $USER
 			;;
-		lock)
+		"$LOCK")
 			notify-send DUNST_COMMAND_PAUSE
 			tmpdir=$(mktemp -d)
 			original="$tmpdir/original.png"
 			blurred="$tmpdir/blurred.png"
-			sleep 0.3
+			[ "$2" = "menu" ] && sleep 0.3
 			maim -ou "$original"
 			convert "$original" -blur 0x5 "$blurred"
 			i3lock -n -e -f -i "$blurred"
@@ -41,31 +49,7 @@ operation() {
 if [ -n "$1" ]; then
 	operation "$1"
 else
-	CHOICE=$(printf "1) power off\n2) reboot\n3) hibernate\n4) suspend\n5) hybrid sleep\n6) log out\n7) lock" | rofi -dmenu -p "make the choice")
+	CHOICE=$(printf "$POWEROFF\n$REBOOT\n$SUSPEND\n$HIBERNATE\n$HYBRID_SLEEP\n$LOGOUT\n$LOCK" | rofi -dmenu -p "make the choice")
 
-	case "$CHOICE" in
-		"1)"*)
-			operation shutdown
-			;;
-		"2)"*)
-			operation reboot
-			;;
-		"3)"*)
-			operation hibernate
-			;;
-		"4)"*)
-			operation suspend
-			;;
-		"5)"*)
-			operation hybrid-sleep
-			;;
-		"6)"*)
-			operation logout
-			;;
-		"7)"*)
-			operation lock
-			;;
-	esac
+	operation "$CHOICE" "menu"
 fi
-
-# vim: ft=sh
