@@ -2,6 +2,9 @@
 
 set -e
 
+! which maim >/dev/null 2>/dev/null && echo "you need to install maim first" >&2 && exit 1
+! which convert >/dev/null 2>/dev/null && echo "you need to install ImageMagick first" >&2 && exit 1
+
 TMPFILE=$(mktemp --suffix ".png")
 TMPMAGICK=$(mktemp --suffix ".png")
 
@@ -9,6 +12,7 @@ trap 'rm -f "$TMPFILE" "$TMPMAGICK"' EXIT
 
 SS_PATH="$HOME/Images/screenshots"
 SS_FORMAT="$SS_PATH/screenshot_$(date '+%d.%m.%Y_%H.%M.%S').png"
+
 NOTIFY_COPY="the screenshot has been taken and copied to your clipboard"
 NOTIFY_SAVE="the screenshot has been taken and saved locally at $SS_PATH"
 NOTIFY_UPLOAD="the link of captured screenshot has been copied to your clipboard"
@@ -363,7 +367,7 @@ if [ -n "$1" ]; then
 			esac
 			;;
 		*)
-			printf "%s is not a valid First argument, go with either of those:\ns - save\nu - upload\nc - copy" "$1" >&2 && exit 1
+			printf "%s is not a valid First argument, go with one of those:\ns - save\nu - upload\nc - copy" "$1" >&2 && exit 1
 	esac
 else
 	menu_main
