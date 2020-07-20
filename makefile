@@ -34,7 +34,7 @@ dunst:
 dxhd:
 	-@mv ~/.config/{dxhd,dxhd.bak}
 	@mkdir -p ~/.config/dxhd
-	@cp dxhd/{dxhd.sh,i3.sh} ~/.config/dxhd/
+	@cp dxhd/dxhd.sh ~/.config/dxhd/
 	@echo installed
 
 fonts:
@@ -50,7 +50,7 @@ neofetch:
 	@echo installed
 
 nimdow:
-	~@mv ~/.config/{nimdow,nimdow.bak}
+	-mv ~/.config/{nimdow,nimdow.bak}
 	@mkdir -p ~/.config/nimdow/
 	@cp ./nimdow/config.toml ~/.config/nimdow/
 	@echo installed
