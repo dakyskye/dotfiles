@@ -130,7 +130,6 @@ pulsemixer
 pwgen
 python-pip
 qbittorrent
-qutebrowser
 ranger
 redshift
 ripgrep
@@ -173,9 +172,6 @@ vlc
 vnstat
 vulkan-radeon
 which
-wine-gecko
-wine-mono
-wine-staging
 wmctrl
 wpa_supplicant
 xclip
@@ -231,7 +227,6 @@ xorg-xwd
 xorg-xwininfo
 xorg-xwud
 xterm
-yarn
 youtube-dl
 zenity
 zip
