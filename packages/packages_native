@@ -137,11 +137,14 @@ rofi
 rofimoji
 ruby
 rubygems
+rust-analyzer
 rxvt-unicode
 screenkey
 sed
 shellcheck
 smartmontools
+steam
+steam-native-runtime
 sudo
 sxiv
 sysstat
