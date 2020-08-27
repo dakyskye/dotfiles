@@ -164,7 +164,7 @@ let g:coc_global_extensions = [
 	\ 'coc-go',
 	\ 'coc-tsserver',
 	\ 'coc-python',
-	\ 'coc-rust-analyzer',
+	\ "coc-rls",
 	\ 'coc-clangd',
 	\ 'coc-json',
 	\ 'coc-yaml',
