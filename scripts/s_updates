@@ -3,3 +3,6 @@
 echo "updating"
 sleep 10
 echo "$(pacman -Qu | wc -l)"
+
+sleep 3600
+echo "$(pacman -Qu | wc -l)"
