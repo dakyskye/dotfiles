@@ -109,10 +109,6 @@ map <silent><A-s> : set spell! spelllang=en_gb <CR>
 " clear the highlights after search
 nnoremap <Leader><space> :nohlsearch<CR>
 
-" organise imports and format go code on save
-autocmd BufWritePre *.go :call CocAction('format')
-autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
-
 " editorconfig-vim
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
