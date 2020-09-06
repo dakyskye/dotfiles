@@ -6,14 +6,14 @@ FIFO=$(mktemp)
 trap "exit" INT TERM HUP
 trap 'kill 0; rm -f $FIFO' EXIT
 
-gpu() {
-	TEMP="G $(sensors | grep -A 6 amdgpu-pci | awk '{ if ($1 == "edge:") { print $2 } }' | sed -nE 's/\+([0-9]+)\..*/\1/p')"
-	echo "gpu" > "$FIFO"
-}
-
 cpu() {
 	TEMP="C $(sensors | grep -A 8 k10temp-pci | awk '{ if ($1 == "Tdie:") { print $2 } }' | sed -nE 's/\+([0-9][0-9])\..*/\1/p')"
 	echo "cpu" > "$FIFO"
+}
+
+gpu() {
+	TEMP="G $(sensors | grep -A 6 amdgpu-pci | awk '{ if ($1 == "edge:") { print $2 } }' | sed -nE 's/\+([0-9]+)\..*/\1/p')"
+	echo "gpu" > "$FIFO"
 }
 
 hdd() {
@@ -22,33 +22,44 @@ hdd() {
 	echo "hdd" > "$FIFO"
 }
 
-gpu
+ssd() {
+	TEMP="S $(echo $(nc 127.0.0.1 7635) | sed -nE 's/.*KINGSTON.*?\|([0-9]+)\|.*/\1/p')"
+	echo "ssd" > "$FIFO"
+}
+
+cpu
 echo "$TEMP"
 
 cur() {
 	case "$(cat "$FIFO")" in
-		gpu)
-			gpu && echo "$TEMP"
-			;;
 		cpu)
 			cpu && echo "$TEMP"
 			;;
+		gpu)
+			gpu && echo "$TEMP"
+			;;
 		hdd)
 			hdd && echo "$TEMP"
+			;;
+		ssd)
+			ssd && echo "$TEMP"
 			;;
 	esac
 }
 
 next() {
 	case "$(cat "$FIFO")" in
-		gpu)
-			cpu && echo "$TEMP"
-			;;
 		cpu)
+			gpu && echo "$TEMP"
+			;;
+		gpu)
 			hdd && echo "$TEMP"
 			;;
 		hdd)
-			gpu && echo "$TEMP"
+			ssd && echo "$TEMP"
+			;;
+		ssd)
+			cpu && echo "$TEMP"
 			;;
 	esac
 }
