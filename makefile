@@ -11,13 +11,14 @@ default:
 	@echo "profile"
 	@echo "rofi"
 	@echo "scripts"
+	@echo "services"
 	@echo "spicetify"
 	@echo "wallpapers"
 	@echo "xinit"
 	@echo "xorg"
 	@echo "zsh"
 
-.PHONY: alacritty dunst dxhd fonts neofetch nimdow nvim packages profile rofi scripts spicetify wallpapers xinit xorg zsh
+.PHONY: alacritty dunst dxhd fonts neofetch nimdow nvim packages profile rofi scripts services spicetify wallpapers xinit xorg zsh
 
 alacritty:
 	-@mv ~/.config/{alacritty,alacritty.bak}
@@ -89,9 +90,16 @@ rofi:
 scripts:
 	-@mkdir -p ~/.local/bin
 	@cp -i ./scripts/* ~/.local/bin/
-	@sudo systemctl enable --now hddtemp
 	@rm -f ~/.local/bin/README.md
 	@mkdir -p ~/Images/screenshots
+	@echo installed
+
+services:
+	-@sudo mv /etc/systemd/system/{hddtemp.service,hddtemp.service.bak}
+	-@sudo mv /etc/systemd/system/{ssdtemp.service,ssdtemp.service.bak}
+	@sudo cp ./services/{hddtemp.service,ssdtemp.service} /etc/systemd/system/
+	@sudo systemctl enable hddtemp --now
+	@sudo systemctl enable ssdtemp --now
 	@echo installed
 
 spicetify:
