@@ -109,6 +109,9 @@ map <silent><A-s> : set spell! spelllang=en_gb <CR>
 " clear the highlights after search
 nnoremap <Leader><space> :nohlsearch<CR>
 
+" organise Go code imports (imports unimported, but used packages)
+autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
+
 " editorconfig-vim
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
@@ -160,7 +163,7 @@ let g:coc_global_extensions = [
 	\ 'coc-go',
 	\ 'coc-tsserver',
 	\ 'coc-python',
-	\ "coc-rls",
+	\ 'coc-rust-analyzer',
 	\ 'coc-clangd',
 	\ 'coc-json',
 	\ 'coc-yaml',
