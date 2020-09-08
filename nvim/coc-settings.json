@@ -20,5 +20,6 @@
       "command": "nimlsp",
       "filetypes": ["nim"]
     }
-  }
+  },
+  "rust-analyzer.serverPath": "rust-analyzer"
 }
