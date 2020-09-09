@@ -84,6 +84,7 @@ linux
 linux-firmware
 lolcat
 lshw
+lutris
 lvm2
 m4
 maim
@@ -96,6 +97,7 @@ mtools
 ncdu
 neofetch
 neovim
+network-manager-applet
 networkmanager
 nmap
 nodejs
@@ -175,6 +177,10 @@ vlc
 vnstat
 vulkan-radeon
 which
+wine
+wine-gecko
+wine-mono
+winetricks
 wmctrl
 wmname
 wpa_supplicant
