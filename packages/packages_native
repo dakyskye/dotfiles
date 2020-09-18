@@ -1,4 +1,5 @@
 alacritty
+alsa-utils
 amd-ucode
 arandr
 archiso
@@ -78,6 +79,7 @@ lib32-mesa-vdpau
 lib32-vulkan-radeon
 libhandy
 libimobiledevice
+libreoffice-still
 libtool
 libva-mesa-driver
 linux
