@@ -10,6 +10,7 @@
   barFonts = [
     "UbuntuMono Nerd Font:size=9:anialias=false",
     "NotoSerif Nerd Font:size=8:anialias=false"
+    "DejaVu Serif:size=9:anialias=false",
   ]
 
 [controls]
