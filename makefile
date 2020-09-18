@@ -64,6 +64,7 @@ nvim:
 	@pip install neovim --user
 	@sudo pacman -S go --needed
 	@go get -u github.com/jstemmer/gotags
+	@yarn global add git+https://github.com/Perlence/tstags.git
 	@echo installed
 	@echo "neovim will exit on the first run"
 	@echo "run :PlugInstall on second run"
