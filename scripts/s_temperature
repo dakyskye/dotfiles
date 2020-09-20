@@ -1,93 +1,31 @@
 #!/bin/sh
 
-TEMP=""
-FIFO=$(mktemp)
-
 trap "exit" INT TERM HUP
-trap 'kill 0; rm -f $FIFO' EXIT
+trap "kill 0" EXIT
 
 cpu() {
-	TEMP="C $(sensors | grep -A 8 k10temp-pci | awk '{ if ($1 == "Tdie:") { print $2 } }' | sed -nE 's/\+([0-9][0-9])\..*/\1/p')"
-	echo "cpu" > "$FIFO"
+	T_CPU="C $(sensors | grep -A 8 k10temp-pci | awk '{ if ($1 == "Tdie:") { print $2 } }' | sed -nE 's/\+([0-9][0-9])\..*/\1/p')"
 }
 
 gpu() {
-	TEMP="G $(sensors | grep -A 6 amdgpu-pci | awk '{ if ($1 == "edge:") { print $2 } }' | sed -nE 's/\+([0-9]+)\..*/\1/p')"
-	echo "gpu" > "$FIFO"
+	T_GPU="G $(sensors | grep -A 6 amdgpu-pci | awk '{ if ($1 == "edge:") { print $2 } }' | sed -nE 's/\+([0-9]+)\..*/\1/p')"
 }
 
 hdd() {
-	# echo is needed here!
-	TEMP="H $(echo $(nc 127.0.0.1 7634) | sed -nE 's/.*SAMSUNG.*?\|([0-9]+)\|.*/\1/p')"
-	echo "hdd" > "$FIFO"
+	T_HDD="H $(echo $(nc 127.0.0.1 7634) | sed -nE 's/.*SAMSUNG.*?\|([0-9]+)\|.*/\1/p')"
 }
 
 ssd() {
-	TEMP="S $(echo $(nc 127.0.0.1 7635) | sed -nE 's/.*KINGSTON.*?\|([0-9]+)\|.*/\1/p')"
-	echo "ssd" > "$FIFO"
+	T_SSD="S $(echo $(nc 127.0.0.1 7635) | sed -nE 's/.*KINGSTON.*?\|([0-9]+)\|.*/\1/p')"
 }
 
-cpu
-echo "$TEMP"
 
-cur() {
-	case "$(cat "$FIFO")" in
-		cpu)
-			cpu && echo "$TEMP"
-			;;
-		gpu)
-			gpu && echo "$TEMP"
-			;;
-		hdd)
-			hdd && echo "$TEMP"
-			;;
-		ssd)
-			ssd && echo "$TEMP"
-			;;
-	esac
-}
-
-next() {
-	case "$(cat "$FIFO")" in
-		cpu)
-			gpu && echo "$TEMP"
-			;;
-		gpu)
-			hdd && echo "$TEMP"
-			;;
-		hdd)
-			ssd && echo "$TEMP"
-			;;
-		ssd)
-			cpu && echo "$TEMP"
-			;;
-	esac
-}
-
-regular() {
-	while :; do
-		sleep 5
-		cur
-	done
-}
-
-listener() {
-	tmp=$(mktemp)
-	ncat -k -l -p 8782 > "$tmp" &
-	export NCPID=$!
-	tail -f -n 0 "$tmp" | while read -r TASK; do
-		case "$TASK" in
-			current)
-				cur
-				;;
-			next)
-				next
-				;;
-		esac
-	done
-}
-
-regular &
-listener &
-
-wait
+while true; do
+	cpu 
+	gpu 
+	hdd 
+	ssd 
+	sleep 0.5
+	echo " ${T_CPU}°C |  ${T_GPU}°C |  ${T_HDD}°C |  ${T_SSD}°C"
+	sleep 2
+done

@@ -6,73 +6,33 @@ import (
 	"fmt"
 	"os/exec"
 	"strings"
-	"text/template"
-)
-
-type Status struct {
-	Memory      Module
-	CPU         Module
-	Temperature Module
-	DistroWM    Module
-	Kernel      Module
-	Updates     Module
-	Installed   Module
-	Volume      Module
-	Keyboard    Module
-	Date        Module
-}
-
-type Module struct {
-	Emoji   string
-	Text    string
-	Postfix string
-}
-
-const (
-	memory      = `{{$.Memory.Emoji}}  {{$.Memory.Text}}  {{- $.Memory.Postfix}}`
-	cpu         = `{{$.CPU.Emoji}}  {{$.CPU.Text}}  {{- $.CPU.Postfix}}`
-	temperature = `{{$.Temperature.Emoji}}  {{$.Temperature.Text}}  {{- $.Temperature.Postfix}}`
-	distrowm    = `{{$.DistroWM.Emoji}}  {{$.DistroWM.Text}}  {{- $.DistroWM.Postfix}}`
-	kernel      = `{{$.Kernel.Emoji}}  {{$.Kernel.Text}}  {{- $.Kernel.Postfix}}`
-	updates     = `{{$.Updates.Emoji}}  {{$.Updates.Text}}  {{- $.Updates.Postfix}}`
-	installed   = `{{$.Installed.Emoji}}  {{$.Installed.Text}}  {{- $.Installed.Postfix}}`
-	volume      = `{{$.Volume.Emoji}}  {{$.Volume.Text}}  {{- $.Volume.Postfix}}`
-	keyboard    = `{{$.Keyboard.Emoji}}  {{$.Keyboard.Text}}  {{- $.Keyboard.Postfix}}`
-	date        = `{{$.Date.Emoji}}  {{$.Date.Text}}  {{- $.Date.Postfix}}`
-	output      = memory + " | " + cpu + " | " + temperature + " | " + distrowm + " | " + kernel + " | " + updates + " | " + installed + " | " + volume + " | " + keyboard + " | " + date
 )
 
 func main() {
-	tmpl, err := template.New("default").Parse(output)
-	if err != nil {
-		panic(err)
-	}
-
-	status := &Status{
-		Memory:      Module{Emoji: "", Postfix: "%"},
-		CPU:         Module{Emoji: "", Postfix: "%"},
-		Temperature: Module{Emoji: "", Postfix: "°C"},
-		DistroWM:    Module{Emoji: ""},
-		Kernel:      Module{Emoji: ""},
-		Updates:     Module{Emoji: ""},
-		Installed:   Module{Emoji: ""},
-		Volume:      Module{Postfix: "%"},
-		Keyboard:    Module{Emoji: ""},
-		Date:        Module{Emoji: ""},
-	}
-
 	out := new(bytes.Buffer)
 
+	var err error
 	errs := make(chan error)
+
+	memory := ""
+	cpu := ""
+	temperature := ""
+	distrowm := ""
+	kernel := ""
+	updates := ""
+	installed := ""
+	volume := ""
+	keyboard := ""
+	date := ""
 
 	memoryChan := make(chan string)
 	cpuChan := make(chan string)
 	temperatureChan := make(chan string)
+	volumeChan := make(chan string)
 	distrowmChan := make(chan string)
 	kernelChan := make(chan string)
 	updatesChan := make(chan string)
 	installedChan := make(chan string)
-	volumeChan := make(chan string)
 	keyboardChan := make(chan string)
 	dateChan := make(chan string)
 
@@ -89,10 +49,7 @@ func main() {
 
 	update := func() {
 		out.Reset()
-		err = tmpl.Execute(out, status)
-		if err != nil {
-			panic(err)
-		}
+		out.WriteString(fmt.Sprintf("%s | %s | %s | %s | %s | %s | %s | %s | %s | %s", memory, cpu, temperature, distrowm, kernel, updates, installed, volume, keyboard, date))
 		err = setStatus(out.String())
 		if err != nil {
 			panic(err)
@@ -106,32 +63,25 @@ func main() {
 				continue
 			}
 			panic(err)
-		case status.Memory.Text = <-memoryChan:
+		case memory = <-memoryChan:
 			update()
-		case status.CPU.Text = <-cpuChan:
+		case cpu = <-cpuChan:
 			update()
-		case status.Temperature.Text = <-temperatureChan:
+		case temperature = <-temperatureChan:
 			update()
-		case status.DistroWM.Text = <-distrowmChan:
+		case distrowm = <-distrowmChan:
 			update()
-		case status.Kernel.Text = <-kernelChan:
+		case kernel = <-kernelChan:
 			update()
-		case status.Updates.Text = <-updatesChan:
+		case updates = <-updatesChan:
 			update()
-		case status.Installed.Text = <-installedChan:
+		case installed = <-installedChan:
 			update()
-		case status.Volume.Text = <-volumeChan:
-			if strings.HasPrefix(status.Volume.Text, "true ") {
-				status.Volume.Emoji = ""
-				status.Volume.Text = strings.TrimPrefix(status.Volume.Text, "true ")
-			} else {
-				status.Volume.Emoji = ""
-				status.Volume.Text = strings.TrimPrefix(status.Volume.Text, "false ")
-			}
+		case volume = <-volumeChan:
 			update()
-		case status.Keyboard.Text = <-keyboardChan:
+		case keyboard = <-keyboardChan:
 			update()
-		case status.Date.Text = <-dateChan:
+		case date = <-dateChan:
 			update()
 		}
 	}
@@ -189,6 +139,6 @@ func readOutput(command string, output chan<- string) (err error) {
 
 func setStatus(status string) (err error) {
 	cmd := exec.Command("/bin/sh")
-	cmd.Stdin = strings.NewReader(fmt.Sprintf("xsetroot -name \"%s\"", status))
+	cmd.Stdin = strings.NewReader(fmt.Sprintf("xsetroot -name \"NIMDOW_MONITOR_INDEX=1 %s\"", status))
 	return cmd.Run()
 }

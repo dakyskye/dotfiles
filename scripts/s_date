@@ -1,6 +1,6 @@
 #!/bin/sh
 
 while true; do
-	echo "$(date '+%d.%m.%y %H:%M')"
+	echo "  $(date '+%a %d.%m.%y %H:%M')"
 	sleep 60
 done

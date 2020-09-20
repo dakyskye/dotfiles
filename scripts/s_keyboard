@@ -7,7 +7,7 @@ INDEX="${INDEX%???}"
 
 CUR="$(echo "$LAYOUTS" | cut -d ',' --fields=$((INDEX+1)))"
 
-echo "$CUR"
+echo "  $CUR"
 
 while true; do
 	CUR="$(echo "$LAYOUTS" | cut -d ',' --fields=$((INDEX+1)))"
@@ -20,5 +20,6 @@ while true; do
 	INDEX="$(xset -q | awk 'FNR == 2 { print $NF }')"
 	INDEX="${INDEX#????}"
 	INDEX="${INDEX%???}"
-	echo "$LAYOUTS" | cut -d ',' --fields=$((INDEX+1))
+	CUR="$(echo "$LAYOUTS" | cut -d ',' --fields=$((INDEX+1)))"
+	echo "  $CUR"
 done

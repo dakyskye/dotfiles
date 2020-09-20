@@ -1,7 +1,8 @@
 #!/bin/sh
 
 print_vol() {
-	echo "$(pamixer --get-mute) $(pamixer --get-volume)"
+	VOL="$(pamixer --get-volume)"
+	[ "$(pamixer --get-mute)" = "true" ] && echo "  ${VOL}" || echo "  ${VOL}"
 }
 
 print_vol
