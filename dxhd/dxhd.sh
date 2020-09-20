@@ -55,7 +55,3 @@ pamixer -{i,d} 1
 ## launch rofimoji
 # super + shift + e
 rofimoji -c --skin-tone neutral
-
-## tells my s_temperature script to display next temperature
-# super + shift + t
-echo "next" | nc 127.0.0.1 8782
