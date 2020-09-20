@@ -1,9 +1,11 @@
 echo 'PASSWORD' | sudo -S pacman -Sy &
 dxhd &
 dunst &
-picom -cC &
+nm-applet &
+#picom -cC &
 unclutter &
 numlockx on &
-go run $SCRIPTS/wallpapers.go &
+wmname compiz &
+feh --no-fehbg --bg-scale $HOME/Images/wallpapers/monitor_primary.jpg --bg-scale $HOME/Images/monitor_secondary.jpg
 go run $SCRIPTS/statusbar.go &
-nimdow
+nimdow > nimdow.logs
