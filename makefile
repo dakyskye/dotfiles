@@ -58,16 +58,16 @@ nimdow:
 
 nvim:
 	-@mv ~/.config/{nvim,nvim.bak}
+	-@mv ~/.config/{coc-settings.json,coc-settings.json.bak}
 	@mkdir -p ~/.config/nvim
 	@cp ./nvim/{init.vim,coc-settings.json} ~/.config/nvim
 	@yarn global add neovim
 	@pip install neovim --user
-	@sudo pacman -S go --needed
 	@go get -u github.com/jstemmer/gotags
 	@yarn global add git+https://github.com/Perlence/tstags.git
 	@echo installed
 	@echo "neovim will exit on the first run"
-	@echo "run :PlugInstall on second run"
+	@echo "run :PlugInstall on the second run"
 
 packages:
 	@pacman -Qqe > ~/packages.bak
@@ -102,6 +102,7 @@ services:
 	@sudo systemctl enable hddtemp --now
 	@sudo systemctl enable ssdtemp --now
 	@sudo systemctl enable NetworkManager --now
+	@sudo systemctl enable libvirtd --now
 	@echo installed
 
 spicetify:
