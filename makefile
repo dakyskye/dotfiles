@@ -25,37 +25,37 @@ alacritty:
 	-@mv ~/.config/{alacritty,alacritty.bak}
 	@mkdir -p ~/.config/alacritty
 	@cp ./alacritty/alacritty.yml ~/.config/alacritty/
-	@echo installed
+	@echo "installed alacritty config"
 
 dunst:
 	-@mv ~/.config/{dunst,dunst.bak}
 	@mkdir -p ~/.config/dunst
 	@cp ./dunst/dunstrc ~/.config/dunst/
-	@echo installed
+	@echo "installed dunst config"
 
 dxhd:
 	-@mv ~/.config/{dxhd,dxhd.bak}
 	@mkdir -p ~/.config/dxhd
 	@cp dxhd/dxhd.sh ~/.config/dxhd/
-	@echo installed
+	@echo "installed dxhd config"
 
 fonts:
 	-@mv ~/.local/share/{fonts,fonts.bak}
 	@mkdir -p ~/.local/share/fonts
 	@./fonts/fonts.sh
-	@echo installed
+	@echo "installed fonts"
 
 neofetch:
 	-@mv ~/.config/{neofetch,neofetch.bak}
 	@mkdir -p ~/.config/neofetch/
 	@cp ./neofetch/config.conf ~/.config/neofetch/
-	@echo installed
+	@echo "installed neofetch config"
 
 nimdow:
 	-mv ~/.config/{nimdow,nimdow.bak}
 	@mkdir -p ~/.config/nimdow/
 	@cp ./nimdow/config.toml ~/.config/nimdow/
-	@echo installed
+	@echo "installed nimdow config"
 
 nvim:
 	-@mv ~/.config/{nvim,nvim.bak}
@@ -66,7 +66,7 @@ nvim:
 	@pip install neovim --user
 	@go get -u github.com/jstemmer/gotags
 	@yarn global add git+https://github.com/Perlence/tstags.git
-	@echo installed
+	@echo "installed nvom config"
 	@echo "neovim will exit on the first run"
 	@echo "run :PlugInstall on the second run"
 
@@ -74,12 +74,12 @@ packages:
 	@pacman -Qqe > ~/packages.bak
 	@bash -c "sudo pacman -S --needed - < ./packages/packages_native"
 	@bash -c "yay -S --needed - < ./packages/packages_foreign"
-	@echo installed
+	@echo "installed packages"
 
 profile:
 	-@mv ~/{.profile,.profile.bak}
 	@cp ./profile/.profile ~/
-	@echo installed
+	@echo "installed X profile"
 
 rofi:
 	-@mv ~/.config/{rofi,rofi.bak}
@@ -87,14 +87,14 @@ rofi:
 	@cp ./rofi/rofi.sh ~/.config/rofi/
 	@~/.config/rofi/rofi.sh
 	@rm -f ~/.config/rofi/rofi.sh
-	@echo installed
+	@echo "installed rofi config"
 
 scripts:
 	-@mkdir -p ~/.local/bin
 	@cp -i ./scripts/* ~/.local/bin/
 	@rm -f ~/.local/bin/README.md
 	@mkdir -p ~/Images/screenshots
-	@echo installed
+	@echo "installed scripts"
 
 services:
 	-@sudo mv /etc/systemd/system/{hddtemp.service,hddtemp.service.bak}
@@ -104,7 +104,7 @@ services:
 	@sudo systemctl enable ssdtemp --now
 	@sudo systemctl enable NetworkManager --now
 	@sudo systemctl enable libvirtd --now
-	@echo installed
+	@echo "enabled services"
 
 spicetify:
 	@sudo chmod a+wr /opt/spotify
@@ -114,12 +114,12 @@ spicetify:
 	@spicetify update
 	@spicetify config color_scheme Dark
 	@spicetify apply
-	@echo installed
+	@echo "installed spicetify config"
 
 tmux:
 	-@mv ~/{.tmux.conf,.tmux.conf.bak}
 	@cp ./tmux/.tmux.conf ~/
-	@echo installed
+	@echo "installed tmux config"
 
 wallpapers:
 	-@mv ~/Images/{wallpapers,wallpapers.bak}
@@ -127,19 +127,19 @@ wallpapers:
 	@cp ./wallpapers/wallpapers.sh ~/Images/wallpapers/
 	@~/Images/wallpapers/wallpapers.sh
 	@rm -f ~/Images/wallpapers/wallpapers.sh
-	@echo installed
+	@echo "installed wallpapers pack"
 
 xinit:
 	-@mv ~/{.xinitrc,.xinitrc.bak}
 	@cp ./xinit/.xinitrc ~/
 	@./xinit/xinit.sh
-	@echo installed
+	@echo "installed xinit config"
 
 xorg:
 	-@sudo mv /etc/X11/xorg.conf.{d,d.bak}
 	-@sudo mkdir -p /etc/X11/xorg.conf.d/
 	@sudo cp ./xorg/{00-keyboard,10-monitor}.conf /etc/X11/xorg.conf.d/
-	@echo installed
+	@echo "installed Xorg config"
 
 zsh:
 	-@mv ~/{.zshrc,.zshrc.bak}
@@ -150,4 +150,4 @@ zsh:
 	@~/.config/oh-my-zsh/custom/ohmyzsh.sh
 	@rm ~/.zshrc 2> /dev/null
 	@cp ./zsh/.zshrc ~/
-	@echo installed
+	@echo "installed zsh config"
