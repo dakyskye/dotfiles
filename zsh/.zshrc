@@ -59,5 +59,7 @@ source "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
 
 # launch tmux
 if [ -n "$DISPLAY" ] && [ -z "$TMUX" ]; then
-	tmux attach -t main 2> /dev/null || tmux new -s main
+	tmux attach -t main > /dev/null 2>&1 || tmux new -s main > /dev/null
+	wait
+	exit
 fi
