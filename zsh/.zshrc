@@ -29,6 +29,9 @@ autoload -U compinit && compinit
 
 # source oh-my-zsh shell script
 source $ZSH/oh-my-zsh.sh
+#
+# load zsh syntax highlighting
+source "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
 
 # aliases
 alias vim="nvim"
@@ -53,13 +56,3 @@ alias copy="xclip -selection clipboard"
 
 alias ..="cd .."
 alias ...="cd ../.."
-
-# load zsh syntax highlighting
-source "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
-
-# launch tmux
-if [ -n "$DISPLAY" ] && [ -z "$TMUX" ]; then
-	tmux attach -t main > /dev/null 2>&1 || tmux new -s main > /dev/null
-	wait
-	exit
-fi

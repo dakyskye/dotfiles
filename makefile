@@ -13,13 +13,12 @@ default:
 	@echo "scripts"
 	@echo "services"
 	@echo "spicetify"
-	@echo "tmux"
 	@echo "wallpapers"
 	@echo "xinit"
 	@echo "xorg"
 	@echo "zsh"
 
-.PHONY: alacritty dunst dxhd fonts neofetch nimdow nvim packages profile rofi scripts services spicetify tmux wallpapers xinit xorg zsh
+.PHONY: alacritty dunst dxhd fonts neofetch nimdow nvim packages profile rofi scripts services spicetify wallpapers xinit xorg zsh
 
 alacritty:
 	-@mv ~/.config/{alacritty,alacritty.bak}
@@ -115,11 +114,6 @@ spicetify:
 	@spicetify config color_scheme Dark
 	@spicetify apply
 	@echo "installed spicetify config"
-
-tmux:
-	-@mv ~/{.tmux.conf,.tmux.conf.bak}
-	@cp ./tmux/.tmux.conf ~/
-	@echo "installed tmux config"
 
 wallpapers:
 	-@mv ~/Images/{wallpapers,wallpapers.bak}

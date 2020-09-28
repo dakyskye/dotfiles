@@ -19,7 +19,6 @@ My personal dot files and configs.
 * [scripts](https://github.com/dakyskye/dotfiles/tree/master/scripts/README.md)
 * [services](https://github.com/dakyskye/dotfiles/tree/master/services/README.md)
 * [spicetify](https://github.com/dakyskye/dotfiles/tree/master/spicetify/README.md)
-* [tmux](https://github.com/dakyskye/dotfiles/tree/master/tmux/README.md)
 * [wallpapers](https://github.com/dakyskye/dotfiles/tree/master/wallpapers/README.md)
 * [xinit](https://github.com/dakyskye/dotfiles/tree/master/xinit/README.md)
 * [xorg](https://github.com/dakyskye/dotfiles/tree/master/xorg.conf.d/README.md)
