@@ -14,7 +14,6 @@ bc
 bdf-unifont
 binutils
 bison
-chromium
 clang
 cmatrix
 cmus
@@ -73,6 +72,7 @@ gsfonts
 gzip
 hddtemp
 htop
+hunspell-en_GB
 i3lock
 inter-font
 jq
