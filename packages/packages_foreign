@@ -13,6 +13,7 @@ nerd-fonts-source-code-pro
 nimdow-bin
 pcf-spectrum-berry
 pipes.sh
+rust-analyzer-git
 slack-desktop
 spicetify-cli
 spicetify-themes-git
@@ -30,3 +31,4 @@ ttf-meslo
 ttf-monaco
 ttf-ms-fonts
 yay
+zoom

@@ -47,6 +47,7 @@ file
 filezilla
 findutils
 firefox-developer-edition
+flameshot
 flex
 font-bh-ttf
 fontforge
@@ -71,6 +72,7 @@ grub
 gsfonts
 gzip
 hddtemp
+hlint
 htop
 hunspell-en_GB
 i3lock
@@ -92,6 +94,7 @@ linux
 linux-firmware
 lolcat
 lshw
+luit
 lutris
 lvm2
 lxsession
@@ -129,6 +132,7 @@ pacman
 pamixer
 patch
 pavucontrol-qt
+pcmanfm-qt
 peek
 pepper-flash
 php
@@ -151,12 +155,12 @@ rofi
 rofimoji
 ruby
 rubygems
-rust-analyzer
 rxvt-unicode
 screenkey
 sed
 shellcheck
 smartmontools
+speedcrunch
 steam
 steam-native-runtime
 sudo
@@ -186,6 +190,7 @@ usbmuxd
 vi
 vim
 virt-manager
+virt-viewer
 vlc
 vnstat
 vulkan-radeon
@@ -196,6 +201,7 @@ wine-mono
 winetricks
 wmctrl
 wmname
+woeusb
 wpa_supplicant
 xclip
 xf86-video-amdgpu
@@ -208,7 +214,6 @@ xorg-fonts-100dpi
 xorg-fonts-75dpi
 xorg-fonts-encodings
 xorg-iceauth
-xorg-luit
 xorg-mkfontscale
 xorg-server
 xorg-server-common
