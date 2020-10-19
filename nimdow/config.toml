@@ -3,16 +3,15 @@
   borderWidth = 2
   borderColorFocused = "#A77AC4"
   borderColorUnfocused = "#7197E7"
-  borderColorUrgent = "#F8F8F2"
+  borderColorUrgent = "#FF5555"
   barHeight = 19
   barBackgroundColor = "#282A36"
   barForegroundColor = "#F8F8F2"
   barSelectionColor = "#A77AC4"
-  barUrgentColor = "#F8F8F2"
+  barUrgentColor = "#FF5555"
   barFonts = [
-    "UbuntuMono Nerd Font:size=9:anialias=false",
-    "NotoSerif Nerd Font:size=8:anialias=false",
-    "DejaVu Serif:size=8:anialias=false"
+    "monospace:size=8:antialias=true",
+    "FontAwesome:size=9:antialias=true"
   ]
   loggingEnabled = false
 
