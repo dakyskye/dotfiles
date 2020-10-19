@@ -5,7 +5,6 @@ import (
 	"bytes"
 	"fmt"
 	"os/exec"
-	"strings"
 )
 
 func main() {
@@ -138,7 +137,5 @@ func readOutput(command string, output chan<- string) (err error) {
 }
 
 func setStatus(status string) (err error) {
-	cmd := exec.Command("/bin/sh")
-	cmd.Stdin = strings.NewReader(fmt.Sprintf("xsetroot -name \"NIMDOW_MONITOR_INDEX=1 %s\"", status))
-	return cmd.Run()
+	return exec.Command("/usr/bin/xsetroot", "-name", fmt.Sprintf("\"NIMDOW_MONITOR_INDEX=0 %s\"", status)).Run()
 }
