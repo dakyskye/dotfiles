@@ -2,6 +2,6 @@
 
 while true; do
 	#echo "$(mpstat | grep -A 1 "%idle" | tail -n 1 | awk '{print 100 - $NF}' | cut -d '.' -f1)"
-	echo "  $(top -b -n1 | head -n5 | grep "%Cpu(s)" | awk ' {print $2 + $4} ' | cut -d '.' -f1)%"
+	echo " $(top -b -n1 | head -n5 | grep "%Cpu(s)" | awk ' {print $2 + $4} ' | cut -d '.' -f1)%"
 	sleep 2
 done

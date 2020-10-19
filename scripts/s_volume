@@ -2,7 +2,7 @@
 
 print_vol() {
 	VOL="$(pamixer --get-volume)"
-	[ "$(pamixer --get-mute)" = "true" ] && echo "  ${VOL}" || echo "  ${VOL}"
+	[ "$(pamixer --get-mute)" = "true" ] && echo " ${VOL}" || echo " ${VOL}"
 }
 
 print_vol

@@ -2,9 +2,9 @@
 
 echo "updating"
 sleep 10
-echo "  $(pacman -Qu | wc -l)"
+echo " $(pacman -Qu | wc -l)"
 
 while true; do
-	sleep 3600
-	echo "  $(pacman -Qu | wc -l)"
+	sleep 25m
+	echo " $(pacman -Qu | wc -l)"
 done
