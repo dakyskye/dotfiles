@@ -16,8 +16,9 @@ export RUBYGEMPATH="$HOME/.gem/ruby"
 export DOTNETPATH="$HOME/.dotnet"
 export COMPOSERPATH="$CONFIG/composer"
 export NIMBLEPATH="$HOME/.nimble"
+export EMACSPATH="$HOME/.emacs.d"
 
-export PATH="$PATH:$SCRIPTS/:$GOPATH/bin:$CARGOPATH/bin:$YARNPKGPATH/bin:$RUBYGEMPATH/bin:$DOTNETTOLPATH/tools:$COMPOSERPATH/vendor:$NIMBLEPATH/bin"
+export PATH="$PATH:$SCRIPTS/:$GOPATH/bin:$CARGOPATH/bin:$YARNPKGPATH/bin:$RUBYGEMPATH/bin:$DOTNETTOLPATH/tools:$COMPOSERPATH/vendor:$NIMBLEPATH/bin:$EMACSPATH/bin"
 
 export FZF_DEFAULT_COMMAND="ag --hidden --ignore .git -g ''"
 

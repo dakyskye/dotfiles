@@ -3,6 +3,7 @@ default:
 	@echo "alacritty"
 	@echo "dunst"
 	@echo "dxhd"
+	@echo "emacs"
 	@echo "fonts"
 	@echo "neofetch"
 	@echo "nimdow"
@@ -17,7 +18,7 @@ default:
 	@echo "xorg"
 	@echo "zsh"
 
-.PHONY: alacritty dunst dxhd fonts neofetch nimdow nvim packages profile rofi scripts services spicetify xinit xorg zsh
+.PHONY: alacritty dunst dxhd emacs fonts neofetch nimdow nvim packages profile rofi scripts services spicetify xinit xorg zsh
 
 alacritty:
 	-@mv ~/.config/{alacritty,alacritty.bak}
@@ -36,6 +37,15 @@ dxhd:
 	@mkdir -p ~/.config/dxhd
 	@cp dxhd/dxhd.sh ~/.config/dxhd/
 	@echo "installed dxhd config"
+
+emacs:
+	-@mv ~/{.emacs.d,.emacs.d.bak}
+	@git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
+	@~/.emacs.d/bin/doom install
+	-@mv ~/.doom.d/{config.el,config.el.bak}
+	-@mv ~/.doom.d/{init.el,init.el.bak}
+	@cp ./emacs/{config.el,init.el} ~/.doom.d/
+	@echo "installed DooM emacs config"
 
 fonts:
 	-@mv ~/.local/share/{fonts,fonts.bak}

@@ -9,6 +9,7 @@ My personal dot files and configs.
 * [alacritty](https://github.com/dakyskye/dotfiles/tree/master/alacritty/README.md)
 * [dunst](https://github.com/dakyskye/dotfiles/tree/master/dunst/README.md)
 * [dxhd](https://github.com/dakyskye/dotfiles/tree/master/dxhd/README.md)
+* [emacs](https://github.com/dakyskye/dotfiles/tree/master/emacs/README.md)
 * [fonts](https://github.com/dakyskye/dotfiles/tree/master/fonts/README.md)
 * [neofetch](https://github.com/dakyskye/dotfiles/tree/master/neofetch/README.md)
 * [nimdow](https://github.com/dakyskye/dotfiles/tree/master/nimdow/README.md)

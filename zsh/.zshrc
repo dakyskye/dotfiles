@@ -34,7 +34,7 @@ source $ZSH/oh-my-zsh.sh
 source "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
 
 # aliases
-alias vim="nvim"
+alias vim="emacs -nw"
 alias firefox="firefox-developer-edition"
 alias spotify="spotify-tray"
 
