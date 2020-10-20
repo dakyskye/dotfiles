@@ -137,5 +137,5 @@ func readOutput(command string, output chan<- string) (err error) {
 }
 
 func setStatus(status string) (err error) {
-	return exec.Command("/usr/bin/xsetroot", "-name", fmt.Sprintf("\"NIMDOW_MONITOR_INDEX=0 %s\"", status)).Run()
+	return exec.Command("/usr/bin/xsetroot", "-name", fmt.Sprintf("NIMDOW_MONITOR_INDEX=1 %s", status)).Run()
 }
