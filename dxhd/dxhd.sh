@@ -45,8 +45,24 @@ scr s f
 scw {"d","n"}
 
 ## change volume
-# super + mouse{4,5}
-pamixer -{i,d} 1
+# XF86Audio { Lower, Raise } Volume
+pamixer -{d,i} 1
+
+## toggle mute
+# XF86AudioMute
+pamixer -t
+
+## control media player
+# XF86Audio {Stop, Prev, Play, Next}
+playerctl {stop, previous, play-pause, next}
+
+## launch pavucontrol
+# XF86Tools
+pavucontrol-qt
+
+## launch some apps
+# XF86{Explorer, HomePage, Mail, Calculator}
+{pcmanfm-qt, $BROWSER, $BROWSER 'gmail.com', speedcrunch}
 
 ## launch rofimoji
 # super + shift + e
