@@ -1,6 +1,7 @@
 brave-bin
 choosenim
 cordless-git
+discord-canary-electron-bin
 dxhd-git
 fontpreview
 giph-git
@@ -10,11 +11,13 @@ goverlay-git
 ifuse
 jre
 libxft-bgra-git
+mpv-mpris
 mullvad-vpn-bin
 nerd-fonts-source-code-pro
 nimdow-bin
 pcf-spectrum-berry
 pipes.sh
+postman-bin
 rust-analyzer-git
 slack-desktop
 spicetify-cli

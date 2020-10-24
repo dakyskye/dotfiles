@@ -16,7 +16,6 @@ binutils
 bison
 clang
 cmatrix
-cmus
 code
 composer
 cowsay
@@ -59,6 +58,7 @@ fzf
 gawk
 gcc
 gentium-plus-font
+geogebra
 gettext
 ghostscript
 gifsicle
@@ -139,6 +139,7 @@ pepper-flash
 php
 picom
 pkgconf
+playerctl
 pocl
 portaudio
 pulseaudio
