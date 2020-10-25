@@ -56,6 +56,10 @@ pamixer -t
 # XF86Audio {Stop, Prev, Play, Next}
 playerctl {stop, previous, play-pause, next}
 
+## seeking forward/backwards
+# alt + XF86Audio {Stop, Prev, Next}
+playerctl position {0, 5-, 5+}
+
 ## launch pavucontrol
 # XF86Tools
 pavucontrol-qt
