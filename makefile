@@ -107,9 +107,11 @@ scripts:
 services:
 	-@sudo mv /etc/systemd/system/{hddtemp.service,hddtemp.service.bak}
 	-@sudo mv /etc/systemd/system/{ssdtemp.service,ssdtemp.service.bak}
-	@sudo cp ./services/{hddtemp.service,ssdtemp.service} /etc/systemd/system/
+	-@sudo mv /etc/systemd/system/{pacup.service,pacup.service.bak}
+	@sudo cp ./services/{hddtemp.service,ssdtemp.service,pacup.service} /etc/systemd/system/
 	@sudo systemctl enable hddtemp --now
 	@sudo systemctl enable ssdtemp --now
+	@sudo systemctl enable pacup --now
 	@sudo systemctl enable NetworkManager --now
 	@sudo systemctl enable libvirtd --now
 	@echo "enabled services"
