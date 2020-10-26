@@ -14,6 +14,8 @@ bc
 bdf-unifont
 binutils
 bison
+bluez
+bluez-utils
 clang
 cmatrix
 code
@@ -144,6 +146,7 @@ pocl
 portaudio
 pulseaudio
 pulseaudio-alsa
+pulseaudio-bluetooth
 pulseeffects
 pulsemixer
 pwgen
