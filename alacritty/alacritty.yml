@@ -10,13 +10,13 @@ scrolling:
   history: 5000
 font:
   normal:
-    family: Fira Mono for Powerline
+    family: JetBrains Mono
     style: Regular
   bold:
-    family: Fira Mono for Powerline
+    family: JetBrains Mono
     style: Bold
   italic:
-    family: Fira Mono for Powerline
+    family: JetBrains Mono
     style: Italic
   size: 7.5
 mouse:

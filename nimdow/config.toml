@@ -10,10 +10,11 @@
   barSelectionColor = "#A77AC4"
   barUrgentColor = "#FF5555"
   barFonts = [
-    "monospace:size=8:antialias=true",
-    "FontAwesome:size=9:antialias=true"
+    "JetBrains Mono:size=8:antialias=true",
+    "FontAwesome:size=9:antialias=true",
+    "DejaVu Serif:size=8:antialias=true",
   ]
-  loggingEnabled = false
+  loggingEnabled = true
 
 [controls]
   [controls.reloadConfig]
