@@ -101,7 +101,7 @@ scripts:
 	-@mkdir -p ~/.local/bin
 	@cp -i ./scripts/* ~/.local/bin/
 	@rm -f ~/.local/bin/README.md
-	@mkdir -p ~/Images/screenshots
+	@mkdir -p ~/Pictures/screenshots
 	@echo "installed scripts"
 
 services:
