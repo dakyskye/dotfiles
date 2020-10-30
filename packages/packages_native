@@ -14,6 +14,8 @@ bc
 bdf-unifont
 binutils
 bison
+bluedevil
+blueman
 bluez
 bluez-utils
 clang
@@ -26,7 +28,6 @@ dash
 dhcpcd
 dialog
 dina-font
-discord
 dmenu
 dmidecode
 dnsmasq
@@ -79,6 +80,7 @@ hlint
 htop
 hunspell-en_GB
 i3lock
+inotify-tools
 inter-font
 jq
 kdenlive
