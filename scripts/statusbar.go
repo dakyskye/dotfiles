@@ -21,6 +21,7 @@ func main() {
 	updates := ""
 	installed := ""
 	volume := ""
+	webcam := ""
 	keyboard := ""
 	date := ""
 
@@ -32,6 +33,7 @@ func main() {
 	kernelChan := make(chan string)
 	updatesChan := make(chan string)
 	installedChan := make(chan string)
+	webcamChan := make(chan string)
 	keyboardChan := make(chan string)
 	dateChan := make(chan string)
 
@@ -44,11 +46,12 @@ func main() {
 	go sInstalled(errs, installedChan)
 	go sVolume(errs, volumeChan)
 	go sKeyboard(errs, keyboardChan)
+	go sWebcam(errs, webcamChan)
 	go sDate(errs, dateChan)
 
 	update := func() {
 		out.Reset()
-		out.WriteString(fmt.Sprintf("%s | %s | %s | %s | %s | %s | %s | %s | %s | %s", memory, cpu, temperature, distrowm, kernel, updates, installed, volume, keyboard, date))
+		out.WriteString(fmt.Sprintf("%s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s", memory, cpu, temperature, distrowm, kernel, updates, installed, volume, webcam, keyboard, date))
 		err = setStatus(out.String())
 		if err != nil {
 			panic(err)
@@ -77,6 +80,8 @@ func main() {
 		case installed = <-installedChan:
 			update()
 		case volume = <-volumeChan:
+			update()
+		case webcam = <-webcamChan:
 			update()
 		case keyboard = <-keyboardChan:
 			update()
@@ -109,6 +114,9 @@ func sInstalled(e chan<- error, c chan<- string) {
 }
 func sVolume(e chan<- error, c chan<- string) {
 	e <- readOutput("s_volume", c)
+}
+func sWebcam(e chan<- error, c chan<- string) {
+	e <- readOutput("s_webcam", c)
 }
 func sKeyboard(e chan<- error, c chan<- string) {
 	e <- readOutput("s_keyboard", c)
