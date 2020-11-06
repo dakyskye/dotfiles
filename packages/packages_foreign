@@ -1,15 +1,17 @@
-brave-bin
 choosenim
 cordless-git
 discord-canary-electron-bin
 dxhd-git
+etcher-bin
 fontpreview
-giph-git
+giph
 gohufont
+google-chrome-beta
 google-cloud-sdk
 goverlay-git
 ifuse
 jre
+libldac
 libxft-bgra-git
 mpv-mpris
 mullvad-vpn-bin
@@ -26,7 +28,6 @@ spotify
 spotify-tray-git
 spotifywm-git
 steam-fonts
-teams
 ttf-ancient-fonts
 ttf-computer-modern-fonts
 ttf-courier-prime
@@ -35,5 +36,6 @@ ttf-mac-fonts
 ttf-meslo
 ttf-monaco
 ttf-ms-fonts
+xkblayout-state-git
 yay
 zoom
