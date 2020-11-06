@@ -45,7 +45,7 @@ emacs:
 	-@mv ~/.doom.d/{config.el,config.el.bak}
 	-@mv ~/.doom.d/{init.el,init.el.bak}
 	@cp ./emacs/{config.el,init.el} ~/.doom.d/
-	@echo "installed DooM emacs config"
+	@echo "installed Doom emacs config"
 
 fonts:
 	-@mv ~/.local/share/{fonts,fonts.bak}
@@ -129,7 +129,6 @@ spicetify:
 xinit:
 	-@mv ~/{.xinitrc,.xinitrc.bak}
 	@cp ./xinit/.xinitrc ~/
-	@./xinit/xinit.sh
 	@echo "installed xinit config"
 
 xorg:

@@ -1,7 +1,7 @@
-echo 'PASSWORD' | sudo -S pacman -Sy &
 dxhd &
 dunst &
 nm-applet &
+blueman-applet &
 flameshot &
 #picom -cC &
 unclutter &
