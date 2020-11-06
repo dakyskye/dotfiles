@@ -15,9 +15,9 @@ write_packages() {
 	fi
 
 	if [ "$1" = "native" ]; then
-		pacman -Qqen > packages_native && echo "writen to packages_native file"
+		pacman -Qqen > packages_native && echo "written to packages_native file"
 	elif [ "$1" = "foreign" ]; then
-		pacman -Qqem > packages_foreign && echo "writen to packages_foreign file"
+		pacman -Qqem > packages_foreign && echo "written to packages_foreign file"
 	fi
 }
 
