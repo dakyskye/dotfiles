@@ -36,6 +36,10 @@ scr c f
 # ctrl + print
 scr s f
 
+## launch flameshot gui
+# alt + print
+flameshot gui
+
 ## system operations / screen warmness menus
 # super + ctrl + {o, w}
 {sop,scw}
@@ -64,9 +68,17 @@ playerctl position {0, 5-, 5+}
 # XF86Tools
 pavucontrol-qt
 
+## play music playlist
+# alt + XF86Tools
+mpv $HOME/Music/* --shuffle --loop-playlist
+
 ## launch some apps
-# XF86{Explorer, HomePage, Mail, Calculator}
+# XF86 {Explorer, HomePage, Mail, Calculator}
 {pcmanfm-qt, $BROWSER, $BROWSER 'gmail.com', speedcrunch}
+
+## super + XF86 {Explorer, HomePage, Mail, Calculator}
+## shift + XF86 {Explorer, HomePage, Mail, Calculator}
+## alt + XF86 {Explorer, HomePage, Mail, Calculator}
 
 ## launch rofimoji
 # super + shift + e
