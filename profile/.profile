@@ -24,4 +24,3 @@ export FZF_DEFAULT_COMMAND="ag --hidden --ignore .git -g ''"
 
 export DOTNET_CLI_TELEMERY_OPTOUT=1
 export POWERSHELL_TELEMETRY_OPTOUT=1
-export MANGOHUD=1
