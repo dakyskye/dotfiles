@@ -29,6 +29,12 @@
 ;; enable tabs
 (centaur-tabs-mode t)
 
+;; enable colours
+(setq rainbow-mode t)
+
+;; lsp-ui configo
+(setq lsp-ui-peek-enable `t)
+
 ;; neotree config
 (setq neo-smart-open t)
 (after! doom-themes
