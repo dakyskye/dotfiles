@@ -1,7 +1,7 @@
 choosenim
 cordless-git
 discord-canary-electron-bin
-dxhd-git
+dxhd-bin
 etcher-bin
 fontpreview
 giph
@@ -11,8 +11,10 @@ google-cloud-sdk
 goverlay-git
 ifuse
 jre
+lib32-mangohud
 libldac
 libxft-bgra-git
+mangohud
 mpv-mpris
 mullvad-vpn-bin
 nerd-fonts-source-code-pro
@@ -36,6 +38,7 @@ ttf-mac-fonts
 ttf-meslo
 ttf-monaco
 ttf-ms-fonts
+visual-studio-code-bin
 xkblayout-state-git
 yay
 zoom

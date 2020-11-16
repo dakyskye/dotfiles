@@ -20,7 +20,6 @@ bluez
 bluez-utils
 clang
 cmatrix
-code
 composer
 cowsay
 ctags
@@ -89,6 +88,7 @@ lib32-fontconfig
 lib32-libva-mesa-driver
 lib32-mesa
 lib32-mesa-vdpau
+lib32-vkd3d
 lib32-vulkan-radeon
 libhandy
 libimobiledevice
@@ -198,13 +198,14 @@ vi
 vim
 virt-manager
 virt-viewer
+vkd3d
 vlc
 vnstat
 vulkan-radeon
 which
-wine
 wine-gecko
 wine-mono
+wine-staging
 winetricks
 wmctrl
 wmname
