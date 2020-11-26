@@ -1,6 +1,8 @@
 # .dotfiles
 
-My personal dot files and configs.
+My Linux dot files and configs.
+
+My WSL dotfiles lie [there](https://github.com/dakyskye/wsl-dotfiles).
 
 ![My Rice](./rice.png)
 
