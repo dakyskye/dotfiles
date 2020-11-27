@@ -19,10 +19,10 @@ mpv-mpris
 mullvad-vpn-bin
 nerd-fonts-source-code-pro
 nimdow-bin
+paru
 pcf-spectrum-berry
 pipes.sh
 postman-bin
-rust-analyzer-git
 slack-desktop
 spicetify-cli
 spicetify-themes-git
@@ -40,5 +40,4 @@ ttf-monaco
 ttf-ms-fonts
 visual-studio-code-bin
 xkblayout-state-git
-yay
 zoom
