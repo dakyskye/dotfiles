@@ -39,12 +39,10 @@ dxhd:
 	@echo "installed dxhd config"
 
 emacs:
-	-@mv ~/{.emacs.d,.emacs.d.bak}
 	@git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
 	@~/.emacs.d/bin/doom install
-	-@mv ~/.doom.d/{config.el,config.el.bak}
-	-@mv ~/.doom.d/{init.el,init.el.bak}
 	@cp ./emacs/{config.el,init.el} ~/.doom.d/
+	@~/.emacs.d/bin/doom sync
 	@echo "installed Doom emacs config"
 
 fonts:
@@ -80,8 +78,7 @@ nvim:
 
 packages:
 	@pacman -Qqe > ~/packages.bak
-	@bash -c "sudo pacman -S --needed - < ./packages/packages_native"
-	@bash -c "yay -S --needed - < ./packages/packages_foreign"
+	@bash -c "paru -S --needed - < ./packages/packages_native < ./packages/packages_foreign"
 	@echo "installed packages"
 
 profile:
