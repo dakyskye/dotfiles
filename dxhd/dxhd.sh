@@ -6,7 +6,7 @@ dxhd -r
 
 ## launch alacritty
 # super + return
-alacritty
+alacritty -e fish
 
 ## launch alacritty with dash shell
 # super + shift + return
