@@ -4,6 +4,7 @@ default:
 	@echo "dunst"
 	@echo "dxhd"
 	@echo "emacs"
+	@echo "fish"
 	@echo "fonts"
 	@echo "neofetch"
 	@echo "nimdow"
@@ -13,11 +14,10 @@ default:
 	@echo "rofi"
 	@echo "scripts"
 	@echo "services"
-	@echo "spicetify"
 	@echo "xinit"
 	@echo "xorg"
 
-.PHONY: alacritty dunst dxhd emacs fonts neofetch nimdow nvim packages profile rofi scripts services spicetify xinit xorg
+.PHONY: alacritty dunst dxhd emacs fish fonts neofetch nimdow nvim packages profile rofi scripts services xinit xorg
 
 alacritty:
 	-@mv ~/.config/{alacritty,alacritty.bak}
@@ -43,6 +43,12 @@ emacs:
 	@cp ./emacs/{config.el,init.el} ~/.doom.d/
 	@~/.emacs.d/bin/doom sync
 	@echo "installed Doom emacs config"
+
+fish:
+	-@mv ~/.config/fish/{config.fish,config.fish.bak}
+	@mkdir -p ~/.config/fish
+	@cp ./fish/config.fish ~/.config/fish/
+	@echo "installed fish config"
 
 fonts:
 	-@mv ~/.local/share/{fonts,fonts.bak}
@@ -112,16 +118,6 @@ services:
 	@sudo systemctl enable libvirtd --now
 	@sudo systemctl enable bluetooth --now
 	@echo "enabled services"
-
-spicetify:
-	@sudo chmod a+wr /opt/spotify
-	@sudo chmod a+wr /opt/spotify/Apps -R
-	@spicetify
-	@spicetify backup apply enable-devtool
-	@spicetify update
-	@spicetify config color_scheme Dark
-	@spicetify apply
-	@echo "installed spicetify config"
 
 xinit:
 	-@mv ~/{.xinitrc,.xinitrc.bak}
