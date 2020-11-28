@@ -110,6 +110,7 @@ services:
 	@sudo systemctl enable pacup --now
 	@sudo systemctl enable NetworkManager --now
 	@sudo systemctl enable libvirtd --now
+	@sudo systemctl enable bluetooth --now
 	@echo "enabled services"
 
 spicetify:
