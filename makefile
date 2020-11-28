@@ -16,9 +16,8 @@ default:
 	@echo "spicetify"
 	@echo "xinit"
 	@echo "xorg"
-	@echo "zsh"
 
-.PHONY: alacritty dunst dxhd emacs fonts neofetch nimdow nvim packages profile rofi scripts services spicetify xinit xorg zsh
+.PHONY: alacritty dunst dxhd emacs fonts neofetch nimdow nvim packages profile rofi scripts services spicetify xinit xorg
 
 alacritty:
 	-@mv ~/.config/{alacritty,alacritty.bak}
@@ -133,14 +132,3 @@ xorg:
 	-@sudo mkdir -p /etc/X11/xorg.conf.d/
 	@sudo cp ./xorg/{00-keyboard,10-monitor}.conf /etc/X11/xorg.conf.d/
 	@echo "installed Xorg config"
-
-zsh:
-	-@mv ~/{.zshrc,.zshrc.bak}
-	-@mv ~/.config/{oh-my-zsh,oh-my-zsh.bak}
-	@curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | ZSH=~/.config/oh-my-zsh sh
-	-@mkdir -p ~/.config/oh-my-zsh/custom/
-	@cp ./zsh/ohmyzsh.sh ~/.config/oh-my-zsh/custom/
-	@~/.config/oh-my-zsh/custom/ohmyzsh.sh
-	@rm ~/.zshrc 2> /dev/null
-	@cp ./zsh/.zshrc ~/
-	@echo "installed zsh config"
