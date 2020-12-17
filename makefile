@@ -5,19 +5,17 @@ default:
 	@echo "dxhd"
 	@echo "emacs"
 	@echo "fish"
-	@echo "fonts"
 	@echo "neofetch"
 	@echo "nimdow"
 	@echo "nvim"
 	@echo "packages"
-	@echo "profile"
 	@echo "rofi"
 	@echo "scripts"
 	@echo "services"
 	@echo "xinit"
 	@echo "xorg"
 
-.PHONY: alacritty dunst dxhd emacs fish fonts neofetch nimdow nvim packages profile rofi scripts services xinit xorg
+.PHONY: alacritty dunst dxhd emacs fish neofetch nimdow nvim packages rofi scripts services xinit xorg
 
 alacritty:
 	-@mv ~/.config/{alacritty,alacritty.bak}
@@ -50,12 +48,6 @@ fish:
 	@cp ./fish/config.fish ~/.config/fish/
 	@echo "installed fish config"
 
-fonts:
-	-@mv ~/.local/share/{fonts,fonts.bak}
-	@mkdir -p ~/.local/share/fonts
-	@./fonts/fonts.sh
-	@echo "installed fonts"
-
 neofetch:
 	-@mv ~/.config/{neofetch,neofetch.bak}
 	@mkdir -p ~/.config/neofetch/
@@ -86,11 +78,6 @@ packages:
 	@bash -c "paru -S --needed - < ./packages/packages_native < ./packages/packages_foreign"
 	@echo "installed packages"
 
-profile:
-	-@mv ~/{.profile,.profile.bak}
-	@cp ./profile/.profile ~/
-	@echo "installed X profile"
-
 rofi:
 	-@mv ~/.config/{rofi,rofi.bak}
 	@mkdir -p ~/.config/rofi
@@ -113,7 +100,7 @@ services:
 	@sudo cp ./services/{hddtemp.service,ssdtemp.service,pacup.service} /etc/systemd/system/
 	@sudo systemctl enable hddtemp --now
 	@sudo systemctl enable ssdtemp --now
-	@sudo systemctl enable pacup --now
+	@sudo systemctl enable pacup
 	@sudo systemctl enable NetworkManager --now
 	@sudo systemctl enable libvirtd --now
 	@sudo systemctl enable bluetooth --now

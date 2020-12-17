@@ -79,7 +79,3 @@ mpv $HOME/Music/* --shuffle --loop-playlist
 ## super + XF86 {Explorer, HomePage, Mail, Calculator}
 ## shift + XF86 {Explorer, HomePage, Mail, Calculator}
 ## alt + XF86 {Explorer, HomePage, Mail, Calculator}
-
-## launch rofimoji
-# super + shift + e
-rofimoji -c --skin-tone neutral
