@@ -44,6 +44,7 @@ geogebra
 gettext
 gimp
 git
+gnome-keyring
 gnu-netcat
 go
 grep
@@ -97,8 +98,9 @@ otf-font-awesome
 p7zip
 pacman
 pamixer
+pasystray
 patch
-pavucontrol-qt
+pavucontrol
 pcmanfm-qt
 peek
 picom
@@ -123,6 +125,7 @@ sed
 shellcheck
 smartmontools
 speedcrunch
+steam
 sudo
 sxiv
 telegram-desktop
@@ -132,6 +135,7 @@ ttf-cascadia-code
 ttf-dejavu
 ttf-font-awesome
 ttf-jetbrains-mono
+ttf-liberation
 ttf-ubuntu-font-family
 unclutter
 unrar
