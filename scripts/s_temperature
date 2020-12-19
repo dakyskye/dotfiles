@@ -11,14 +11,13 @@ gpu() {
 	T_GPU="G $(sensors | grep -A 6 amdgpu-pci | awk '{ if ($1 == "edge:") { print $2 } }' | sed -nE 's/\+([0-9]+)\..*/\1/p')"
 }
 
-hdd() {
-	T_HDD="H $(echo $(nc 127.0.0.1 7634) | sed -nE 's/.*SAMSUNG.*?\|([0-9]+)\|.*/\1/p')"
-}
-
 ssd() {
-	T_SSD="S $(echo $(nc 127.0.0.1 7635) | sed -nE 's/.*KINGSTON.*?\|([0-9]+)\|.*/\1/p')"
+	T_SSD="S $(echo $(nc 127.0.0.1 7634) | sed -nE 's/.*KINGSTON.*?\|([0-9]+)\|.*/\1/p')"
 }
 
+hdd() {
+	T_HDD="H $(echo $(nc 127.0.0.1 7635) | sed -nE 's/.*SAMSUNG.*?\|([0-9]+)\|.*/\1/p')"
+}
 
 while true; do
 	cpu 
