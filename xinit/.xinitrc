@@ -17,6 +17,10 @@ export PATH="$PATH:$SCRIPTS/:$GOPATH/bin:$CARGOPATH/bin:$NIMBLEPATH/bin:$EMACSPA
 
 export FZF_DEFAULT_COMMAND="ag --hidden --ignore .git -g ''"
 
+# start gnome-keyring-daemon
+eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
+export SSH_AUTH_SOCK
+
 # autostart these
 dxhd &
 dunst &

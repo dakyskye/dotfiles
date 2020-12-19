@@ -9,13 +9,14 @@ default:
 	@echo "nimdow"
 	@echo "nvim"
 	@echo "packages"
+	@echo "pam"
 	@echo "rofi"
 	@echo "scripts"
 	@echo "services"
 	@echo "xinit"
 	@echo "xorg"
 
-.PHONY: alacritty dunst dxhd emacs fish neofetch nimdow nvim packages rofi scripts services xinit xorg
+.PHONY: alacritty dunst dxhd emacs fish neofetch nimdow nvim packages pam rofi scripts services xinit xorg
 
 alacritty:
 	-@mv ~/.config/{alacritty,alacritty.bak}
@@ -78,6 +79,12 @@ packages:
 	@bash -c "paru -S --needed - < ./packages/packages_native < ./packages/packages_foreign"
 	@echo "installed packages"
 
+pam:
+	-@sudo mv /etc/pam.d/{login,login.bak}
+	-@sudo mkdir -p /etc/pam.d/
+	@sudo cp ./pam/login /etc/pam.d/login
+	@echo "installed pam config"
+
 rofi:
 	-@mv ~/.config/{rofi,rofi.bak}
 	@mkdir -p ~/.config/rofi
@@ -104,6 +111,7 @@ services:
 	@sudo systemctl enable NetworkManager --now
 	@sudo systemctl enable libvirtd --now
 	@sudo systemctl enable bluetooth --now
+	@sudo systemctl enable avahi-daemon --now
 	@echo "enabled services"
 
 xinit:
