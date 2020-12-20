@@ -1,6 +1,7 @@
 # set some environment variables
 export XDG_CONFIG_HOME="$HOME/.config"
 export EDITOR="nvim"
+export IDE="code"
 export TERMINAL="kitty"
 export BROWSER="google-chrome-beta"
 
@@ -22,6 +23,7 @@ eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 export SSH_AUTH_SOCK
 
 # autostart these
+lxsession &
 dxhd &
 dunst &
 nm-applet &
@@ -31,6 +33,6 @@ flameshot &
 unclutter &
 numlockx off &
 wmname compiz &
-feh --no-fehbg --bg-scale $HOME/Pictures/wallpapers/monitor_primary.jpg --bg-scale $HOME/Pictures/wallpapers/monitor_secondary.jpg
+feh --no-fehbg --bg-scale $HOME/Pictures/wallpapers/monitor_primary.jpg
 go run $SCRIPTS/statusbar.go &
 exec nimdow
