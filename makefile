@@ -5,6 +5,7 @@ default:
 	@echo "dxhd"
 	@echo "emacs"
 	@echo "fish"
+	@ecoh "kitty"
 	@echo "neofetch"
 	@echo "nimdow"
 	@echo "nvim"
@@ -16,7 +17,7 @@ default:
 	@echo "xinit"
 	@echo "xorg"
 
-.PHONY: alacritty dunst dxhd emacs fish neofetch nimdow nvim packages pam rofi scripts services xinit xorg
+.PHONY: alacritty dunst dxhd emacs fish kitty neofetch nimdow nvim packages pam rofi scripts services xinit xorg
 
 alacritty:
 	-@mv ~/.config/{alacritty,alacritty.bak}
@@ -48,6 +49,12 @@ fish:
 	@mkdir -p ~/.config/fish
 	@cp ./fish/config.fish ~/.config/fish/
 	@echo "installed fish config"
+
+kitty:
+	-@mv ~/.config/kitty/{kitty.conf,kitty.conf.bak}
+	@mkdir -p ~/.config/kitty
+	@cp ./kitty/kitty.conf ~/.config/kitty/
+	@echo "installed kitty config"
 
 neofetch:
 	-@mv ~/.config/{neofetch,neofetch.bak}
