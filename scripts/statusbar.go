@@ -58,12 +58,8 @@ func main() {
 	go sTime(errs, chanTime)
 
 	updateStatus := func() {
-		mon0 := fmt.Sprintf("%s | %s | %s | %s | %s", readWebcam, readVolume, readKeyboard, readTime, readDate)
-		mon1 := fmt.Sprintf(
-			"%s | %s | %s | %s | %s | %s | %s",
-			readMemory, readCPU, readTemperature, readDistroWM, readKernel, readUpdates, readInstalled,
-		)
-		err = exec.Command("/usr/bin/xsetroot", "-name", fmt.Sprintf("NIMDOW_MONITOR_INDEX=0 %s NIMDOW_MONITOR_INDEX=1 %s", mon0, mon1)).Run()
+		mon := fmt.Sprintf("%s | %s | %s | %s | %s | %s | %s | %s | %s", readMemory, readCPU, readTemperature, readUpdates, readWebcam, readVolume, readKeyboard, readTime, readDate)
+		err = exec.Command("/usr/bin/xsetroot", "-name", mon).Run()
 		if err != nil {
 			errs <- err
 		}
