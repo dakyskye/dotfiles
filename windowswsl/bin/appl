@@ -1,0 +1,24 @@
+#!/usr/bin/bash
+
+SEL="$(ls /usr/share/applications | fzf -e)"
+
+[ "$SEL" = "" ] && exit 1
+
+if LAUNCH="$(rg -e "Exec=(.*) .*\$" /usr/share/applications/"$SEL" -r '$1' --no-line-number)"; then
+	for arg in $@; do
+		case "$arg" in
+			--own|-o)
+				OWN=0
+				break
+				;;
+		esac
+	done
+	if [ $OWN ]; then
+		$LAUNCH &
+	else
+		$LAUNCH & disown
+	fi
+else
+	echo "can not parse /usr/share/applications/$SEL"
+	exit 1
+fi
