@@ -1,0 +1,36 @@
+#!/bin/bash
+
+FIFO="/tmp/s_dnd_pipe"
+
+[ ! -e "$FIFO" ] && touch "$FIFO"
+
+case "$1" in
+	"dnd")
+		echo "dnd" > "$FIFO"
+		notify-send -t 200 "you've enabled DND mode"
+		exit 0
+		;;
+	"free")
+		echo "free" > "$FIFO"
+		notify-send "you've enabled notifications"
+		exit 0
+		;;
+esac
+
+pidof -o %PPID -x "$0" >/dev/null && exit 0
+
+echo "free" > "$FIFO"
+
+while true; do
+	case "$(cat "$FIFO")" in
+		"dnd")
+			echo " DND"
+			notify-send DUNST_COMMAND_PAUSE
+			;;
+		"free")
+			echo " free"
+			notify-send DUNST_COMMAND_RESUME
+			;;
+	esac
+	sleep 1s
+done

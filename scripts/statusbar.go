@@ -18,6 +18,7 @@ var (
 	readInstalled   string
 	readVolume      string
 	readWebcam      string
+	readDND         string
 	readKeyboard    string
 	readDate        string
 	readTime        string
@@ -33,6 +34,7 @@ var (
 	chanInstalled   = make(chan string)
 	chanVolume      = make(chan string)
 	chanWebcam      = make(chan string)
+	chanDND         = make(chan string)
 	chanKeyboard    = make(chan string)
 	chanDate        = make(chan string)
 	chanTime        = make(chan string)
@@ -54,11 +56,12 @@ func main() {
 	go sVolume(errs, chanVolume)
 	go sKeyboard(errs, chanKeyboard)
 	go sWebcam(errs, chanWebcam)
+	go sDND(errs, chanDND)
 	go sDate(errs, chanDate)
 	go sTime(errs, chanTime)
 
 	updateStatus := func() {
-		mon := fmt.Sprintf("NIMDOW_MONITOR_INDEX=0 %s | %s | %s | %s | %s | %s | %s | %s | %s", readMemory, readCPU, readTemperature, readUpdates, readWebcam, readVolume, readKeyboard, readTime, readDate)
+		mon := fmt.Sprintf("NIMDOW_MONITOR_INDEX=0 %s | %s | %s | %s | %s | %s | %s | %s | %s | %s", readMemory, readCPU, readTemperature, readUpdates, readWebcam, readDND, readVolume, readKeyboard, readTime, readDate)
 		err = exec.Command("/usr/bin/xsetroot", "-name", mon).Run()
 		if err != nil {
 			errs <- err
@@ -92,6 +95,8 @@ func main() {
 		case readKeyboard = <-chanKeyboard:
 			updateStatus()
 		case readWebcam = <-chanWebcam:
+			updateStatus()
+		case readDND = <-chanDND:
 			updateStatus()
 		case readDate = <-chanDate:
 			updateStatus()
@@ -127,6 +132,9 @@ func sVolume(e chan<- error, c chan<- string) {
 }
 func sWebcam(e chan<- error, c chan<- string) {
 	e <- readOutput("s_webcam", c)
+}
+func sDND(e chan<- error, c chan<- string) {
+	e <- readOutput("s_dnd", c)
 }
 func sKeyboard(e chan<- error, c chan<- string) {
 	e <- readOutput("s_keyboard", c)
