@@ -1,8 +1,6 @@
 # .dotfiles
 
-My Linux dot files and configs.
-
-My WSL dotfiles lie [there](https://github.com/dakyskye/wsl-dotfiles).
+My personal Linux and Windows (inside windowswsl folder) dotfiles.
 
 ## License
 
