@@ -1,21 +1,31 @@
+[autostart]
+exec = [
+  "xsetroot -cursor_name left_ptr",
+]
+
 [settings]
+  # Window settings
   gapSize = 7
   borderWidth = 2
-  borderColorFocused = "#A77AC4"
   borderColorUnfocused = "#7197E7"
+  borderColorFocused = "#A77AC4"
   borderColorUrgent = "#FF5555"
+  # Bar settings
   barHeight = 19
+  windowTitlePosition = "left"
   barBackgroundColor = "#282A36"
   barForegroundColor = "#F8F8F2"
   barSelectionColor = "#A77AC4"
   barUrgentColor = "#FF5555"
   barFonts = [
     "JetBrains Mono:size=8:antialias=true",
-    "FontAwesome:size=9:antialias=true",
+    "Font Awesome 5 Free Solid:size=9:antialias=true",
     "DejaVu Serif:size=8:antialias=true",
   ]
-  loggingEnabled = true
+  # General settings
+  loggingEnabled = false
 
+# Window manager controls
 [controls]
   [controls.reloadConfig]
   keys = [ "r" ]
@@ -45,21 +55,13 @@
   keys = [ "q" ]
   modifiers = [ "super", "shift" ]
 
-  [controls.moveWindowToTag]
-  keys = [ "1", "2", "3", "4", "5", "6", "7", "8", "9" ]
-  modifiers = [ "super", "shift" ]
-
-  [controls.goToTag]
-  keys = [ "1", "2", "3", "4", "5", "6", "7", "8", "9" ]
-  modifiers = [ "super" ]
-
   [controls.goToPreviousTag]
   keys = [ "w" ]
   modifiers = [ "super" ]
 
-  [controls.toggleTagView]
-  keys = [ "1", "2", "3", "4", "5", "6", "7", "8", "9" ]
-  modifiers = [ "super", "control" ]
+  [controls.moveWindowToPreviousTag]
+  keys = [ "w" ]
+  modifiers = [ "super", "shift" ]
 
   [controls.focusPreviousMonitor]
   keys = [ "comma" ]
@@ -92,3 +94,20 @@
   [controls.jumpToUrgentWindow]
   keys = [ "u" ]
   modifiers = [ "super" ]
+
+  [controls.goToTag]
+  keys = [ "1", "2", "3", "4", "5", "6", "7", "8", "9" ]
+  modifiers = [ "super" ]
+
+  [controls.moveWindowToTag]
+  keys = [ "1", "2", "3", "4", "5", "6", "7", "8", "9" ]
+  modifiers = [ "super", "shift" ]
+
+  [controls.toggleTagView]
+  keys = [ "1", "2", "3", "4", "5", "6", "7", "8", "9" ]
+  modifiers = [ "super", "control" ]
+
+  [controls.toggleWindowTag]
+  keys = [ "1", "2", "3", "4", "5", "6", "7", "8", "9" ]
+  modifiers = [ "super", "shift", "control" ]
+
