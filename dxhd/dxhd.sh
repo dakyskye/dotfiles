@@ -4,13 +4,13 @@
 # super + escape
 dxhd -r
 
-## launch alacritty
+## launch kitty
 # super + return
-alacritty -e fish
+kitty fish
 
-## launch alacritty with dash shell
+## launch kitty with dash shell
 # super + shift + return
-alacritty -e dash
+kitty dash
 
 ## launch rofi
 # super + d
