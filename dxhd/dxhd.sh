@@ -20,6 +20,10 @@ rofi -modi drun -show drun
 # super + tab
 rofi -modi window -show window
 
+## launch rofimoji
+# super + shift + e
+rofimoji -c --skin-tone neutral
+
 ## open screenshot menu
 # print
 scr
@@ -47,6 +51,10 @@ flameshot gui
 ## change screen warmness
 # super + ctrl + {d, n}
 scw {"d","n"}
+
+## enable/disable DND mode
+# super + alt + ctrl + {d,f}
+s_dnd {dnd,free}
 
 ## change volume
 # XF86Audio { Lower, Raise } Volume
