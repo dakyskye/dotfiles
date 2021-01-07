@@ -49,7 +49,6 @@ i3lock
 inotify-tools
 jq
 kitty
-ksysguard
 lib32-amdvlk
 lib32-fontconfig
 lib32-libva-mesa-driver
@@ -112,18 +111,21 @@ ranger
 redshift
 ripgrep
 rofi
+rofimoji
 rust-analyzer
 rustup
 screenkey
 shellcheck
 smartmontools
 speedcrunch
+spice-vdagent
 steam
 sudo
 sxiv
 telegram-desktop
 texinfo
 the_silver_searcher
+tree
 ttf-cascadia-code
 ttf-dejavu
 ttf-font-awesome
@@ -136,6 +138,11 @@ unzip
 v4l2loopback-dkms
 virt-manager
 virt-viewer
+virtualbox
+virtualbox-guest-dkms
+virtualbox-guest-iso
+virtualbox-guest-utils
+virtualbox-host-modules-arch
 vkd3d
 vlc
 vulkan-radeon
@@ -147,6 +154,7 @@ wpa_supplicant
 xclip
 xcompmgr
 xf86-video-amdgpu
+xf86-video-qxl
 xf86-video-vesa
 xorg-bdftopcf
 xorg-docs
@@ -197,4 +205,6 @@ xorg-xwd
 xorg-xwininfo
 xorg-xwud
 youtube-dl
+zathura
+zathura-pdf-mupdf
 zip
