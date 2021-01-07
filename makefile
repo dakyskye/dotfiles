@@ -78,16 +78,14 @@ nimdow:
 
 nvim:
 	-@mv ~/.config/{nvim,nvim.bak}
-	-@mv ~/.config/{coc-settings.json,coc-settings.json.bak}
 	@mkdir -p ~/.config/nvim
-	@cp ./nvim/{init.vim,coc-settings.json} ~/.config/nvim
+	@cp ./nvim/init.vim ~/.config/nvim
 	@yarn global add neovim
 	@pip install neovim --user
-	@go get -u github.com/jstemmer/gotags
-	@yarn global add git+https://github.com/Perlence/tstags.git
-	@echo "installed nvom config"
-	@echo "neovim will exit on the first run"
-	@echo "run :PlugInstall on the second run"
+	@echo "trying to open nvim"
+	@nvim # it will exit
+	@echo "installed nvim config"
+	@echo "don't forget to run :PlugInstall"
 
 packages:
 	@pacman -Qqe > ~/packages.bak
