@@ -10,14 +10,14 @@ exec = [
   borderWidth = 2
   borderColorUnfocused = "#7197E7"
   borderColorFocused = "#A77AC4"
-  borderColorUrgent = "#FF5555"
+  borderColorUrgent = "#E06C75"
   # Bar settings
   barHeight = 19
   windowTitlePosition = "left"
-  barBackgroundColor = "#282A36"
+  barBackgroundColor = "#282C34"
   barForegroundColor = "#F8F8F2"
   barSelectionColor = "#A77AC4"
-  barUrgentColor = "#FF5555"
+  barUrgentColor = "#E06C75"
   barFonts = [
     "JetBrains Mono:size=8:antialias=true",
     "Font Awesome 5 Free Solid:size=9:antialias=true",
