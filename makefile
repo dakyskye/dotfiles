@@ -63,7 +63,7 @@ neofetch:
 	@echo "installed neofetch config"
 
 nimdow:
-	-mv ~/.config/{nimdow,nimdow.bak}
+	-@mv ~/.config/{nimdow,nimdow.bak}
 	@mkdir -p ~/.config/nimdow/
 	@cp ./nimdow/config.toml ~/.config/nimdow/
 	@echo "installed nimdow config"
