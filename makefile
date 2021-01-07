@@ -7,6 +7,7 @@ default:
 	@echo "fish"
 	@ecoh "kitty"
 	@echo "neofetch"
+	@echo "modules"
 	@echo "nimdow"
 	@echo "nvim"
 	@echo "packages"
@@ -17,7 +18,7 @@ default:
 	@echo "xinit"
 	@echo "xorg"
 
-.PHONY: alacritty dunst dxhd emacs fish kitty neofetch nimdow nvim packages pam rofi scripts services xinit xorg
+.PHONY: alacritty dunst dxhd emacs fish kitty neofetch modules nimdow nvim packages pam rofi scripts services xinit xorg
 
 alacritty:
 	-@mv ~/.config/{alacritty,alacritty.bak}
@@ -61,6 +62,13 @@ neofetch:
 	@mkdir -p ~/.config/neofetch/
 	@cp ./neofetch/config.conf ~/.config/neofetch/
 	@echo "installed neofetch config"
+
+modules:
+	-@sudo mv /etc/modprobe.d/{v4l2loopback.conf,v4l2loopback.conf.bak}
+	@sudo mkdir -p /etc/{modprobe.d,modules-load.d}
+	@sudo cp ./modules/{vboxdrv,v4l2loopback}.conf /etc/modules-load.d/
+	@sudo cp ./modprobe/v4l2loopback.conf /etc/modprobe.d/
+	@echo "installed modules"
 
 nimdow:
 	-@mv ~/.config/{nimdow,nimdow.bak}
