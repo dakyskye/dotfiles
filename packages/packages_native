@@ -27,6 +27,7 @@ emacs
 exa
 fakeroot
 feh
+firefox
 fish
 flameshot
 flex
@@ -71,6 +72,7 @@ m4
 maim
 make
 marked
+mesa-demos
 mesa-vdpau
 mpv
 neofetch
@@ -146,10 +148,10 @@ virtualbox-host-modules-arch
 vkd3d
 vlc
 vulkan-radeon
+weechat
 which
 wmctrl
 wmname
-woeusb
 wpa_supplicant
 xclip
 xcompmgr
