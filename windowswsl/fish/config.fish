@@ -7,17 +7,14 @@ set -x GPG_TTY (tty)
 
 set -x WORK "$HOME/Work"
 set -x CONFIG "$HOME/.config"
-set -x TOOLS "$HOME/Tools"
 set -x SCRIPTS "$HOME/.local/bin/"
 
 set -x GOPATH "$HOME/go"
 set -x CARGOPATH "$HOME/.cargo"
-set -x EMACSPATH "$HOME/.emacs.d"
 
-set -x PATH "$PATH:$SCRIPTS/:$GOPATH/bin:$CARGOPATH/bin:$EMACSPATH/bin"
+set -x PATH "$PATH:$SCRIPTS/:$GOPATH/bin:$CARGOPATH/bin"
 
 set -x FZF_DEFAULT_COMMAND "ag --hidden --ignore .git -g ''"
-set -x DONT_PROMPT_WSL_INSTALL 1
 
 alias vim "nvim"
 
@@ -35,5 +32,3 @@ alias df "df -h"
 alias du "du -h"
 alias free "free -m"
 alias tb "nc termbin.com 9999"
-alias copy "xclip -selection clipboard"
-
