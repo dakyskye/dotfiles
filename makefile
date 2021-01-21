@@ -5,7 +5,7 @@ default:
 	@echo "dxhd"
 	@echo "emacs"
 	@echo "fish"
-	@ecoh "kitty"
+	@echo "kitty"
 	@echo "neofetch"
 	@echo "modules"
 	@echo "nimdow"
