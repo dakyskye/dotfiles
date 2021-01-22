@@ -1,11 +1,8 @@
-choosenim
-corectrl
+brave-bin
 discord-canary
 dxhd-git
 giph
-google-chrome
 google-cloud-sdk
-ifuse
 jetbrains-toolbox
 libxft-bgra-git
 mpv-mpris
@@ -13,8 +10,6 @@ mullvad-vpn-bin
 nerd-fonts-cascadia-code
 nerd-fonts-jetbrains-mono
 nimdow-bin
-obs-streamfx
-obs-v4l2sink
 paru-bin
 pipes.sh
 postman-bin
@@ -23,9 +18,7 @@ spotify
 spotify-tray-git
 spotifywm-git
 starship-bin
-steam-fonts
 ttf-ms-fonts
 visual-studio-code-bin
 woeusb
 xkblayout-state-git
-zoom
