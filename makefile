@@ -1,13 +1,14 @@
 default:
 	@echo "hello! what are you going to install? just make <it>"
-	@echo "alacritty"
+	#@echo "alacritty"
+	@echo "bash"
 	@echo "dunst"
 	@echo "dxhd"
-	@echo "emacs"
+	#@echo "emacs"
 	@echo "fish"
 	@echo "kitty"
 	@echo "neofetch"
-	@echo "modules"
+	#@echo "modules"
 	@echo "nimdow"
 	@echo "nvim"
 	@echo "packages"
@@ -25,6 +26,11 @@ alacritty:
 	@mkdir -p ~/.config/alacritty
 	@cp ./alacritty/alacritty.yml ~/.config/alacritty/
 	@echo "installed alacritty config"
+
+bash:
+	-@mv ~/{.bashrc,.bashrc.bak}
+	@cp ./bash/.bashrc ~/
+	@echo "installed bash config"
 
 dunst:
 	-@mv ~/.config/{dunst,dunst.bak}
@@ -98,6 +104,11 @@ pam:
 	@sudo cp ./pam/login /etc/pam.d/login
 	@echo "installed pam config"
 
+profile:
+	-@mv ~/{.profile,.profile.bak}
+	@cp ./profile/.profile ~/
+	@echo "installed profile"
+
 rofi:
 	-@mv ~/.config/{rofi,rofi.bak}
 	@mkdir -p ~/.config/rofi
@@ -122,7 +133,7 @@ services:
 	@sudo systemctl enable ssdtemp --now
 	@sudo systemctl enable pacup
 	@sudo systemctl enable NetworkManager --now
-	@sudo systemctl enable libvirtd --now
+	#@sudo systemctl enable libvirtd --now
 	@sudo systemctl enable bluetooth --now
 	@sudo systemctl enable avahi-daemon --now
 	@echo "enabled services"
