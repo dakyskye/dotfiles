@@ -1,38 +1,17 @@
-# set some environment variables
-export XDG_CONFIG_HOME="$HOME/.config"
-export EDITOR="nvim"
-export IDE="code"
-export TERMINAL="kitty"
-export BROWSER="google-chrome-stable"
-
-export WORK="$HOME/Work"
-export CONFIG="$XDG_CONFIG_HOME"
-export SCRIPTS="$HOME/.local/bin/"
-
-export GOPATH="$HOME/go"
-export CARGOPATH="$HOME/.cargo"
-export NIMBLEPATH="$HOME/.nimble"
-export EMACSPATH="$HOME/.emacs.d"
-
-export PATH="$PATH:$SCRIPTS/:$GOPATH/bin:$CARGOPATH/bin:$NIMBLEPATH/bin:$EMACSPATH/bin"
-
-export FZF_DEFAULT_COMMAND="ag --hidden --ignore .git -g ''"
-
 # start gnome-keyring-daemon
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 export SSH_AUTH_SOCK
 
 # autostart these
+pulseaudio &
 lxsession &
 dxhd &
 dunst &
 nm-applet &
 blueman-applet &
 flameshot &
-#picom -cC &
 unclutter &
 numlockx off &
 feh --no-fehbg --bg-scale $HOME/Pictures/wallpapers/monitor_primary.jpg --bg-scale $HOME/Pictures/wallpapers/monitor_secondary.jpg
 go run $SCRIPTS/statusbar.go &
-emacs --daemon &
 exec nimdow

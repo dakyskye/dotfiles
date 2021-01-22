@@ -3,7 +3,6 @@ starship init fish | source
 
 # aliases
 alias vim "nvim"
-alias emacs "emacsclient -c -a emacs"
 alias spotify "spotify-tray"
 
 alias ls "exa --color always --group-directories-first"
