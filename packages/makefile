@@ -1,4 +1,4 @@
-mandatory := base base-devel linux linux-firmware linux-headers grub efibootmgr amd-ucode lvm2 wpa_supplicant dhcpcd xorg paru-bin
+mandatory := base base-devel linux linux-firmware linux-headers grub efibootmgr amd-ucode dhcpcd xorg paru-bin
 
 gpuXf86 := xf86-video-amdgpu xf86-video-vesa
 gpuMesa := mesa lib32-mesa opencl-mesa
