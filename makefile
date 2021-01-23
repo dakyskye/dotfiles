@@ -1,14 +1,12 @@
 default:
 	@echo "hello! what are you going to install? just make <it>"
-	#@echo "alacritty"
 	@echo "bash"
 	@echo "dunst"
 	@echo "dxhd"
-	#@echo "emacs"
 	@echo "fish"
 	@echo "kitty"
 	@echo "neofetch"
-	#@echo "modules"
+	@echo "modules"
 	@echo "nimdow"
 	@echo "nvim"
 	@echo "packages"
@@ -19,7 +17,7 @@ default:
 	@echo "xinit"
 	@echo "xorg"
 
-.PHONY: alacritty dunst dxhd emacs fish kitty neofetch modules nimdow nvim packages pam rofi scripts services xinit xorg
+.PHONY: alacritty bash dunst dxhd emacs fish kitty neofetch modules nimdow nvim packages pam profile rofi scripts services xinit xorg
 
 alacritty:
 	-@mv ~/.config/{alacritty,alacritty.bak}
@@ -133,7 +131,6 @@ services:
 	@sudo systemctl enable ssdtemp --now
 	@sudo systemctl enable pacup
 	@sudo systemctl enable NetworkManager --now
-	#@sudo systemctl enable libvirtd --now
 	@sudo systemctl enable bluetooth --now
 	@sudo systemctl enable avahi-daemon --now
 	@echo "enabled services"
