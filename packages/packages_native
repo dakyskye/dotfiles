@@ -57,7 +57,6 @@ lib32-mesa
 lib32-mesa-vdpau
 lib32-vkd3d
 lib32-vulkan-radeon
-libimobiledevice
 libtool
 libva-mesa-driver
 libva-vdpau-driver
@@ -108,6 +107,7 @@ pulseaudio-bluetooth
 pulseeffects
 pulsemixer
 pwgen
+qbittorrent
 python
 python-pip
 ranger
@@ -148,7 +148,6 @@ wpa_supplicant
 xclip
 xcompmgr
 xf86-video-amdgpu
-xf86-video-qxl
 xf86-video-vesa
 xorg-bdftopcf
 xorg-docs
@@ -200,6 +199,4 @@ xorg-xwininfo
 xorg-xwud
 yarn
 youtube-dl
-zathura
-zathura-pdf-mupdf
 zip
