@@ -93,7 +93,7 @@ nvim:
 
 packages:
 	@pacman -Qqe > ~/packages.bak
-	@bash -c "paru -S --needed - < ./packages/packages_native < ./packages/packages_foreign"
+	@bash -c "cd packages && make all"
 	@echo "installed packages"
 
 pam:
