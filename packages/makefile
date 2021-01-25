@@ -44,6 +44,7 @@ programsGraphics := gimp
 programsMonitoringNHardware := htop hdparm smartmontools
 programsVpn := openssh mullvad-vpn-bin
 programsMisc := woeusb
+programsAllPackages := $(programsBrowsing) $(programsCommunication) $(programsGraphics) $(programsMonitoringNHardware) $(programsVpn) $(programsMisc)
 
 progLangs := go python nodejs rustup
 progLangTools := python-pip npm yarn rust-analyzer
@@ -85,7 +86,7 @@ terminal: mandatory
 	@paru -S --needed $(terminalAllPackages)
 
 programs: mandatory
-	@paru -S --needed $(programsALlPackages)
+	@paru -S --needed $(programsAllPackages)
 
 programming: mandatory
 	@paru -S --needed $(progAllPackages)
