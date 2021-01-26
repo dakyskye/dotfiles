@@ -1,4 +1,4 @@
-mandatory := base base-devel linux linux-firmware linux-headers grub efibootmgr amd-ucode dhcpcd xorg paru-bin
+mandatory := base base-devel linux linux-firmware linux-headers grub efibootmgr amd-ucode dhcpcd xorg xorg-xinit paru-bin
 
 gpuXf86 := xf86-video-amdgpu xf86-video-vesa
 gpuMesa := mesa lib32-mesa opencl-mesa
@@ -36,7 +36,7 @@ terminalShells := bash fish dash
 terminalFun := starship-bin exa bat tree neofetch pipes.sh lolcat cmatrix cowsay
 terminalUtilities := p7zip zip unzip unrar fzf ripgrep the_silver_searcher pwgen
 terminalShellUtilities := gnu-netcat inotify-tools jq shellcheck dialog
-terminalAllPackages := $(terminalPrograms) $(terminalShells) $(terminalFun) $(terminalUtilities)
+terminalAllPackages := $(terminalPrograms) $(terminalShells) $(terminalFun) $(terminalUtilities) $(terminalShellUtilities)
 
 programsBrowsing := google-chrome
 programsCommunication := discord slack-desktop telegram-desktop weechat
