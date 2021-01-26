@@ -39,12 +39,13 @@ terminalShellUtilities := gnu-netcat inotify-tools jq shellcheck dialog
 terminalAllPackages := $(terminalPrograms) $(terminalShells) $(terminalFun) $(terminalUtilities)
 
 programsBrowsing := google-chrome
-programsCommunication := discord slack-desktop telegram-desktop weechat
+programsCommunication := discord slack-desktop telegram-desktop weechat zoom
 programsGraphics := gimp
 programsMonitoringNHardware := htop hdparm smartmontools
+programsVirtualisation := qemu libvirt virt-manager virsh
 programsVpn := openssh mullvad-vpn-bin
 programsMisc := woeusb
-programsAllPackages := $(programsBrowsing) $(programsCommunication) $(programsGraphics) $(programsMonitoringNHardware) $(programsVpn) $(programsMisc)
+programsAllPackages := $(programsBrowsing) $(programsCommunication) $(programsGraphics) $(programsMonitoringNHardware) $(programsVirtualisation) $(programsVpn) $(programsMisc)
 
 progLangs := go python nodejs rustup
 progLangTools := python-pip npm yarn rust-analyzer
