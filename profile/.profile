@@ -1,8 +1,7 @@
 export XDG_CONFIG_HOME="$HOME/.config"
 export EDITOR="nvim"
-export IDE="code"
 export TERMINAL="kitty"
-export BROWSER="brave"
+export BROWSER="google-chrome-stable"
 
 export WORK="$HOME/Work"
 export CONFIG="$XDG_CONFIG_HOME"
