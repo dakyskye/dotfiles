@@ -1,8 +1,13 @@
 # launch starship prompt
 starship init fish | source
 
+# enable vi mode
+fish_vi_key_bindings
+fish_vi_cursor
+
 # aliases
 alias vim "nvim"
+alias emacs "emacsclient -c -a emacs"
 alias spotify "spotify-tray"
 
 alias ls "exa --color always --group-directories-first"
