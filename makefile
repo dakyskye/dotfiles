@@ -131,7 +131,7 @@ services:
 	@sudo cp ./services/{hddtemp.service,ssdtemp.service,pacup.service} /etc/systemd/system/
 	@sudo systemctl enable hddtemp --now
 	@sudo systemctl enable ssdtemp --now
-	@sudo systemctl enable pacup
+	@sudo systemctl enable pacup --now
 	@sudo systemctl enable NetworkManager --now
 	@sudo systemctl enable bluetooth --now
 	@sudo systemctl enable avahi-daemon --now
