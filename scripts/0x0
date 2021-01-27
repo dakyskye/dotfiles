@@ -8,5 +8,3 @@ fi
 for file in "$@"; do
 	curl -F "file=@$file" https://0x0.st
 done
-
-# vim: ft=sh

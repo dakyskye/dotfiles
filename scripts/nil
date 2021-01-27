@@ -8,5 +8,3 @@ fi
 for file in "$@"; do
 	cat /dev/null > "$file"
 done
-
-# vim: ft=sh
