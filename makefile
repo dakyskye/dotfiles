@@ -3,6 +3,7 @@ default:
 	@echo "bash"
 	@echo "dunst"
 	@echo "dxhd"
+	@echo "emacs"
 	@echo "fish"
 	@echo "kitty"
 	@echo "neofetch"
@@ -11,6 +12,7 @@ default:
 	@echo "nvim"
 	@echo "packages"
 	@echo "pam"
+	@echo "profile"
 	@echo "rofi"
 	@echo "scripts"
 	@echo "services"
@@ -70,7 +72,7 @@ neofetch:
 modules:
 	-@sudo mv /etc/modprobe.d/{v4l2loopback.conf,v4l2loopback.conf.bak}
 	@sudo mkdir -p /etc/{modprobe.d,modules-load.d}
-	@sudo cp ./modules/{v4l2loopback}.conf /etc/modules-load.d/
+	@sudo cp ./modules/v4l2loopback.conf /etc/modules-load.d/
 	@sudo cp ./modprobe/v4l2loopback.conf /etc/modprobe.d/
 	@echo "installed modules"
 
@@ -131,7 +133,6 @@ services:
 	@sudo systemctl enable ssdtemp --now
 	@sudo systemctl enable pacup
 	@sudo systemctl enable NetworkManager --now
-	@sudo systemctl enable libvirtd --now
 	@sudo systemctl enable bluetooth --now
 	@sudo systemctl enable avahi-daemon --now
 	@echo "enabled services"
