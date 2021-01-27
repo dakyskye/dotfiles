@@ -11,7 +11,7 @@ unclutter &
 numlockx off &
 flameshot &
 emacs --daemon &
-feh --no-fehbg --bg-scale $HOME/Pictures/wallpapers/monitor_primary.jpg --bg-scale $HOME/Pictures/wallpapers/monitor_secondary.jpg
+randwallp &
 go run $SCRIPTS/statusbar.go &
 dxhd &
 exec nimdow
