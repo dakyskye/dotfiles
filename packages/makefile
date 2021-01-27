@@ -5,7 +5,7 @@ gpuMesa := mesa lib32-mesa opencl-mesa
 gpuLibva := libva-mesa-driver lib32-libva-mesa-driver
 gpuLibvdpau := mesa-vdpau lib32-mesa-vdpau libva-vdpau-driver libvdpau-va-gl
 vpuVulkan := amdvlk vulkan-radeon lib32-vulkan-radeon lib32-amdvlk kvd3d lib32-vkd3d
-gpuTools := mesa-demos 
+gpuTools := mesa-demos corectrl
 gpuAllPackages := $(gpuXf86) $(gpuMesa) $(gpuLibva) $(gpuLibvdpau) $(gpuVulkan) $(gpuTools)
 
 mediaPulse := pulseaudio pulseaudio-alsa pulseaudio-bluetooth
@@ -14,21 +14,20 @@ mediaBluetooth := blueman bluez bluez-utils
 mediaTools := alsa-utils playerctl pavucontrol-qt
 mediaPlayers := mpv mpv-mpris vlc youtube-dl spotify spotify-tray-git spotifywm-git
 mediaRecorders := obs-studio obs-streamfx obs-v4l2sink
-mediaAllPackages := $(mediaPulse) $(mediaPulseTools) $(mediaBluetooth) $(mediaTools)
+mediaAllPackages := $(mediaPulse) $(mediaPulseTools) $(mediaBluetooth) $(mediaTools) $(mediaPlayers) $(mediaRecorders)
 
 fontGeneral := ttf-dejavu ttf-liberation ttf-ubuntu-font-family noto-fonts noto-fonts-emoji noto-fonts-extra ttf-ms-fonts
 fontAwesome := otf-font-awesome ttf-font-awesome
 fontProgramming := ttf-cascadia-code ttf-jetbrains-mono
 fontNerd := nerd-fonts-cascadia-code nerd-fonts-jetbrains-mono
 fontJapanese := ttf-hanazono
-fontTools := fontforge lib32-fontconfig
-fontAllPackages := $(fontGeneral) $(fontAwesome) $(fontProgramming) $(fontNerd) $(fontJapanese) $(fontTools)
+fontAllPackages := $(fontGeneral) $(fontAwesome) $(fontProgramming) $(fontNerd) $(fontJapanese)
 
 twmList := nimdow-bin
 twmCompositors := picom xcompmgr
 twmUtilities := gnome-keyring lxsession networkmanager network-manager-applet numlockx redshift unclutter dxhd-git
 twmScriptUtilities := hddtemp maim giph xkblayout-state-git libxft-bgra-git wmctrl wmname xclip
-twmPrograms := flameshot i3lock feh dunst pcmanfm-qt peek rofi rofimoji ranger screenkey qbittorrent sxiv
+twmPrograms := flameshot i3lock feh dunst pcmanfm-qt peek rofi rofimoji ranger screenkey sxiv
 twmAllPackages := $(twmList) $(twmCompositors) $(twmUtilities) $(twmScriptUtilities) $(twmPrograms)
 
 terminalPrograms := kitty
@@ -42,10 +41,9 @@ programsBrowsing := google-chrome
 programsCommunication := discord slack-desktop telegram-desktop weechat zoom
 programsGraphics := gimp
 programsMonitoringNHardware := htop hdparm smartmontools
-programsVirtualisation := qemu libvirt virt-manager virsh
 programsVpn := openssh mullvad-vpn-bin
-programsMisc := woeusb
-programsAllPackages := $(programsBrowsing) $(programsCommunication) $(programsGraphics) $(programsMonitoringNHardware) $(programsVirtualisation) $(programsVpn) $(programsMisc)
+programsMisc := woeusb qbittorrent
+programsAllPackages := $(programsBrowsing) $(programsCommunication) $(programsGraphics) $(programsMonitoringNHardware) $(programsVpn) $(programsMisc)
 
 progLangs := go python nodejs rustup
 progLangTools := python-pip npm yarn rust-analyzer
