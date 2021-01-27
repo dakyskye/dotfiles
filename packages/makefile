@@ -32,7 +32,7 @@ twmAllPackages := $(twmList) $(twmCompositors) $(twmUtilities) $(twmScriptUtilit
 
 terminalPrograms := kitty
 terminalShells := bash fish dash
-terminalFun := starship-bin exa bat tree neofetch pipes.sh lolcat cmatrix cowsay
+terminalFun := starship-bin exa bat tree neofetch pfetch pipes.sh lolcat cmatrix cowsay
 terminalUtilities := p7zip zip unzip unrar fzf ripgrep the_silver_searcher pwgen
 terminalShellUtilities := gnu-netcat inotify-tools jq shellcheck dialog
 terminalAllPackages := $(terminalPrograms) $(terminalShells) $(terminalFun) $(terminalUtilities) $(terminalShellUtilities)
@@ -42,10 +42,10 @@ programsCommunication := discord slack-desktop telegram-desktop weechat zoom
 programsGraphics := gimp
 programsMonitoringNHardware := htop hdparm smartmontools
 programsVpn := openssh mullvad-vpn-bin
-programsMisc := woeusb qbittorrent
+programsMisc := woeusb qbittorrent aspell
 programsAllPackages := $(programsBrowsing) $(programsCommunication) $(programsGraphics) $(programsMonitoringNHardware) $(programsVpn) $(programsMisc)
 
-progLangs := go python nodejs rustup
+progLangs := go python nodejs rustup lua
 progLangTools := python-pip npm yarn rust-analyzer
 progCompilers := clang gcc
 progEditors := jetbrains-toolbox visual-studio-code-bin neovim emacs
