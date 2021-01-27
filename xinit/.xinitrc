@@ -4,7 +4,6 @@ export SSH_AUTH_SOCK
 
 # autostart these
 lxsession &
-pulseaudio -D &
 dunst &
 nm-applet &
 blueman-applet &
