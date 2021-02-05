@@ -135,6 +135,7 @@ services:
 	@sudo systemctl enable NetworkManager --now
 	@sudo systemctl enable bluetooth --now
 	@sudo systemctl enable avahi-daemon --now
+	@sudo systemctl enable fstrim --now
 	@echo "enabled services"
 
 xinit:
