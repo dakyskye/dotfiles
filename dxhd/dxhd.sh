@@ -6,7 +6,7 @@ dxhd -r
 
 ## launch kitty
 # super + return
-kitty fish
+kitty
 
 ## launch kitty with dash shell
 # super + shift + return
