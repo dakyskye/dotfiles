@@ -54,6 +54,12 @@ monitor = HDMI-A-1
 modules-left = bspwmsec
 modules-right = memory sep cpu sep tempcpu sep tempgpu sep tempssd sep temphdd sep kernel sep updates sep installed sep webcam sep pulseaudio sep xkeyboard sep time sep date
 
+tray-position =
+tray-detached =
+tray-maxsize =
+tray-background =
+tray-padding =
+
 [module/sep]
 type = custom/text
 content = " | "
