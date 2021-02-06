@@ -26,23 +26,10 @@ rofimoji -c --skin-tone neutral
 
 ## open screenshot menu
 # print
-scr
-
-## select and capture a window immediately
-# super + print
-scr c w
-
-## capture fullscreen screenshot immediately
-# shift +  print
-scr c f
-
-## capture fullscreen screenshot immediately and save it
-# ctrl + print
-scr s f
-
-## launch flameshot gui
-# alt + print
 flameshot gui
+
+# {ctrl, shift} + print
+flameshot {full, screen} -c
 
 ## system operations / screen warmness menus
 # super + ctrl + {o, w}
