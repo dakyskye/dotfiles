@@ -5,6 +5,7 @@ MANDATORY=(
 	base-devel
 	util-linux
 	dhcpcd
+	os-prober
 
 	linux
 	linux-firmware
