@@ -12,6 +12,8 @@ override-redirect = false
 bottom = false
 fixed-center = true
 
+wm-restack = bspwm
+
 width = 100%
 height = 20
 
@@ -39,41 +41,18 @@ tray-padding = 0
 click-left =
 click-middle = 
 click-right =
-scroll-up = bspc desktop -f next.local.occupied
-scroll-down = bspc desktop -f prev.local.occupied
+scroll-up =
+scroll-down =
 double-click-left =
 double-click-middle =
 double-click-right =
 
 [bar/secondary]
+inherit = bar/primary
 monitor = HDMI-A-1
-override-redirect = false
-bottom = false
-fixed-center = true
 
-width = 100%
-height = 20
-
-background = ${colours.background}
-foreground = ${colours.foreground}
-
-font-0 = "JetBrains Mono:size=8:antialias=true"
-font-1 = "Font Awesome 5 Free Solid:size=9:antialias=true"
-font-2 = "DejaVu Serif:size=8:antialias=true"
-
-modules-left = bspwm
+modules-left = bspwmsec
 modules-right = memory sep cpu sep tempcpu sep tempgpu sep tempssd sep temphdd sep kernel sep updates sep installed sep webcam sep pulseaudio sep xkeyboard sep time sep date
-
-locale = en_GB.UTF-8
-
-click-left =
-click-middle = 
-click-right =
-scroll-up = #bspwm.next
-scroll-down = #bspwm.prev
-double-click-left =
-double-click-middle =
-double-click-right =
 
 [module/sep]
 type = custom/text
@@ -115,6 +94,11 @@ label-tiled = 
 label-tiled-foreground = ${colours.coral}
 label-monocle = 
 label-monocle-foreground = ${colours.coral}
+
+[module/bspwmsec]
+inherit = module/bspwm
+
+ws-icon-default = 
 
 [module/xwindow]
 type = internal/xwindow
