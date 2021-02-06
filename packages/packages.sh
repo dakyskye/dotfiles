@@ -182,6 +182,7 @@ PROGRAMS=(
 	qbittorrent
 	mullvad-vpn-bin
 	woeusb
+	gparted
 
 	aspell
 )
@@ -196,7 +197,9 @@ PROGRAMMING=(
 	python-pip
 	npm
 	yarn
+
 	rust-analyzer
+	golangci-lint-bin
 
 	clang
 	gcc
