@@ -1,6 +1,7 @@
 default:
 	@echo "hello! what are you going to install? just make <it>"
 	@echo "bash"
+	@echo "bspwm"
 	@echo "dunst"
 	@echo "dxhd"
 	@echo "emacs"
@@ -12,6 +13,7 @@ default:
 	@echo "nvim"
 	@echo "packages"
 	@echo "pam"
+	@echo "polybar"
 	@echo "profile"
 	@echo "rofi"
 	@echo "scripts"
@@ -19,7 +21,7 @@ default:
 	@echo "xinit"
 	@echo "xorg"
 
-.PHONY: alacritty bash dunst dxhd emacs fish kitty neofetch modules nimdow nvim packages pam profile rofi scripts services xinit xorg
+.PHONY: alacritty bash bspwm dunst dxhd emacs fish kitty neofetch modules nimdow nvim packages pam polybar profile rofi scripts services xinit xorg
 
 alacritty:
 	-@mv ~/.config/{alacritty,alacritty.bak}
@@ -31,6 +33,12 @@ bash:
 	-@mv ~/{.bashrc,.bashrc.bak}
 	@cp ./bash/.bashrc ~/
 	@echo "installed bash config"
+
+bspwm:
+	-@mv ~/.config/{bspwm,bspwm.bak}
+	@mkdir -p ~/.config/bspwm/
+	@cp ./bspwm/bspwmrc ~/.config/bspwm/
+	@echo "installed bspwm config"
 
 dunst:
 	-@mv ~/.config/{dunst,dunst.bak}
@@ -95,7 +103,7 @@ nvim:
 
 packages:
 	@pacman -Qqe > ~/packages.bak
-	@bash -c "cd packages && make all"
+	@./packages/packages.sh
 	@echo "installed packages"
 
 pam:
@@ -103,6 +111,12 @@ pam:
 	-@sudo mkdir -p /etc/pam.d/
 	@sudo cp ./pam/login /etc/pam.d/login
 	@echo "installed pam config"
+
+polybar:
+	-@mv ~/.config/{polybar,polybar.bak}
+	@mkdir -p ~/.config/polybar
+	@cp ./polybar/config ~/.config/polybar/
+	@echo "installed polybar config"
 
 profile:
 	-@mv ~/{.profile,.profile.bak}
