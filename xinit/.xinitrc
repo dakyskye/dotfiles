@@ -3,6 +3,7 @@ eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 export SSH_AUTH_SOCK
 
 # autostart these
+picom -cC &
 lxsession &
 dunst &
 nm-applet &
@@ -12,6 +13,10 @@ numlockx off &
 flameshot &
 emacs --daemon &
 randwallp &
-go run $SCRIPTS/statusbar.go &
 dxhd &
-exec nimdow
+dxhd -c $CONFIG/dxhd/bspwm.sh &
+polybar primary &
+polybar secondary &
+exec bspwm
+#go run $SCRIPTS/statusbar.go
+#exec nimdow
