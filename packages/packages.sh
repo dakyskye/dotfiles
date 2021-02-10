@@ -213,6 +213,7 @@ PROGRAMMING=(
 	git
 	openssh
 	make
+	taskfile-git
 	gnu-netcat
 	inotify-tools
 	jq
