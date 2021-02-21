@@ -9,8 +9,8 @@
 (map! :mv "$" #'evil-last-non-blank) ;; g_
 
 ;; my favourite themes
-;;(setq doom-theme 'doom-one)
-(setq doom-theme 'doom-one-light)
+(setq doom-theme 'doom-one)
+;;(setq doom-theme 'doom-one-light)
 ;;(setq doom-theme 'doom-vibrant)
 ;;(setq doom-theme 'doom-dark+)
 ;;(setq doom-theme 'doom-dracula)
