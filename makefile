@@ -18,10 +18,11 @@ default:
 	@echo "rofi"
 	@echo "scripts"
 	@echo "services"
+	@echo "starship"
 	@echo "xinit"
 	@echo "xorg"
 
-.PHONY: alacritty bash bspwm dunst dxhd emacs fish kitty neofetch modules nimdow nvim packages pam polybar profile rofi scripts services xinit xorg
+.PHONY: alacritty bash bspwm dunst dxhd emacs fish kitty neofetch modules nimdow nvim packages pam polybar profile rofi scripts services starship xinit xorg
 
 alacritty:
 	-@mv ~/.config/{alacritty,alacritty.bak}
@@ -151,6 +152,12 @@ services:
 	@sudo systemctl enable avahi-daemon --now
 	@sudo systemctl enable fstrim.timer --now
 	@echo "enabled services"
+
+starship:
+	-@mv ~/.config/{starship,starship.bak}
+	@mkdir -p ~/.config/starship
+	@cp ./starship/config.toml ~/.config/starship/
+	@echo "installed starship"
 
 xinit:
 	-@mv ~/{.xinitrc,.xinitrc.bak}

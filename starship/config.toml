@@ -1,0 +1,6 @@
+[directory]
+truncation_length = 3
+truncation_symbol = ".../"
+
+[username]
+show_always = true
