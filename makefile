@@ -94,9 +94,10 @@ nimdow:
 nvim:
 	-@mv ~/.config/{nvim,nvim.bak}
 	@mkdir -p ~/.config/nvim
-	@cp ./nvim/init.vim ~/.config/nvim
+	@cp ./nvim/{init.vim,coc-settings.json} ~/.config/nvim
 	@yarn global add neovim
 	@pip install neovim --user
+	@go get github.com/nametake/golangci-lint-langserver
 	@echo "trying to open nvim"
 	@nvim # it will exit
 	@echo "installed nvim config"
