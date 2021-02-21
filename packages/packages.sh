@@ -100,9 +100,9 @@ FONTS=(
 
 TWM=(
 	nimdow-bin
-	bspwm
+	#bspwm
 
-	polybar
+	#polybar
 
 	picom
 	xcompmgr
@@ -176,8 +176,9 @@ PROGRAMS=(
 	discord
 	slack-desktop
 	telegram-desktop
-	weechat
-	zoom
+	element-desktop
+	#weechat
+	#zoom
 
 	gimp
 	qbittorrent
