@@ -5,13 +5,12 @@
 		"gofumpt": true
 	},
 	"diagnostic.checkCurrentLine": true,
-	"languageserver": {
-		"golangci-lint-languageserver": {
-			"command": "golangci-lint-langserver",
-			"filetypes": ["go"],
-			"initializationOptions": {
-				"command": ["golangci-lint", "run", "--out-format", "json"]
-			}
-		}
+	"diagnostic-languageserver.filetypes": {
+		"go": "golangci-lint",
+		"sh": "shellcheck",
+		"fish": "fish",
+		"vim": "vint",
+		"markdown": [ "write-good", "markdownlint" ],
+		"yaml": "yamllint"
 	}
 }

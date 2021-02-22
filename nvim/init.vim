@@ -5,6 +5,7 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/bundle')
+
 """
 
 " Git
@@ -57,13 +58,11 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 let g:coc_global_extensions =
 	\ [
-	\ 'coc-go',
 	\ 'coc-sql',
-	\ 'coc-vimlsp',
-	\ 'coc-markdownlint',
 	\ 'coc-json',
 	\ 'coc-toml',
 	\ 'coc-yaml',
+	\ 'coc-diagnostic',
 	\ 'coc-highlight',
 	\ 'coc-fzf-preview',
 	\ 'coc-floaterm',
