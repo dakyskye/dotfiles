@@ -16,7 +16,7 @@ Plug 'editorconfig/editorconfig-vim'
 
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
-" FZF for file browsing
+" FZF
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
@@ -28,17 +28,17 @@ nnoremap <c-f> :Rg!
 " Floaterm
 Plug 'voldikss/vim-floaterm'
 
-" Polyglot to syntax highlight for most languages
+" Polyglot
 Plug 'sheerun/vim-polyglot'
 
-" Airline for fancy status bar
+" Airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'onedark'
 
-" OneDark theme
+" OneDark
 Plug 'joshdick/onedark.vim'
 
 let g:onedark_terminal_italics = 1
@@ -158,10 +158,10 @@ set t_Co=256
 set termguicolors
 colorscheme onedark
 
+" keys
+
 " clear search results
 nnoremap <leader><space> :nohlsearch<cr>
-
-" keys
 
 " open explorer
 nnoremap <silent><a-1> :CocCommand explorer<cr>
