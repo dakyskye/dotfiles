@@ -1,6 +1,9 @@
 # launch starship prompt
 starship init fish | source
 
+# suppress help message
+set fish_greeting
+
 # enable vi mode
 fish_vi_key_bindings
 fish_vi_cursor
