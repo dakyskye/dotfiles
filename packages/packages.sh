@@ -140,7 +140,7 @@ TWM=(
 
 TERMINAL=(
 	kitty
-	alacritty
+	#alacritty
 
 	bash
 	fish
@@ -176,9 +176,8 @@ PROGRAMS=(
 	discord
 	slack-desktop
 	telegram-desktop
-	element-desktop
-	#weechat
-	#zoom
+	weechat
+	zoom
 
 	gimp
 	qbittorrent
@@ -212,8 +211,10 @@ PROGRAMMING=(
 	emacs
 
 	git
+	github-cli
 	openssh
 	make
+	ctags
 	taskfile-git
 	gnu-netcat
 	inotify-tools
