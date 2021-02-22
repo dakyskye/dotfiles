@@ -100,9 +100,6 @@ FONTS=(
 
 TWM=(
 	nimdow-bin
-	#bspwm
-
-	#polybar
 
 	picom
 	xcompmgr
@@ -128,7 +125,7 @@ TWM=(
 	flameshot
 	i3lock
 	feh
-	dunst
+	deadd-notification-center-bin
 	pcmanfm-qt
 	peek
 	rofi
@@ -156,6 +153,7 @@ TERMINAL=(
 	lolcat
 	cmatrix
 	cowsay
+	asciinema
 
 	htop
 	hdparm
@@ -201,6 +199,9 @@ PROGRAMMING=(
 
 	rust-analyzer
 	golangci-lint-bin
+	vint
+	write-good
+	yamllint
 
 	clang
 	gcc
