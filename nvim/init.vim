@@ -97,9 +97,9 @@ nmap <silent>gy <plug>(coc-type-definition)
 nmap <silent>gi <plug>(coc-implementation)
 nmap <silent>gr <plug>(coc-references)
 
-" use `[g` and `]g` to navigate diagnostics
-nmap <silent>[g <plug>(coc-diagnostic-prev)
-nmap <silent>]g <plug>(coc-diagnostic-next)
+" use shift-f2 and f2 to navigate diagnostics
+nmap <silent><f14> <plug>(coc-diagnostic-prev)
+nmap <silent><f2> <plug>(coc-diagnostic-next)
 
 " use K to show documentation in preview window
 nnoremap <silent> K :call <sid>show_documentation()<cr>
