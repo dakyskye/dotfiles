@@ -1,6 +1,10 @@
 {
 	"explorer.icon.enableNerdfont": true,
 	"explorer.icon.enableVimDevicons": true,
+	"go.goplsOptions": {
+		"gofumpt": true
+	},
+	"diagnostic.checkCurrentLine": true,
 	"languageserver": {
 		"golangci-lint-languageserver": {
 			"command": "golangci-lint-langserver",
