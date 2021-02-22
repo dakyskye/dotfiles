@@ -7,68 +7,6 @@ endif
 call plug#begin('~/.config/nvim/bundle')
 """
 
-" CoC
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-let g:coc_global_extensions =
-	\ [
-	\ 'coc-go',
-	\ 'coc-tsserver',
-	\ 'coc-snippets',
-	\ 'coc-toml',
-	\ 'coc-yaml',
-	\ 'coc-highlight'
-	\ ]
-
-" use tab for trigger completion with characters ahead and navigate
-inoremap <silent><expr> <TAB>
-	\ pumvisible() ? "\<C-n>" :
-	\ <SID>check_back_space() ? "\<TAB>" :
-	\ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-	let col = col('.') - 1
-	return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" use <c-space> to trigger completion
-inoremap <silent><expr> <c-space> coc#refresh()
-
-" make <CR> auto-select the first completion item and notify coc.nvim to format on enter
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-						\: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
-" GoTo code navigation.
-nmap <silent>gd <Plug>(coc-definition)
-nmap <silent>gy <Plug>(coc-type-definition)
-nmap <silent>gi <Plug>(coc-implementation)
-nmap <silent>gr <Plug>(coc-references)
-
-" use `[g` and `]g` to navigate diagnostics
-" use `:CocDiagnostics` to get all diagnostics of current buffer in location list
-nmap <silent>[g <Plug>(coc-diagnostic-prev)
-nmap <silent>]g <Plug>(coc-diagnostic-next)
-
-" use K to show documentation in preview window
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-	if (index(['vim','help'], &filetype) >= 0)
-		execute 'h '.expand('<cword>')
-	elseif (coc#rpc#ready())
-		call CocActionAsync('doHover')
-	else
-		execute '!' . &keywordprg . " " . expand('<cword>')
-	endif
-endfunction
-
-" symbol renaming
-nmap <leader>rn <Plug>(coc-rename)
-
-" show all diagnostics.
-nnoremap <silent><space>a  :<C-u>CocList diagnostics<cr>
-
 " Git
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
@@ -79,12 +17,16 @@ Plug 'editorconfig/editorconfig-vim'
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
 " FZF for file browsing
-Plug 'junegunn/fzf'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
 
-nnoremap <C-p> :Files<cr>
-nnoremap <C-g> :GFiles<cr>
-nnoremap <C-f> :Rg!
+nnoremap <c-p> :Files<cr>
+nnoremap <c-g> :GFiles<cr>
+nnoremap <c-f> :Rg!
+
+" Floaterm
+Plug 'voldikss/vim-floaterm'
 
 " Polyglot to syntax highlight for most languages
 Plug 'sheerun/vim-polyglot'
@@ -99,6 +41,75 @@ let g:airline_theme='onedark'
 Plug 'joshdick/onedark.vim'
 
 let g:onedark_terminal_italics=1
+
+" Devicons
+Plug 'ryanoasis/vim-devicons'
+
+" CoC
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+let g:coc_global_extensions =
+	\ [
+	\ 'coc-go',
+	\ 'coc-sql',
+	\ 'coc-vimlsp',
+	\ 'coc-snippets',
+	\ 'coc-json',
+	\ 'coc-toml',
+	\ 'coc-yaml',
+	\ 'coc-highlight',
+	\ 'coc-fzf-preview',
+	\ 'coc-floaterm',
+	\ 'coc-explorer'
+	\ ]
+
+" use tab for trigger completion with characters ahead and navigate
+inoremap <silent><expr> <tab>
+	\ pumvisible() ? "\<c-n>" :
+	\ <sid>check_back_space() ? "\<tab>" :
+	\ coc#refresh()
+inoremap <expr><s-tab> pumvisible() ? "\<c-p>" : "\<c-h>"
+
+function! s:check_back_space() abort
+	let col = col('.') - 1
+	return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" use <c-space> to trigger completion
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" make <cr> auto-select the first completion item and notify coc.nvim to format on enter
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+						\: "\<c-g>u\<cr>\<c-r>=coc#on_enter()\<cr>"
+
+" GoTo code navigation.
+nmap <silent>gd <plug>(coc-definition)
+nmap <silent>gy <plug>(coc-type-definition)
+nmap <silent>gi <plug>(coc-implementation)
+nmap <silent>gr <plug>(coc-references)
+
+" use `[g` and `]g` to navigate diagnostics
+nmap <silent>[g <plug>(coc-diagnostic-prev)
+nmap <silent>]g <plug>(coc-diagnostic-next)
+
+" use K to show documentation in preview window
+nnoremap <silent> K :call <sid>show_documentation()<cr>
+
+function! s:show_documentation()
+	if (index(['vim','help'], &filetype) >= 0)
+		execute 'h '.expand('<cword>')
+	elseif (coc#rpc#ready())
+		call CocActionAsync('doHover')
+	else
+		execute '!' . &keywordprg . " " . expand('<cword>')
+	endif
+endfunction
+
+" symbol renaming
+nmap <leader>rn <plug>(coc-rename)
+
+" show all diagnostics.
+nnoremap <silent><a-6> :<c-u>CocList diagnostics<cr>
 
 """
 call plug#end()
@@ -140,5 +151,22 @@ colorscheme onedark
 
 " clear search results
 nnoremap <leader><space> :nohlsearch<cr>
+
+" keys
+
+" open explorer
+nnoremap <silent><a-1> :CocCommand explorer<cr>
+
+" open floaterm
+nnoremap <silent><a-3> :FloatermToggle<cr>
+
+" open git actions
+nnoremap <silent><a-9> :FzfPreviewGitActionsRpc<cr>
+
+" open list of git commits
+nnoremap <silent><a-0> :Commits<cr>
+
+" open list of buffers
+nnoremap <silent><a-tab> :FzfPreviewAllBuffersRpc<cr>
 
 """

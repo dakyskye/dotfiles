@@ -1,4 +1,6 @@
 {
+	"explorer.icon.enableNerdfont": true,
+	"explorer.icon.enableVimDevicons": true,
 	"languageserver": {
 		"golangci-lint-languageserver": {
 			"command": "golangci-lint-langserver",
