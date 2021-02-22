@@ -45,6 +45,9 @@ let g:onedark_terminal_italics=1
 " Devicons
 Plug 'ryanoasis/vim-devicons'
 
+" Delve debugger for Go
+Plug 'sebdah/vim-delve'
+
 " CoC
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -53,14 +56,16 @@ let g:coc_global_extensions =
 	\ 'coc-go',
 	\ 'coc-sql',
 	\ 'coc-vimlsp',
-	\ 'coc-snippets',
+	\ 'coc-markdownlint',
 	\ 'coc-json',
 	\ 'coc-toml',
 	\ 'coc-yaml',
 	\ 'coc-highlight',
 	\ 'coc-fzf-preview',
 	\ 'coc-floaterm',
-	\ 'coc-explorer'
+	\ 'coc-explorer',
+	\ 'coc-snippets',
+	\ 'coc-pairs'
 	\ ]
 
 " use tab for trigger completion with characters ahead and navigate
