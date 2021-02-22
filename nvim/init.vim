@@ -36,18 +36,21 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 let g:airline_powerline_fonts = 1
-let g:airline_theme='onedark'
+let g:airline_theme = 'onedark'
 
 " OneDark theme
 Plug 'joshdick/onedark.vim'
 
-let g:onedark_terminal_italics=1
+let g:onedark_terminal_italics = 1
 
 " Devicons
 Plug 'ryanoasis/vim-devicons'
 
-" Delve debugger for Go
-Plug 'sebdah/vim-delve'
+" Go
+Plug 'fatih/vim-go'
+
+let g:go_gopls_enabled = 0
+let g:go_def_mapping_enabled = 0
 
 " CoC
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -174,5 +177,11 @@ nnoremap <silent><a-0> :Commits<cr>
 
 " open list of buffers
 nnoremap <silent><a-tab> :FzfPreviewAllBuffersRpc<cr>
+
+" resizing buggers
+nnoremap <silent><c-up> :vertical resize +5<cr>
+nnoremap <silent><c-down> :vertical resize -5<cr>
+nnoremap <silent><c-right> :resize +5<cr>
+nnoremap <silent><c-left> :resize -5<cr>
 
 """
