@@ -125,7 +125,7 @@ TWM=(
 	flameshot
 	i3lock
 	feh
-	deadd-notification-center-bin
+	dunst
 	pcmanfm-qt
 	peek
 	rofi
@@ -137,7 +137,6 @@ TWM=(
 
 TERMINAL=(
 	kitty
-	#alacritty
 
 	bash
 	fish
@@ -217,7 +216,6 @@ PROGRAMMING=(
 	openssh
 	make
 	ctags
-	taskfile-git
 	gnu-netcat
 	inotify-tools
 	jq
@@ -230,6 +228,10 @@ PROGRAMMING=(
 	postman-bin
 )
 
-LIST="${MANDATORY[@]} ${GPU[@]} ${MEDIA[@]} ${FONTS[@]} ${TWM[@]} ${TERMINAL[@]} ${PROGRAMS[@]} ${PROGRAMMING[@]}"
+LIST="${MANDATORY[*]} ${GPU[*]} ${MEDIA[*]} ${FONTS[*]} ${TWM[*]} ${TERMINAL[*]} ${PROGRAMS[*]} ${PROGRAMMING[*]}"
 
 paru -S --needed $(sed '/^#/d' <<< $LIST)
+
+# other packages
+# Taskfile
+go get github.com/go-task/task/v3/cmd/task
