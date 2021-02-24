@@ -50,7 +50,7 @@ dunst:
 dxhd:
 	-@mv ~/.config/{dxhd,dxhd.bak}
 	@mkdir -p ~/.config/dxhd
-	@cp dxhd/{dxhd.sh, nimdow.sh, bspwm.sh} ~/.config/dxhd/
+	@cp dxhd/{dxhd.sh,nimdow.sh,bspwm.sh} ~/.config/dxhd/
 	@echo "installed dxhd config"
 
 emacs:
