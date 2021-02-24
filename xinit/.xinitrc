@@ -13,5 +13,6 @@ flameshot &
 emacs --daemon &
 randwallp &
 dxhd &
+dxhd -c $CONFIG/dxhd/nimdow.sh &
 go run $SCRIPTS/statusbar.go &
 exec nimdow

@@ -196,6 +196,7 @@ PROGRAMMING=(
 	python-pip
 	npm
 	yarn
+	choosenim
 
 	rust-analyzer
 	golangci-lint-bin
