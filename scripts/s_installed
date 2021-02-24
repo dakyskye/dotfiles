@@ -1,6 +1,6 @@
 #!/bin/sh
 
 while true; do
-	echo " $(pacman -Qqe | wc -l)"
+	echo " $(pacman -Qqe | wc -l) ($(pacman -Qq | wc -l))"
 	sleep 3600
 done
