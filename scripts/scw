@@ -10,10 +10,10 @@ warmness() {
 
 	case "$1" in
 		"$N"|"n")
-			redshift -P -O 4500 && notify-send -a "$NOTIFY_APP_NAME" "enabled $N"
+			redshift -P -O 4500 && dunstify -a "$NOTIFY_APP_NAME" "enabled $N"
 			;;
 		"$D"|"d")
-			redshift -P -O 6500 && notify-send -a "$NOTIFY_APP_NAME" "enabled $D"
+			redshift -P -O 6500 && dunstify -a "$NOTIFY_APP_NAME" "enabled $D"
 			;;
 	esac
 }

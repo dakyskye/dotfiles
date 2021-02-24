@@ -286,7 +286,7 @@ copyimg() {
 notify() {
 	[ -z "$1" ] && return 1
 
-	notify-send -a "$NOTIFY_APP_NAME" "$1"
+	dunstify -a "$NOTIFY_APP_NAME" "$1"
 }
 
 if [ -n "$1" ]; then

@@ -7,12 +7,12 @@ FIFO="/tmp/s_dnd_pipe"
 case "$1" in
 	"dnd")
 		echo "dnd" > "$FIFO"
-		notify-send -t 200 "you've enabled DND mode"
+		dunstify -t 200 "you've enabled DND mode"
 		exit 0
 		;;
 	"free")
 		echo "free" > "$FIFO"
-		notify-send "you've enabled notifications"
+		dunstify "you've enabled notifications"
 		exit 0
 		;;
 esac
@@ -25,11 +25,11 @@ while true; do
 	case "$(cat "$FIFO")" in
 		"dnd")
 			echo " DND"
-			notify-send DUNST_COMMAND_PAUSE
+			dunstctl set-paused true
 			;;
 		"free")
 			echo " free"
-			notify-send DUNST_COMMAND_RESUME
+			dunstctl set-paused false
 			;;
 	esac
 	sleep 1s

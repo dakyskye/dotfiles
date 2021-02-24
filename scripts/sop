@@ -31,7 +31,7 @@ operation() {
 			pkill -9 -U $USER
 			;;
 		"$LOCK")
-			notify-send DUNST_COMMAND_PAUSE
+			dunstctl set-paused true
 			tmpdir=$(mktemp -d)
 			original="$tmpdir/original.png"
 			blurred="$tmpdir/blurred.png"
@@ -40,8 +40,8 @@ operation() {
 			convert "$original" -blur 0x5 "$blurred"
 			i3lock -n -e -f -i "$blurred"
 			rm -rf "$tmpdir"
-			notify-send DUNST_COMMAND_RESUME
-			notify-send "welcome back!"
+			dunstctl set-paused false
+			dunstify "welcome back!"
 			;;
 	esac
 }
