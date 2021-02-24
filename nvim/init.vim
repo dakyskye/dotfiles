@@ -52,17 +52,16 @@ Plug 'fatih/vim-go'
 
 let g:go_gopls_enabled = 0
 let g:go_def_mapping_enabled = 0
+let g:go_doc_keywordprg_enabled = 0
 
 " CoC
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 let g:coc_global_extensions =
 	\ [
-	\ 'coc-sql',
+	\ 'coc-diagnostic',
 	\ 'coc-json',
 	\ 'coc-toml',
-	\ 'coc-yaml',
-	\ 'coc-diagnostic',
 	\ 'coc-highlight',
 	\ 'coc-fzf-preview',
 	\ 'coc-floaterm',
@@ -101,7 +100,7 @@ nmap <silent><f14> <plug>(coc-diagnostic-prev)
 nmap <silent><f2> <plug>(coc-diagnostic-next)
 
 " use K to show documentation in preview window
-nnoremap <silent> K :call <sid>show_documentation()<cr>
+nmap <silent>K :call <sid>show_documentation()<cr>
 
 function! s:show_documentation()
 	if (index(['vim','help'], &filetype) >= 0)
