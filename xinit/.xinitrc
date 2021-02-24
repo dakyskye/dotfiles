@@ -4,7 +4,7 @@ export SSH_AUTH_SOCK
 
 # autostart these
 lxsession &
-deadd-notification-center &
+dunst &
 nm-applet &
 blueman-applet &
 unclutter &
