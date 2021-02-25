@@ -208,8 +208,7 @@ PROGRAMMING=(
 
 	jetbrains-toolbox
 	visual-studio-code-bin
-	neovim
-	emacs
+	neovim-nightly-bin
 
 	git
 	github-cli
