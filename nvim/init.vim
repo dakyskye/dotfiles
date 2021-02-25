@@ -11,20 +11,28 @@ call plug#begin('~/.config/nvim/bundle')
 " Git
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
+Plug 'kdheepak/lazygit.nvim'
+
+let g:signify_sign_show_count = 0
+let g:signify_sign_add = "▎"
+let g:signify_sign_delete = "▏"
+let g:signify_sign_delete_first_line = "▔"
+let g:signify_sign_change = "▎"
+let g:signify_sign_change_delete = "▋"
 
 " EditorConfig
 Plug 'editorconfig/editorconfig-vim'
 
-let g:EditorConfig_exclude_patterns = ['fugitive://.*']
-
 " FZF
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
 
 nnoremap <c-p> :Files<cr>
 nnoremap <c-g> :GFiles<cr>
 nnoremap <c-f> :Rg!
+
+" Surround
+Plug 'tpope/vim-surround'
 
 " Floaterm
 Plug 'voldikss/vim-floaterm'
@@ -32,20 +40,23 @@ Plug 'voldikss/vim-floaterm'
 " Polyglot
 Plug 'sheerun/vim-polyglot'
 
+" One
+Plug 'kdheepak/vim-one'
+
+let g:one_allow_italics = 1
+
 " Airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'onedark'
-
-" OneDark
-Plug 'joshdick/onedark.vim'
-
-let g:onedark_terminal_italics = 1
+let g:airline_theme = 'one'
 
 " Devicons
 Plug 'ryanoasis/vim-devicons'
+
+" Treesitter
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " Go
 Plug 'fatih/vim-go'
@@ -59,11 +70,11 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 let g:coc_global_extensions =
 	\ [
+	\ 'coc-git',
 	\ 'coc-diagnostic',
 	\ 'coc-json',
 	\ 'coc-toml',
 	\ 'coc-highlight',
-	\ 'coc-fzf-preview',
 	\ 'coc-floaterm',
 	\ 'coc-explorer',
 	\ 'coc-snippets',
@@ -115,8 +126,11 @@ endfunction
 " symbol renaming
 nmap <leader>rn <plug>(coc-rename)
 
-" show all diagnostics.
+" show all diagnostics
 nnoremap <silent><a-6> :<c-u>CocList diagnostics<cr>
+
+" show code actions
+nnoremap <silent><a-5> :CocAction<cr>
 
 """
 call plug#end()
@@ -154,7 +168,8 @@ set noshowmode
 set number relativenumber
 set t_Co=256
 set termguicolors
-colorscheme onedark
+set background=dark
+colorscheme one
 
 " keys
 
@@ -167,14 +182,14 @@ nnoremap <silent><a-1> :CocCommand explorer<cr>
 " open floaterm
 nnoremap <silent><a-3> :FloatermToggle<cr>
 
-" open git actions
-nnoremap <silent><a-9> :FzfPreviewGitActionsRpc<cr>
+" open lazygit
+nnoremap <silent><a-9> :LazyGit<cr>
 
 " open list of git commits
-nnoremap <silent><a-0> :Commits<cr>
+nnoremap <silent><a-0> :LazyGitFilter<cr>
 
 " open list of buffers
-nnoremap <silent><a-tab> :FzfPreviewAllBuffersRpc<cr>
+nnoremap <silent><a-tab> :Buffers<cr>
 
 " resizing buggers
 nnoremap <silent><c-up> :vertical resize +5<cr>
