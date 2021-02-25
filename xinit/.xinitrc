@@ -10,7 +10,6 @@ blueman-applet &
 unclutter &
 numlockx off &
 flameshot &
-emacs --daemon &
 randwallp &
 dxhd &
 dxhd -c $CONFIG/dxhd/nimdow.sh &
