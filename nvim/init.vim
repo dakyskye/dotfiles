@@ -31,6 +31,12 @@ nnoremap <c-p> :Files<cr>
 nnoremap <c-g> :GFiles<cr>
 nnoremap <c-f> :Rg!
 
+" Maximizer
+Plug 'szw/vim-maximizer'
+
+let g:maximizer_set_mapping_with_bang = 1
+let g:maximizer_default_mapping_key = '<f11>'
+
 " Surround
 Plug 'tpope/vim-surround'
 
@@ -127,10 +133,10 @@ endfunction
 nmap <leader>rn <plug>(coc-rename)
 
 " show all diagnostics
-nnoremap <silent><a-6> :<c-u>CocList diagnostics<cr>
+nnoremap <silent><a-3> :<c-u>CocList diagnostics<cr>
 
 " show code actions
-nnoremap <silent><a-5> :CocAction<cr>
+nnoremap <silent><a-4> :CocAction<cr>
 
 """
 call plug#end()
@@ -180,21 +186,32 @@ nnoremap <leader><space> :nohlsearch<cr>
 nnoremap <silent><a-1> :CocCommand explorer<cr>
 
 " open floaterm
-nnoremap <silent><a-3> :FloatermToggle<cr>
+nnoremap <silent><a-2> :FloatermToggle<cr>
 
 " open lazygit
-nnoremap <silent><a-9> :LazyGit<cr>
+nnoremap <silent><a-5> :LazyGit<cr>
 
 " open list of git commits
-nnoremap <silent><a-0> :LazyGitFilter<cr>
+nnoremap <silent><a-6> :LazyGitFilter<cr>
 
 " open list of buffers
 nnoremap <silent><a-tab> :Buffers<cr>
 
+" navigating buffers
+nnoremap <silent><c-k> <c-w>k
+nnoremap <silent><c-j> <c-w>j
+nnoremap <silent><c-l> <c-w>l
+nnoremap <silent><c-h> <c-w>h
+
+nnoremap <silent><c-up> <c-w>k
+nnoremap <silent><c-down> <c-w>j
+nnoremap <silent><c-right> <c-w>l
+nnoremap <silent><c-left> <c-w>h
+
 " resizing buggers
-nnoremap <silent><c-up> :vertical resize +5<cr>
-nnoremap <silent><c-down> :vertical resize -5<cr>
-nnoremap <silent><c-right> :resize +5<cr>
-nnoremap <silent><c-left> :resize -5<cr>
+nnoremap <silent><a-up> :vertical resize +5<cr>
+nnoremap <silent><a-down> :vertical resize -5<cr>
+nnoremap <silent><a-right> :resize +5<cr>
+nnoremap <silent><a-left> :resize -5<cr>
 
 """
