@@ -1,10 +1,8 @@
 default:
 	@echo "hello! what are you going to install? just make <it>"
 	@echo "bash"
-	@echo "bspwm"
 	@echo "dunst"
 	@echo "dxhd"
-	@echo "emacs"
 	@echo "fish"
 	@echo "kitty"
 	@echo "neofetch"
@@ -13,33 +11,19 @@ default:
 	@echo "nvim"
 	@echo "packages"
 	@echo "pam"
-	@echo "polybar"
 	@echo "profile"
-	@echo "rofi"
 	@echo "scripts"
 	@echo "services"
 	@echo "starship"
 	@echo "xinit"
 	@echo "xorg"
 
-.PHONY: alacritty bash bspwm dunst dxhd emacs fish kitty neofetch modules nimdow nvim packages pam polybar profile rofi scripts services starship xinit xorg
-
-alacritty:
-	-@mv ~/.config/{alacritty,alacritty.bak}
-	@mkdir -p ~/.config/alacritty
-	@cp ./alacritty/alacritty.yml ~/.config/alacritty/
-	@echo "installed alacritty config"
+.PHONY: bash dunst dxhd fish kitty neofetch modules nimdow nvim packages pam profile scripts services starship xinit xorg
 
 bash:
 	-@mv ~/{.bashrc,.bashrc.bak}
 	@cp ./bash/.bashrc ~/
 	@echo "installed bash config"
-
-bspwm:
-	-@mv ~/.config/{bspwm,bspwm.bak}
-	@mkdir -p ~/.config/bspwm/
-	@cp ./bspwm/bspwmrc ~/.config/bspwm/
-	@echo "installed bspwm config"
 
 dunst:
 	-@mv ~/.config/{dunst,dunst.bak}
@@ -50,15 +34,8 @@ dunst:
 dxhd:
 	-@mv ~/.config/{dxhd,dxhd.bak}
 	@mkdir -p ~/.config/dxhd
-	@cp dxhd/{dxhd.sh,nimdow.sh,bspwm.sh} ~/.config/dxhd/
+	@cp dxhd/{dxhd.sh,nimdow.sh} ~/.config/dxhd/
 	@echo "installed dxhd config"
-
-emacs:
-	@git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
-	@~/.emacs.d/bin/doom install
-	@cp ./emacs/{config.el,init.el} ~/.doom.d/
-	@~/.emacs.d/bin/doom sync
-	@echo "installed Doom emacs config"
 
 fish:
 	-@mv ~/.config/fish/{config.fish,config.fish.bak}
@@ -113,24 +90,10 @@ pam:
 	@sudo cp ./pam/login /etc/pam.d/login
 	@echo "installed pam config"
 
-polybar:
-	-@mv ~/.config/{polybar,polybar.bak}
-	@mkdir -p ~/.config/polybar
-	@cp ./polybar/config ~/.config/polybar/
-	@echo "installed polybar config"
-
 profile:
 	-@mv ~/{.profile,.profile.bak}
 	@cp ./profile/.profile ~/
 	@echo "installed profile"
-
-rofi:
-	-@mv ~/.config/{rofi,rofi.bak}
-	@mkdir -p ~/.config/rofi
-	@cp ./rofi/rofi.sh ~/.config/rofi/
-	@~/.config/rofi/rofi.sh
-	@rm -f ~/.config/rofi/rofi.sh
-	@echo "installed rofi config"
 
 scripts:
 	-@mkdir -p ~/.local/bin
