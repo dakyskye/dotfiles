@@ -18,7 +18,7 @@ MANDATORY=(
 	xorg
 	xorg-xinit
 
-	paru-bin	
+	paru-bin
 )
 
 GPU=(
