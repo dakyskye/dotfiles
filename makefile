@@ -112,6 +112,7 @@ services:
 	@sudo systemctl enable pacup --now
 	@sudo systemctl enable NetworkManager --now
 	@sudo systemctl enable bluetooth --now
+	@sudo systemctl enable rfkill-unblock@bluetooth --now
 	@sudo systemctl enable avahi-daemon --now
 	@sudo systemctl enable fstrim.timer --now
 	@echo "enabled services"
