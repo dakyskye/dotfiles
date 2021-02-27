@@ -22,7 +22,7 @@ rofi -modi window -show window
 
 ## launch rofimoji
 # super + shift + e
-rofimoji -c --skin-tone neutral
+rofimoji --action copy --skin-tone neutral
 
 ## open screenshot menu
 # print
@@ -62,10 +62,6 @@ playerctl position {0, 5-, 5+}
 ## launch pavucontrol
 # XF86Tools
 pavucontrol-qt
-
-## play music playlist
-# alt + XF86Tools
-mpv $HOME/Music/* --shuffle --loop-playlist
 
 ## launch some apps
 # XF86 {Explorer, HomePage, Mail, Calculator}
