@@ -170,6 +170,8 @@ TERMINAL=(
 PROGRAMS=(
 	google-chrome
 
+	bitwarden-cli
+
 	discord
 	slack-desktop
 	telegram-desktop
