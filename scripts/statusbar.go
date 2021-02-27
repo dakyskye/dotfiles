@@ -12,13 +12,14 @@ var (
 	readMemory      string
 	readCPU         string
 	readTemperature string
-	readDistroWM 	string
+	readDistroWM    string
 	readKernel      string
 	readUpdates     string
 	readInstalled   string
 	readVolume      string
 	readWebcam      string
 	readDND         string
+	readGHNotif     string
 	readKeyboard    string
 	readDate        string
 	readTime        string
@@ -35,6 +36,7 @@ var (
 	chanVolume      = make(chan string)
 	chanWebcam      = make(chan string)
 	chanDND         = make(chan string)
+	chanGHNotif     = make(chan string)
 	chanKeyboard    = make(chan string)
 	chanDate        = make(chan string)
 	chanTime        = make(chan string)
@@ -57,12 +59,13 @@ func main() {
 	go sKeyboard(errs, chanKeyboard)
 	go sWebcam(errs, chanWebcam)
 	go sDND(errs, chanDND)
+	go sGHNotif(errs, chanGHNotif)
 	go sDate(errs, chanDate)
 	go sTime(errs, chanTime)
 
 	updateStatus := func() {
-		mon0 := fmt.Sprintf("%s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s", readMemory, readCPU, readTemperature, readDistroWM, readKernel, readUpdates, readInstalled, readVolume, readWebcam, readDND, readKeyboard, readDate, readTime)
-		mon1 := fmt.Sprintf("%s | %s | %s | %s | %s | %s | %s | %s | %s | %s", readMemory, readCPU, readTemperature, readUpdates, readVolume, readWebcam, readDND, readKeyboard, readDate, readTime)
+		mon0 := fmt.Sprintf("%s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s", readMemory, readCPU, readTemperature, readDistroWM, readKernel, readUpdates, readInstalled, readVolume, readWebcam, readDND, readGHNotif, readKeyboard, readDate, readTime)
+		mon1 := fmt.Sprintf("%s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s", readMemory, readCPU, readTemperature, readUpdates, readVolume, readWebcam, readDND, readGHNotif, readKeyboard, readDate, readTime)
 		err = exec.Command("/usr/bin/xsetroot", "-name", fmt.Sprintf("NIMDOW_MONITOR_INDEX=0 %s NIMDOW_MONITOR_INDEX=1 %s", mon0, mon1)).Run()
 		if err != nil {
 			errs <- err
@@ -98,6 +101,8 @@ func main() {
 		case readWebcam = <-chanWebcam:
 			updateStatus()
 		case readDND = <-chanDND:
+			updateStatus()
+		case readGHNotif = <-chanGHNotif:
 			updateStatus()
 		case readDate = <-chanDate:
 			updateStatus()
@@ -136,6 +141,9 @@ func sWebcam(e chan<- error, c chan<- string) {
 }
 func sDND(e chan<- error, c chan<- string) {
 	e <- readOutput("s_dnd", c)
+}
+func sGHNotif(e chan<- error, c chan<- string) {
+	e <- readOutput("s_github", c)
 }
 func sKeyboard(e chan<- error, c chan<- string) {
 	e <- readOutput("s_keyboard", c)
