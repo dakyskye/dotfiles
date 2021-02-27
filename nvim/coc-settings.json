@@ -23,8 +23,5 @@
 		"vim": "vint",
 		"markdown": [ "write-good", "markdownlint" ],
 		"yaml": "yamllint"
-	},
-	"git.enableGutters": false,
-	"git.blameUseRealTime": true,
-	"git.addGBlameToVirtualText": true
+	}
 }
