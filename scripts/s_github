@@ -1,0 +1,9 @@
+#!/bin/bash
+
+AUTH="dakyskye:$(cat ~/.gh_notifications_token)"
+
+while true; do
+	UNREAD="$(curl -s -u "$AUTH" https://api.github.com/notifications | jq length)"
+	echo " $UNREAD"
+	sleep 1m
+done
