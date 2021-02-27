@@ -23,8 +23,8 @@ Plug 'szw/vim-maximizer'
 Plug 'tpope/vim-surround'
 " Floaterm
 Plug 'voldikss/vim-floaterm'
-" Polyglot
-Plug 'sheerun/vim-polyglot'
+" Treesitter
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " One
 Plug 'kdheepak/vim-one'
 " Airline
@@ -32,8 +32,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " Devicons
 Plug 'ryanoasis/vim-devicons'
-" Treesitter
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " Go
 Plug 'fatih/vim-go'
 " Vimspector
@@ -144,10 +142,14 @@ let g:signify_sign_delete_first_line = "▔"
 let g:signify_sign_change = "▎"
 let g:signify_sign_change_delete = "▋"
 
+nnoremap <silent><F17> :SignifyToggle<cr>
+
 " maxmizer
 let g:maximizer_set_mapping_with_bang = 1
-let g:maximizer_default_mapping_key = ''
-nnoremap <silent><leader><f11> :MaximizerToggle!<cr>
+let g:maximizer_default_mapping_key = '<F23>'
+
+" treesitter
+lua require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
 
 " one
 let g:one_allow_italics = 1
@@ -168,7 +170,6 @@ let g:vimspector_install_gadgets = [ 'vscode-go' ]
 " coc
 let g:coc_global_extensions =
 	\ [
-	\ 'coc-git',
 	\ 'coc-diagnostic',
 	\ 'coc-json',
 	\ 'coc-toml',
