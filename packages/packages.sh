@@ -178,6 +178,8 @@ PROGRAMS=(
 	weechat
 	zoom
 
+	speedcrunch
+
 	gimp
 	qbittorrent
 	mullvad-vpn-bin
