@@ -1,7 +1,16 @@
-#!/bin/sh
+#!/bin/bash
+
+source "$SCRIPTS/s_colours.sh"
 
 while true; do
 	#echo "$(mpstat | grep -A 1 "%idle" | tail -n 1 | awk '{print 100 - $NF}' | cut -d '.' -f1)"
-	echo " $(top -b -n1 | head -n5 | grep "%Cpu(s)" | awk ' {print $2 + $4} ' | cut -d '.' -f1)%"
+	USAGE="$(top -b -n1 | head -n5 | grep "%Cpu(s)" | awk ' {print $2 + $4} ' | cut -d '.' -f1)"
+	if [[ "$USAGE" -lt 41 ]]; then
+		echo " ${USAGE}%${FG_NORMAL}"
+	elif [[ "$USAGE" -gt 40 && "$USAGE" -lt 61 ]]; then
+		echo "${FG_YELLOW} ${USAGE}%${FG_NORMAL}"
+	elif [[ "$USAGE" -gt 60 ]]; then
+		echo "${FG_RED} ${USAGE}%${FG_NORMAL}"
+	fi
 	sleep 2
 done

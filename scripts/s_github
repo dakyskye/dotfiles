@@ -1,9 +1,15 @@
 #!/bin/bash
 
+source "$SCRIPTS/s_colours.sh"
+
 AUTH="dakyskye:$(cat ~/.gh_notifications_token)"
 
 while true; do
 	UNREAD="$(curl -s -u "$AUTH" https://api.github.com/notifications | jq length)"
-	echo " $UNREAD"
+	if [[ "$UNREAD" -eq 0 ]]; then
+		echo " $UNREAD"
+	else
+		echo "${FG_RED} ${UNREAD}${FG_NORMAL}"
+	fi
 	sleep 1m
 done

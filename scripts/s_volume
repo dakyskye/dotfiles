@@ -1,8 +1,18 @@
-#!/bin/sh
+#!/bin/bash
+
+source "$SCRIPTS/s_colours.sh"
 
 print_vol() {
 	VOL="$(pamixer --get-volume)"
-	[ "$(pamixer --get-mute)" = "true" ] && echo " ${VOL}" || echo " ${VOL}"
+	[ "$(pamixer --get-mute)" = "true" ] && VOL=" $VOL" || VOL=" $VOL"
+
+	if [[ "${VOL#??}" -lt 66 ]]; then
+		echo "${VOL}${FG_NORMAL}"
+	elif [[ "${VOL#??}" -gt 65 && "${VOL#??}" -lt 86 ]]; then
+		echo "${FG_YELLOW}${VOL}${FG_NORMAL}"
+	elif [[ "${VOL#??}" -gt 85 ]]; then
+		echo "${FG_RED}${VOL}${FG_NORMAL}"
+	fi
 }
 
 print_vol

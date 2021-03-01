@@ -1,10 +1,21 @@
-#!/bin/sh
+#!/bin/bash
 
-echo "updating"
+source "$SCRIPTS/s_colours.sh"
+
+printupdates() {
+	UPDATES="$(pacman -Qu | wc -l)"
+	if [[ "$UPDATES" -gt 0 ]]; then
+		echo "${FG_RED} ${UPDATES}${FG_NORMAL}"
+	else
+		echo " $UPDATES"
+	fi
+}
+
+echo " updating"
 sleep 10
-echo " $(pacman -Qu | wc -l)"
+printupdates
 
 while true; do
-	sleep 25m
-	echo " $(pacman -Qu | wc -l)"
+	sleep 1m
+	printupdates
 done

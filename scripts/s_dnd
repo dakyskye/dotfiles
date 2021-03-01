@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source "$SCRIPTS/s_colours.sh"
+
 FIFO="/tmp/s_dnd_pipe"
 
 [ ! -e "$FIFO" ] && touch "$FIFO"
@@ -24,11 +26,11 @@ echo "free" > "$FIFO"
 while true; do
 	case "$(cat "$FIFO")" in
 		"dnd")
-			echo " DND"
+			echo "${FG_RED} DND${FG_NORMAL}"
 			dunstctl set-paused true
 			;;
 		"free")
-			echo " free"
+			echo " free${FG_NORMAL}"
 			dunstctl set-paused false
 			;;
 	esac
