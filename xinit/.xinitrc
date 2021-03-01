@@ -2,7 +2,13 @@
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 export SSH_AUTH_SOCK
 
-# autostart these
+rfunblockbluetooth() {
+	sleep 2s
+	rfkill unblock bluetooth
+	dunstify -u low "rfkill has just unblocked bluetooth"
+}
+
+rfunblockbluetooth &
 lxsession &
 dunst &
 nm-applet &
