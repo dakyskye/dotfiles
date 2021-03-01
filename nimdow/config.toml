@@ -20,27 +20,8 @@ exec = [
 	barFonts = [
 		"JetBrains Mono:size=8:antialias=true",
 		"Font Awesome 5 Free Solid:size=9:antialias=true",
+		"Font Awesome 5 Brands Regular:size=9:antialias=true",
 		"DejaVu Serif:size=8:antialias=true",
 	]
 	# General settings
 	loggingEnabled = false
-
-[[appRule]]
-class = "discord"
-monitor = 2
-tags = [ 1 ]
-
-[[appRule]]
-class = "Slack"
-monitor = 2
-tags = [ 2 ]
-
-[[appRule]]
-class = "TelegramDesktop"
-monitor = 2
-tags = [ 3 ]
-
-[[appRule]]
-class = "Spotify"
-monitor = 2
-tags = [ 4 ]
