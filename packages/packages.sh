@@ -153,6 +153,7 @@ TERMINAL=(
 	cmatrix
 	cowsay
 	asciinema
+	grabc
 
 	htop
 	hdparm
@@ -165,6 +166,7 @@ TERMINAL=(
 	ripgrep
 	the_silver_searcher
 	pwgen
+	bc
 )
 
 PROGRAMS=(
@@ -175,10 +177,10 @@ PROGRAMS=(
 	discord
 	slack-desktop
 	telegram-desktop
-	weechat
 	zoom
 
 	speedcrunch
+	hwinfo
 
 	gimp
 	qbittorrent
