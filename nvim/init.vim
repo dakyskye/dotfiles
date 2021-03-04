@@ -23,6 +23,8 @@ Plug 'szw/vim-maximizer'
 Plug 'tpope/vim-surround'
 " Floaterm
 Plug 'voldikss/vim-floaterm'
+" Polyglot
+Plug 'sheerun/vim-polyglot'
 " Treesitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " One
@@ -32,6 +34,10 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " Devicons
 Plug 'ryanoasis/vim-devicons'
+" Goyo
+Plug 'junegunn/goyo.vim'
+" Limelight
+Plug 'junegunn/limelight.vim'
 " Go
 Plug 'fatih/vim-go'
 " Vimspector
@@ -54,6 +60,7 @@ set nowritebackup
 set confirm
 set autoread
 set lazyredraw
+set iskeyword+=-
 set exrc
 set secure
 set encoding=utf-8
@@ -72,7 +79,7 @@ set hidden
 set cmdheight=1
 set updatetime=100
 set shortmess+=c
-set signcolumn=yes
+set signcolumn=number
 set noshowmode
 set number relativenumber
 set t_Co=256
@@ -146,7 +153,7 @@ nnoremap <silent><F17> :SignifyToggle<cr>
 
 " maxmizer
 let g:maximizer_set_mapping_with_bang = 1
-let g:maximizer_default_mapping_key = '<F23>'
+let g:maximizer_default_mapping_key = '<f23>'
 
 " treesitter
 lua require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
@@ -157,6 +164,12 @@ let g:one_allow_italics = 1
 " airline
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'one'
+
+" toggle goyo
+nnoremap <silent><f1> :Goyo<cr>
+
+" toggle limelight
+nnoremap <silent><f13> :Limelight!!<cr>
 
 " vim-go
 let g:go_gopls_enabled = 0
@@ -170,6 +183,8 @@ let g:vimspector_install_gadgets = [ 'vscode-go' ]
 " coc
 let g:coc_global_extensions =
 	\ [
+	\ 'coc-go',
+	\ 'coc-rust-analyzer',
 	\ 'coc-diagnostic',
 	\ 'coc-json',
 	\ 'coc-toml',
