@@ -42,6 +42,7 @@ GPU=(
 	vkd3d
 	lib32-vkd3d
 
+	libva-utils
 	mesa-demos
 	corectrl
 )
