@@ -3,7 +3,7 @@ eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 export SSH_AUTH_SOCK
 
 rfunblockbluetooth() {
-	sleep 2s
+	sleep 7s
 	rfkill unblock bluetooth
 	dunstify -u low "rfkill has just unblocked bluetooth"
 }
