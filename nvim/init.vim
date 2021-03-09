@@ -14,6 +14,10 @@ Plug 'tpope/vim-fugitive'
 Plug 'kdheepak/lazygit.nvim'
 " EditorConfig
 Plug 'editorconfig/editorconfig-vim'
+" NERDCommenter
+Plug 'preservim/nerdcommenter'
+" Which
+Plug 'liuchengxu/vim-which-key'
 " FZF
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -23,10 +27,12 @@ Plug 'szw/vim-maximizer'
 Plug 'tpope/vim-surround'
 " Floaterm
 Plug 'voldikss/vim-floaterm'
-" Polyglot
-Plug 'sheerun/vim-polyglot'
 " Treesitter
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+function! TSStuff()
+	:TSInstall all
+	:TSUpdate
+endfunction
+Plug 'nvim-treesitter/nvim-treesitter', { 'do': function('TSStuff') }
 " One
 Plug 'kdheepak/vim-one'
 " Airline
@@ -89,38 +95,41 @@ colorscheme one
 
 " keys
 
+" which
+nnoremap <silent><leader> :silent WhichKey '<space>'<cr>
+
 " fzf list files
-nnoremap <silent><space>o :Files<cr>
+nnoremap <silent><leader>o :Files<cr>
 
 " fzf list git files
-nnoremap <silent><space>g :GFiles<cr>
+nnoremap <silent><leader>g :GFiles<cr>
 
 " fzf do ripgrep
-nnoremap <space>f :Rg!
+nnoremap <leader>f :Rg!
 
 " clear search results
 nnoremap <silent><leader><bs> :nohlsearch<cr>
 
 " open explorer
-nnoremap <silent><a-1> :CocCommand explorer<cr>
+nnoremap <silent><leader>1 :CocCommand explorer<cr>
 
 " open floaterm
-nnoremap <silent><a-2> :FloatermToggle<cr>
+nnoremap <silent><leader>2 :FloatermToggle<cr>
 
 " show all diagnostics
-nnoremap <silent><a-3> :<c-u>CocList diagnostics<cr>
+nnoremap <silent><leader>3 :<c-u>CocList diagnostics<cr>
 
 " show code actions
-nnoremap <silent><a-4> :CocAction<cr>
+nnoremap <silent><leader>4 :CocAction<cr>
 
 " open lazygit
-nnoremap <silent><a-5> :LazyGit<cr>
+nnoremap <silent><leader>5 :LazyGit<cr>
 
 " open list of git commits
-nnoremap <silent><a-6> :LazyGitFilter<cr>
+nnoremap <silent><leader>6 :LazyGitFilter<cr>
 
 " open list of buffers
-nnoremap <silent><a-tab> :Buffers<cr>
+nnoremap <silent><leader><tab> :Buffers<cr>
 
 " navigating buffers
 nnoremap <silent><c-k> <c-w>k
@@ -140,6 +149,13 @@ nnoremap <silent><a-right> :resize +2<cr>
 nnoremap <silent><a-left> :resize -2<cr>
 
 " plugins
+
+" which
+let g:which_key_centered = 0
+let g:which_key_use_floating_win = 0
+
+" nerdcommenter
+let g:NERDCreateDefaultMappings = 1
 
 " signify
 let g:signify_sign_show_count = 0
