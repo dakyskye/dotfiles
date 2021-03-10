@@ -55,7 +55,6 @@ MEDIA=(
 
 	pamixer
 	pulsemixer
-	pulseeffects
 
 	blueman
 	bluez
