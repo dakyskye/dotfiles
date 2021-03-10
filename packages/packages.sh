@@ -6,6 +6,7 @@ MANDATORY=(
 	util-linux
 	dhcpcd
 	os-prober
+	lvm2
 
 	linux
 	linux-firmware
@@ -143,6 +144,7 @@ TERMINAL=(
 	fish
 	dash
 
+	lazygit
 	starship-bin
 	exa
 	bat
