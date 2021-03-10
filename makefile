@@ -4,6 +4,7 @@ default:
 	@echo "dunst"
 	@echo "dxhd"
 	@echo "fish"
+	@echo "git"
 	@echo "kitty"
 	@echo "neofetch"
 	@echo "modules"
@@ -18,7 +19,7 @@ default:
 	@echo "xinit"
 	@echo "xorg"
 
-.PHONY: bash dunst dxhd fish kitty neofetch modules nimdow nvim packages pam profile scripts services starship xinit xorg
+.PHONY: bash dunst dxhd fish git kitty neofetch modules nimdow nvim packages pam profile scripts services starship xinit xorg
 
 bash:
 	-@mv ~/{.bashrc,.bashrc.bak}
@@ -42,6 +43,11 @@ fish:
 	@mkdir -p ~/.config/fish
 	@cp ./fish/config.fish ~/.config/fish/
 	@echo "installed fish config"
+
+git:
+	-@mv ~/{.gitconfig,.gitconfig.bak}
+	@cp git/.gitconfig ~/
+	@echo "installed git config"
 
 kitty:
 	-@mv ~/.config/kitty/{kitty.conf,kitty.conf.bak}
