@@ -19,7 +19,7 @@ Plug 'preservim/nerdcommenter'
 " Which
 Plug 'liuchengxu/vim-which-key'
 " FZF
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 " Maximizer
 Plug 'szw/vim-maximizer'
@@ -28,11 +28,7 @@ Plug 'tpope/vim-surround'
 " Floaterm
 Plug 'voldikss/vim-floaterm'
 " Treesitter
-function! TSStuff()
-	:TSInstall all
-	:TSUpdate
-endfunction
-Plug 'nvim-treesitter/nvim-treesitter', { 'do': function('TSStuff') }
+Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSInstall all' }
 " One
 Plug 'kdheepak/vim-one'
 " Airline
