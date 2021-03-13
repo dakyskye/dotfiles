@@ -235,9 +235,11 @@ PROGRAMMING=(
 	postman-bin
 )
 
-LIST="${MANDATORY[*]} ${GPU[*]} ${MEDIA[*]} ${FONTS[*]} ${TWM[*]} ${TERMINAL[*]} ${PROGRAMS[*]} ${PROGRAMMING[*]}"
+export LIST=(${MANDATORY[*]} ${GPU[*]} ${MEDIA[*]} ${FONTS[*]} ${TWM[*]} ${TERMINAL[*]} ${PROGRAMS[*]} ${PROGRAMMING[*]})
 
-paru -S --needed $(sed '/^#/d' <<< $LIST)
+[[ "$1" = "noinstall" ]] && return 0
+
+paru -S --needed $(sed '/^#/d' <<< "${LIST[*]}")
 
 # other packages
 # Taskfile
