@@ -2,10 +2,8 @@
 
 source "$SCRIPTS/s_colours.sh"
 
-AUTH="dakyskye:$(cat ~/.gh_notifications_token)"
-
 while true; do
-	UNREAD="$(curl -s -u "$AUTH" https://api.github.com/notifications | jq length)"
+	UNREAD="$(gh api notifications | jq length)"
 	if [[ "$UNREAD" -eq 0 ]]; then
 		echo " $UNREAD"
 	else
