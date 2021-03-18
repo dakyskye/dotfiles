@@ -7,6 +7,7 @@ MANDATORY=(
 	dhcpcd
 	os-prober
 	lvm2
+	archiso
 
 	linux
 	linux-firmware
@@ -25,6 +26,8 @@ MANDATORY=(
 GPU=(
 	xf86-video-amdgpu
 	xf86-video-vesa
+	lib32-libxrandr
+	lib32-libxinerama
 
 	mesa
 	lib32-mesa
@@ -52,6 +55,7 @@ MEDIA=(
 	pulseaudio
 	pulseaudio-alsa
 	pulseaudio-bluetooth
+	lib32-libpulse
 
 	pamixer
 	pulsemixer
@@ -174,12 +178,21 @@ TERMINAL=(
 PROGRAMS=(
 	google-chrome
 
+	mailspring
+
 	bitwarden-cli
 
 	discord
 	slack-desktop
 	telegram-desktop
 	zoom
+
+	steam
+	lutris
+	wine-staging
+	wine-gecko
+	wine-mono
+	winetricks
 
 	speedcrunch
 	hwinfo
@@ -215,12 +228,13 @@ PROGRAMMING=(
 	gcc
 
 	jetbrains-toolbox
-	visual-studio-code-bin
+	visual-studio-code-insiders-bin
 	neovim-nightly-bin
 
 	git
 	github-cli
 	openssh
+	tree-sitter
 	make
 	ctags
 	gnu-netcat
@@ -242,5 +256,8 @@ export LIST=(${MANDATORY[*]} ${GPU[*]} ${MEDIA[*]} ${FONTS[*]} ${TWM[*]} ${TERMI
 paru -S --needed $(sed '/^#/d' <<< "${LIST[*]}")
 
 # other packages
+# gopls
+go get golang.org/x/tools/gopls
+
 # Taskfile
 go get github.com/go-task/task/v3/cmd/task
