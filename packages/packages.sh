@@ -160,6 +160,7 @@ TERMINAL=(
 	cowsay
 	asciinema
 	grabc
+	thefuck
 
 	htop
 	hdparm
