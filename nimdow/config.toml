@@ -25,3 +25,28 @@ exec = [
 	]
 	# General settings
 	loggingEnabled = false
+
+[monitors]
+	[monitors.default.tags]
+	1.displayString = ""
+	2.displayString = ""
+	3.displayString = ""
+	4.displayString = ""
+	5.displayString = ""
+	6.displayString = ""
+	7.displayString = ""
+	8.displayString = ""
+	9.displayString = ""
+	[monitors.1.tags]
+	1.displayString = ""
+	2.displayString = ""
+	3.displayString = ""
+	4.displayString = ""
+	5.displayString = ""
+	[monitors.2.tags]
+	1.displayString = ""
+	2.displayString = ""
+	3.displayString = ""
+	4.displayString = ""
+	5.displayString = ""
+	6.displayString = ""
