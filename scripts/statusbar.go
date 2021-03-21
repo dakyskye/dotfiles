@@ -13,6 +13,7 @@ var (
 	readCPU         string
 	readTemperature string
 	readDistroWM    string
+	readUptime      string
 	readKernel      string
 	readUpdates     string
 	readInstalled   string
@@ -30,6 +31,7 @@ var (
 	chanCPU         = make(chan string)
 	chanTemperature = make(chan string)
 	chanDistroWM    = make(chan string)
+	chanUptime      = make(chan string)
 	chanKernel      = make(chan string)
 	chanUpdates     = make(chan string)
 	chanInstalled   = make(chan string)
@@ -52,6 +54,7 @@ func main() {
 	go sCPU(errs, chanCPU)
 	go sTemperature(errs, chanTemperature)
 	go sDistroWM(errs, chanDistroWM)
+	go sUptime(errs, chanUptime)
 	go sKernel(errs, chanKernel)
 	go sUpdates(errs, chanUpdates)
 	go sInstalled(errs, chanInstalled)
@@ -64,7 +67,7 @@ func main() {
 	go sTime(errs, chanTime)
 
 	updateStatus := func() {
-		mon0 := fmt.Sprintf("%s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s", readMemory, readCPU, readTemperature, readDistroWM, readKernel, readUpdates, readInstalled, readVolume, readWebcam, readDND, readGHNotif, readKeyboard, readDate, readTime)
+		mon0 := fmt.Sprintf("%s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s", readMemory, readCPU, readTemperature, readDistroWM, readUptime, readKernel, readUpdates, readInstalled, readVolume, readWebcam, readDND, readGHNotif, readKeyboard, readDate, readTime)
 		mon1 := fmt.Sprintf("%s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s", readMemory, readCPU, readTemperature, readUpdates, readVolume, readWebcam, readDND, readGHNotif, readKeyboard, readDate, readTime)
 		err = exec.Command("/usr/bin/xsetroot", "-name", fmt.Sprintf("NIMDOW_MONITOR_INDEX=0 %s NIMDOW_MONITOR_INDEX=1 %s", mon0, mon1)).Run()
 		if err != nil {
@@ -87,6 +90,8 @@ func main() {
 		case readTemperature = <-chanTemperature:
 			updateStatus()
 		case readDistroWM = <-chanDistroWM:
+			updateStatus()
+		case readUptime = <-chanUptime:
 			updateStatus()
 		case readKernel = <-chanKernel:
 			updateStatus()
@@ -123,6 +128,9 @@ func sTemperature(e chan<- error, c chan<- string) {
 }
 func sDistroWM(e chan<- error, c chan<- string) {
 	e <- readOutput("s_distrowm", c)
+}
+func sUptime(e chan<- error, c chan<- string) {
+	e <- readOutput("s_uptime", c)
 }
 func sKernel(e chan<- error, c chan<- string) {
 	e <- readOutput("s_kernel", c)
