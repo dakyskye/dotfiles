@@ -27,3 +27,5 @@ alias du "du -h"
 alias free "free -m"
 alias tb "nc termbin.com 9999"
 alias copy "xclip -selection clipboard"
+
+thefuck --alias | source
