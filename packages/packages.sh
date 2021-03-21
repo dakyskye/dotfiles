@@ -47,6 +47,7 @@ GPU=(
 	lib32-vkd3d
 
 	libva-utils
+	vulkan-tools
 	mesa-demos
 	corectrl
 )
