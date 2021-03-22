@@ -65,7 +65,7 @@ pavucontrol-qt
 
 ## launch some apps
 # XF86 {Explorer, HomePage, Mail, Calculator}
-{pcmanfm-qt, $BROWSER, $BROWSER 'gmail.com', speedcrunch}
+{pcmanfm-qt, $BROWSER, mailspring, speedcrunch}
 
 ## super + XF86 {Explorer, HomePage, Mail, Calculator}
 ## shift + XF86 {Explorer, HomePage, Mail, Calculator}
