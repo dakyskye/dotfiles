@@ -1,6 +1,8 @@
 # .dotfiles
 
-My personal Linux and Windows (inside windowswsl folder) dotfiles.
+My personaloLinux and Windows (inside windowswsl folder) dotfiles.
+
+![rice](./rice.png)
 
 ## License
 
