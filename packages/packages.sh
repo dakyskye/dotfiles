@@ -145,6 +145,7 @@ TERMINAL=(
 	kitty
 
 	bash
+	zsh
 	fish
 	dash
 
