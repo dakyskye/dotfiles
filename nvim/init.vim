@@ -1,6 +1,12 @@
-source '~/.config/nvim/shared.vim'
+source ~/.config/nvim/shared.vim
 
-call plug#begin('~/AppData/Local/nvim/bundle')
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+	silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+		\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	:qa!
+endif
+
+call plug#begin('~/.config/nvim/plugged')
 
 " Git
 Plug 'tpope/vim-fugitive'
@@ -17,6 +23,7 @@ Plug 'tpope/vim-surround'
 " Floaterm
 Plug 'voldikss/vim-floaterm'
 " Treesitter
+Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSInstall all' }
 " One
 Plug 'kdheepak/vim-one'
 " Airline
