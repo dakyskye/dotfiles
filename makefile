@@ -77,13 +77,13 @@ nimdow:
 nvim:
 	-@mv ~/.config/{nvim,nvim.bak}
 	@mkdir -p ~/.config/nvim
-	@cp ./nvim/{init.vim,shared.vim} ~/.config/nvim
+	@cp ./nvim/{init.vim,shared.vim,coc-settings.json} ~/.config/nvim
 	@sudo npm install -g neovim
 	@sudo pip install neovim
 	@echo "trying to open nvim"
 	@nvim # it will exit
+	@nvim -c ":PlugInstall"
 	@echo "installed nvim config"
-	@echo "don't forget to run :PlugInstall"
 
 packages:
 	@pacman -Qqe > ~/packages.bak
