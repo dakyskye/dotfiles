@@ -10,6 +10,7 @@ call plug#begin('~/.config/nvim/plugged')
 
 " Git
 Plug 'mhinz/vim-signify'
+Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-fugitive'
 Plug 'kdheepak/lazygit.nvim'
 " EditorConfig
@@ -21,7 +22,6 @@ Plug 'liuchengxu/vim-which-key'
 " FZF
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
 " Maximizer
 Plug 'szw/vim-maximizer'
 " Surround
@@ -88,6 +88,7 @@ let g:vimspector_enable_mappings = 'vscode'
 let g:vimspector_install_gadgets = [ 'vscode-go' ]
 
 " which
+set timeoutlen=500
 let g:which_key_centered = 0
 let g:which_key_use_floating_win = 0
 
@@ -231,7 +232,7 @@ nnoremap <silent><leader>ots :FloatermShow<cr>
 nnoremap <silent><leader>otn :FloatermNew<cr>
 nnoremap <silent><leader>otu :FloatermUpdate<cr>
 " open command pallete
-nnoremap <silent><leader>oc :FzfPreviewCommandPaletteRpc<cr>
+nnoremap <silent><leader>oc :Commands<cr>
 
 let g:which_key_map.o = { 'name': '+open' }
 let g:which_key_map.o.e = 'explorer'
@@ -245,19 +246,23 @@ let g:which_key_map.o.t.u = 'update'
 
 nnoremap <silent><leader>gi :LazyGit<cr>
 nnoremap <silent><leader>gg :SignifyToggle<cr>
+nnoremap <silent><leader>gd :SignifyDiff<cr>
 
-nnoremap <silent><leader>glc :FzfPreviewGitLogsRpc<cr>
-nnoremap <silent><leader>glb :FzfPreviewGitBranchesRpc<cr>
-nnoremap <silent><leader>glr :FzfPreviewGitReflogsRpc<cr>
-nnoremap <silent><leader>gls :FzfPreviewGitStashesRpc<cr>
+nnoremap <silent><leader>glc :Gclog<cr>
+nnoremap <silent><leader>glc :0Glog<cr>
+nnoremap <silent><leader>glb :Git branch -a<cr>
+nnoremap <silent><leader>glr :Git reflog show<cr>
+nnoremap <silent><leader>gls :Git stash list<cr>
 
 let g:which_key_map.g = { 'name': '+git' }
 let g:which_key_map.g.g = 'toggle gutter'
 let g:which_key_map.g.i = 'ui interface'
+let g:which_key_map.g.d = 'diff'
 
 let g:which_key_map.g.l = { 'name': '+list' }
 let g:which_key_map.g.l.r = 'reflogs'
-let g:which_key_map.g.l.c = 'commits'
+let g:which_key_map.g.l.c = 'log'
+let g:which_key_map.g.l.f = 'file history'
 let g:which_key_map.g.l.b = 'branches'
 let g:which_key_map.g.l.s = 'stashes'
 
