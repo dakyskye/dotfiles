@@ -267,3 +267,20 @@ nnoremap <silent><leader>el :Limelight!!<cr>
 let g:which_key_map.e = { 'name': '+editor' }
 let g:which_key_map.e.g = 'goyo'
 let g:which_key_map.e.l = 'limelight'
+
+nnoremap <silent><leader>etd :call <sid>changeTheme('dark')<cr>
+nnoremap <silent><leader>etl :call <sid>changeTheme('light')<cr>
+
+let g:which_key_map.e.t = { 'name': '+theme' }
+let g:which_key_map.e.t.d = 'dark'
+let g:which_key_map.e.t.l = 'light'
+
+function! s:changeTheme(theme)
+	if a:theme == "dark"
+		set background=dark
+	else
+		set background=light
+	endif
+	colorscheme one
+	exe "normal \<C-l>"
+endfunction
