@@ -29,7 +29,7 @@ gpu() {
 }
 
 hdd() {
-	HTEMP="$(echo $(nc 127.0.0.1 7635) | sed -nE 's/.*SAMSUNG.*?\|([0-9]+)\|.*/\1/p')"
+	HTEMP="$(sensors | grep -A 4 drivetemp-scsi-1-0 | awk '{ if ($1 == "temp1:") { print $2 } }' | sed -nE 's/\+([0-9]+)\..*/\1/p')"
 	T_HDD="H ${ICOT} ${HTEMP}${ICOC}"
 	if [[ "$HTEMP" -gt 35 && "$HTEMP" -lt 51 ]]; then
 		T_HDD="${FG_YELLOW}${T_HDD}${FG_NORMAL}"
@@ -39,7 +39,7 @@ hdd() {
 }
 
 ssd() {
-	STEMP="$(echo $(nc 127.0.0.1 7634) | sed -nE 's/.*KINGSTON.*?\|([0-9]+)\|.*/\1/p')"
+	STEMP="$(sensors | grep -A 4 drivetemp-scsi-0-0 | awk '{ if ($1 == "temp1:") { print $2 } }' | sed -nE 's/\+([0-9]+)\..*/\1/p')"
 	T_SSD="S ${ICOT} ${STEMP}${ICOC}"
 	if [[ "$STEMP" -gt 40 && "$STEMP" -lt 51 ]]; then
 		T_SSD="${FG_YELLOW}${T_SSD}${FG_NORMAL}"

@@ -13,35 +13,35 @@ operation() {
 
 	case "$1" in
 		"$POWEROFF")
-			systemctl "$POWEROFF"
+			loginctl "$POWEROFF"
 			;;
 		"$REBOOT")
-			systemctl "$REBOOT"
+			loginctl "$REBOOT"
 			;;
 		"$SUSPEND")
-			systemctl "$SUSPEND"
+			#systemctl "$SUSPEND"
 			;;
 		"$HIBERNATE")
-			systemctl "$HIBERNATE"
+			#systemctl "$HIBERNATE"
 			;;
 		"$HYBRID_SLEEP")
-			systemctl "$HYBRID_SLEEP"
+			#systemctl "$HYBRID_SLEEP"
 			;;
 		"$LOGOUT")
-			pkill -9 -U $USER
+			loginctl kill-user $USER
 			;;
 		"$LOCK")
-			dunstctl set-paused true
+			notify-send "DUNST_COMMAND_PAUSE"
 			tmpdir=$(mktemp -d)
 			original="$tmpdir/original.png"
 			blurred="$tmpdir/blurred.png"
 			[ "$2" = "menu" ] && sleep 0.3
 			maim -ou "$original"
-			convert "$original" -blur 0x5 "$blurred"
+			convert "$original" -blur 0x6 "$blurred"
 			i3lock -n -e -f -i "$blurred"
 			rm -rf "$tmpdir"
-			dunstctl set-paused false
-			dunstify "welcome back!"
+			notify-send "DUNST_COMMAND_RESUME"
+			notify-send "welcome back!"
 			;;
 	esac
 }

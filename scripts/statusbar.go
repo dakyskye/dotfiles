@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"log"
+	"time"
 	"os"
 	"os/exec"
 )
@@ -50,12 +51,22 @@ func main() {
 		errs = make(chan error)
 	)
 
+	oneShot := func(f func(chan<- error, chan<- string), e chan<- error, c chan<- string) {
+		f(e, c)
+
+		ticker := time.NewTicker(5 * time.Second)
+		for {
+			<-ticker.C
+			f(e, c)
+		}
+	}
+
 	go sMemory(errs, chanMemory)
 	go sCPU(errs, chanCPU)
 	go sTemperature(errs, chanTemperature)
-	go sDistroWM(errs, chanDistroWM)
+	go oneShot(sDistroWM, errs, chanDistroWM)
 	go sUptime(errs, chanUptime)
-	go sKernel(errs, chanKernel)
+	go oneShot(sKernel, errs, chanKernel)
 	go sUpdates(errs, chanUpdates)
 	go sInstalled(errs, chanInstalled)
 	go sVolume(errs, chanVolume)
@@ -67,9 +78,8 @@ func main() {
 	go sTime(errs, chanTime)
 
 	updateStatus := func() {
-		mon0 := fmt.Sprintf("%s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s", readMemory, readCPU, readTemperature, readDistroWM, readUptime, readKernel, readUpdates, readInstalled, readVolume, readWebcam, readDND, readGHNotif, readKeyboard, readDate, readTime)
-		mon1 := fmt.Sprintf("%s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s", readMemory, readCPU, readTemperature, readUpdates, readVolume, readWebcam, readDND, readGHNotif, readKeyboard, readDate, readTime)
-		err = exec.Command("/usr/bin/xsetroot", "-name", fmt.Sprintf("NIMDOW_MONITOR_INDEX=0 %s NIMDOW_MONITOR_INDEX=1 %s", mon0, mon1)).Run()
+		status := fmt.Sprintf("%s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s", readMemory, readCPU, readTemperature, readDistroWM, readUptime, readKernel, readUpdates, readInstalled, readVolume, readWebcam, readDND, readGHNotif, readKeyboard, readDate, readTime)
+		err = exec.Command("/usr/bin/xsetroot", "-name", status).Run()
 		if err != nil {
 			errs <- err
 		}

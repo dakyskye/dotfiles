@@ -3,19 +3,15 @@
 source "$SCRIPTS/s_colours.sh"
 
 printupdates() {
-	UPDATES="$(pacman -Qu | wc -l)"
+	UPDATES="$(EIX_LIMIT=1 eix --installed --upgrade | grep '^Found' | awk '{ print $2; }')"
 	if [[ "$UPDATES" -gt 0 ]]; then
 		echo "${FG_RED} ${UPDATES}${FG_NORMAL}"
 	else
-		echo " $UPDATES"
+		echo " 0"
 	fi
 }
 
-echo " updating"
-sleep 10
-printupdates
-
 while true; do
-	sleep 1m
 	printupdates
+	sleep 10m
 done

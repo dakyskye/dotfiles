@@ -1,11 +1,9 @@
 #!/bin/sh
 
-MON1="$(mktemp --suffix=.jpg)"
-MON2="$(mktemp --suffix=.jpg)"
+IMG="$(mktemp --suffix=.jpg)"
 
-curl -L "https://unsplash.it/2560/1440/?random" > "$MON1"
-curl -L "https://unsplash.it/2560/1440/?random" > "$MON2"
+curl -L "https://unsplash.it/2560/1440/?random" > "$IMG"
 
-feh --no-fehbg --bg-scale "$MON1" --bg-scale "$MON2"
+feh --no-fehbg --bg-scale "$IMG"
 
-rm -f "$MON1" "$MON2"
+rm -f "$IMG"
