@@ -1,8 +1,0 @@
-[Unit]
-Description=SSD temperature monitor daemon
-
-[Service]
-ExecStart=/usr/bin/hddtemp -dF /dev/sda -p 7634
-
-[Install]
-WantedBy=multi-user.target
