@@ -1,32 +1,34 @@
-# start gnome-keyring-daemon
-eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
-export SSH_AUTH_SOCK
+export $(dbus-launch)
 
-rfunblockbluetooth() {
-	sleep 5s
-	rfkill unblock bluetooth
-	dunstify -u low "rfkill has just unblocked bluetooth"
-}
+pulseaudio --start
 
-startcorectrl() {
-	corectrl &
-	sleep 3s
-	xdotool windowclose $(xdotool search --class corectrl)
-}
+setxkbmap -layout us,ge -variant qwerty -option grp:alt_shift_toggle
+xrandr --output HDMI-A-0 --primary --mode 1920x1080 --rate 74.97
 
-rfunblockbluetooth &
-startcorectrl &
-lxsession &
-dunst &
-nm-applet &
-pasystray &
-blueman-applet &
-unclutter &
-numlockx off &
-flameshot &
 randwallp &
-dxhd &
-dxhd -c $CONFIG/dxhd/nimdow.sh &
+
+picom -cf --backend glx --blur-background-frame &
+
+dxhd -b
+dxhd -cb ~/.config/dxhd/nimdow.sh
+
+starttrayapps() {
+	nm-applet &
+	sleep 0.5
+
+	volumeicon &
+	sleep 0.5
+
+	blueman-applet &
+	sleep 0.5
+
+	flameshot &
+}
+
+starttrayapps &
+
 go run $SCRIPTS/statusbar.go &
-mailspring -b &
+
 exec nimdow
+
+# vim:ft=sh
