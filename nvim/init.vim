@@ -107,6 +107,7 @@ nnoremap <silent><leader><bs> :nohlsearch<cr>
 let g:coc_global_extensions =
 	\ [
 	\ 'coc-go',
+	\ 'coc-pyright',
 	\ 'coc-diagnostic',
 	\ 'coc-json',
 	\ 'coc-toml',
@@ -147,16 +148,16 @@ function! s:show_documentation()
 	endif
 endfunction
 
-" goto
-nmap <silent><leader>lgd <plug>(coc-definition)
-nmap <silent><leader>lgy <plug>(coc-type-definition)
-nmap <silent><leader>lgi <plug>(coc-implementation)
-nmap <silent><leader>lgr <plug>(coc-references)
-" diagnostics
+
+nnoremap <silent><leader>lgd <plug>(coc-definition)
+nnoremap <silent><leader>lgy <plug>(coc-type-definition)
+nnoremap <silent><leader>lgi <plug>(coc-implementation)
+nnoremap <silent><leader>lgr <plug>(coc-references)
+
 nnoremap <silent><leader>lda :<c-u>CocList diagnostics<cr>
 nnoremap <silent><leader>ldp <plug>(coc-diagnostic-prev)
 nnoremap <silent><leader>ldn <plug>(coc-diagnostic-next)
-" code
+
 nnoremap <silent><leader>lca :CocAction<cr>
 nnoremap <silent><leader>lcd :call <sid>show_documentation()<cr>
 nnoremap <silent><leader>lcr <plug>(coc-rename)
@@ -177,6 +178,13 @@ let g:which_key_map.l.c = { 'name': '+code' }
 let g:which_key_map.l.c.a = 'actions'
 let g:which_key_map.l.c.d = 'documentation'
 let g:which_key_map.l.c.r = 'rename symbol'
+
+" quicer
+nmap <silent>gd <plug>(coc-definition)
+nmap <silent>gy <plug>(coc-type-definition)
+nmap <silent>gi <plug>(coc-implementation)
+nmap <silent>gr <plug>(coc-references)
+nmap <silent>K :call <sid>show_documentation()<cr>
 
 
 nnoremap <silent><leader>bl :Buffers<cr>
