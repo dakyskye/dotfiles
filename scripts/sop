@@ -31,17 +31,26 @@ operation() {
 			loginctl kill-user $USER
 			;;
 		"$LOCK")
-			notify-send "DUNST_COMMAND_PAUSE"
+			[ "$(playerctl status)" = "Playing" ] && WAS_AUDIO_PLAYING=0
+			playerctl pause
+			pactl set-sink-mute @DEFAULT_SINK@ 1
+			dunstctl set-paused true
+
 			tmpdir=$(mktemp -d)
 			original="$tmpdir/original.png"
 			blurred="$tmpdir/blurred.png"
-			[ "$2" = "menu" ] && sleep 0.3
+
+			[ "$2" = "menu" ] && sleep 0.5
+
 			maim -ou "$original"
 			convert "$original" -blur 0x6 "$blurred"
 			i3lock -n -e -f -i "$blurred"
 			rm -rf "$tmpdir"
-			notify-send "DUNST_COMMAND_RESUME"
-			notify-send "welcome back!"
+
+			[ $WAS_AUDIO_PLAYING ] && playerctl play
+			pactl set-sink-mute @DEFAULT_SINK@ 0
+			dunstctl set-paused false
+			dunstify "welcome back!"
 			;;
 	esac
 }
