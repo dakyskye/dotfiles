@@ -11,7 +11,6 @@ fish_vi_cursor
 # aliases
 alias vim "nvim"
 alias spotify "spotify-tray"
-alias code "code-insiders"
 
 alias ls "exa --color always --group-directories-first"
 alias la "exa -a --color always --group-directories-first"
