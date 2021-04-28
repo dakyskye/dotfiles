@@ -6,11 +6,7 @@ dxhd -r
 
 ## launch kitty
 # super + return
-kitty
-
-## launch kitty with dash shell
-# super + shift + return
-kitty dash
+kitty fish
 
 ## launch rofi
 # super + d
@@ -45,11 +41,11 @@ s_dnd {dnd,free}
 
 ## change volume
 # XF86Audio { Lower, Raise } Volume
-pamixer -{d,i} 1
+pactl set-sink-volume @DEFAULT_SINK@ {-,+}1%
 
 ## toggle mute
 # XF86AudioMute
-pamixer -t
+pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 ## control media player
 # XF86Audio {Stop, Prev, Play, Next}
@@ -65,7 +61,7 @@ pavucontrol-qt
 
 ## launch some apps
 # XF86 {Explorer, HomePage, Mail, Calculator}
-{pcmanfm-qt, $BROWSER, mailspring, speedcrunch}
+{kitty ranger, $BROWSER, mailspring, speedcrunch}
 
 ## super + XF86 {Explorer, HomePage, Mail, Calculator}
 ## shift + XF86 {Explorer, HomePage, Mail, Calculator}
