@@ -3,8 +3,6 @@
 POWEROFF="poweroff"
 REBOOT="reboot"
 SUSPEND="suspend"
-HIBERNATE="hibernate"
-HYBRID_SLEEP="hybrid-sleep"
 LOGOUT="log out"
 LOCK="lock"
 
@@ -19,13 +17,7 @@ operation() {
 			loginctl "$REBOOT"
 			;;
 		"$SUSPEND")
-			#systemctl "$SUSPEND"
-			;;
-		"$HIBERNATE")
-			#systemctl "$HIBERNATE"
-			;;
-		"$HYBRID_SLEEP")
-			#systemctl "$HYBRID_SLEEP"
+			loginctl "$SUSPEND"
 			;;
 		"$LOGOUT")
 			loginctl kill-user $USER
@@ -34,7 +26,7 @@ operation() {
 			[ "$(playerctl status)" = "Playing" ] && WAS_AUDIO_PLAYING=0
 			playerctl pause
 			pactl set-sink-mute @DEFAULT_SINK@ 1
-			dunstctl set-paused true
+			dunstify "DUNST_COMMAND_PAUSE"
 
 			tmpdir=$(mktemp -d)
 			original="$tmpdir/original.png"
@@ -49,7 +41,7 @@ operation() {
 
 			[ $WAS_AUDIO_PLAYING ] && playerctl play
 			pactl set-sink-mute @DEFAULT_SINK@ 0
-			dunstctl set-paused false
+			dunstify "DUNST_COMMAND_RESUME"
 			dunstify "welcome back!"
 			;;
 	esac
@@ -58,7 +50,7 @@ operation() {
 if [ -n "$1" ]; then
 	operation "$1"
 else
-	CHOICE=$(printf "$POWEROFF\n$REBOOT\n$SUSPEND\n$HIBERNATE\n$HYBRID_SLEEP\n$LOGOUT\n$LOCK" | rofi -dmenu -p "make the choice")
+	CHOICE=$(printf "$POWEROFF\n$REBOOT\n$SUSPEND\n$LOGOUT\n$LOCK" | rofi -dmenu -p "make the choice")
 
 	operation "$CHOICE" "menu"
 fi
