@@ -4,7 +4,6 @@ import (
 	"bufio"
 	"fmt"
 	"log"
-	"time"
 	"os"
 	"os/exec"
 )
@@ -13,36 +12,36 @@ var (
 	readMemory      string
 	readCPU         string
 	readTemperature string
-	readDistroWM    string
-	readUptime      string
-	readKernel      string
-	readUpdates     string
-	readInstalled   string
-	readVolume      string
-	readWebcam      string
-	readDND         string
-	readGHNotif     string
-	readKeyboard    string
-	readDate        string
-	readTime        string
+	//readDistroWM    string
+	//readUptime      string
+	//readKernel      string
+	//readUpdates     string
+	//readInstalled   string
+	readVolume   string
+	readWebcam   string
+	readDND      string
+	readGHNotif  string
+	readKeyboard string
+	readDate     string
+	readTime     string
 )
 
 var (
 	chanMemory      = make(chan string)
 	chanCPU         = make(chan string)
 	chanTemperature = make(chan string)
-	chanDistroWM    = make(chan string)
-	chanUptime      = make(chan string)
-	chanKernel      = make(chan string)
-	chanUpdates     = make(chan string)
-	chanInstalled   = make(chan string)
-	chanVolume      = make(chan string)
-	chanWebcam      = make(chan string)
-	chanDND         = make(chan string)
-	chanGHNotif     = make(chan string)
-	chanKeyboard    = make(chan string)
-	chanDate        = make(chan string)
-	chanTime        = make(chan string)
+	//chanDistroWM    = make(chan string)
+	//chanUptime      = make(chan string)
+	//chanKernel      = make(chan string)
+	//chanUpdates     = make(chan string)
+	//chanInstalled   = make(chan string)
+	chanVolume   = make(chan string)
+	chanWebcam   = make(chan string)
+	chanDND      = make(chan string)
+	chanGHNotif  = make(chan string)
+	chanKeyboard = make(chan string)
+	chanDate     = make(chan string)
+	chanTime     = make(chan string)
 )
 
 func main() {
@@ -51,24 +50,24 @@ func main() {
 		errs = make(chan error)
 	)
 
-	oneShot := func(f func(chan<- error, chan<- string), e chan<- error, c chan<- string) {
-		f(e, c)
+	//oneShot := func(f func(chan<- error, chan<- string), e chan<- error, c chan<- string) {
+	//	f(e, c)
 
-		ticker := time.NewTicker(5 * time.Second)
-		for {
-			<-ticker.C
-			f(e, c)
-		}
-	}
+	//	ticker := time.NewTicker(5 * time.Second)
+	//	for {
+	//		<-ticker.C
+	//		f(e, c)
+	//	}
+	//}
 
 	go sMemory(errs, chanMemory)
 	go sCPU(errs, chanCPU)
 	go sTemperature(errs, chanTemperature)
-	go oneShot(sDistroWM, errs, chanDistroWM)
-	go sUptime(errs, chanUptime)
-	go oneShot(sKernel, errs, chanKernel)
-	go sUpdates(errs, chanUpdates)
-	go sInstalled(errs, chanInstalled)
+	//go oneShot(sDistroWM, errs, chanDistroWM)
+	//go sUptime(errs, chanUptime)
+	//go oneShot(sKernel, errs, chanKernel)
+	//go sUpdates(errs, chanUpdates)
+	//go sInstalled(errs, chanInstalled)
 	go sVolume(errs, chanVolume)
 	go sKeyboard(errs, chanKeyboard)
 	go sWebcam(errs, chanWebcam)
@@ -78,7 +77,8 @@ func main() {
 	go sTime(errs, chanTime)
 
 	updateStatus := func() {
-		status := fmt.Sprintf("%s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s", readMemory, readCPU, readTemperature, readDistroWM, readUptime, readKernel, readUpdates, readInstalled, readVolume, readWebcam, readDND, readGHNotif, readKeyboard, readDate, readTime)
+		//status := fmt.Sprintf("%s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s", readMemory, readCPU, readTemperature, readDistroWM, readUptime, readKernel, readUpdates, readInstalled, readVolume, readWebcam, readDND, readGHNotif, readKeyboard, readDate, readTime)
+		status := fmt.Sprintf("%s | %s | %s | %s | %s | %s | %s | %s | %s | %s", readMemory, readCPU, readTemperature, readVolume, readWebcam, readDND, readGHNotif, readKeyboard, readDate, readTime)
 		err = exec.Command("/usr/bin/xsetroot", "-name", status).Run()
 		if err != nil {
 			errs <- err
@@ -99,15 +99,15 @@ func main() {
 			updateStatus()
 		case readTemperature = <-chanTemperature:
 			updateStatus()
-		case readDistroWM = <-chanDistroWM:
-			updateStatus()
-		case readUptime = <-chanUptime:
-			updateStatus()
-		case readKernel = <-chanKernel:
-			updateStatus()
-		case readUpdates = <-chanUpdates:
-			updateStatus()
-		case readInstalled = <-chanInstalled:
+			//case readDistroWM = <-chanDistroWM:
+			//	updateStatus()
+			//case readUptime = <-chanUptime:
+			//	updateStatus()
+			//case readKernel = <-chanKernel:
+			//	updateStatus()
+			//case readUpdates = <-chanUpdates:
+			//	updateStatus()
+			//case readInstalled = <-chanInstalled:
 			updateStatus()
 		case readVolume = <-chanVolume:
 			updateStatus()
