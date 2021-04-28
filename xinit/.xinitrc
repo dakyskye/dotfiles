@@ -9,6 +9,8 @@ randwallp &
 
 picom -cf --backend glx --blur-background-frame &
 
+unclutter &
+
 dxhd -b
 dxhd -cb ~/.config/dxhd/nimdow.sh
 
