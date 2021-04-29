@@ -27,7 +27,7 @@ while true; do
 	case "$(cat "$FIFO")" in
 		"dnd")
 			echo "${FG_RED} DND${FG_NORMAL}"
-			dunstify DUNST_COMMAND_RESUME
+			dunstify DUNST_COMMAND_PAUSE
 			;;
 		"free")
 			echo " free${FG_NORMAL}"
