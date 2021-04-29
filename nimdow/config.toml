@@ -5,9 +5,9 @@ exec = [
 
 [settings]
 	# Window settings
-	gapSize = 7
+	gapSize = 12
 	borderWidth = 2
-	borderColorUnfocused = "#7197E7"
+	borderColorUnfocused = "#282C34"
 	borderColorFocused = "#A77AC4"
 	borderColorUrgent = "#E06C75"
 	# Bar settings

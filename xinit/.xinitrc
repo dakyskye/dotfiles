@@ -5,7 +5,8 @@ pulseaudio --start
 setxkbmap -layout us,ge -variant qwerty -option grp:alt_shift_toggle
 xrandr --output HDMI-A-0 --primary --mode 1920x1080 --rate 74.97
 
-randwallp &
+#randwallp &
+feh --no-fehbg --bg-scale ~/Pictures/wallpapers/wallpaper.png
 
 picom -cf --backend glx --blur-background-frame &
 
