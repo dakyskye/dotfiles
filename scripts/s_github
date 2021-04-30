@@ -9,7 +9,17 @@ while true; do
 		echo " $UNREAD"
 		LAST_COUNT=0
 	else
-		[[ $UNREAD -gt $LAST_COUNT ]] && dunstify -a 'GitHub' "You've got (a) new github notification(s)"
+		if [[ $UNREAD -gt $LAST_COUNT ]]; then
+			DIFF=$((UNREAD-LAST_COUNT))
+			case "$DIFF" in
+				1)
+					dunstify -a 'GitHub' "You've got an unread notification"
+					;;
+				*)
+					dunstify -a 'GitHub' "You've got $DIFF unread notifications"
+					;;
+			esac
+		fi
 		echo "${FG_RED} ${UNREAD}${FG_NORMAL}"
 		LAST_COUNT=$UNREAD
 	fi
