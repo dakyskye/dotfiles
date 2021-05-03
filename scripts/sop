@@ -20,12 +20,20 @@ operation() {
 			loginctl "$SUSPEND"
 			;;
 		"$LOGOUT")
-			loginctl kill-user $USER
+			loginctl kill-user "$USER"
 			;;
 		"$LOCK")
-			[ "$(playerctl status)" = "Playing" ] && WAS_AUDIO_PLAYING=0
-			playerctl pause
-			pactl set-sink-mute @DEFAULT_SINK@ 1
+			KEEPAUDIO=$(printf "no\nyes" | rofi -dmenu -p "do you want to keep audio playing?")
+			case "$KEEPAUDIO" in
+				yes)
+					;;
+				*)
+					[ "$(playerctl status)" = "Playing" ] && WAS_AUDIO_PLAYING=0
+					playerctl pause
+					pactl set-sink-mute @DEFAULT_SINK@ 1
+					;;
+			esac
+
 			dunstify "DUNST_COMMAND_PAUSE"
 
 			tmpdir=$(mktemp -d)
@@ -39,9 +47,16 @@ operation() {
 			i3lock -n -e -f -i "$blurred"
 			rm -rf "$tmpdir"
 
-			[ $WAS_AUDIO_PLAYING ] && playerctl play
-			pactl set-sink-mute @DEFAULT_SINK@ 0
-			dunstify "DUNST_COMMAND_RESUME"
+			case "$KEEPAUDIO" in
+				yes)
+					;;
+				*)
+					[ $WAS_AUDIO_PLAYING ] && playerctl play
+					pactl set-sink-mute @DEFAULT_SINK@ 0
+					;;
+			esac
+
+			[ ! "$(cat /tmp/s_dnd_pipe 2>/dev/null)" = "dnd" ] && dunstify "DUNST_COMMAND_RESUME"
 			dunstify "welcome back!"
 			;;
 	esac
@@ -50,6 +65,7 @@ operation() {
 if [ -n "$1" ]; then
 	operation "$1"
 else
+	# shellcheck disable=SC2059
 	CHOICE=$(printf "$POWEROFF\n$REBOOT\n$SUSPEND\n$LOGOUT\n$LOCK" | rofi -dmenu -p "make the choice")
 
 	operation "$CHOICE" "menu"
