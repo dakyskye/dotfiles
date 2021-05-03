@@ -34,7 +34,8 @@ operation() {
 					;;
 			esac
 
-			dunstify "DUNST_COMMAND_PAUSE"
+			# shellcheck disable=SC2015
+			[ "$(cat /tmp/s_dnd_pipe 2>/dev/null)" = "dnd" ] && WAS_DND_ENABLED=0 || s_dnd dnd
 
 			tmpdir=$(mktemp -d)
 			original="$tmpdir/original.png"
@@ -56,7 +57,7 @@ operation() {
 					;;
 			esac
 
-			[ ! "$(cat /tmp/s_dnd_pipe 2>/dev/null)" = "dnd" ] && dunstify "DUNST_COMMAND_RESUME"
+			[ ! "$WAS_DND_ENABLED" ] && s_dnd free
 			dunstify "welcome back!"
 			;;
 	esac
