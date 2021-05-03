@@ -1,28 +1,28 @@
 #!/bin/sh
 
-POWEROFF="poweroff"
-REBOOT="reboot"
-SUSPEND="suspend"
-LOGOUT="log out"
-LOCK="lock"
+P="poweroff"
+R="reboot"
+S="suspend"
+LO="log out"
+L="lock"
 
 operation() {
 	[ -z "$1" ] && return 1
 
 	case "$1" in
-		"$POWEROFF")
-			loginctl "$POWEROFF"
+		"$P")
+			loginctl "$P"
 			;;
-		"$REBOOT")
-			loginctl "$REBOOT"
+		"$R")
+			loginctl "$R"
 			;;
-		"$SUSPEND")
-			loginctl "$SUSPEND"
+		"$S")
+			loginctl "$S"
 			;;
-		"$LOGOUT")
+		"$LO")
 			loginctl kill-user "$USER"
 			;;
-		"$LOCK")
+		"$L")
 			KEEPAUDIO=$(printf "no\nyes" | rofi -dmenu -p "do you want to keep audio playing?")
 			case "$KEEPAUDIO" in
 				yes)
@@ -67,7 +67,7 @@ if [ -n "$1" ]; then
 	operation "$1"
 else
 	# shellcheck disable=SC2059
-	CHOICE=$(printf "$POWEROFF\n$REBOOT\n$SUSPEND\n$LOGOUT\n$LOCK" | rofi -dmenu -p "make the choice")
+	CHOICE=$(printf "$P\n$R\n$S\n$LO\n$L" | rofi -dmenu -p "make the choice")
 
 	operation "$CHOICE" "menu"
 fi
