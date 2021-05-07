@@ -12,11 +12,36 @@ case "$ANS" in
 		;;
 esac
 
+KERNEL_INSTALL_PATH="$(mktemp -d)"
+
+mv_built_kernel(){
+	EFI_PATH="/boot/EFI/gentoo"
+	cd "$KERNEL_INSTALL_PATH"
+	chmod 755 ./*
+	K="$(basename ./vmlinuz-*)"
+	C="$(basename ./config-*)"
+	S="$(basename ./System.map-*)"
+	for file in $K $C $S; do
+		mv "$EFI_PATH/$file" "$EFI_PATH/$file.old" || true
+	done
+	mv ./* "$EFI_PATH/"
+	cp "$EFI_PATH/$K" "$EFI_PATH/vmlinuz.efi"
+}
+
+mv_built_initramfs(){
+	chmod 755 /boot/initramfs-efistub
+	mv /boot/EFI/gentoo/{initramfs.img,initramfs.img.old} || true
+	mv /boot/initramfs-efistub /boot/EFI/gentoo/initramfs.img
+}
+
 cd /usr/src/linux/
 make -j12
-make install
+INSTALL_PATH="$KERNEL_INSTALL_PATH" make install
+mv_built_kernel
+cd /usr/src/linux/
 make modules_install
-genkernel --install --kernel-config=/usr/src/linux/.config initramfs
+genkernel --install --kernel-config=/usr/src/linux/.config --initramfs-filename=initramfs-efistub initramfs
+mv_built_initramfs
 emerge @module-rebuild
 
 
@@ -29,5 +54,6 @@ case "$ANS" in
 		reboot
 		;;
 	*)
+		rm -rf "$KERNEL_INSTALL_PATH"
 		;;
 esac
