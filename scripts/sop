@@ -17,6 +17,8 @@ operation() {
 			loginctl "$R"
 			;;
 		"$S")
+			i3lock -c 282C34
+			sleep 1s
 			loginctl "$S"
 			;;
 		"$LO")
