@@ -1,5 +1,7 @@
 source ~/.profile
 
+unsetopt MULTIOS
+
 eval "$(starship init zsh)"
 
 # aliases
@@ -43,3 +45,9 @@ bindkey '^[[B' history-substring-search-down
 
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
+
+aagh(){
+	while ! ping google.com; do
+		sleep 0.8s
+	done
+}

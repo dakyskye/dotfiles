@@ -1,7 +1,7 @@
 export XDG_CONFIG_HOME="$HOME/.config"
 export EDITOR="nvim"
 export TERMINAL="kitty"
-export BROWSER="google-chrome-stable"
+export BROWSER="firefox"
 export MANPAGER="nvim -c 'set ft=man' -"
 
 export WORK="$HOME/Work"
