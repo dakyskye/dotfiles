@@ -1,8 +1,0 @@
-#!/bin/bash
-
-source "$SCRIPTS/s_colours.sh"
-
-while true; do
-	fuser -s /dev/video0 && echo "${FG_RED} on${FG_NORMAL}" || echo " off"
-	sleep 1s
-done

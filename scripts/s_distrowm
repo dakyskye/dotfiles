@@ -1,3 +1,0 @@
-#!/bin/sh
-
-echo " $(cat /etc/os-release | grep -w ID | cut -c4-)/$(wmctrl -m | awk '{if ($1 == "Name:") { print $2 }}')"

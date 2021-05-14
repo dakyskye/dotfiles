@@ -1,6 +1,0 @@
-#!/bin/sh
-
-while true; do
-	echo " $(uptime --pretty | sed -e 's/up //' -e 's/ days/d/' -e 's/ day/d/' -e 's/ hours/h/' -e 's/ hour/h/' -e 's/ minutes/m/' -e 's/ minute/m/' -e 's/, //')"
-	sleep 5s
-done

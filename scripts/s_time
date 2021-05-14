@@ -1,6 +1,0 @@
-#!/bin/sh
-
-while true; do
-	echo " $(date '+%H:%M')"
-	sleep 5s
-done

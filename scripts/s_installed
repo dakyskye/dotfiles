@@ -1,6 +1,0 @@
-#!/bin/sh
-
-while true; do
-	echo " $(cat /var/lib/portage/world | wc -l)"
-	sleep 3600
-done

@@ -1,6 +1,0 @@
-#!/bin/sh
-
-while true; do
-	echo " $(xkblayout-state print %s)"
-	sleep 0.5
-done
