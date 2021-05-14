@@ -30,7 +30,7 @@ starttrayapps() {
 
 starttrayapps &
 
-go run $SCRIPTS/statusbar.go &
+bash -c "cd $SCRIPTS/statusbar && python ./main.py" &
 
 exec nimdow
 
