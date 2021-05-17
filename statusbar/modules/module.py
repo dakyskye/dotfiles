@@ -4,12 +4,13 @@ from datetime import datetime, timedelta
 from threading import Thread
 from subprocess import Popen, PIPE
 
+
 @dataclass
 class StandardModule:
     update_function: Any = None
     update_interval: Optional[float] = 1
     next_update_time: Optional[datetime] = None
-    val: str = ''
+    val: str = ""
 
     def __post_init__(self):
         self.next_update_time = datetime.now()
@@ -18,7 +19,9 @@ class StandardModule:
         if self.update_interval == None:
             self.next_update_time = None
         else:
-            self.next_update_time = datetime.now() + timedelta(seconds=cast(float, self.update_interval))
+            self.next_update_time = datetime.now() + timedelta(
+                seconds=cast(float, self.update_interval)
+            )
 
     def update(self) -> str:
         self.update_time()
@@ -27,6 +30,7 @@ class StandardModule:
 
     def get(self) -> str:
         return self.val
+
 
 class TailModule(StandardModule, Thread):
     def __init__(self, command: str, update_function: Any = None):
@@ -41,12 +45,15 @@ class TailModule(StandardModule, Thread):
     def get(self) -> str:
         return self.update_function(self.val)
 
-    def __eq__(self, other): return self is other
-    def __hash__(self): return hash(id(self))
+    def __eq__(self, other):
+        return self is other
+
+    def __hash__(self):
+        return hash(id(self))
 
     def run(self):
         while True:
-            line = self.__proc.stdout.readline().decode('utf-8').strip()
+            line = self.__proc.stdout.readline().decode("utf-8").strip()
             if not line:
                 continue
             self.val = line

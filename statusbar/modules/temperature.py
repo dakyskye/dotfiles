@@ -1,8 +1,9 @@
 import psutil
 from . import utils
 
+
 def cpu_temp() -> str:
-    temp = round(psutil.sensors_temperatures()['k10temp'][0].current)
+    temp = round(psutil.sensors_temperatures()["k10temp"][0].current)
 
     if temp <= 45:
         ret = f"C {utils.TEMPERATURE_ICON} {temp}"
@@ -13,8 +14,9 @@ def cpu_temp() -> str:
 
     return f"{ret}{utils.CELSIUS_ICON}{utils.FG_NORMAL}"
 
+
 def gpu_temp() -> str:
-    temp = round(psutil.sensors_temperatures()['amdgpu'][0].current)
+    temp = round(psutil.sensors_temperatures()["amdgpu"][0].current)
 
     if temp <= 45:
         ret = f"G {utils.TEMPERATURE_ICON} {temp}"
@@ -25,8 +27,9 @@ def gpu_temp() -> str:
 
     return f"{ret}{utils.CELSIUS_ICON}{utils.FG_NORMAL}"
 
+
 def ssd_temp() -> str:
-    temp = round(psutil.sensors_temperatures()['drivetemp'][0].current)
+    temp = round(psutil.sensors_temperatures()["drivetemp"][0].current)
 
     if temp <= 40:
         ret = f"S {utils.TEMPERATURE_ICON} {temp}"
@@ -37,8 +40,9 @@ def ssd_temp() -> str:
 
     return f"{ret}{utils.CELSIUS_ICON}{utils.FG_NORMAL}"
 
+
 def hdd_temp() -> str:
-    temp = round(psutil.sensors_temperatures()['drivetemp'][1].current)
+    temp = round(psutil.sensors_temperatures()["drivetemp"][1].current)
 
     if temp <= 35:
         ret = f"H {utils.TEMPERATURE_ICON} {temp}"
