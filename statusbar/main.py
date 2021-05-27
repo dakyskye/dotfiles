@@ -28,7 +28,7 @@ modules = [
     module.StandardModule(update_function=webcam.webcam),
     module.TailModule("s_dnd", update_function=dnd.dnd),
     module.TailModule("./scripts/github.sh", update_function=github.github),
-    module.StandardModule(update_function=layout.layout),
+    module.StandardModule(update_function=layout.layout, update_interval=0.5),
     module.StandardModule(update_function=date.date),
     module.StandardModule(update_function=date.time),
 ]
