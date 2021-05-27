@@ -28,12 +28,12 @@ exec = [
 
 [monitors]
 	[monitors.default.tags]
-	1.displayString = "I"
-	2.displayString = "II"
-	3.displayString = "III"
-	4.displayString = "IV"
-	5.displayString = "V"
-	6.displayString = "VI"
-	7.displayString = "VII"
-	8.displayString = "VIII"
-	9.displayString = "IX"
+		1.displayString = "!"
+		2.displayString = "@"
+		3.displayString = "#"
+		4.displayString = "$"
+		5.displayString = "%"
+		6.displayString = "^"
+		7.displayString = "&"
+		8.displayString = "*"
+		9.displayString = "~"
