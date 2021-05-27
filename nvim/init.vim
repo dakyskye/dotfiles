@@ -26,6 +26,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'szw/vim-maximizer'
 " Surround
 Plug 'tpope/vim-surround'
+Plug 'junegunn/vim-easy-align'
 " Floaterm
 Plug 'voldikss/vim-floaterm'
 " Treesitter
@@ -108,6 +109,8 @@ let g:coc_global_extensions =
 	\ [
 	\ 'coc-go',
 	\ 'coc-pyright',
+	\ 'coc-tsserver',
+	\ 'coc-rust-analyzer',
 	\ 'coc-diagnostic',
 	\ 'coc-json',
 	\ 'coc-toml',
@@ -179,17 +182,21 @@ let g:which_key_map.l.c.a = 'actions'
 let g:which_key_map.l.c.d = 'documentation'
 let g:which_key_map.l.c.r = 'rename symbol'
 
-" quicer
+" quicker
 nmap <silent>gd <plug>(coc-definition)
 nmap <silent>gy <plug>(coc-type-definition)
 nmap <silent>gi <plug>(coc-implementation)
 nmap <silent>gr <plug>(coc-references)
 nmap <silent>K :call <sid>show_documentation()<cr>
+nmap <silent>]g <plug>(coc-diagnostic-next)
+nmap <silent>[g <plug>(coc-diagnostic-prev)
+
 
 
 nnoremap <silent><leader>bl :Buffers<cr>
 nnoremap <silent><leader>bm :MaximizerToggle<cr>
 nnoremap <silent><leader>bc :bd<cr>
+
 
 nnoremap <silent><leader>bnk <c-w>k
 nnoremap <silent><leader>bnj <c-w>j
@@ -241,10 +248,13 @@ nnoremap <silent><leader>otn :FloatermNew<cr>
 nnoremap <silent><leader>otu :FloatermUpdate<cr>
 " open command pallete
 nnoremap <silent><leader>oc :Commands<cr>
+" open file
+nnoremap <silent><leader>of :Files<cr>
 
 let g:which_key_map.o = { 'name': '+open' }
 let g:which_key_map.o.e = 'explorer'
 let g:which_key_map.o.c = 'command palette'
+let g:which_key_map.o.f = 'file'
 
 let g:which_key_map.o.t = { 'name': '+terminal' }
 let g:which_key_map.o.t.t = 'toggle'
@@ -297,3 +307,9 @@ function! s:changeTheme(theme)
 	colorscheme one
 	exe "normal \<C-l>"
 endfunction
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
