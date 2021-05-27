@@ -24,11 +24,11 @@ while true; do
 	case "$(cat "$FIFO")" in
 		"dnd")
 			echo "DND"
-			dunstify DUNST_COMMAND_PAUSE
+			dunstctl set-paused true
 			;;
 		"free")
 			echo "free"
-			dunstify DUNST_COMMAND_RESUME
+			dunstctl set-paused false
 			;;
 	esac
 	sleep 1s
