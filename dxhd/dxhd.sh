@@ -4,9 +4,9 @@
 # super + escape
 dxhd -r
 
-## launch kitty
-# super + return
-kitty fish
+## launch zsh/xon.sh/bash
+# super + {_, shift +, ctrl + } return
+kitty {zsh,xon.sh,bash}
 
 ## launch rofi
 # super + d
@@ -61,7 +61,7 @@ pavucontrol-qt
 
 ## launch some apps
 # XF86 {Explorer, HomePage, Mail, Calculator}
-{kitty ranger, $BROWSER, mailspring, speedcrunch}
+{kitty ranger, $BROWSER, mailspring, kitty xon.sh}
 
 ## super + XF86 {Explorer, HomePage, Mail, Calculator}
 ## shift + XF86 {Explorer, HomePage, Mail, Calculator}
