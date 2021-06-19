@@ -3,17 +3,11 @@
 # super + shift + r
 nimdow --reload-config
 
-# super + k
-nimdow --focus-previous
+# super + {k, j}
+nimdow --focus-{previous,next}
 
-# super + j
-nimdow --focus-next
-
-# super + shift + k
-nimdow --move-window-previous
-
-# super + shift + j
-nimdow --move-window-next
+# super + shift + {k, j}
+nimdow --move-window-{previous,next}
 
 # super + f
 nimdow --toggle-fullscreen
@@ -24,38 +18,23 @@ nimdow --destroy-selected-window
 # super + {1-9}
 nimdow --go-to-tag {1-9}
 
-# super + w
-nimdow --go-to-previous-tag
+# super + {_, shift + } w
+nimdow --{go-to-previous-tag,move-window-to-previous-tag}
 
-# super + shift + {1-9}
-nimdow --move-window-to-tag {1-9}
+# super + {control, shift, shift + control} + {1-9}
+nimdow --{toggle-tag-view,move-window-to-tag,toggle-window-tag} {1-9}
 
-# super + shift + w
-nimdow --move-window-to-previous-tag
+# super + {comma, period}
+nimdow --focus-{previous,next}-monitor
 
-# super + control + {1-9}
-nimdow --toggle-tag-view {1-9}
+# super + shift + {comma, period}
+nimdow --move-window-to-{previous,next}-monitor
 
-# super + shift + control + {1-9}
-nimdow --toggle-window-tag {1-9}
+# super + {z, l}
+nimdow --increase-master-{count,width}
 
-# super + comma
-nimdow --focus-previous-monitor
-
-# super + period
-nimdow --focus-next-monitor
-
-# super + shift + comma
-nimdow --move-window-to-previous-monitor
-
-# super + shift + period
-nimdow --move-window-to-next-monitor
-
-# super + z
-nimdow --increase-master-count
-
-# super + x
-nimdow --decrease-master-count
+# super + {x, h}
+nimdow --decrease-master-{count,width}
 
 # super + space
 nimdow --toggle-floating

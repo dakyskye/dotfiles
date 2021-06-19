@@ -39,6 +39,10 @@ scw {"d","n"}
 # super + alt + ctrl + {d,f}
 s_dnd {dnd,free}
 
+## change wallpaper
+# super + alt + ctrl + w
+randwallp
+
 ## change volume
 # XF86Audio { Lower, Raise } Volume
 pactl set-sink-volume @DEFAULT_SINK@ {-,+}1%
@@ -57,7 +61,7 @@ playerctl position {0, 5-, 5+}
 
 ## launch pavucontrol
 # XF86Tools
-pavucontrol-qt
+pavucontrol
 
 ## launch some apps
 # XF86 {Explorer, HomePage, Mail, Calculator}
