@@ -31,6 +31,8 @@ export HISTSIZE=10000
 export SAVEHIST=$HISTSIZE
 setopt INC_APPEND_HISTORY_TIME
 
+source /opt/google-cloud-sdk/completion.zsh.inc
+source /usr/share/fzf/key-bindings.zsh
 source ~/.antigen/antigen.zsh
 
 antigen bundle zsh-users/zsh-completions
@@ -45,6 +47,7 @@ bindkey '^[[B' history-substring-search-down
 
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
+
 
 aagh(){
 	while ! ping google.com; do
