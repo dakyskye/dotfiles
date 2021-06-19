@@ -5,13 +5,13 @@ exec = [
 
 [settings]
 	# Window settings
-	gapSize = 12
+	gapSize = 10
 	borderWidth = 2
 	borderColorUnfocused = "#282C34"
 	borderColorFocused = "#A77AC4"
 	borderColorUrgent = "#E06C75"
 	# Bar settings
-	barHeight = 19
+	barHeight = 18
 	windowTitlePosition = "left"
 	barBackgroundColor = "#282C34"
 	barForegroundColor = "#F8F8F2"
