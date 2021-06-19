@@ -1,16 +1,25 @@
 #!/bin/bash
+
 FIFO="/tmp/s_dnd_pipe"
 
 [ ! -e "$FIFO" ] && touch "$FIFO"
 
+free(){
+	echo "free" > "$FIFO"
+}
+
+dnd(){
+	echo "dnd" > "$FIFO"
+}
+
 case "$1" in
 	"dnd")
-		echo "dnd" > "$FIFO"
-		dunstify -t 200 "you've enabled DND mode"
+		dnd
+		dunstify -t 300 "you've enabled DND mode"
 		exit 0
 		;;
 	"free")
-		echo "free" > "$FIFO"
+		free
 		dunstify "you've enabled notifications"
 		exit 0
 		;;
@@ -18,7 +27,14 @@ esac
 
 pidof -o %PPID -x "$0" >/dev/null && exit 0
 
-echo "free" > "$FIFO"
+free
+
+fs_detect(){
+	win="$(xdotool getactivewindow)"
+	[ ! $? -eq 0 ] && free && return 0
+
+	xprop -id "$win" | grep -q _NET_WM_STATE_FULLSCREEN && dnd || free
+}
 
 while true; do
 	case "$(cat "$FIFO")" in
@@ -31,5 +47,8 @@ while true; do
 			dunstctl set-paused false
 			;;
 	esac
+
+	fs_detect
+
 	sleep 1s
 done
