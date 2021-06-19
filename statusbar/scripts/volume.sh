@@ -1,7 +1,5 @@
 #!/bin/bash
 
-source "$SCRIPTS/s_colours.sh"
-
 print_vol() {
 	PA_SINK="$(pacmd info | grep "Default sink name:" | awk '{ print $4; }')"
 	SINK_INFO="$(pactl list sinks | grep -m1 -A 8 $PA_SINK)"
