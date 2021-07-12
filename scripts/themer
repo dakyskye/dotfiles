@@ -1,0 +1,7 @@
+#!/bin/bash
+
+HOUR="$(date +'%H')"
+
+[ "$HOUR" -gt 18 ] || [ "$HOUR" -lt 7 ] && THEME="Arc-Dark" || THEME="Arc-Lighter"
+
+gsettings set org.gnome.desktop.interface gtk-theme $THEME
