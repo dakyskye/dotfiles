@@ -1,5 +1,7 @@
 source ~/.profile
 
+[[ -z "$DISPLAY" ]] && [[ "$(tty)" = /dev/tty1 ]] && exec startx
+
 unsetopt MULTIOS
 
 eval "$(starship init zsh)"
@@ -31,10 +33,13 @@ export HISTSIZE=10000
 export SAVEHIST=$HISTSIZE
 setopt INC_APPEND_HISTORY_TIME
 
+autoload -U compinit
+compinit
+
 source /opt/google-cloud-sdk/completion.zsh.inc
 source /usr/share/fzf/key-bindings.zsh
-source ~/.antigen/antigen.zsh
 
+source ~/.antigen/antigen.zsh
 antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-history-substring-search
