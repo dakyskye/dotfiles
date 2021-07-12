@@ -1,0 +1,2 @@
+# pulseaudio-modules-bt
+>=media-sound/pulseaudio-13.0-41 -bluetooth -alsa-plugin

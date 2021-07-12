@@ -1,0 +1,2 @@
+>=net-libs/libtorrent-rasterbar-1.2.11 python
+>=dev-libs/boost-1.76.0-r1 python

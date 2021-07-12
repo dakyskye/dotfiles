@@ -1,0 +1,2 @@
+media-libs/mesa abi_x86_32 xa
+x11-libs/libdrm video_cards_radeon libkms

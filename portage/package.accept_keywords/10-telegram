@@ -1,0 +1,6 @@
+net-im/telegram-desktop
+media-libs/tg_owt
+media-libs/libvpx
+net-libs/usrsctp
+>=media-libs/libtgvoip-2.4.4_p20210302-r2
+media-libs/rnnoise
