@@ -1,2 +1,5 @@
-media-libs/mesa abi_x86_32 xa
-x11-libs/libdrm video_cards_radeon libkms
+# required by x11-drivers/xf86-video-vmware-13.3.0::gentoo
+# required by x11-base/xorg-drivers-1.20-r2::gentoo[video_cards_vmware]
+# required by x11-base/xorg-server-1.20.13-r1::gentoo[xorg]
+# required by x11-drivers/xf86-input-libinput-1.1.0::gentoo
+>=media-libs/mesa-21.1.7 xa

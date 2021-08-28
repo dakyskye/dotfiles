@@ -1,4 +1,10 @@
 app-editors/neovim -lua_single_target_lua5-1 lua_single_target_luajit
+# package.use# required by app-editors/neovim-0.5.0::gentoo
+# required by neovim (argument)
 >=dev-lua/luv-1.36.0.0 -lua_single_target_lua5-1 lua_single_target_luajit
+# package.use# required by app-editors/neovim-0.5.0::gentoo[lua_single_target_luajit]
+# required by neovim (argument)
 >=dev-lua/lpeg-1.0.2-r101 lua_targets_luajit
+# required by app-editors/neovim-0.5.0::gentoo[lua_single_target_luajit]
+# required by neovim (argument)
 >=dev-lua/mpack-1.0.8-r100 lua_targets_luajit

@@ -1,0 +1,5 @@
+media-video/obs-studio pipewire vlc
+# required by media-video/vlc-3.0.14-r6::gentoo
+# required by media-video/obs-studio-27.0.1::gentoo[vlc]
+# required by obs-studio (argument)
+>=sys-libs/zlib-1.2.11-r4 minizip

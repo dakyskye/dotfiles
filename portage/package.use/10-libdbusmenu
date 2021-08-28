@@ -1,0 +1,4 @@
+# required by dev-libs/libappindicator-12.10.1_p20200706::gentoo
+# required by x11-misc/redshift-1.12-r3::gentoo[appindicator]
+# required by redshift (argument)
+>=dev-libs/libdbusmenu-16.04.0-r1 gtk3

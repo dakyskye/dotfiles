@@ -1,1 +1,7 @@
+# required by dev-python/flask-compress-1.10.1::gentoo
+# required by dev-db/pgadmin4-4.29-r2::gentoo[python_single_target_python3_9]
+# required by dev-db/pgadmin4 (argument)
 >=app-arch/brotli-1.0.9-r1 python
+# required by app-misc/neofetch-7.1.0::gentoo[X]
+# required by app-misc/neofetch (argument)
+>=www-client/w3m-0.5.3_p20210102 imlib

@@ -1,2 +1,10 @@
->=net-libs/libtorrent-rasterbar-1.2.11 python
+# required by net-p2p/deluge-2.0.3-r8::gentoo[python_single_target_python3_9]
+# required by net-p2p/deluge (argument)
+>=net-libs/libtorrent-rasterbar-1.2.11-r1 python
+# required by net-libs/libtorrent-rasterbar-1.2.11-r1::gentoo[python]
+# required by net-p2p/deluge-2.0.3-r8::gentoo[python_single_target_python3_9]
+# required by net-p2p/deluge (argument)
 >=dev-libs/boost-1.76.0-r1 python
+# required by net-im/telegram-desktop-2.8.11-r2::gentoo
+# required by net-im/telegram-desktop (argument)
+>=media-video/ffmpeg-4.4-r1 opus

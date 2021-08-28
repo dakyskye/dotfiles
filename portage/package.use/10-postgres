@@ -1,1 +1,1 @@
-dev-db/postgresql threads -server
+dev-db/postgresql -server

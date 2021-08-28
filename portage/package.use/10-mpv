@@ -1,0 +1,4 @@
+media-video/mpv drm libmpv
+# required by media-video/mpv-mpris-0.5::guru
+# required by mpv-mpris (argument)
+>=media-video/mpv-0.33.1-r1 cplugins

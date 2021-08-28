@@ -1,0 +1,21 @@
+# required by media-libs/mesa-21.1.7::gentoo[-video_cards_r600,video_cards_radeonsi,-video_cards_r300,-video_cards_r100,-video_cards_r200,-video_cards_radeon]
+# required by virtual/opengl-7.0-r2::gentoo
+# required by media-libs/glu-9.0.2::gentoo
+# required by virtual/glu-9.0-r2::gentoo
+# required by media-libs/freeglut-3.2.1-r1::gentoo
+# required by app-text/mupdf-1.18.0-r4::gentoo[opengl]
+# required by net-print/cups-filters-1.28.7::gentoo[pdf]
+# required by net-print/cups-2.3.3_p2-r2::gentoo
+# required by x11-libs/gtk+-3.24.29::gentoo[cups]
+# required by gnome-extra/polkit-gnome-0.105-r2::gentoo
+# required by sys-auth/polkit-0.119-r2::gentoo[gtk]
+# required by sys-auth/elogind-246.10-r1::gentoo[policykit]
+# required by sys-process/procps-3.3.17-r1::gentoo[elogind]
+# required by @system
+# required by @world (argument)
+>=x11-libs/libdrm-2.4.107 video_cards_radeon
+# package.use# required by x11-drivers/xf86-video-vmware-13.3.0::gentoo
+# required by x11-base/xorg-drivers-1.20-r2::gentoo[video_cards_vmware]
+# required by x11-base/xorg-server-1.20.13-r1::gentoo[xorg]
+# required by x11-drivers/xf86-input-libinput-1.1.0::gentoo
+>=x11-libs/libdrm-2.4.107 libkms

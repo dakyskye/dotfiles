@@ -1,0 +1,11 @@
+# required by x11-libs/pango-1.48.7-r1::gentoo
+# required by gnome-base/librsvg-2.50.7::gentoo
+# required by x11-themes/adwaita-icon-theme-40.1.1::gentoo
+# required by x11-libs/gtk+-3.24.29::gentoo
+# required by gnome-extra/polkit-gnome-0.105-r2::gentoo
+# required by sys-auth/polkit-0.119-r2::gentoo[gtk]
+# required by sys-auth/elogind-246.10-r1::gentoo[policykit]
+# required by sys-process/procps-3.3.17-r1::gentoo[elogind]
+# required by @system
+# required by @world (argument)
+>=media-libs/freetype-2.10.4 harfbuzz
