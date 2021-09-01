@@ -2,53 +2,68 @@
 
 FIFO="/tmp/s_dnd_pipe"
 
-[ ! -e "$FIFO" ] && touch "$FIFO"
-
 free(){
-	echo "free" > "$FIFO"
+	echo "free_${1:-"no_ignore_fs"}" > "$FIFO"
 }
 
 dnd(){
-	echo "dnd" > "$FIFO"
+	echo "dnd_${1:-"no_ignore_fs"}" > "$FIFO"
 }
 
 case "$1" in
 	"dnd")
-		dnd
+		[ ! -e "$FIFO" ] && exit 1
+		dnd yes_ignore_fs
 		dunstify -t 300 "you've enabled DND mode"
 		exit 0
 		;;
 	"free")
+		[ ! -e "$FIFO" ] && exit 1
 		free
 		dunstify "you've enabled notifications"
 		exit 0
 		;;
 esac
 
-pidof -o %PPID -x "$0" >/dev/null && exit 0
+kill -9 "$(pidof -o %PPID -x "$0")" >/dev/null 2>&1
 
+[ ! -e "$FIFO" ] && touch "$FIFO"
+
+trap 'rm -f $FIFO && echo X' EXIT
+
+IGNORE_FS="no"
 free
 
-fs_detect(){
-	win="$(xdotool getactivewindow)"
-	[ ! $? -eq 0 ] && free && return 0
-
-	xprop -id "$win" | grep -q _NET_WM_STATE_FULLSCREEN && dnd || free
-}
-
 while true; do
+	sleep 0.3
+
 	case "$(cat "$FIFO")" in
-		"dnd")
+		"dnd_yes_ignore_fs")
 			echo "DND"
 			dunstctl set-paused true
+			IGNORE_FS="yes"
 			;;
-		"free")
+		"dnd_no_ignore_fs")
+			echo "DND"
+			dunstctl set-paused true
+			IGNORE_FS="no"
+			;;
+		"free_yes_ignore_fs")
 			echo "free"
 			dunstctl set-paused false
+			IGNORE_FS="yes"
+			;;
+		"free_no_ignore_fs")
+			echo "free"
+			dunstctl set-paused false
+			IGNORE_FS="no"
 			;;
 	esac
 
-	fs_detect
+	[ "$IGNORE_FS" = "yes" ] && continue
 
-	sleep 1s
+	win="$(xdotool getactivewindow)"
+	[ ! $? -eq 0 ] && free && continue
+
+	xprop -id "$win" | grep -q _NET_WM_STATE_FULLSCREEN && dnd || free
 done
