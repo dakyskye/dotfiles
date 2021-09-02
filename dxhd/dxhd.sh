@@ -4,9 +4,21 @@
 # super + escape
 dxhd -r
 
-## launch zsh/xon.sh/bash
-# super + {_, shift +, ctrl + } return
-kitty {zsh,xon.sh,bash}
+## launch empty emacs buffer
+# super + e
+emacsclient -c -a emacs
+
+## launch emacs vterm
+# super + alt + return
+emacsclient -c -a emacs -e '(+vterm/here nil)'
+
+## launch dired in emacs
+# super + BackSpace
+emacsclient -c -a emacs -e '(dired nil)'
+
+## launch zsh/bash
+# super + {_, ctrl + } return
+kitty {zsh,bash}
 
 ## launch rofi
 # super + d
@@ -20,12 +32,29 @@ rofi -modi window -show window
 # super + shift + e
 rofimoji --action copy --skin-tone neutral
 
-## open screenshot menu
+## select and capture a window immediately
 # print
-flameshot gui
+scr c w
 
-# {ctrl, shift} + print
-flameshot {full, screen} -c
+## select and capture a window immediately with extra transparent background
+# super + print
+scr c wt
+
+## capture fullscreen screenshot immediately
+# shift + print
+scr c f
+
+## capture fullscreen screenshot immediately and save it
+# ctrl + print
+scr s f
+
+## launch screenshot menu
+# super + ctrl + shift + print
+scr
+
+## launch flameshot gui
+# alt + print
+flameshot gui
 
 ## system operations / screen warmness menus
 # super + ctrl + {o, w}
@@ -61,7 +90,7 @@ playerctl position {0, 5-, 5+}
 
 ## launch pavucontrol
 # XF86Tools
-pavucontrol
+pavucontrol-qt
 
 ## launch some apps
 # XF86 {Explorer, HomePage, Mail, Calculator}
