@@ -5,8 +5,6 @@
 
 (setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 12 :weight 'semi-light))
 
-(setq doom-theme 'doom-one)
-
 (setq org-directory "~/Documents/")
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
@@ -22,4 +20,18 @@
 (global-git-gutter-mode)
 
 (setq treemacs-git-mode `extended)
-(setq doom-themes-treemacs-theme `default)
+
+(defun dynamic-doom-theme ()
+  "Provide a Doom theme based on the current system theme."
+  (let* ((res (doom-call-process "gsettings" "get" "org.gnome.desktop.interface" "gtk-theme"))
+         (code (car res))
+         (stdout (string-trim (cdr res))))
+    (if (= code 0)
+        (cond ((string= "'Arc-Dark'" stdout) 'doom-one)
+              ((string= "'Arc-Lighter'" stdout) 'doom-one-light)
+              (t 'doom-one))
+      'doom-one)))
+
+(setq doom-theme (dynamic-doom-theme))
+
+(setq doom-themes-treemacs-theme 'default)
