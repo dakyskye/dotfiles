@@ -1,0 +1,121 @@
+#!/usr/bin/python
+
+from os import environ
+import sys
+from subprocess import Popen, PIPE
+
+if len(sys.argv) == 1:
+    exit("please provide arguments")
+
+xdg_config_home = environ['XDG_CONFIG_HOME']
+kitty_path = f"{xdg_config_home}/kitty/kitty.conf"
+nvim_path = f"{xdg_config_home}/nvim/lua/config.lua"
+
+lightThemeIsUsed = False
+
+def check_system_theme():
+    global lightThemeIsUsed
+
+    proc = Popen("/usr/bin/gsettings get org.gnome.desktop.interface gtk-theme", stdout=PIPE, shell=True)
+    value = proc.stdout.readline().decode("utf-8").strip()
+
+    if value == "'Arc-Lighter'":
+        lightThemeIsUsed = True
+
+def kitty(config_path: str):
+    config_file = open(config_path, "r")
+    config_lines = config_file.readlines()
+    config_began = False
+    should_strip = False
+
+    for i, l in enumerate(config_lines):
+        l = l.rstrip('\n').strip()
+
+        if not config_began:
+            if l == "#BEGIN:THEME":
+                config_began = True
+            continue
+
+        if l == "#END:THEME":
+            break
+
+        if l == "":
+            continue
+
+        if l == "#DARK":
+            should_strip = False if lightThemeIsUsed else True
+            continue
+
+        if l == "#LIGHT":
+            should_strip = True if lightThemeIsUsed else False
+            continue
+
+        if should_strip:
+            config_lines[i] = f"{l.removeprefix('#')}\n"
+        else:
+            if not l.startswith("#"):
+                config_lines[i] = f"#{l}\n"
+
+    if not config_began:
+            exit(f"failure finding #BEGIN:THEME in {config_path}")
+
+    config_file.close()
+    config_file = open(config_path, "w")
+    config_file.writelines(config_lines)
+    config_file.close()
+    config_file.readable
+
+def nvim(config_path: str):
+    config_file = open(config_path, "r")
+    config_lines = config_file.readlines()
+    config_began = False
+    should_strip = False
+
+    for i, l in enumerate(config_lines):
+        l = l.rstrip('\n').strip()
+
+        if not config_began:
+            if l == "--BEGIN:THEME":
+                config_began = True
+            continue
+
+        if l == "--END:THEME":
+            break
+
+        if l == "":
+            continue
+
+        if l == "--DARK":
+            should_strip = False if lightThemeIsUsed else True
+            continue
+
+        if l == "--LIGHT":
+            should_strip = True if lightThemeIsUsed else False
+            continue
+
+        if should_strip:
+            config_lines[i] = f"{l.removeprefix('--')}\n"
+        else:
+            if not l.startswith("--"):
+                config_lines[i] = f"--{l}\n"
+
+    if not config_began:
+            exit(f"failure finding --BEGIN:THEME in {config_path}")
+
+    config_file.close()
+    config_file = open(config_path, "w")
+    config_file.writelines(config_lines)
+    config_file.close()
+    config_file.readable
+
+def main():
+    for arg in sys.argv[1:]:
+        if arg == "kitty":
+            kitty(kitty_path)
+        elif arg == "nvim":
+            nvim(nvim_path)
+
+
+if __name__ == '__main__':
+    check_system_theme()
+    main()
