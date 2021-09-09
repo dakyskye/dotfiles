@@ -1,1 +1,7 @@
-www-client/firefox hwaccel l10n_ka l10n_en-GB
+www-client/firefox hwaccel l10n_ka l10n_en-GB -screencast
+# required by www-client/firefox-78.13.0::gentoo[system-libvpx]
+# required by firefox (argument)
+>=media-libs/libvpx-1.10.0 postproc
+# required by www-client/firefox-78.13.0::gentoo[pgo]
+# required by firefox (argument)
+>=x11-base/xorg-server-1.20.13-r1 xvfb

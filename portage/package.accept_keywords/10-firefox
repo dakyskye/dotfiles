@@ -1,1 +1,3 @@
 www-client/firefox
+>=dev-libs/nss-3.68
+>=dev-libs/nspr-4.32
