@@ -1,81 +1,36 @@
-local install_path = vim.fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-	vim.fn.system({'git', 'clone', 'https://github.com/wbthomason/packer.nvim', '--depth', '1', install_path})
-	vim.cmd 'packadd packer.nvim'
-end
+vim.g.mapleader=" "
 
-require('packer').startup(function()
-	use 'wbthomason/packer.nvim'
-
-	use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-
-	use 'neovim/nvim-lspconfig'
-
-	use {
-		'nvim-telescope/telescope.nvim',
-		requires = { {'nvim-lua/plenary.nvim'} }
-	}
-
-	use 'junegunn/fzf'
-	use 'junegunn/fzf.vim'
-
-	use 'editorconfig/editorconfig-vim'
-
-	use {
-		'kyazdani42/nvim-tree.lua',
-		requires = 'kyazdani42/nvim-web-devicons'
-	}
-
-	use 'kdheepak/vim-one'
-	--use 'navarasu/onedark.nvim'
-
-	use {
-		'hoob3rt/lualine.nvim',
-		requires = 'kyazdani42/nvim-web-devicons'
-	}
-
-	use 'junegunn/goyo.vim'
-	use 'junegunn/limelight.vim'
-
-	use 'ryanoasis/vim-devicons'
-	use 'kyazdani42/nvim-web-devicons'
-end)
-
-require'nvim-treesitter.configs'.setup {
-	ensure_installed = 'all',
-
-	highlight = {
-		enable = true
-	}
-}
-
-vim.g.one_allow_italics = 1
-vim.cmd 'colorscheme one'
-
---BEGIN:THEME
---DARK
-vim.o.background = 'dark'
-
-require'lualine'.setup {
-options = { theme = 'onedark' },
-
-extensions = { 'fzf', 'nvim-tree' }
-}
-
---LIGHT
---vim.o.background = 'light'
-
---require'lualine'.setup {
---options = { theme = 'onelight' },
-
---extensions = { 'fzf', 'nvim-tree' }
---}
---END:THEME
-
-require'nvim-web-devicons'.setup {
-	default = true;
-}
-
-require'lspconfig'.bashls.setup{}
-require'lspconfig'.pyright.setup{}
+vim.opt.syntax = 'enable'
+vim.opt.swapfile = false
+vim.opt.backup = false
+vim.opt.writebackup = false
+vim.opt.confirm = true
+vim.opt.autoread = true
+vim.opt.lazyredraw = true
+vim.opt.iskeyword = vim.opt.iskeyword + { '-' }
+vim.opt.exrc = true
+vim.opt.secure = true
+vim.opt.encoding = 'utf-8'
+vim.opt.clipboard = 'unnamedplus'
+vim.opt.mouse = 'a'
+vim.opt.cursorline = true
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+vim.opt.autoindent = true
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.incsearch = true
+vim.opt.hlsearch = true
+vim.opt.hidden = true
+vim.opt.cmdheight = 1
+vim.opt.updatetime = 100
+vim.opt.timeoutlen = 500
+vim.o.shortmess = vim.o.shortmess .. 'c'
+vim.opt.signcolumn = 'number'
+vim.opt.showmode = false
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.termguicolors = true
 
