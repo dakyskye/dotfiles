@@ -49,12 +49,12 @@ require'bufferline'.setup{
 		},
 	}
 }
+
 require'feline'.setup()
 
 require'indent_blankline'.setup {
-	char = '|',
 	buftype_exclude = { 'terminal' },
-	show_current_context = true,
+	--show_current_context = true
 }
 
 vim.g.onedark_transparent_background = true
@@ -135,8 +135,8 @@ local on_attach = function(client, bufnr)
 
 end
 
-if not nvim_lsp.golangcilsp then
- 	lsp_configs.golangcilsp = {
+if not nvim_lsp.golangcils then
+	lsp_configs.golangcils = {
 		default_config = {
 			cmd = { 'golangci-lint-langserver' },
 			root_dir = nvim_lsp.util.root_pattern('.git', 'go.mod'),
@@ -150,7 +150,20 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'pyright', 'tsserver', 'bashls', 'gopls', 'golangcilsp' }
+local servers = {
+	'bashls',
+	'cssls',
+	'dockerls',
+	'gopls',
+	'golangcils',
+	'html',
+	'jsonls',
+	'pyright',
+	'tailwindcss',
+	'tsserver',
+	'vimls',
+	'yamlls'
+}
 for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup {
 		on_attach = on_attach,
