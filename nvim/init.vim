@@ -25,7 +25,7 @@ set cmdheight=1
 set updatetime=100
 set timeoutlen=500
 set shortmess+=c
-set signcolumn=number
+set signcolumn=auto
 set noshowmode
 set number relativenumber
 set t_Co=256
