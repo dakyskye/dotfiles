@@ -1,100 +1,3 @@
-local install_path = vim.fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-	vim.fn.system({'git', 'clone', 'https://github.com/wbthomason/packer.nvim', '--depth', '1', install_path})
-	vim.cmd 'packadd packer.nvim'
-end
-
-require'packer'.startup(function()
-	use 'wbthomason/packer.nvim'
-
-	use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-
-	use 'neovim/nvim-lspconfig'
-	use 'hrsh7th/nvim-cmp'
-	use 'hrsh7th/cmp-nvim-lsp'
-	use 'saadparwaiz1/cmp_luasnip'
-	use 'L3MON4D3/LuaSnip'
-
-	use { 'lewis6991/gitsigns.nvim', requires = 'nvim-lua/plenary.nvim' }
-
-	use 'editorconfig/editorconfig-vim'
-
-	use { 'nvim-telescope/telescope.nvim', requires = 'nvim-lua/plenary.nvim' }
-	use { 'kyazdani42/nvim-tree.lua', requires = 'kyazdani42/nvim-web-devicons' }
-	use { 'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
-	use { 'famiu/feline.nvim', requires = 'kyazdani42/nvim-web-devicons' }
-	use 'lukas-reineke/indent-blankline.nvim'
-	use 'navarasu/onedark.nvim'
-end)
-
-require'gitsigns'.setup()
-
-vim.api.nvim_set_keymap('n', '<S-e>', ':Telescope<CR>', { noremap = true, silent = true })
-require'telescope'.setup{}
-
-vim.api.nvim_set_keymap('n', '<C-e>', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
-require'nvim-tree'.setup{}
-
-require'bufferline'.setup{
-	options = {
-		numbers = 'buffer_id',
-		diagnostics = 'nvim_lsp',
-		offsets = {
-			{
-				filetype = 'NvimTree',
-				text = 'File Explorer',
-				highlight = 'Directory',
-				text_align = 'left'
-			}
-		},
-	}
-}
-
-require'feline'.setup()
-
-require'indent_blankline'.setup {
-	buftype_exclude = { 'terminal' },
-	--show_current_context = true
-}
-
-vim.g.onedark_transparent_background = true
-require'onedark'.setup()
-
-require'nvim-treesitter.configs'.setup {
-	ensure_installed = {
-		"bash",
-		"c",
-		"cmake",
-		"comment",
-		"cpp",
-		"css",
-		"dockerfile",
-		"fish",
-		"go",
-		"gomod",
-		"graphql",
-		"html",
-		"java",
-		"javascript",
-		"json",
-		"kotlin",
-		"lua",
-		"nix",
-		"python",
-		"regex",
-		"rust",
-		"toml",
-		"tsx",
-		"typescript",
-		"vim",
-		"yaml",
-	},
-	highlight = {
-		enable = true,
-		additional_vim_regex_highlighting = false,
-	},
-}
-
 local nvim_lsp = require'lspconfig'
 local lsp_configs = require'lspconfig/configs'
 
@@ -156,6 +59,8 @@ local servers = {
 	'dockerls',
 	'gopls',
 	'golangcils',
+	'sqlls',
+	'prismals',
 	'html',
 	'jsonls',
 	'pyright',
@@ -174,8 +79,9 @@ for _, lsp in ipairs(servers) do
 	}
 end
 
--- Set completeopt to have a better completion experience
-vim.o.completeopt = 'menuone,noselect'
+nvim_lsp.sqlls.setup {
+	cmd = { "sql-language-server", "up", "--method", "stdio" };
+}
 
 -- luasnip setup
 local luasnip = require'luasnip'
@@ -207,7 +113,7 @@ cmp.setup {
 			else
 				fallback()
 			end
-    	end,
+		end,
 		['<S-Tab>'] = function(fallback)
 			if vim.fn.pumvisible() == 1 then
 				vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<C-p>', true, true, true), 'n')
