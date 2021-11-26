@@ -44,6 +44,9 @@ call plug#begin()
 	Plug 'andymass/vim-matchup'
 	Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 
+	" Markdown preview
+	Plug 'ellisonleao/glow.nvim'
+
 	" git
 	Plug 'tpope/vim-fugitive'
 	Plug 'nvim-lua/plenary.nvim' " gitsigns depends on this
@@ -92,6 +95,10 @@ lua require'nvim-autopairs'.setup{}
 lua require 'treesitter_cfg'
 
 nnoremap <silent> <C-b> :Telescope buffers<cr>
+
+" Glow
+let g:glow_border = "rounded"
+nnoremap <silent> <leader>p :Glow<cr>
 
 " Git
 lua require 'gitsigns_cfg'
