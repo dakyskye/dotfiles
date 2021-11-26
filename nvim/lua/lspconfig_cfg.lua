@@ -88,6 +88,8 @@ local luasnip = require'luasnip'
 
 -- nvim-cmp setup
 local cmp = require'cmp'
+local lspkind = require('lspkind')
+
 cmp.setup {
 	snippet = {
 		expand = function(args)
@@ -128,4 +130,7 @@ cmp.setup {
 		{ name = 'nvim_lsp' },
 		{ name = 'luasnip' },
 	},
+	formatting = {
+		format = lspkind.cmp_format({with_text = true, maxwidth = 50}),
+	}
 }

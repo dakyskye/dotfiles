@@ -34,7 +34,11 @@ call plug#begin()
 	Plug 'nvim-telescope/telescope.nvim'
 
 	" IDE
+	" Portability
 	Plug 'editorconfig/editorconfig-vim'
+
+	" Pairing
+	Plug 'windwp/nvim-autopairs'
 
 	" Syntax highlighting
 	Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
@@ -54,6 +58,7 @@ call plug#begin()
 	Plug 'L3MON4D3/LuaSnip'
 	Plug 'saadparwaiz1/cmp_luasnip'
 	Plug 'ray-x/lsp_signature.nvim'
+	Plug 'onsails/lspkind-nvim'
 call plug#end()
 
 
@@ -80,6 +85,8 @@ lua require 'telescope_cfg'
 nnoremap <silent> <S-e> :Telescope<cr>
 
 " IDE
+" Pairing
+lua require'nvim-autopairs'.setup{}
 " Tree-sitter
 lua require 'treesitter_cfg'
 
