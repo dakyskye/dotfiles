@@ -51,6 +51,7 @@ call plug#begin()
 	Plug 'ellisonleao/glow.nvim'
 
 	" git
+	Plug 'kdheepak/lazygit.nvim'
 	Plug 'tpope/vim-fugitive'
 	Plug 'nvim-lua/plenary.nvim' " gitsigns depends on this
 	Plug 'lewis6991/gitsigns.nvim'
@@ -108,6 +109,8 @@ let g:glow_border = "rounded"
 nnoremap <silent> <leader>p :Glow<cr>
 
 " Git
+nnoremap <silent> <leader>gg :LazyGit<cr>
+
 lua require 'gitsigns_cfg'
 
 " LSP & Completions
