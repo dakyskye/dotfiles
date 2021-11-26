@@ -43,6 +43,7 @@ call plug#begin()
 	" Syntax highlighting & colours
 	Plug 'andymass/vim-matchup'
 	Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+	Plug 'norcalli/nvim-colorizer.lua'
 
 	" Markdown preview
 	Plug 'ellisonleao/glow.nvim'
@@ -93,6 +94,8 @@ nnoremap <silent> <S-e> :Telescope<cr>
 lua require'nvim-autopairs'.setup{}
 " Tree-sitter
 lua require 'treesitter_cfg'
+" Colorizer
+lua require'colorizer'.setup()
 
 nnoremap <silent> <C-b> :Telescope buffers<cr>
 
