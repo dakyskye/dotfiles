@@ -1,5 +1,5 @@
 local nvim_lsp = require'lspconfig'
-local lsp_configs = require'lspconfig/configs'
+local lsp_configs = require'lspconfig.configs'
 
 -- nvim-cmp capabilities
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -38,8 +38,8 @@ local on_attach = function(client, bufnr)
 
 end
 
-if not nvim_lsp.golangcils then
-	lsp_configs.golangcils = {
+if not lsp_configs['golangcils'] then
+	lsp_configs['golangcils'] = {
 		default_config = {
 			cmd = { 'golangci-lint-langserver' },
 			root_dir = nvim_lsp.util.root_pattern('.git', 'go.mod'),
