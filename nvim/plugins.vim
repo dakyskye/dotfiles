@@ -44,6 +44,8 @@ call plug#begin()
 	Plug 'andymass/vim-matchup'
 	Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 	Plug 'norcalli/nvim-colorizer.lua'
+	Plug 'nvim-lua/plenary.nvim' " todo-comments depend on this
+	Plug 'folke/todo-comments.nvim'
 
 	" Markdown preview
 	Plug 'ellisonleao/glow.nvim'
@@ -96,6 +98,8 @@ lua require'nvim-autopairs'.setup{}
 lua require 'treesitter_cfg'
 " Colorizer
 lua require'colorizer'.setup()
+" Comment highlighter
+lua require'todo-comments'.setup()
 
 nnoremap <silent> <C-b> :Telescope buffers<cr>
 
