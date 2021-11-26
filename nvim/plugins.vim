@@ -40,7 +40,8 @@ call plug#begin()
 	" Pairing
 	Plug 'windwp/nvim-autopairs'
 
-	" Syntax highlighting
+	" Syntax highlighting & colours
+	Plug 'andymass/vim-matchup'
 	Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 
 	" git
