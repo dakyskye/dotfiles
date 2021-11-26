@@ -24,6 +24,9 @@ call plug#begin()
 	Plug 'kyazdani42/nvim-web-devicons' " nvim-tree depends on this
 	Plug 'kyazdani42/nvim-tree.lua'
 
+	" Terminal
+	Plug 'akinsho/toggleterm.nvim'
+
 	" Keybinding helper
 	Plug 'folke/which-key.nvim'
 
@@ -50,7 +53,7 @@ call plug#begin()
 	" Markdown preview
 	Plug 'ellisonleao/glow.nvim'
 
-	" git
+	" Git
 	Plug 'kdheepak/lazygit.nvim'
 	Plug 'tpope/vim-fugitive'
 	Plug 'nvim-lua/plenary.nvim' " gitsigns depends on this
@@ -70,7 +73,6 @@ call plug#begin()
 call plug#end()
 
 
-
 " UI
 " one dark
 colorscheme one
@@ -84,6 +86,9 @@ let g:airline_theme = 'one'
 " Nvim-tree
 lua require'nvim-tree'.setup{}
 nnoremap <silent> <C-e> :NvimTreeToggle<cr>
+
+" Toggleterm
+lua require 'toggleterm_cfg'
 
 " Which-key
 lua require'which-key'.setup{}
