@@ -33,6 +33,9 @@ call plug#begin()
 	" Quickly comment/uncomment code
 	Plug 'tpope/vim-commentary'
 
+	" Quickly jump and navigate
+	Plug 'ggandor/lightspeed.nvim'
+
 	Plug 'nvim-lua/plenary.nvim' " telescope depends on this
 	Plug 'nvim-telescope/telescope.nvim'
 
