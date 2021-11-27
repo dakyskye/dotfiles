@@ -62,7 +62,8 @@ call plug#begin()
 	Plug 'nvim-lua/plenary.nvim' " gitsigns depends on this
 	Plug 'lewis6991/gitsigns.nvim'
 
-	" LSP & Completion
+	" LSP, Completion, and formatting
+	Plug 'mhartington/formatter.nvim'
 	Plug 'neovim/nvim-lspconfig'
 	Plug 'hrsh7th/cmp-nvim-lsp'
 	Plug 'hrsh7th/cmp-buffer'
@@ -124,5 +125,11 @@ lua require 'gitsigns_cfg'
 " LSP & Completions
 set completeopt=menu,menuone,noselect
 
+lua require'formatter_cfg'
 lua require 'lspconfig_cfg'
 lua require 'lsp_signature'.setup()
+
+augroup FormatAug
+	autocmd!
+	autocmd BufWritePost *.go,*.py FormatWrite
+augroup END
