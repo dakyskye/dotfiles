@@ -19,6 +19,12 @@ call plug#begin()
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
 
+	" Limelight
+	Plug 'junegunn/limelight.vim'
+
+	" Buffer maximiser
+	Plug 'szw/vim-maximizer'
+
 	" Utilities
 	" File explorer
 	Plug 'kyazdani42/nvim-web-devicons' " nvim-tree depends on this
@@ -81,10 +87,14 @@ call plug#end()
 " one dark
 colorscheme one
 set background=dark
+
 " airline
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'one'
 
+" Limelight & Maximiser
+nnoremap <silent><leader>bl :Limelight!!<cr>
+nnoremap <silent><leader>bm :MaximizerToggle<cr>
 
 " Utilities
 " Nvim-tree
