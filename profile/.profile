@@ -8,4 +8,4 @@ PYTHONSCRIPTS="$(python3 -m site --user-base)"
 
 export PATH="$PATH:$GOPATH/bin:$PYTHONSCRIPTS/bin"
 
-export FZF_DEFAULT_COMMAND="ag --hidden --ignore .git -U -g ''"
+export FZF_DEFAULT_COMMAND="rg --files --no-ignore-vcs --hidden -g '!.git/'"
