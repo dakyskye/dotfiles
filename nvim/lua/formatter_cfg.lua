@@ -18,5 +18,14 @@ require'formatter'.setup {
 				}
 			end
 		},
+		sql = {
+			function()
+				return {
+					exe = "sql-formatter",
+					args = { '--lines-between-queries 2' },
+					stdin = true,
+				}
+			end
+		},
 	}
 }

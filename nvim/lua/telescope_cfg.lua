@@ -7,5 +7,6 @@ require'telescope'.setup{
 				["<esc>"] = actions.close,
 			},
 		},
+		file_ignore_patterns = { ".git/" }
 	},
 }

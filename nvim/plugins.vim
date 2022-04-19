@@ -39,8 +39,7 @@ let g:airline_theme = 'one'
 lua require'nvim-tree'.setup{}
 
 lua require 'telescope_cfg'
-nnoremap <silent> <S-e>      <cmd>Telescope<cr>
-nnoremap <silent> <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <silent> <leader>ff <cmd>Telescope find_files hidden=true<cr>
 nnoremap <silent> <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <silent> <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <silent> <leader>fh <cmd>Telescope help_tags<cr>
