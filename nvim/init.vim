@@ -31,7 +31,7 @@ set number relativenumber
 set t_Co=256
 set termguicolors
 
-if has('g:vscode')
+if exists('g:vscode')
 	finish
 endif
 
