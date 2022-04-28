@@ -31,9 +31,5 @@ set number relativenumber
 set t_Co=256
 set termguicolors
 
-if exists('g:vscode')
-	finish
-endif
-
 source ~/.config/nvim/config.vim
 source ~/.config/nvim/plugins.vim
