@@ -13,7 +13,7 @@ alias lgh="exa -algh --color auto --group-directories-first"
 alias lt="exa -aT --color auto --group-directories-first -I .git"
 
 eval "$(thefuck --alias)"
-eval "$(oh-my-posh init zsh --config /usr/local/share/oh-my-posh/themes/velvet.omp.json)"
+eval "$(starship init zsh)"
 
 export HISTFILE=~/.zsh_history
 export HISTSIZE=10000
@@ -37,7 +37,3 @@ bindkey '^[[B' history-substring-search-down
 
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
-
-ses(){
-	tmux new-session -A -s "$1"
-}
