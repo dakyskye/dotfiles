@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+echo "sorry, exitting the script because it does not call proper command for brew casks"
+echo "this will be fixed at some point and script will become runnable"
+exit 0
+
 packages=(
 	antigen
 	bat
