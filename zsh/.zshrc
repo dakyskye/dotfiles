@@ -12,6 +12,9 @@ alias lh="exa -alh --color auto --group-directories-first"
 alias lgh="exa -algh --color auto --group-directories-first"
 alias lt="exa -aT --color auto --group-directories-first -I .git"
 
+alias cputemp="sudo powermetrics -i 1 -n 1 --samplers smc | grep '^CPU die temperature'"
+alias fanspeed="sudo powermetrics -i 1 -n 1 --samplers smc | grep ^Fan"
+
 eval "$(thefuck --alias)"
 eval "$(starship init zsh)"
 
