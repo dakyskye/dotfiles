@@ -19,7 +19,7 @@ eval "$(thefuck --alias)"
 eval "$(starship init zsh)"
 
 export HISTFILE=~/.zsh_history
-export HISTSIZE=10000
+export HISTSIZE=100000
 export SAVEHIST=$HISTSIZE
 setopt INC_APPEND_HISTORY_TIME
 
