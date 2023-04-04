@@ -1,0 +1,9 @@
+#!/bin/zsh
+
+out="$(mktemp)"
+/usr/local/bin/nvim_ostheme
+/usr/local/bin/nvim "$out"
+txt="$(cat "$out")"
+[ ! "$txt" = "" ] && cat "$out" | pbcopy
+rm -f "$out"
+exit
