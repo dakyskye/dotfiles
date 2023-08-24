@@ -29,6 +29,9 @@ set background=light
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'one'
 
+hi link @text.diff.add DiffAdd
+hi link @text.diff.delete DiffDelete
+
 lua require'nvim-autopairs'.setup{}
 lua require 'treesitter_cfg'
 
