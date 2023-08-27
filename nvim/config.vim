@@ -9,7 +9,7 @@ vnoremap > >gv
 nmap <silent> <leader>x :!open %<cr><cr>
 
 " deleted stuff, BEGONE!
-" ChatGPT generated
+" ChatGPT generated + my additions
 
 " Delete character under cursor
 nnoremap x "_x
@@ -28,6 +28,10 @@ nnoremap daw "_daw
 
 " Delete from cursor to end of line
 nnoremap D "_D
+
+" Delete visual selecion
+vnoremap d "_d
+vnoremap D "_D
 
 " Delete from cursor to end of word
 nnoremap de "_de
