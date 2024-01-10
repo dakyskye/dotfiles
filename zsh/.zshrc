@@ -12,16 +12,18 @@ alias lh="exa -alh --color auto --group-directories-first"
 alias lgh="exa -algh --color auto --group-directories-first"
 alias lt="exa -aT --color auto --group-directories-first -I .git"
 
+alias rgf="rg --files --no-ignore | rg"
+alias rgfh="rg --files --no-ignore --hidden | rg"
+
 alias cputemp="sudo powermetrics -i 1 -n 1 --samplers smc | grep '^CPU die temperature'"
 alias fanspeed="sudo powermetrics -i 1 -n 1 --samplers smc | grep ^Fan"
 
-eval "$(thefuck --alias)"
-eval "$(starship init zsh)"
 
 export HISTFILE=~/.zsh_history
 export HISTSIZE=100000
 export SAVEHIST=$HISTSIZE
 setopt INC_APPEND_HISTORY_TIME
+setopt histignorespace
 
 
 source /usr/local/share/antigen/antigen.zsh
@@ -34,9 +36,18 @@ antigen bundle jeffreytse/zsh-vi-mode
 
 antigen apply
 
+autoload -Uz compinit
+compinit
 
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
+eval "$(thefuck --alias)"
+eval "$(starship init zsh)"
 
-bindkey -M vicmd 'k' history-substring-search-up
-bindkey -M vicmd 'j' history-substring-search-down
+# Docker & Kubernetes
+source <(docker completion zsh)
+source <(kubectl completion zsh)
+source <(kompose completion zsh)
+source <(helm completion zsh)
+source <(telepresence completion zsh)
+
+alias d="docker"
+alias k="kubectl"
