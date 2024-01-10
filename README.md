@@ -2,6 +2,6 @@
 
 Welcome to the based macOS branch of my dotfiles!
 
-`./packages.sh` to install cmdline tooling I use.
+## [Or maybe if you were looking for Gentoo rice](https://github.com/dakyskye/dotfiles/tree/gentoo)
 
-You may as well checkout the [Gentoo](https://github.com/dakyskye/dotfiles/tree/gentoo) (bit dated) branch.
+![Gentoo Dotfiles](rice.png)
