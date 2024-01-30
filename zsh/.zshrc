@@ -20,10 +20,13 @@ alias fanspeed="sudo powermetrics -i 1 -n 1 --samplers smc | grep ^Fan"
 
 
 export HISTFILE=~/.zsh_history
-export HISTSIZE=100000
-export SAVEHIST=$HISTSIZE
-setopt INC_APPEND_HISTORY_TIME
-setopt histignorespace
+export HISTSIZE=500000
+export SAVEHIST=1000000
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_VERIFY
+setopt SHARE_HISTORY
 
 
 source /usr/local/share/antigen/antigen.zsh
@@ -36,11 +39,17 @@ antigen bundle jeffreytse/zsh-vi-mode
 
 antigen apply
 
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=1
+
 autoload -Uz compinit
 compinit
 
 eval "$(thefuck --alias)"
 eval "$(starship init zsh)"
+
+source "$HOME/.acme.sh/acme.sh.env"
 
 # Docker & Kubernetes
 source <(docker completion zsh)
@@ -51,3 +60,9 @@ source <(telepresence completion zsh)
 
 alias d="docker"
 alias k="kubectl"
+
+# Orbital specific
+orbdockerbuild() {
+	docker build --build-arg BUILD="$(git describe --always --tags --dirty)" "$@"
+}
+
