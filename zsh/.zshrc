@@ -68,7 +68,17 @@ alias d="docker"
 alias k="kubectl"
 
 # Orbital specific
+orbdockerregistry="orbitalmonstrosity:5000"
+
 orbdockerbuild() {
-	docker build --build-arg BUILD="$(git describe --always --tags --dirty)" "$@"
+	docker buildx build --builder amd64-builder --platform linux/amd64 --build-arg BUILD="$(git describe --always --tags --dirty)" --tag ${1}:latest . --load
 }
 
+orbdockerpush() {
+	docker tag ${1}:latest ${orbdockerregistry}/${1}:latest
+	docker push ${orbdockerregistry}/${1}:latest
+}
+
+orbdockerbuildnpush() {
+	orbdockerbuild $1 && orbdockerpush $1
+}
