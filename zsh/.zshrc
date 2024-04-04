@@ -1,8 +1,8 @@
 source ~/.profile
 
 
-alias vim="/usr/local/bin/nvim_ostheme; nvim"
-alias nvim="/usr/local/bin/nvim_ostheme; nvim"
+alias vim="$SCRIPTS/nvim_ostheme; nvim"
+alias nvim="$SCRIPTS/nvim_ostheme; nvim"
 
 alias ls="exa --color auto --group-directories-first"
 alias la="exa -a --color auto --group-directories-first"
@@ -29,7 +29,8 @@ setopt HIST_VERIFY
 setopt SHARE_HISTORY
 
 
-source /usr/local/share/antigen/antigen.zsh
+source /opt/homebrew/share/antigen/antigen.zsh
+
 
 antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-autosuggestions
@@ -42,6 +43,9 @@ antigen apply
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=1
+
+
+FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
 autoload -Uz compinit
 compinit
