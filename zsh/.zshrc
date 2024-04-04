@@ -52,15 +52,17 @@ compinit
 
 eval "$(thefuck --alias)"
 eval "$(starship init zsh)"
+eval "$(gh completion -s zsh)"
+eval "$(logcli --completion-script-zsh)"
 
 source "$HOME/.acme.sh/acme.sh.env"
 
 # Docker & Kubernetes
 source <(docker completion zsh)
 source <(kubectl completion zsh)
-source <(kompose completion zsh)
-source <(helm completion zsh)
-source <(telepresence completion zsh)
+#source <(kompose completion zsh)
+#source <(helm completion zsh)
+#source <(telepresence completion zsh)
 
 alias d="docker"
 alias k="kubectl"
