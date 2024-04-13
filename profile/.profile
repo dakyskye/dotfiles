@@ -6,10 +6,11 @@ export GOPATH="$HOME/go"
 export SCRIPTS="$HOME/.scripts"
 
 CARGOPATH="$HOME/.cargo"
-PYTHONSCRIPTS="$(python3 -m site --user-base)"
+#PYTHONSCRIPTS="$(python3 -m site --user-base)"
+PIPXANDMORE="$HOME/.local"
 
-export PATH="$GOPATH/bin:$CARGOPATH/bin:$PYTHONSCRIPTS/bin:$SCRIPTS:$PATH"
+export PATH="$GOPATH/bin:$CARGOPATH/bin:$PIPXANDMORE/bin:$SCRIPTS:$PATH"
 
 export FZF_DEFAULT_COMMAND="rg --files --no-ignore-vcs --hidden -g '!.git/'"
 
-eval $(/opt/homebrew/bin/brew shellenv)
+eval "$(/opt/homebrew/bin/brew shellenv)"
