@@ -72,7 +72,20 @@ alias k="kubectl"
 orbdockerregistry="orbitalmonstrosity:5000"
 
 orbdockerbuild() {
-	docker buildx build --builder amd64-builder --platform linux/amd64 --build-arg BUILD="$(git describe --always --tags --dirty)" --tag ${1}:latest . --load
+	case "$2" in
+		debug)
+			echo "building for local debugging purposes using delve"
+			docker build --build-arg BUILD="$(git describe --always --tags --dirty)" --file Dockerfile.debug --tag ${1}:latest .
+			;;
+		amd64)
+			echo "building for linux/amd64"
+			docker buildx build --builder amd64-builder --platform linux/amd64 --build-arg BUILD="$(git describe --always --tags --dirty)" --tag ${1}:latest . --load
+			;;
+		*)
+			echo "building for the native architecture"
+			docker build --build-arg BUILD="$(git describe --always --tags --dirty)" --tag ${1}:latest .
+			;;
+	esac
 }
 
 orbdockerpush() {
