@@ -33,3 +33,4 @@ set termguicolors
 
 source ~/.config/nvim/config.vim
 source ~/.config/nvim/plugins.vim
+
