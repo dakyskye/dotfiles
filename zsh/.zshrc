@@ -53,6 +53,7 @@ compinit
 eval "$(thefuck --alias)"
 eval "$(starship init zsh)"
 eval "$(gh completion -s zsh)"
+eval "$(gh copilot alias -- zsh)"
 eval "$(logcli --completion-script-zsh)"
 
 source "$HOME/.acme.sh/acme.sh.env"
