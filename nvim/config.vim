@@ -1,6 +1,6 @@
 let mapleader="\<space>"
 
-map <silent> gf :edit <cfile><cr>
+map <silent> <leader>gf :edit <cfile><cr>
 
 " reselect selected region after indenting
 vnoremap < <gv
