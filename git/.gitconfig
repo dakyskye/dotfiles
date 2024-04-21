@@ -2,5 +2,11 @@
 	name = Lasha Kanteladze
 	email = kanteladzelasha339@gmail.com
 
+[log]
+	abbrevCommit = true
+
+[format]
+	pretty = oneline
+
 [includeIf "gitdir:~/Work/Orbital/"]
 	path = ~/Work/Orbital/.gitconfig
