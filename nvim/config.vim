@@ -2,6 +2,16 @@ let mapleader="\<space>"
 
 map <silent> <leader>gf :edit <cfile><cr>
 
+function! ToggleHighlight()
+    if !&hlsearch
+        set hlsearch
+    else
+        set nohlsearch
+    endif
+endfunction
+
+nnoremap <silent> <esc><esc> :call ToggleHighlight()<CR>
+
 " reselect selected region after indenting
 vnoremap < <gv
 vnoremap > >gv

@@ -31,6 +31,8 @@ set number relativenumber
 set t_Co=256
 set termguicolors
 
+autocmd BufWinEnter * silent! nohlsearch
+
 source ~/.config/nvim/config.vim
 source ~/.config/nvim/plugins.vim
 
