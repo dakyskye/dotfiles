@@ -109,6 +109,9 @@ lspconfig.pyright.setup {
 	},
   },
 }
+lspconfig.jsonls.setup {
+  capabilities = capabilities,
+}
 lspconfig.tsserver.setup {
   capabilities = capabilities
 }
