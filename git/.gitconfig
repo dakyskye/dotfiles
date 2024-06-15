@@ -1,3 +1,6 @@
+[init]
+	defaultbranch = master
+
 [user]
 	name = Lasha Kanteladze
 	email = kanteladzelasha339@gmail.com
