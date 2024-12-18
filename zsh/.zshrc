@@ -3,6 +3,7 @@ source ~/.profile
 
 alias vim="$SCRIPTS/nvim_ostheme; nvim"
 alias nvim="$SCRIPTS/nvim_ostheme; nvim"
+alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 
 alias ls="exa --color auto --group-directories-first"
 alias la="exa -a --color auto --group-directories-first"
@@ -50,15 +51,14 @@ FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 autoload -Uz compinit
 compinit
 
-eval "$(thefuck --alias)"
+#eval "$(thefuck --alias)"
 eval "$(starship init zsh)"
 eval "$(gh completion -s zsh)"
 eval "$(gh copilot alias -- zsh)"
 eval "$(logcli --completion-script-zsh)"
 
 source "$HOME/.acme.sh/acme.sh.env"
-
-# Docker & Kubernetes
+source <(temporal completion zsh)
 source <(docker completion zsh)
 source <(kubectl completion zsh)
 #source <(kompose completion zsh)
