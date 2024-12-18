@@ -11,5 +11,11 @@
 [format]
 	pretty = oneline
 
+[pull]
+	rebase = true
+
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+
 [includeIf "gitdir:~/Work/Orbital/"]
 	path = ~/Work/Orbital/.gitconfig
