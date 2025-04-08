@@ -16,6 +16,14 @@ alias lt="exa -aT --color auto --group-directories-first -I .git"
 alias rgf="rg --files --no-ignore | rg"
 alias rgfh="rg --files --no-ignore --hidden | rg"
 
+rgd() {
+	find . -maxdepth $1 ! -name ".*" | rg "${@:2}"
+}
+
+rgdh() {
+	find . -maxdepth $1 | rg "${@:2}"
+}
+
 alias cputemp="sudo powermetrics -i 1 -n 1 --samplers smc | grep '^CPU die temperature'"
 alias fanspeed="sudo powermetrics -i 1 -n 1 --samplers smc | grep ^Fan"
 
