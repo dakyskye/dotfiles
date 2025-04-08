@@ -2,7 +2,7 @@ tell application "Finder"
     set screenBounds to bounds of window of desktop
 end tell
 
-tell application "iTerm 2"
+tell application "iTerm"
     activate
     if (count of windows) is 0 then
         create window with default profile
