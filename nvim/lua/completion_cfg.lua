@@ -109,3 +109,12 @@ lspconfig.ts_ls.setup {
 lspconfig.vimls.setup {
   capabilities = capabilities
 }
+lspconfig.dockerls.setup {
+  capabilities = capabilities
+}
+lspconfig.docker_compose_language_service.setup {
+  capabilities = capabilities
+}
+lspconfig.tailwindcss.setup {
+  capabilities = capabilities
+}
