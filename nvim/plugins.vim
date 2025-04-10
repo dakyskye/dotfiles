@@ -18,6 +18,10 @@ else
 		Plug 'editorconfig/editorconfig-vim'
 		Plug 'windwp/nvim-autopairs'
 		Plug 'andymass/vim-matchup'
+		Plug 'lewis6991/gitsigns.nvim'
+		" Plug 'github/copilot.vim'
+		Plug 'nvim-tree/nvim-tree.lua'
+		Plug 'folke/which-key.nvim'
 		Plug 'nvim-treesitter/nvim-treesitter'
 		" those are telescope.nvim dependencies
 		Plug 'nvim-lua/plenary.nvim'
@@ -34,19 +38,13 @@ else
 		Plug 'hrsh7th/nvim-cmp'
 		Plug 'hrsh7th/cmp-vsnip'
 		Plug 'hrsh7th/vim-vsnip'
-		" auto completion
-		Plug 'lewis6991/gitsigns.nvim'
-		" Plug 'github/copilot.vim'
-		Plug 'nvim-tree/nvim-tree.lua'
-		Plug 'folke/which-key.nvim'
+
+		Plug 'ray-x/lsp_signature.nvim'
 	call plug#end()
 endif
 
 colorscheme one
 set background=light
-
-let g:airline_powerline_fonts = 1
-let g:airline_theme = 'one'
 
 hi link @text.diff.add DiffAdd
 hi link @text.diff.delete DiffDelete
@@ -56,6 +54,7 @@ lua require 'treesitter_cfg'
 lua require 'telescope_cfg'
 lua require 'lsp_cfg'
 lua require 'completion_cfg'
+lua require'lsp_signature'.setup{}
 lua require 'gitsigns_cfg'
 lua require 'nvim-tree_cfg'
 lua require 'which-key_cfg'
