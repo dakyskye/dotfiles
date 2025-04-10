@@ -67,12 +67,13 @@ local lspconfig = require('lspconfig')
 lspconfig.bashls.setup {
   capabilities = capabilities
 }
--- lspconfig.golangci_lint_ls.setup {
---   capabilities = capabilities,
---   init_options = {
---     command = { "golangci-lint", "run", "--out-format", "json", "--issues-exit-code=1", "--config", os.getenv("HOME") .. "/.golangci.yaml" };
---   }
--- }
+lspconfig.golangci_lint_ls.setup {
+  capabilities = capabilities,
+  init_options = {
+    --command = { "golangci-lint", "run", "--out-format", "json", "--issues-exit-code=1", "--config", os.getenv("HOME") .. "/.golangci.yaml" };
+    command = { "golangci-lint", "run", "--out-format", "json", "--issues-exit-code=1" };
+  }
+}
 lspconfig.gopls.setup {
   capabilities = capabilities
 }
@@ -85,14 +86,6 @@ lspconfig.lua_ls.setup {
       },
     },
   },
-}
-lspconfig.ruff_lsp.setup {
-  capabilities = capabilities,
-  on_attach = function (client, bufnr)
-    if client.name == 'ruff_lsp' then
-      client.server_capabilities.hoverProvider = false
-    end
-  end
 }
 lspconfig.pyright.setup {
   capabilities = capabilities,
@@ -110,7 +103,7 @@ lspconfig.pyright.setup {
 lspconfig.jsonls.setup {
   capabilities = capabilities,
 }
-lspconfig.tsserver.setup {
+lspconfig.ts_ls.setup {
   capabilities = capabilities
 }
 lspconfig.vimls.setup {
