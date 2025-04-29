@@ -56,7 +56,7 @@
                                 "type": "basic"
                             },
                             {
-                                "description": "caps_lock + G opens GitLab",
+                                "description": "caps_lock + G opens GitHub",
                                 "from": {
                                     "key_code": "g",
                                     "modifiers": {
@@ -64,7 +64,7 @@
                                         "optional": ["any"]
                                     }
                                 },
-                                "to": [{ "shell_command": "open https://gitlab.cloudhosted.io/" }],
+                                "to": [{ "shell_command": "open https://github.com/dakyskye" }],
                                 "type": "basic"
                             },
                             {
@@ -89,30 +89,6 @@
                                     }
                                 },
                                 "to": [{ "shell_command": "open https://youtube.com/" }],
-                                "type": "basic"
-                            },
-                            {
-                                "description": "caps_lock + M opens Google Meet",
-                                "from": {
-                                    "key_code": "m",
-                                    "modifiers": {
-                                        "mandatory": ["left_command", "left_control", "left_option", "left_shift"],
-                                        "optional": ["any"]
-                                    }
-                                },
-                                "to": [{ "shell_command": "open https://meet.google.com/landing?authuser=1" }],
-                                "type": "basic"
-                            },
-                            {
-                                "description": "caps_lock + O opens OpenProject",
-                                "from": {
-                                    "key_code": "o",
-                                    "modifiers": {
-                                        "mandatory": ["left_command", "left_control", "left_option", "left_shift"],
-                                        "optional": ["any"]
-                                    }
-                                },
-                                "to": [{ "shell_command": "open https://openproject.cloudhosted.io/" }],
                                 "type": "basic"
                             },
                             {
@@ -152,40 +128,57 @@
                                 "type": "basic"
                             },
                             {
-                                "description": "fn + g opens Jiffy",
+                                "description": "caps_lock + N opens Notes",
                                 "from": {
-                                    "key_code": "g",
+                                    "key_code": "n",
                                     "modifiers": {
-                                        "mandatory": ["fn"],
+                                        "mandatory": ["left_command", "left_control", "left_option", "left_shift"],
                                         "optional": ["any"]
                                     }
                                 },
-                                "to": [{ "shell_command": "open -a 'Jiffy'" }],
+                                "to": [{ "shell_command": "open -a 'Notes'" }],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "caps_lock + M opens Messages",
+                                "from": {
+                                    "key_code": "m",
+                                    "modifiers": {
+                                        "mandatory": ["left_command", "left_control", "left_option", "left_shift"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [{ "shell_command": "open -a 'Messages'" }],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "caps_lock + L opens Launchpad",
+                                "from": {
+                                    "key_code": "l",
+                                    "modifiers": {
+                                        "mandatory": ["left_command", "left_control", "left_option", "left_shift"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [{ "shell_command": "open -a 'Launchpad'" }],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "caps_lock + V opens ProtonVPN",
+                                "from": {
+                                    "key_code": "v",
+                                    "modifiers": {
+                                        "mandatory": ["left_command", "left_control", "left_option", "left_shift"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [{ "shell_command": "open -a 'ProtonVPN'" }],
                                 "type": "basic"
                             }
                         ]
                     }
                 ]
             },
-            "devices": [
-                {
-                    "identifiers": {
-                        "is_keyboard": true,
-                        "product_id": 835,
-                        "vendor_id": 1452
-                    },
-                    "simple_modifications": [
-                        {
-                            "from": { "key_code": "grave_accent_and_tilde" },
-                            "to": [{ "key_code": "left_shift" }]
-                        },
-                        {
-                            "from": { "key_code": "non_us_backslash" },
-                            "to": [{ "key_code": "grave_accent_and_tilde" }]
-                        }
-                    ]
-                }
-            ],
             "name": "daky",
             "selected": true,
             "virtual_hid_keyboard": {
