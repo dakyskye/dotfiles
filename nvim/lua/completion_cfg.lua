@@ -62,23 +62,12 @@ cmp.setup.cmdline(':', {
 
 -- Set up lspconfig.
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
-local lspconfig = require('lspconfig')
--- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-lspconfig.bashls.setup {
-  capabilities = capabilities
-}
-lspconfig.golangci_lint_ls.setup {
-  capabilities = capabilities,
-  init_options = {
-    --command = { "golangci-lint", "run", "--out-format", "json", "--issues-exit-code=1", "--config", os.getenv("HOME") .. "/.golangci.yaml" };
-    command = { "golangci-lint", "run", "--out-format", "json", "--issues-exit-code=1" };
-  }
-}
-lspconfig.gopls.setup {
-  capabilities = capabilities
-}
-lspconfig.lua_ls.setup {
-  capabilities = capabilities,
+
+vim.lsp.config("*", {
+	capabilities = capabilities
+})
+
+vim.lsp.config("lua_ls", {
   settings = {
     Lua = {
       diagnostics = {
@@ -86,35 +75,14 @@ lspconfig.lua_ls.setup {
       },
     },
   },
-}
-lspconfig.pyright.setup {
-  capabilities = capabilities,
+})
+
+vim.lsp.config("pyright", {
   settings = {
     pyright = {
       disableOrganizeImports = true,
 	},
-    python = {
-      analysis = {
-        ignore = { "*" },
-      },
-	},
   },
-}
-lspconfig.jsonls.setup {
-  capabilities = capabilities,
-}
-lspconfig.ts_ls.setup {
-  capabilities = capabilities
-}
-lspconfig.vimls.setup {
-  capabilities = capabilities
-}
-lspconfig.dockerls.setup {
-  capabilities = capabilities
-}
-lspconfig.docker_compose_language_service.setup {
-  capabilities = capabilities
-}
-lspconfig.tailwindcss.setup {
-  capabilities = capabilities
-}
+})
+
+vim.lsp.enable({"bashls", "golangci_lint_ls", "gopls", "lua_ls", "pyright", "jsonls", "ts_ls", "vimls", "dockerls", "docker_compose_language_service", "tailwindcss"})
