@@ -20,9 +20,111 @@
                                 "type": "basic"
                             },
                             {
-                                "description": "caps_lock + F opens Finder",
+                                "description": "caps_lock + C centres a window",
+                                "from": {
+                                    "key_code": "c",
+                                    "modifiers": {
+                                        "mandatory": ["left_command", "left_control", "left_option", "left_shift"],
+                                        "optional": ["any"]
+									}
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "c",
+                                        "modifiers": ["left_control", "fn"]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "caps_lock + F fullscreens (not actual) a window",
                                 "from": {
                                     "key_code": "f",
+                                    "modifiers": {
+                                        "mandatory": ["left_command", "left_control", "left_option", "left_shift"],
+                                        "optional": ["any"]
+									}
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "f",
+                                        "modifiers": ["left_control", "fn"]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "caps_lock + h moves a window to left half",
+                                "from": {
+                                    "key_code": "h",
+                                    "modifiers": {
+                                        "mandatory": ["left_command", "left_control", "left_option", "left_shift"],
+                                        "optional": ["any"]
+									}
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_arrow",
+                                        "modifiers": ["left_control", "fn"]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "caps_lock + l moves a window to right half",
+                                "from": {
+                                    "key_code": "l",
+                                    "modifiers": {
+                                        "mandatory": ["left_command", "left_control", "left_option", "left_shift"],
+                                        "optional": ["any"]
+									}
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "right_arrow",
+                                        "modifiers": ["left_control", "fn"]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "caps_lock + j moves a window to bottom half",
+                                "from": {
+                                    "key_code": "j",
+                                    "modifiers": {
+                                        "mandatory": ["left_command", "left_control", "left_option", "left_shift"],
+                                        "optional": ["any"]
+									}
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "down_arrow",
+                                        "modifiers": ["left_control", "fn"]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "caps_lock + k moves a window to top half",
+                                "from": {
+                                    "key_code": "k",
+                                    "modifiers": {
+                                        "mandatory": ["left_command", "left_control", "left_option", "left_shift"],
+                                        "optional": ["any"]
+									}
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "up_arrow",
+                                        "modifiers": ["left_control", "fn"]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "caps_lock + E opens Finder (shame, Windows style)",
+                                "from": {
+                                    "key_code": "e",
                                     "modifiers": {
                                         "mandatory": ["left_command", "left_control", "left_option", "left_shift"],
                                         "optional": ["any"]
@@ -149,18 +251,6 @@
                                     }
                                 },
                                 "to": [{ "shell_command": "open -a 'Messages'" }],
-                                "type": "basic"
-                            },
-                            {
-                                "description": "caps_lock + L opens Launchpad",
-                                "from": {
-                                    "key_code": "l",
-                                    "modifiers": {
-                                        "mandatory": ["left_command", "left_control", "left_option", "left_shift"],
-                                        "optional": ["any"]
-                                    }
-                                },
-                                "to": [{ "shell_command": "open -a 'Launchpad'" }],
                                 "type": "basic"
                             },
                             {
