@@ -1,279 +1,152 @@
 {
     "profiles": [
         {
-            "complex_modifications": {
-                "rules": [
-                    {
-                        "manipulators": [
-                            {
-                                "description": "Change caps_lock to command+control+option+shift.",
-                                "from": {
-                                    "key_code": "caps_lock",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "left_shift",
-                                        "modifiers": ["left_command", "left_control", "left_option"]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "description": "caps_lock + C centres a window",
-                                "from": {
-                                    "key_code": "c",
-                                    "modifiers": {
-                                        "mandatory": ["left_command", "left_control", "left_option", "left_shift"],
-                                        "optional": ["any"]
-									}
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "c",
-                                        "modifiers": ["left_control", "fn"]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "description": "caps_lock + F fullscreens (not actual) a window",
-                                "from": {
-                                    "key_code": "f",
-                                    "modifiers": {
-                                        "mandatory": ["left_command", "left_control", "left_option", "left_shift"],
-                                        "optional": ["any"]
-									}
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "f",
-                                        "modifiers": ["left_control", "fn"]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "description": "caps_lock + h moves a window to left half",
-                                "from": {
-                                    "key_code": "h",
-                                    "modifiers": {
-                                        "mandatory": ["left_command", "left_control", "left_option", "left_shift"],
-                                        "optional": ["any"]
-									}
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "left_arrow",
-                                        "modifiers": ["left_control", "fn"]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "description": "caps_lock + l moves a window to right half",
-                                "from": {
-                                    "key_code": "l",
-                                    "modifiers": {
-                                        "mandatory": ["left_command", "left_control", "left_option", "left_shift"],
-                                        "optional": ["any"]
-									}
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "right_arrow",
-                                        "modifiers": ["left_control", "fn"]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "description": "caps_lock + j moves a window to bottom half",
-                                "from": {
-                                    "key_code": "j",
-                                    "modifiers": {
-                                        "mandatory": ["left_command", "left_control", "left_option", "left_shift"],
-                                        "optional": ["any"]
-									}
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "down_arrow",
-                                        "modifiers": ["left_control", "fn"]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "description": "caps_lock + k moves a window to top half",
-                                "from": {
-                                    "key_code": "k",
-                                    "modifiers": {
-                                        "mandatory": ["left_command", "left_control", "left_option", "left_shift"],
-                                        "optional": ["any"]
-									}
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "up_arrow",
-                                        "modifiers": ["left_control", "fn"]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "description": "caps_lock + E opens Finder (shame, Windows style)",
-                                "from": {
-                                    "key_code": "e",
-                                    "modifiers": {
-                                        "mandatory": ["left_command", "left_control", "left_option", "left_shift"],
-                                        "optional": ["any"]
-                                    }
-                                },
-                                "to": [{ "shell_command": "open -a 'Finder'" }],
-                                "type": "basic"
-                            },
-                            {
-                                "description": "caps_lock + P opens System Settings (Preferences)",
-                                "from": {
-                                    "key_code": "p",
-                                    "modifiers": {
-                                        "mandatory": ["left_command", "left_control", "left_option", "left_shift"],
-                                        "optional": ["any"]
-                                    }
-                                },
-                                "to": [{ "shell_command": "open -a 'System Settings'" }],
-                                "type": "basic"
-                            },
-                            {
-                                "description": "caps_lock + W opens Web Brwoser",
-                                "from": {
-                                    "key_code": "w",
-                                    "modifiers": {
-                                        "mandatory": ["left_command", "left_control", "left_option", "left_shift"],
-                                        "optional": ["any"]
-                                    }
-                                },
-                                "to": [{ "shell_command": "open -a 'Safari'" }],
-                                "type": "basic"
-                            },
-                            {
-                                "description": "caps_lock + G opens GitHub",
-                                "from": {
-                                    "key_code": "g",
-                                    "modifiers": {
-                                        "mandatory": ["left_command", "left_control", "left_option", "left_shift"],
-                                        "optional": ["any"]
-                                    }
-                                },
-                                "to": [{ "shell_command": "open https://github.com/dakyskye" }],
-                                "type": "basic"
-                            },
-                            {
-                                "description": "caps_lock + C opens ChatGPT",
-                                "from": {
-                                    "key_code": "c",
-                                    "modifiers": {
-                                        "mandatory": ["left_command", "left_control", "left_option", "left_shift"],
-                                        "optional": ["any"]
-                                    }
-                                },
-                                "to": [{ "shell_command": "open -a 'ChatGPT'" }],
-                                "type": "basic"
-                            },
-                            {
-                                "description": "caps_lock + Y opens YouTube",
-                                "from": {
-                                    "key_code": "y",
-                                    "modifiers": {
-                                        "mandatory": ["left_command", "left_control", "left_option", "left_shift"],
-                                        "optional": ["any"]
-                                    }
-                                },
-                                "to": [{ "shell_command": "open https://youtube.com/" }],
-                                "type": "basic"
-                            },
-                            {
-                                "description": "caps_lock + T opens iTerm2",
-                                "from": {
-                                    "key_code": "t",
-                                    "modifiers": {
-                                        "mandatory": ["left_command", "left_control", "left_option", "left_shift"],
-                                        "optional": ["any"]
-                                    }
-                                },
-                                "to": [{ "shell_command": "osascript /Users/dakyskye/.scripts/iTerm2Centered.applescript" }],
-                                "type": "basic"
-                            },
-                            {
-                                "description": "caps_lock + d opens OrbStack",
-                                "from": {
-                                    "key_code": "d",
-                                    "modifiers": {
-                                        "mandatory": ["left_command", "left_control", "left_option", "left_shift"],
-                                        "optional": ["any"]
-                                    }
-                                },
-                                "to": [{ "shell_command": "open -a 'OrbStack'" }],
-                                "type": "basic"
-                            },
-                            {
-                                "description": "caps_lock + S opens Spotify",
-                                "from": {
-                                    "key_code": "s",
-                                    "modifiers": {
-                                        "mandatory": ["left_command", "left_control", "left_option", "left_shift"],
-                                        "optional": ["any"]
-                                    }
-                                },
-                                "to": [{ "shell_command": "open -a 'Spotify'" }],
-                                "type": "basic"
-                            },
-                            {
-                                "description": "caps_lock + N opens Notes",
-                                "from": {
-                                    "key_code": "n",
-                                    "modifiers": {
-                                        "mandatory": ["left_command", "left_control", "left_option", "left_shift"],
-                                        "optional": ["any"]
-                                    }
-                                },
-                                "to": [{ "shell_command": "open -a 'Notes'" }],
-                                "type": "basic"
-                            },
-                            {
-                                "description": "caps_lock + M opens Messages",
-                                "from": {
-                                    "key_code": "m",
-                                    "modifiers": {
-                                        "mandatory": ["left_command", "left_control", "left_option", "left_shift"],
-                                        "optional": ["any"]
-                                    }
-                                },
-                                "to": [{ "shell_command": "open -a 'Messages'" }],
-                                "type": "basic"
-                            },
-                            {
-                                "description": "caps_lock + V opens ProtonVPN",
-                                "from": {
-                                    "key_code": "v",
-                                    "modifiers": {
-                                        "mandatory": ["left_command", "left_control", "left_option", "left_shift"],
-                                        "optional": ["any"]
-                                    }
-                                },
-                                "to": [{ "shell_command": "open -a 'ProtonVPN'" }],
-                                "type": "basic"
-                            }
-                        ]
-                    }
-                ]
-            },
             "name": "daky",
             "selected": true,
             "virtual_hid_keyboard": {
                 "country_code": 0,
                 "keyboard_type_v2": "ansi"
+            },
+            "complex_modifications": {
+                "rules": [
+                    {
+                        "description": "Caps Lock Hyper Layer (variable-based)",
+                        "manipulators": [
+                            {
+                                "description": "Caps Lock = Hyper (hold)",
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "caps_lock",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [{ "set_variable": { "name": "hyper", "value": 1 } }],
+                                "to_after_key_up": [{ "set_variable": { "name": "hyper", "value": 0 } }]
+                            },
+
+                            {
+                                "description": "Caps+F → F17 (macOS Fill)",
+                                "type": "basic",
+                                "conditions": [{ "type": "variable_if", "name": "hyper", "value": 1 }],
+                                "from": { "key_code": "f", "modifiers": { "optional": ["any"] } },
+                                "to": [{ "key_code": "f17" }]
+                            },
+                            {
+                                "description": "Caps+C → F18 (macOS Centre)",
+                                "type": "basic",
+                                "conditions": [{ "type": "variable_if", "name": "hyper", "value": 1 }],
+                                "from": { "key_code": "c", "modifiers": { "optional": ["any"] } },
+                                "to": [{ "key_code": "f18" }]
+                            },
+
+                            {
+                                "description": "Caps+H moves a window to left half (ctrl+fn+left)",
+                                "type": "basic",
+                                "conditions": [{ "type": "variable_if", "name": "hyper", "value": 1 }],
+                                "from": { "key_code": "h", "modifiers": { "optional": ["any"] } },
+                                "to": [{ "key_code": "left_arrow", "modifiers": ["left_control", "fn"] }]
+                            },
+                            {
+                                "description": "Caps+L moves a window to right half (ctrl+fn+right)",
+                                "type": "basic",
+                                "conditions": [{ "type": "variable_if", "name": "hyper", "value": 1 }],
+                                "from": { "key_code": "l", "modifiers": { "optional": ["any"] } },
+                                "to": [{ "key_code": "right_arrow", "modifiers": ["left_control", "fn"] }]
+                            },
+                            {
+                                "description": "Caps+J moves a window to bottom half (ctrl+fn+down)",
+                                "type": "basic",
+                                "conditions": [{ "type": "variable_if", "name": "hyper", "value": 1 }],
+                                "from": { "key_code": "j", "modifiers": { "optional": ["any"] } },
+                                "to": [{ "key_code": "down_arrow", "modifiers": ["left_control", "fn"] }]
+                            },
+                            {
+                                "description": "Caps+K moves a window to top half (ctrl+fn+up)",
+                                "type": "basic",
+                                "conditions": [{ "type": "variable_if", "name": "hyper", "value": 1 }],
+                                "from": { "key_code": "k", "modifiers": { "optional": ["any"] } },
+                                "to": [{ "key_code": "up_arrow", "modifiers": ["left_control", "fn"] }]
+                            },
+
+                            {
+                                "description": "Caps+E opens Finder",
+                                "type": "basic",
+                                "conditions": [{ "type": "variable_if", "name": "hyper", "value": 1 }],
+                                "from": { "key_code": "e", "modifiers": { "optional": ["any"] } },
+                                "to": [{ "shell_command": "open -a 'Finder'" }]
+                            },
+                            {
+                                "description": "Caps+P opens System Settings",
+                                "type": "basic",
+                                "conditions": [{ "type": "variable_if", "name": "hyper", "value": 1 }],
+                                "from": { "key_code": "p", "modifiers": { "optional": ["any"] } },
+                                "to": [{ "shell_command": "open -a 'System Settings'" }]
+                            },
+                            {
+                                "description": "Caps+W opens Safari",
+                                "type": "basic",
+                                "conditions": [{ "type": "variable_if", "name": "hyper", "value": 1 }],
+                                "from": { "key_code": "w", "modifiers": { "optional": ["any"] } },
+                                "to": [{ "shell_command": "open -a 'Safari'" }]
+                            },
+                            {
+                                "description": "Caps+G opens GitHub",
+                                "type": "basic",
+                                "conditions": [{ "type": "variable_if", "name": "hyper", "value": 1 }],
+                                "from": { "key_code": "g", "modifiers": { "optional": ["any"] } },
+                                "to": [{ "shell_command": "open https://github.com/dakyskye" }]
+                            },
+                            {
+                                "description": "Caps+Y opens YouTube",
+                                "type": "basic",
+                                "conditions": [{ "type": "variable_if", "name": "hyper", "value": 1 }],
+                                "from": { "key_code": "y", "modifiers": { "optional": ["any"] } },
+                                "to": [{ "shell_command": "open https://youtube.com/" }]
+                            },
+                            {
+                                "description": "Caps+T opens iTerm2 (centered script)",
+                                "type": "basic",
+                                "conditions": [{ "type": "variable_if", "name": "hyper", "value": 1 }],
+                                "from": { "key_code": "t", "modifiers": { "optional": ["any"] } },
+                                "to": [{ "shell_command": "open -a 'iTerm'" }]
+                            },
+                            {
+                                "description": "Caps+D opens OrbStack",
+                                "type": "basic",
+                                "conditions": [{ "type": "variable_if", "name": "hyper", "value": 1 }],
+                                "from": { "key_code": "d", "modifiers": { "optional": ["any"] } },
+                                "to": [{ "shell_command": "open -a 'OrbStack'" }]
+                            },
+                            {
+                                "description": "Caps+S opens Spotify",
+                                "type": "basic",
+                                "conditions": [{ "type": "variable_if", "name": "hyper", "value": 1 }],
+                                "from": { "key_code": "s", "modifiers": { "optional": ["any"] } },
+                                "to": [{ "shell_command": "open -a 'Spotify'" }]
+                            },
+                            {
+                                "description": "Caps+N opens Notes",
+                                "type": "basic",
+                                "conditions": [{ "type": "variable_if", "name": "hyper", "value": 1 }],
+                                "from": { "key_code": "n", "modifiers": { "optional": ["any"] } },
+                                "to": [{ "shell_command": "open -a 'Notes'" }]
+                            },
+                            {
+                                "description": "Caps+M opens Messages",
+                                "type": "basic",
+                                "conditions": [{ "type": "variable_if", "name": "hyper", "value": 1 }],
+                                "from": { "key_code": "m", "modifiers": { "optional": ["any"] } },
+                                "to": [{ "shell_command": "open -a 'Messages'" }]
+                            },
+                            {
+                                "description": "Caps+V opens ProtonVPN",
+                                "type": "basic",
+                                "conditions": [{ "type": "variable_if", "name": "hyper", "value": 1 }],
+                                "from": { "key_code": "v", "modifiers": { "optional": ["any"] } },
+                                "to": [{ "shell_command": "open -a 'ProtonVPN'" }]
+                            }
+                        ]
+                    }
+                ]
             }
         }
     ]
