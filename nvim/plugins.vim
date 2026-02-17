@@ -19,6 +19,8 @@ else
 		Plug 'windwp/nvim-autopairs'
 		Plug 'andymass/vim-matchup'
 		Plug 'lewis6991/gitsigns.nvim'
+		Plug 'tpope/vim-fugitive'
+		Plug 'junegunn/gv.vim'
 		" Plug 'github/copilot.vim'
 		Plug 'nvim-tree/nvim-tree.lua'
 		Plug 'folke/which-key.nvim'
