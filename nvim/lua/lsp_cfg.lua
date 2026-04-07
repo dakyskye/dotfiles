@@ -18,9 +18,9 @@ local telescope = require('telescope.builtin')
 -- lspconfig.tsserver.setup{}
 -- lspconfig.vimls.setup{}
 
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
+vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float)
+vim.keymap.set('n', '[d', function() vim.diagnostic.jump({ count = -1 }) end)
+vim.keymap.set('n', ']d', function() vim.diagnostic.jump({ count = 1 }) end)
 vim.keymap.set('n', '<leader>q', telescope.diagnostics) -- modified to use Telescope
 
 -- Use LspAttach autocommand to only map the following keys
@@ -57,6 +57,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*.go",
   callback = function()
-    vim.lsp.buf.format({ async = true })
+    vim.lsp.buf.format({ async = false })
   end,
 })

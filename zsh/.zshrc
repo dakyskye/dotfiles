@@ -1,8 +1,7 @@
 source ~/.profile
 
 
-alias vim="$SCRIPTS/nvim_ostheme; nvim"
-alias nvim="$SCRIPTS/nvim_ostheme; nvim"
+alias vim="nvim"
 alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 
 alias ls="eza --color auto --group-directories-first"
@@ -50,9 +49,12 @@ antigen bundle jeffreytse/zsh-vi-mode
 
 antigen apply
 
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
 HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=1
+
+zvm_after_init() {
+    bindkey '^[[A' history-substring-search-up
+    bindkey '^[[B' history-substring-search-down
+}
 
 
 FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"

@@ -11,6 +11,5 @@ PIPXANDMORE="$HOME/.local"
 
 export PATH="$GOPATH/bin:$CARGOPATH/bin:$PIPXANDMORE/bin:$SCRIPTS:$PATH"
 
-export FZF_DEFAULT_COMMAND="rg --files --no-ignore-vcs --hidden -g '!.git/'"
 
 eval "$(/opt/homebrew/bin/brew shellenv)"

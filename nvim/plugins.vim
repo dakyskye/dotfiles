@@ -11,7 +11,8 @@ if exists('g:vscode')
 	finish
 else
 	call plug#begin()
-		Plug 'kdheepak/vim-one'
+		Plug 'navarasu/onedark.nvim'
+		Plug 'f-person/auto-dark-mode.nvim'
 		Plug 'nvim-lualine/lualine.nvim'
 		Plug 'tpope/vim-commentary'
 		Plug 'tpope/vim-surround'
@@ -30,7 +31,7 @@ else
 		Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 		Plug 'nvim-tree/nvim-web-devicons'
 		" those are telescope.nvim dependencies
-		Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.6' }
+		Plug 'nvim-telescope/telescope.nvim'
 		Plug 'neovim/nvim-lspconfig'
 		" auto completion
 		Plug 'hrsh7th/cmp-nvim-lsp'
@@ -45,11 +46,24 @@ else
 	call plug#end()
 endif
 
-colorscheme one
-set background=light
-
-hi link @text.diff.add DiffAdd
-hi link @text.diff.delete DiffDelete
+lua << EOF
+local onedark = require('onedark')
+local tree_bg = { dark = '$bg0', light = '$bg0' }
+local function setup(style)
+    onedark.setup {
+        style = style,
+        highlights = {
+            NvimTreeNormal = { bg = tree_bg[style] },
+            NvimTreeEndOfBuffer = { bg = tree_bg[style] },
+        },
+    }
+    onedark.load()
+end
+require('auto-dark-mode').setup({
+    set_dark_mode = function() setup('dark') end,
+    set_light_mode = function() setup('light') end,
+})
+EOF
 
 lua require'nvim-autopairs'.setup{}
 lua require 'treesitter_cfg'
@@ -61,13 +75,5 @@ lua require 'gitsigns_cfg'
 lua require 'nvim-tree_cfg'
 lua require 'which-key_cfg'
 lua require 'lualine_cfg'
-
-"copilot keybindings need remapping to ⌥ on mac
-"ALT-]
-inoremap ‘ <Plug>(copilot-next)
-"ALT-[
-inoremap “ <Plug>(copilot-previous)
-"ALT-\
-inoremap « <Plug>(copilot-suggest)
 
 set completeopt=menu,menuone,noselect

@@ -16,6 +16,20 @@ nnoremap <silent> <esc><esc> :call ToggleHighlight()<CR>
 vnoremap < <gv
 vnoremap > >gv
 
+" splits (tmux-style keys)
+nnoremap <C-w>% <C-w>v
+nnoremap <C-w>" <C-w>s
+
+" resize splits (mirrors tmux M-hjkl)
+nnoremap <M-h> <C-w><
+nnoremap <M-l> <C-w>>
+nnoremap <M-j> <C-w>-
+nnoremap <M-k> <C-w>+
+
+" buffer navigation
+nnoremap ]b :bnext<CR>
+nnoremap [b :bprev<CR>
+
 nmap <silent> <leader>x :!open %<cr><cr>
 
 " deleted stuff, BEGONE!
@@ -80,6 +94,3 @@ nnoremap ci' "_ci'
 nnoremap di" "_di"
 nnoremap ci" "_ci"
 
-" Delete to the next occurrence of a character
-nnoremap dt<char> "_dt<char>
-nnoremap ct<char> "_ct<char>
