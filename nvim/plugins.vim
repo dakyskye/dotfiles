@@ -43,6 +43,7 @@ else
 		Plug 'hrsh7th/vim-vsnip'
 
 		Plug 'ray-x/lsp_signature.nvim'
+		Plug 'coder/claudecode.nvim'
 	call plug#end()
 endif
 
@@ -75,5 +76,6 @@ lua require 'gitsigns_cfg'
 lua require 'nvim-tree_cfg'
 lua require 'which-key_cfg'
 lua require 'lualine_cfg'
+lua require 'claudecode_cfg'
 
 set completeopt=menu,menuone,noselect

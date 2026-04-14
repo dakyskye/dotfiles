@@ -127,6 +127,13 @@ Dotfiles/
 | `tpope/vim-fugitive` | Full git integration |
 | `junegunn/gv.vim` | Git log browser |
 
+#### AI
+| Plugin | Purpose |
+|--------|---------|
+| `coder/claudecode.nvim` | Claude Code integration — enables `/ide` to sync the editor with the CLI |
+
+> Uses `provider = "none"` so the terminal panel stays managed by tmux rather than opening inside Neovim.
+
 #### Editing
 | Plugin | Purpose |
 |--------|---------|
