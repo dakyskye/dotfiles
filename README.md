@@ -231,6 +231,7 @@ Go files are auto-formatted on save.
 | `[` / `]` | Swap window left/right |
 | `=` | Tiled layout |
 | `y` (copy mode) | Copy to system clipboard via `pbcopy` |
+| `F12` | Toggle passthrough mode (pass all keys to inner tmux) |
 
 ### Status Bar
 
@@ -238,7 +239,9 @@ Dynamically adapts to macOS light/dark mode:
 - **Dark**: OneDark palette (`#282c34` background)
 - **Light**: Light gray palette
 
-Shows: session name, hostname, current time.
+On **macOS**, shows: session name · RECEIVING/PASSTHROUGH indicator · zoom flag · battery % · hostname · time.
+
+On **servers**, shows: session name · hostname · time.
 
 ---
 
