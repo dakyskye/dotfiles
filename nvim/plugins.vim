@@ -44,6 +44,8 @@ else
 
 		Plug 'ray-x/lsp_signature.nvim'
 		Plug 'coder/claudecode.nvim'
+
+		Plug 'folke/zen-mode.nvim'
 	call plug#end()
 endif
 
@@ -77,5 +79,6 @@ lua require 'nvim-tree_cfg'
 lua require 'which-key_cfg'
 lua require 'lualine_cfg'
 lua require 'claudecode_cfg'
+lua require 'zen_cfg'
 
 set completeopt=menu,menuone,noselect
