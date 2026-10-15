@@ -82,7 +82,8 @@ Dotfiles/
 | Alias | Command |
 |-------|---------|
 | `vim` | `nvim` |
-| `ls / la / ll / lg / lh` | `eza`-based listings with icons/git info |
+| `ls / la / ll / lg / lh / lgh` | `eza`-based listings |
+| `lt` | `eza` tree view (ignores `.git`) |
 | `rgf / rgfh` | Ripgrep file search (normal / include hidden) |
 | `d` | `docker` |
 | `cputemp / fanspeed` | System temperature/fan monitoring |
@@ -107,6 +108,7 @@ Dotfiles/
 - Case-insensitive search with smart case
 - True color (24-bit) + 256 color support
 - Mouse support enabled
+- Deletes/changes (`d`, `c`, `x`, …) go to the blackhole register — only yanks reach the clipboard
 
 ### Plugins (via vim-plug)
 
@@ -119,6 +121,7 @@ Dotfiles/
 | `nvim-tree/nvim-tree.lua` | File explorer |
 | `folke/which-key.nvim` | Keybinding popup help |
 | `nvim-tree/nvim-web-devicons` | File type icons |
+| `folke/zen-mode.nvim` | Distraction-free full-screen mode |
 
 #### Git
 | Plugin | Purpose |
@@ -172,12 +175,16 @@ Go files are auto-formatted on save.
 | `<Leader>fh` | Search help tags |
 | `<Leader>e` | Toggle file explorer |
 | `<Leader>gf` | Open file under cursor |
+| `<Leader>x` | Open current file with macOS `open` |
+| `<Leader>z` | Toggle zen mode |
+| `<Esc><Esc>` | Toggle search highlight |
 
 #### LSP
 | Key | Action |
 |-----|--------|
 | `gd` | Go to definition |
 | `gD` | Go to declaration |
+| `<Leader>D` | Go to type definition |
 | `gi` | Go to implementation |
 | `gr` | Show references |
 | `K` | Hover documentation |
@@ -186,6 +193,7 @@ Go files are auto-formatted on save.
 | `<Leader>ca` | Code actions |
 | `<Leader>f` | Format buffer |
 | `<Leader>d` | Show diagnostics float |
+| `<Leader>q` | List diagnostics (Telescope) |
 | `[d` / `]d` | Previous/next diagnostic |
 
 #### Git (gitsigns)
@@ -226,10 +234,12 @@ Go files are auto-formatted on save.
 
 | Key | Action |
 |-----|--------|
-| `C-h/j/k/l` | Navigate panes (Vim-style) |
-| `M-h/j/k/l` | Resize panes |
-| `[` / `]` | Swap window left/right |
-| `=` | Tiled layout |
+| `C-h/j/k/l` | Navigate panes (Vim-style, no prefix) |
+| `M-h/j/k/l` | Resize panes (no prefix) |
+| `Prefix [` / `Prefix ]` | Swap window left/right |
+| `Prefix =` | Tiled layout |
+| `Prefix S` | Toggle synchronized panes |
+| `Prefix r` | Reload config |
 | `y` (copy mode) | Copy to system clipboard via `pbcopy` |
 | `F12` | Toggle passthrough mode (pass all keys to inner tmux) |
 
@@ -239,7 +249,7 @@ Dynamically adapts to macOS light/dark mode:
 - **Dark**: OneDark palette (`#282c34` background)
 - **Light**: Light gray palette
 
-On **macOS**, shows: session name · RECEIVING/PASSTHROUGH indicator · zoom flag · battery % · hostname · time.
+On **macOS**, shows: session name · RECEIVING/PASSTHROUGH indicator · zoom `[Z]` / synchronized `[S]` flags · battery % · hostname · time.
 
 On **servers**, shows: session name · hostname · time.
 
@@ -251,10 +261,10 @@ On **servers**, shows: session name · hostname · time.
 
 - Username always shown
 - Git branch with remote tracking visibility
-- Git commit hash display
+- Git commit hash and tag display
 - Git metrics (insertions/deletions)
 - Shell indicator (purple)
-- Nerd Font icons for all language version modules: Go, Python, Node.js, Rust, Lua, TypeScript, Java, Ruby, Kotlin, Swift, Zig, PHP, Perl, Haskell, Elixir, Elm, Scala, OCaml, Dart, Crystal, Julia, and more
+- Nerd Font icons for all language version modules: Go, Python, Node.js, Rust, Lua, Java, Ruby, Kotlin, Swift, Zig, PHP, Perl, Haskell, Elixir, Elm, Scala, OCaml, Dart, Crystal, Julia, and more
 - OS icons for macOS, Arch, Gentoo, and generic Linux
 
 ---
@@ -298,7 +308,7 @@ On **servers**, shows: session name · hostname · time.
 
 **Config**: `iTerm2/`
 
-- OneDark-inspired color scheme (dark background: `#202020`)
+- OneDark-inspired color scheme (dark background: `#21252b`)
 - Vibrant ANSI colors
 - Background transparency with blur
 - Mouse reporting enabled
@@ -343,7 +353,7 @@ PATH includes: Go binaries, Cargo (Rust), pipx, and custom scripts.
 
 **OneDark** across all tools, automatically synced with macOS system appearance:
 
-- Neovim → `auto-dark-mode.nvim` calls `nvim_ostheme` script on appearance change
+- Neovim → `auto-dark-mode.nvim` reloads OneDark in `dark` or `light` style on appearance change
 - Tmux → status bar reads macOS dark mode state at refresh
 - iTerm2 → OneDark-based color profile
 
