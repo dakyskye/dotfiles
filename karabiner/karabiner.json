@@ -89,13 +89,6 @@
                                 "to": [{ "shell_command": "open -a 'Safari'" }]
                             },
                             {
-                                "description": "Caps+G opens GitHub",
-                                "type": "basic",
-                                "conditions": [{ "type": "variable_if", "name": "hyper", "value": 1 }],
-                                "from": { "key_code": "g", "modifiers": { "optional": ["any"] } },
-                                "to": [{ "shell_command": "open https://github.com/dakyskye" }]
-                            },
-                            {
                                 "description": "Caps+Y opens YouTube",
                                 "type": "basic",
                                 "conditions": [{ "type": "variable_if", "name": "hyper", "value": 1 }],
@@ -103,7 +96,7 @@
                                 "to": [{ "shell_command": "open https://youtube.com/" }]
                             },
                             {
-                                "description": "Caps+T opens iTerm2 (centered script)",
+                                "description": "Caps+T opens iTerm2",
                                 "type": "basic",
                                 "conditions": [{ "type": "variable_if", "name": "hyper", "value": 1 }],
                                 "from": { "key_code": "t", "modifiers": { "optional": ["any"] } },
