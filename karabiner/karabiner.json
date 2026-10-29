@@ -37,6 +37,13 @@
                                 "from": { "key_code": "c", "modifiers": { "optional": ["any"] } },
                                 "to": [{ "key_code": "f18" }]
                             },
+                            {
+                                "description": "Caps+O → F19 (macOS Move to other display)",
+                                "type": "basic",
+                                "conditions": [{ "type": "variable_if", "name": "hyper", "value": 1 }],
+                                "from": { "key_code": "o", "modifiers": { "optional": ["any"] } },
+                                "to": [{ "key_code": "f19" }]
+                            },
 
                             {
                                 "description": "Caps+H moves a window to left half (ctrl+fn+left)",
