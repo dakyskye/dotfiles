@@ -285,6 +285,7 @@ On **servers**, shows: session name · hostname · time.
 | `K` | Snap window to top half |
 | `F` | Maximize / fill screen |
 | `C` | Center window |
+| `O` | Move window to the other display |
 
 ### App Launchers (Caps + key)
 
@@ -299,8 +300,28 @@ On **servers**, shows: session name · hostname · time.
 | `M` | Messages |
 | `V` | ProtonVPN |
 | `D` | OrbStack |
-| `G` | GitHub profile |
 | `Y` | YouTube |
+
+### Manual macOS Setup
+
+`F`, `C` and `O` emit `F17`, `F18` and `F19`, which do nothing until macOS is told what to do with them. On a fresh Mac, in **System Settings → Keyboard → Keyboard Shortcuts…**:
+
+| Hyper key | Emits | Where | Shortcut |
+|-----------|-------|-------|----------|
+| `F` | `F17` | Windows → **Fill** | `F17` |
+| `C` | `F18` | Windows → **Center** | `F18` |
+| `O` | `F19` | App Shortcuts → All Applications → `+` | `F19`, once per display (see below) |
+
+For `O`, add one App Shortcut per display, with the menu title set to exactly what **Window → Move to …** shows, e.g.:
+
+- `Move to Built-in Retina Display` → `F19`
+- `Move to DELL SE3223Q` → `F19`
+
+Only the *other* display's entry appears in the menu at any time, so the single key always moves the window across. Display names differ per machine/monitor — check the menu first.
+
+`H`/`J`/`K`/`L` send `Ctrl+Fn+Arrow`, which are macOS's default tiling shortcuts (Sequoia+) — nothing to set as long as they're left enabled.
+
+Karabiner itself also needs its driver approved and Input Monitoring granted under **Privacy & Security** on first launch.
 
 ---
 
