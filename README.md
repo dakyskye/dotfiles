@@ -286,6 +286,7 @@ On **servers**, shows: session name · hostname · time.
 | `F` | Maximize / fill screen |
 | `C` | Center window |
 | `O` | Move window to the other display |
+| `Z` | Toggle Stage Manager |
 
 ### App Launchers (Caps + key)
 
@@ -304,13 +305,14 @@ On **servers**, shows: session name · hostname · time.
 
 ### Manual macOS Setup
 
-`F`, `C` and `O` emit `F17`, `F18` and `F19`, which do nothing until macOS is told what to do with them. On a fresh Mac, in **System Settings → Keyboard → Keyboard Shortcuts…**:
+`F`, `C`, `O` and `Z` emit `F17`, `F18`, `F19` and `F16`, which do nothing until macOS is told what to do with them. On a fresh Mac, in **System Settings → Keyboard → Keyboard Shortcuts…**:
 
 | Hyper key | Emits | Where | Shortcut |
 |-----------|-------|-------|----------|
 | `F` | `F17` | Windows → **Fill** | `F17` |
 | `C` | `F18` | Windows → **Center** | `F18` |
 | `O` | `F19` | App Shortcuts → All Applications → `+` | `F19`, once per display (see below) |
+| `Z` | `F16` | Mission Control → **Turn Stage Manager on/off** | `F16` |
 
 For `O`, add one App Shortcut per display, with the menu title set to exactly what **Window → Move to …** shows, e.g.:
 

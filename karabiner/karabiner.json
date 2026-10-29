@@ -44,6 +44,13 @@
                                 "from": { "key_code": "o", "modifiers": { "optional": ["any"] } },
                                 "to": [{ "key_code": "f19" }]
                             },
+                            {
+                                "description": "Caps+Z → F16 (macOS Toggle Stage Manager)",
+                                "type": "basic",
+                                "conditions": [{ "type": "variable_if", "name": "hyper", "value": 1 }],
+                                "from": { "key_code": "z", "modifiers": { "optional": ["any"] } },
+                                "to": [{ "key_code": "f16" }]
+                            },
 
                             {
                                 "description": "Caps+H moves a window to left half (ctrl+fn+left)",
